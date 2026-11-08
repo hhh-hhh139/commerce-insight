@@ -1,0 +1,34 @@
+{
+  "date": "2026-11-08",
+  "kind": "compose_parser_validation_pending",
+  "source_commit": "0e48851ce9d993b0923e81d21e105f8d5ff89cdc",
+  "official_release": "https://github.com/docker/compose/releases/tag/v5.7.0",
+  "asset_url": "https://github.com/docker/compose/releases/download/v5.7.0/docker-compose-darwin-aarch64",
+  "expected_full_sha256": "54495ff81dd8cae11861455f0308a293a530149beba8f1d90ff3f295b11cf035",
+  "expected_bytes": 32231426,
+  "downloaded_bytes": 26931775,
+  "attempts": [
+    {
+      "kind": "anonymous_release_api",
+      "outcome": "http_403_rate_limit"
+    },
+    {
+      "kind": "asset_download",
+      "outcome": "incomplete_response_body"
+    },
+    {
+      "kind": "httpx_range_resume",
+      "outcome": "tls_connect_timeout"
+    },
+    {
+      "kind": "curl_range_resume",
+      "outcome": "tls_error_exit_35"
+    }
+  ],
+  "binary_executed": false,
+  "compose_parser_verified": false,
+  "container_runtime_verified": false,
+  "existing_docker_daemon_accessed": false,
+  "real_model_calls": 0,
+  "next_step": "run configuration and deployment checks on the personal GitHub hosted runner after personal authentication"
+}

@@ -21,7 +21,9 @@ from scripts.state_guard import state_access
 
 def local(path):
     path = Path(path).absolute()
-    if not path.is_relative_to(ROOT / ".local") or path == ROOT / ".local":
+    # is_relative_to is lexical: .local/../elsewhere would otherwise pass.
+    # Reject traversal before inspecting any filesystem component.
+    if ".." in path.parts or not path.is_relative_to(ROOT / ".local") or path == ROOT / ".local":
         raise ValueError("backup_paths_must_be_project_local")
     for part in (path, *path.parents):
         if part == ROOT: break
@@ -131,7 +133,9 @@ def restore(db, source, runtime, agent):
     with state_access(maintenance=True):
         # Never merges or replaces an existing budget, owner credential, run or report.
         if any(p.exists() for p in (runtime, agent)): raise ValueError("restore_state_target_exists")
-        value = json.loads((source / "manifest.json").read_text())
+        # Validate the manifest itself before its first read, not only when later
+        # walking the bundle. A symlink must never be followed for metadata either.
+        value = json.loads(local(source / "manifest.json").read_text())
         if value.get("format") != "commerce-backup-v1" or value.get("schema_version") != "1":
             raise ValueError("backup_manifest_invalid")
         if value.get("implementation") != fingerprint(): raise ValueError("backup_implementation_mismatch")

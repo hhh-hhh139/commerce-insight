@@ -1,0 +1,10 @@
+{
+  "date": "2026-11-08",
+  "kind": "backup_path_boundary_before",
+  "path_escape_accepted": true,
+  "escape_probe_created_any_file": false,
+  "manifest_result": "backup_manifest_invalid",
+  "symlink_manifest_read_before_rejection": true,
+  "real_model_calls": 0,
+  "external_paths_accessed": false
+}

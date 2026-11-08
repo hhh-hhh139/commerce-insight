@@ -70,6 +70,10 @@ def main():
                  "--mount", "type=bind,source=" + str(results) + ",target=/app/.local/ci-results",
                  "commerce-insight:verification", script, ".local/ci-results/" + name + ".json"])
             report["checks"].append("linux_" + name)
+        run([*docker, "run", "--rm", "--network", "none", "--memory", "2g", "--pids-limit", "256",
+             "commerce-insight:verification", "-m", "unittest", "discover", "-s", "tests",
+             "-p", "test_backup_paths.py", "-v"])
+        report["checks"].append("linux_backup_path_boundaries")
         report["stage"] = "compose_setup"
         run([sys.executable, "deployment/prepare_secrets.py"])
         openssl = private / "openssl.cnf"

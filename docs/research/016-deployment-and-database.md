@@ -78,3 +78,11 @@ Java SQL 查询保留参数化与现有事务/租约约束，实际检查 Postgr
 依据 [PostgreSQL 官方镜像](https://hub.docker.com/_/postgres)，18 及以上持久卷挂在 `/var/lib/postgresql`，不能照抄旧版 `/var/lib/postgresql/data`。数据库初始化角色与业务账户分离。控制锁也位于独立持久卷，确保维护容器与应用看到同一把锁。
 
 干净 CI 只面向核对后的个人公开仓库，使用官方固定 commit 的 checkout（不持久化 Git 凭据），`contents: read`，无个人/公司 secret，无付费模型；先构建并跑现有离线契约，再用新卷启动 Compose、验证 TLS/登录/业务任务与重启持久化。每次运行记录源码 commit、镜像 digest、版本、原始结果。CI 配置存在本身不等于已通过，完成后补实际链接和结果。
+
+## 备份路径检查补记（2026-11-08）
+
+发布复查实际发现两个遗漏：[反例](../probes/backup-path-before-2026-11-08.json) 中 `.local/../...` 通过了词法前缀判断，清单符号链接在被拒绝之前已读取。只在本项目临时目录复现，未写越界目标或访问公司资源。
+
+此前 Metabase/原生 PostgreSQL 备份选型继续适用，这不是新的备份引擎选型。进一步核对 [Python 3.12 pathlib](https://docs.python.org/3.12/library/pathlib.html#pathlib.PurePath.is_relative_to)（2026-11-08 访问）：`is_relative_to` 是字符串层面的关系检查，不解析 `..`。比较两种局部办法：先 `resolve` 再判目录能规范化路径，但会跟随当前明确禁止的符号链接；选择先词法拒绝所有 `..`，再按已有规则拒绝符号链接，清单文件也在首次读取前走相同检查。代价是用户不能用含 `..` 的等价路径，须给直接路径。
+
+修复前归档 `before-backup-path-fix-20261108`，365 文件，SHA-256 `ae0755e9ed585d8b7215583aab13001dcd64ad75273e63371d6ee332ffdc2644`。验收要求拒绝发生在文件/数据库操作之前，且原真实 PostgreSQL 恢复和 checkpoint 续跑仍通过。受管单用户停写维护是本工具边界；不声称能防御同一 OS 用户在检查和打开之间并发替换目录的攻击。

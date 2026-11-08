@@ -1,0 +1,14 @@
+{
+  "date": "2026-11-08",
+  "kind": "backup_path_boundary_after",
+  "tests": 3,
+  "passed": true,
+  "seconds": 0.073,
+  "real_model_calls": 0,
+  "external_paths_accessed": false,
+  "checks": [
+    "reject_parent_traversal_before_filesystem_inspection",
+    "all_backup_restore_arguments_rejected_before_database_access",
+    "symlink_manifest_rejected_before_read"
+  ]
+}
