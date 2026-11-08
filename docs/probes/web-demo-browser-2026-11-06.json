@@ -1,0 +1,57 @@
+{
+  "date": "2026-11-06",
+  "kind": "observed_browser_acceptance",
+  "browser": "Codex in-app browser",
+  "checks": [
+    {
+      "case": "metric_submit_evidence_and_refresh",
+      "task_id": "05cffe23-d4ac-415a-b68c-5ad69253d5ad",
+      "status": "SUCCEEDED",
+      "amount_minor": 23000
+    },
+    {
+      "case": "missing_product_refund_attribution",
+      "task_id": "9813e9cc-7886-41e2-be07-180b71c17043",
+      "status": "FAILED"
+    },
+    {
+      "case": "cancel_queued_task",
+      "task_id": "19fd1706-ccbc-42b4-9388-7d823be2a2db",
+      "status": "CANCELLED"
+    },
+    {
+      "case": "historical_comparison",
+      "mode": "historical_live_report",
+      "delta_minor": -13000,
+      "change_percent": "-46.43"
+    },
+    {
+      "case": "historical_clarification_and_classification_failure",
+      "observed": true
+    },
+    {
+      "case": "default_live_submit_disabled",
+      "observed": true
+    },
+    {
+      "case": "report_download",
+      "verified_copy": ".local/web-demo/browser-export.json",
+      "amount_minor": 23000
+    },
+    {
+      "case": "launcher_active_port_rejected",
+      "exit_code": 2
+    },
+    {
+      "case": "launcher_shutdown_and_port_reuse",
+      "observed": true
+    }
+  ],
+  "console_errors_or_warnings": 0,
+  "new_real_model_calls": 0,
+  "screenshots": {
+    "workbench-preview.jpg": "211a446f7dee9a7c9594982ae28a8af90dd715947c5042a5e01a5d09caacdd8f",
+    "workbench-full.jpg": "a2324a4dea4b849647bd163c32484458b13932ad22742118bafa17fa8f099b1a",
+    "report-preview.jpg": "8aa3adcc42a629ce6f55216bd4de59b2f87ae0d5312505bf62074220650fe338"
+  }
+}

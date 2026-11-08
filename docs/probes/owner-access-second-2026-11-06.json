@@ -1,0 +1,12 @@
+{
+  "date": "2026-11-06",
+  "kind": "spring_security_owner_acceptance",
+  "tests": 8,
+  "failures": 0,
+  "errors": 0,
+  "seconds": 23.766,
+  "real_model_calls": 0,
+  "credential_kind": "ephemeral_generated_synthetic",
+  "tls_end_to_end": false,
+  "failure_details": []
+}

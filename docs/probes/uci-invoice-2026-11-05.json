@@ -1,0 +1,717 @@
+{
+  "all_accepted_records": {
+    "accepted_lines": 539392,
+    "cancellation_record_amount": "896812.49",
+    "distinct_positive_invoice_ids": 19960,
+    "positive_record_amount": "10666684.544",
+    "record_net_amount": "9769872.054"
+  },
+  "analysis_status": "requires_quality_review",
+  "capabilities": {
+    "cancellation_records": true,
+    "cash_collected": false,
+    "causal_explanation": false,
+    "product_refund_attribution": false,
+    "profit": false,
+    "record_sales": true,
+    "refund_rate": false
+  },
+  "comparison": {
+    "baseline": {
+      "accepted_lines": 60504,
+      "cancellation_record_amount": "84274.63",
+      "distinct_positive_invoice_ids": 2040,
+      "positive_record_amount": "1154979.3",
+      "record_net_amount": "1070704.67"
+    },
+    "baseline_start": "2011-10-01T00:00:00",
+    "by_country": [
+      {
+        "baseline": {
+          "accepted_lines": 54284,
+          "cancellation_record_amount": "61536.82",
+          "distinct_positive_invoice_ids": 1811,
+          "positive_record_amount": "938975.01",
+          "record_net_amount": "877438.19"
+        },
+        "country": "United Kingdom",
+        "current": {
+          "accepted_lines": 78379,
+          "cancellation_record_amount": "42540.43",
+          "distinct_positive_invoice_ids": 2490,
+          "positive_record_amount": "1325346.21",
+          "record_net_amount": "1282805.78"
+        },
+        "positive_amount_change": "386371.2"
+      },
+      {
+        "baseline": {
+          "accepted_lines": 278,
+          "cancellation_record_amount": "0",
+          "distinct_positive_invoice_ids": 15,
+          "positive_record_amount": "40708.65",
+          "record_net_amount": "40708.65"
+        },
+        "country": "Netherlands",
+        "current": {
+          "accepted_lines": 226,
+          "cancellation_record_amount": "18",
+          "distinct_positive_invoice_ids": 15,
+          "positive_record_amount": "25874.01",
+          "record_net_amount": "25856.01"
+        },
+        "positive_amount_change": "-14834.64"
+      },
+      {
+        "baseline": {
+          "accepted_lines": 114,
+          "cancellation_record_amount": "0",
+          "distinct_positive_invoice_ids": 4,
+          "positive_record_amount": "17150.53",
+          "record_net_amount": "17150.53"
+        },
+        "country": "Australia",
+        "current": {
+          "accepted_lines": 43,
+          "cancellation_record_amount": "436.73",
+          "distinct_positive_invoice_ids": 6,
+          "positive_record_amount": "7242.72",
+          "record_net_amount": "6805.99"
+        },
+        "positive_amount_change": "-9907.81"
+      },
+      {
+        "baseline": {
+          "accepted_lines": 36,
+          "cancellation_record_amount": "6068.06",
+          "distinct_positive_invoice_ids": 2,
+          "positive_record_amount": "7067.32",
+          "record_net_amount": "999.26"
+        },
+        "country": "Singapore",
+        "current": {
+          "accepted_lines": 0,
+          "cancellation_record_amount": "0",
+          "distinct_positive_invoice_ids": 0,
+          "positive_record_amount": "0",
+          "record_net_amount": "0"
+        },
+        "positive_amount_change": "-7067.32"
+      },
+      {
+        "baseline": {
+          "accepted_lines": 16,
+          "cancellation_record_amount": "0",
+          "distinct_positive_invoice_ids": 2,
+          "positive_record_amount": "1948.04",
+          "record_net_amount": "1948.04"
+        },
+        "country": "Japan",
+        "current": {
+          "accepted_lines": 32,
+          "cancellation_record_amount": "0",
+          "distinct_positive_invoice_ids": 2,
+          "positive_record_amount": "8460.08",
+          "record_net_amount": "8460.08"
+        },
+        "positive_amount_change": "6512.04"
+      },
+      {
+        "baseline": {
+          "accepted_lines": 929,
+          "cancellation_record_amount": "1010.3",
+          "distinct_positive_invoice_ids": 31,
+          "positive_record_amount": "24317.92",
+          "record_net_amount": "23307.62"
+        },
+        "country": "EIRE",
+        "current": {
+          "accepted_lines": 1098,
+          "cancellation_record_amount": "325.38",
+          "distinct_positive_invoice_ids": 42,
+          "positive_record_amount": "30738.43",
+          "record_net_amount": "30413.05"
+        },
+        "positive_amount_change": "6420.51"
+      },
+      {
+        "baseline": {
+          "accepted_lines": 164,
+          "cancellation_record_amount": "196.35",
+          "distinct_positive_invoice_ids": 4,
+          "positive_record_amount": "4412.87",
+          "record_net_amount": "4216.52"
+        },
+        "country": "Cyprus",
+        "current": {
+          "accepted_lines": 100,
+          "cancellation_record_amount": "0",
+          "distinct_positive_invoice_ids": 1,
+          "positive_record_amount": "460.89",
+          "record_net_amount": "460.89"
+        },
+        "positive_amount_change": "-3951.98"
+      },
+      {
+        "baseline": {
+          "accepted_lines": 1322,
+          "cancellation_record_amount": "1024.15",
+          "distinct_positive_invoice_ids": 58,
+          "positive_record_amount": "31638.42",
+          "record_net_amount": "30614.27"
+        },
+        "country": "Germany",
+        "current": {
+          "accepted_lines": 1147,
+          "cancellation_record_amount": "1980.67",
+          "distinct_positive_invoice_ids": 68,
+          "positive_record_amount": "28025.02",
+          "record_net_amount": "26044.35"
+        },
+        "positive_amount_change": "-3613.4"
+      },
+      {
+        "baseline": {
+          "accepted_lines": 443,
+          "cancellation_record_amount": "622.04",
+          "distinct_positive_invoice_ids": 10,
+          "positive_record_amount": "6206.67",
+          "record_net_amount": "5584.63"
+        },
+        "country": "Portugal",
+        "current": {
+          "accepted_lines": 145,
+          "cancellation_record_amount": "0",
+          "distinct_positive_invoice_ids": 10,
+          "positive_record_amount": "2644.9",
+          "record_net_amount": "2644.9"
+        },
+        "positive_amount_change": "-3561.77"
+      },
+      {
+        "baseline": {
+          "accepted_lines": 47,
+          "cancellation_record_amount": "0",
+          "distinct_positive_invoice_ids": 3,
+          "positive_record_amount": "5766.16",
+          "record_net_amount": "5766.16"
+        },
+        "country": "Sweden",
+        "current": {
+          "accepted_lines": 80,
+          "cancellation_record_amount": "109.52",
+          "distinct_positive_invoice_ids": 5,
+          "positive_record_amount": "2722.23",
+          "record_net_amount": "2612.71"
+        },
+        "positive_amount_change": "-3043.93"
+      },
+      {
+        "baseline": {
+          "accepted_lines": 120,
+          "cancellation_record_amount": "0",
+          "distinct_positive_invoice_ids": 7,
+          "positive_record_amount": "3687.23",
+          "record_net_amount": "3687.23"
+        },
+        "country": "Norway",
+        "current": {
+          "accepted_lines": 182,
+          "cancellation_record_amount": "0",
+          "distinct_positive_invoice_ids": 5,
+          "positive_record_amount": "6527.5",
+          "record_net_amount": "6527.5"
+        },
+        "positive_amount_change": "2840.27"
+      },
+      {
+        "baseline": {
+          "accepted_lines": 226,
+          "cancellation_record_amount": "1579.51",
+          "distinct_positive_invoice_ids": 2,
+          "positive_record_amount": "2311.2",
+          "record_net_amount": "731.69"
+        },
+        "country": "USA",
+        "current": {
+          "accepted_lines": 0,
+          "cancellation_record_amount": "0",
+          "distinct_positive_invoice_ids": 0,
+          "positive_record_amount": "0",
+          "record_net_amount": "0"
+        },
+        "positive_amount_change": "-2311.2"
+      },
+      {
+        "baseline": {
+          "accepted_lines": 898,
+          "cancellation_record_amount": "8453.41",
+          "distinct_positive_invoice_ids": 35,
+          "positive_record_amount": "33485.45",
+          "record_net_amount": "25032.04"
+        },
+        "country": "France",
+        "current": {
+          "accepted_lines": 1579,
+          "cancellation_record_amount": "1061.2",
+          "distinct_positive_invoice_ids": 64,
+          "positive_record_amount": "31758.71",
+          "record_net_amount": "30697.51"
+        },
+        "positive_amount_change": "-1726.74"
+      },
+      {
+        "baseline": {
+          "accepted_lines": 0,
+          "cancellation_record_amount": "0",
+          "distinct_positive_invoice_ids": 0,
+          "positive_record_amount": "0",
+          "record_net_amount": "0"
+        },
+        "country": "Poland",
+        "current": {
+          "accepted_lines": 74,
+          "cancellation_record_amount": "19.36",
+          "distinct_positive_invoice_ids": 2,
+          "positive_record_amount": "1361.23",
+          "record_net_amount": "1341.87"
+        },
+        "positive_amount_change": "1361.23"
+      },
+      {
+        "baseline": {
+          "accepted_lines": 47,
+          "cancellation_record_amount": "0",
+          "distinct_positive_invoice_ids": 1,
+          "positive_record_amount": "1294.32",
+          "record_net_amount": "1294.32"
+        },
+        "country": "Iceland",
+        "current": {
+          "accepted_lines": 0,
+          "cancellation_record_amount": "0",
+          "distinct_positive_invoice_ids": 0,
+          "positive_record_amount": "0",
+          "record_net_amount": "0"
+        },
+        "positive_amount_change": "-1294.32"
+      },
+      {
+        "baseline": {
+          "accepted_lines": 29,
+          "cancellation_record_amount": "52.65",
+          "distinct_positive_invoice_ids": 3,
+          "positive_record_amount": "1490.76",
+          "record_net_amount": "1438.11"
+        },
+        "country": "Denmark",
+        "current": {
+          "accepted_lines": 83,
+          "cancellation_record_amount": "0",
+          "distinct_positive_invoice_ids": 2,
+          "positive_record_amount": "2699.57",
+          "record_net_amount": "2699.57"
+        },
+        "positive_amount_change": "1208.81"
+      },
+      {
+        "baseline": {
+          "accepted_lines": 102,
+          "cancellation_record_amount": "0",
+          "distinct_positive_invoice_ids": 5,
+          "positive_record_amount": "2623.32",
+          "record_net_amount": "2623.32"
+        },
+        "country": "Channel Islands",
+        "current": {
+          "accepted_lines": 75,
+          "cancellation_record_amount": "19.6",
+          "distinct_positive_invoice_ids": 3,
+          "positive_record_amount": "1514.77",
+          "record_net_amount": "1495.17"
+        },
+        "positive_amount_change": "-1108.55"
+      },
+      {
+        "baseline": {
+          "accepted_lines": 169,
+          "cancellation_record_amount": "78.9",
+          "distinct_positive_invoice_ids": 7,
+          "positive_record_amount": "3489.69",
+          "record_net_amount": "3410.79"
+        },
+        "country": "Italy",
+        "current": {
+          "accepted_lines": 192,
+          "cancellation_record_amount": "327.33",
+          "distinct_positive_invoice_ids": 9,
+          "positive_record_amount": "4571.08",
+          "record_net_amount": "4243.75"
+        },
+        "positive_amount_change": "1081.39"
+      },
+      {
+        "baseline": {
+          "accepted_lines": 57,
+          "cancellation_record_amount": "0",
+          "distinct_positive_invoice_ids": 1,
+          "positive_record_amount": "1002.31",
+          "record_net_amount": "1002.31"
+        },
+        "country": "RSA",
+        "current": {
+          "accepted_lines": 0,
+          "cancellation_record_amount": "0",
+          "distinct_positive_invoice_ids": 0,
+          "positive_record_amount": "0",
+          "record_net_amount": "0"
+        },
+        "positive_amount_change": "-1002.31"
+      },
+      {
+        "baseline": {
+          "accepted_lines": 0,
+          "cancellation_record_amount": "0",
+          "distinct_positive_invoice_ids": 0,
+          "positive_record_amount": "0",
+          "record_net_amount": "0"
+        },
+        "country": "Unspecified",
+        "current": {
+          "accepted_lines": 53,
+          "cancellation_record_amount": "0",
+          "distinct_positive_invoice_ids": 2,
+          "positive_record_amount": "965.75",
+          "record_net_amount": "965.75"
+        },
+        "positive_amount_change": "965.75"
+      },
+      {
+        "baseline": {
+          "accepted_lines": 0,
+          "cancellation_record_amount": "0",
+          "distinct_positive_invoice_ids": 0,
+          "positive_record_amount": "0",
+          "record_net_amount": "0"
+        },
+        "country": "Malta",
+        "current": {
+          "accepted_lines": 18,
+          "cancellation_record_amount": "160.81",
+          "distinct_positive_invoice_ids": 1,
+          "positive_record_amount": "743.43",
+          "record_net_amount": "582.62"
+        },
+        "positive_amount_change": "743.43"
+      },
+      {
+        "baseline": {
+          "accepted_lines": 267,
+          "cancellation_record_amount": "34",
+          "distinct_positive_invoice_ids": 11,
+          "positive_record_amount": "5685.38",
+          "record_net_amount": "5651.38"
+        },
+        "country": "Belgium",
+        "current": {
+          "accepted_lines": 249,
+          "cancellation_record_amount": "86.35",
+          "distinct_positive_invoice_ids": 11,
+          "positive_record_amount": "6315.76",
+          "record_net_amount": "6229.41"
+        },
+        "positive_amount_change": "630.38"
+      },
+      {
+        "baseline": {
+          "accepted_lines": 35,
+          "cancellation_record_amount": "10.95",
+          "distinct_positive_invoice_ids": 2,
+          "positive_record_amount": "734.52",
+          "record_net_amount": "723.57"
+        },
+        "country": "Hong Kong",
+        "current": {
+          "accepted_lines": 2,
+          "cancellation_record_amount": "326.1",
+          "distinct_positive_invoice_ids": 1,
+          "positive_record_amount": "326.1",
+          "record_net_amount": "0"
+        },
+        "positive_amount_change": "-408.42"
+      },
+      {
+        "baseline": {
+          "accepted_lines": 54,
+          "cancellation_record_amount": "0",
+          "distinct_positive_invoice_ids": 1,
+          "positive_record_amount": "1043.78",
+          "record_net_amount": "1043.78"
+        },
+        "country": "Austria",
+        "current": {
+          "accepted_lines": 70,
+          "cancellation_record_amount": "0",
+          "distinct_positive_invoice_ids": 2,
+          "positive_record_amount": "1329.78",
+          "record_net_amount": "1329.78"
+        },
+        "positive_amount_change": "286"
+      },
+      {
+        "baseline": {
+          "accepted_lines": 10,
+          "cancellation_record_amount": "0",
+          "distinct_positive_invoice_ids": 1,
+          "positive_record_amount": "277.48",
+          "record_net_amount": "277.48"
+        },
+        "country": "Czech Republic",
+        "current": {
+          "accepted_lines": 3,
+          "cancellation_record_amount": "61.51",
+          "distinct_positive_invoice_ids": 0,
+          "positive_record_amount": "0",
+          "record_net_amount": "-61.51"
+        },
+        "positive_amount_change": "-277.48"
+      },
+      {
+        "baseline": {
+          "accepted_lines": 115,
+          "cancellation_record_amount": "18",
+          "distinct_positive_invoice_ids": 6,
+          "positive_record_amount": "2822.12",
+          "record_net_amount": "2804.12"
+        },
+        "country": "Finland",
+        "current": {
+          "accepted_lines": 76,
+          "cancellation_record_amount": "120",
+          "distinct_positive_invoice_ids": 8,
+          "positive_record_amount": "3070.24",
+          "record_net_amount": "2950.24"
+        },
+        "positive_amount_change": "248.12"
+      },
+      {
+        "baseline": {
+          "accepted_lines": 34,
+          "cancellation_record_amount": "0",
+          "distinct_positive_invoice_ids": 2,
+          "positive_record_amount": "138.03",
+          "record_net_amount": "138.03"
+        },
+        "country": "Israel",
+        "current": {
+          "accepted_lines": 0,
+          "cancellation_record_amount": "0",
+          "distinct_positive_invoice_ids": 0,
+          "positive_record_amount": "0",
+          "record_net_amount": "0"
+        },
+        "positive_amount_change": "-138.03"
+      },
+      {
+        "baseline": {
+          "accepted_lines": 385,
+          "cancellation_record_amount": "31.2",
+          "distinct_positive_invoice_ids": 8,
+          "positive_record_amount": "8065.18",
+          "record_net_amount": "8033.98"
+        },
+        "country": "Switzerland",
+        "current": {
+          "accepted_lines": 226,
+          "cancellation_record_amount": "2",
+          "distinct_positive_invoice_ids": 6,
+          "positive_record_amount": "8118.96",
+          "record_net_amount": "8116.96"
+        },
+        "positive_amount_change": "53.78"
+      },
+      {
+        "baseline": {
+          "accepted_lines": 323,
+          "cancellation_record_amount": "3558.29",
+          "distinct_positive_invoice_ids": 8,
+          "positive_record_amount": "8636.94",
+          "record_net_amount": "5078.65"
+        },
+        "country": "Spain",
+        "current": {
+          "accepted_lines": 313,
+          "cancellation_record_amount": "145.09",
+          "distinct_positive_invoice_ids": 14,
+          "positive_record_amount": "8678.96",
+          "record_net_amount": "8533.87"
+        },
+        "positive_amount_change": "42.02"
+      }
+    ],
+    "current": {
+      "accepted_lines": 84445,
+      "cancellation_record_amount": "47740.08",
+      "distinct_positive_invoice_ids": 2769,
+      "positive_record_amount": "1509496.33",
+      "record_net_amount": "1461756.25"
+    },
+    "current_end": "2011-12-01T00:00:00",
+    "interval_convention": "[start,end)",
+    "positive_amount_change": "354517.03",
+    "positive_amount_change_rate": "0.306947",
+    "rate_unavailable_reason": null,
+    "split": "2011-11-01T00:00:00"
+  },
+  "contract_version": "invoice-lines-v1",
+  "evidence": {
+    "code_sha256": {
+      "__init__.py": "88b945da0cd5d9d5c99c31c3d160dbc0e980084080256017fcdc6e2a8e6a86b8",
+      "__main__.py": "2000115de1e050ad738345be5b88443820803132101528dfdf2f7e6568a41bcf",
+      "core.py": "33d26885f597014781ed7c7b0e8806097fde656a4a7811c8b56399d8906088be",
+      "files.py": "67b093e5bede25854ec3f5316d074343a30dd44e63022df685557a52c891c845"
+    },
+    "formula": "sum(abs(quantity * unit_price * unit_price_multiplier)) by confirmed event rule",
+    "mapping_file_sha256": "75b33bd25363590952fefade0bcc6512ad3aff7696de848a8b0a51caff7265c6",
+    "mapping_semantics_sha256": "f06728011252f075e3f2475ad34ccb19a0cf4620db30edbdb66796f10a7477d4",
+    "python": "3.9.6",
+    "reader": {
+      "defusedxml": "0.7.1",
+      "et-xmlfile": "2.0.0",
+      "openpyxl": "3.1.5",
+      "reader": "openpyxl"
+    },
+    "sheet": "Online Retail",
+    "source_file": "Online Retail.xlsx",
+    "source_sha256": "43465a06f2ccf7c8b5bd2892bc7defb52f97487934fe93b16ae4c3936424676d"
+  },
+  "mapping": {
+    "contract_version": "invoice-lines-v1",
+    "currency": "GBP",
+    "dataset_name": "uci-online-retail",
+    "duplicate_policy": "keep_and_flag",
+    "event_rule": {
+      "cancellation_prefix": "C",
+      "mode": "invoice_prefix"
+    },
+    "fields": {
+      "country": "Country",
+      "customer_id": "CustomerID",
+      "description": "Description",
+      "event_time": "InvoiceDate",
+      "invoice_id": "InvoiceNo",
+      "product_id": "StockCode",
+      "quantity": "Quantity",
+      "unit_price": "UnitPrice"
+    },
+    "time_basis": "source_local_unspecified_zone",
+    "unit_price_multiplier": "1"
+  },
+  "metric_version": "invoice-record-amount-v1",
+  "quality": {
+    "accepted_rows": 539392,
+    "accepted_time_max": "2011-12-09T12:50:00",
+    "accepted_time_min": "2010-12-01T08:26:00",
+    "duplicate_extra_rows": 5268,
+    "input_rows": 541909,
+    "invalid_by_reason": {
+      "non_positive_price_or_zero_quantity": 2517
+    },
+    "invalid_examples": [
+      {
+        "reason": "non_positive_price_or_zero_quantity",
+        "source_row": 624
+      },
+      {
+        "reason": "non_positive_price_or_zero_quantity",
+        "source_row": 1972
+      },
+      {
+        "reason": "non_positive_price_or_zero_quantity",
+        "source_row": 1973
+      },
+      {
+        "reason": "non_positive_price_or_zero_quantity",
+        "source_row": 1974
+      },
+      {
+        "reason": "non_positive_price_or_zero_quantity",
+        "source_row": 1989
+      },
+      {
+        "reason": "non_positive_price_or_zero_quantity",
+        "source_row": 1990
+      },
+      {
+        "reason": "non_positive_price_or_zero_quantity",
+        "source_row": 2026
+      },
+      {
+        "reason": "non_positive_price_or_zero_quantity",
+        "source_row": 2027
+      },
+      {
+        "reason": "non_positive_price_or_zero_quantity",
+        "source_row": 2028
+      },
+      {
+        "reason": "non_positive_price_or_zero_quantity",
+        "source_row": 2408
+      },
+      {
+        "reason": "non_positive_price_or_zero_quantity",
+        "source_row": 4349
+      },
+      {
+        "reason": "non_positive_price_or_zero_quantity",
+        "source_row": 4350
+      },
+      {
+        "reason": "non_positive_price_or_zero_quantity",
+        "source_row": 6393
+      },
+      {
+        "reason": "non_positive_price_or_zero_quantity",
+        "source_row": 6394
+      },
+      {
+        "reason": "non_positive_price_or_zero_quantity",
+        "source_row": 7189
+      },
+      {
+        "reason": "non_positive_price_or_zero_quantity",
+        "source_row": 7190
+      },
+      {
+        "reason": "non_positive_price_or_zero_quantity",
+        "source_row": 7191
+      },
+      {
+        "reason": "non_positive_price_or_zero_quantity",
+        "source_row": 7192
+      },
+      {
+        "reason": "non_positive_price_or_zero_quantity",
+        "source_row": 7193
+      },
+      {
+        "reason": "non_positive_price_or_zero_quantity",
+        "source_row": 7194
+      }
+    ],
+    "missing_by_column": {
+      "CustomerID": 135080,
+      "Description": 1454
+    },
+    "quarantined_rows": 2517
+  },
+  "warnings": [
+    "invoice_records_are_not_cash_payments_or_accounting_revenue",
+    "cancellations_are_not_linked_refund_cashflows",
+    "source_timezone_unknown_no_cross_zone_comparison",
+    "line_amounts_may_include_non_merchandise_items",
+    "duplicate_source_rows_kept_by_confirmed_policy",
+    "invalid_rows_excluded_results_describe_accepted_subset",
+    "period_durations_differ_totals_not_normalized_per_day"
+  ]
+}

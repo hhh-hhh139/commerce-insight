@@ -1,0 +1,7 @@
+{
+  "kind": "constructed_counterexample",
+  "queued_before_restart": 1,
+  "queued_after_restart": 0,
+  "unprotected_publications": 2,
+  "real_model_calls": 0
+}

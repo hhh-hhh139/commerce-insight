@@ -1,0 +1,32 @@
+{
+  "date": "2026-11-08",
+  "kind": "actual_postgres_state_recovery",
+  "tests": 4,
+  "passed": true,
+  "seconds": 13.692,
+  "cases": [
+    {
+      "name": "test_backup_01_end_to_end_restore",
+      "passed": true,
+      "seconds": 6.787
+    },
+    {
+      "name": "test_backup_02_schema_owner_has_no_cluster_admin_rights",
+      "passed": true,
+      "seconds": 0.069
+    },
+    {
+      "name": "test_backup_03_maintenance_and_runtime_exclude_each_other",
+      "passed": true,
+      "seconds": 0.0
+    },
+    {
+      "name": "test_backup_04_postgres_launcher_stops_both_children",
+      "passed": true,
+      "seconds": 2.945
+    }
+  ],
+  "real_model_calls": 0,
+  "postgres_role": "schema owner without cluster administration",
+  "original_budget_modified": false
+}

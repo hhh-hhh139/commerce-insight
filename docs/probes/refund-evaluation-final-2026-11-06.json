@@ -1,0 +1,12 @@
+{
+  "kind": "refund_evaluator_engineering_only",
+  "date": "2026-11-06",
+  "tests": 6,
+  "failures": 0,
+  "errors": 0,
+  "seconds": 1.409,
+  "real_model_calls": 0,
+  "new_oracle_cases": 8,
+  "real_model_quality": "not_measured",
+  "failure_details": []
+}

@@ -1,0 +1,15 @@
+{
+  "date": "2026-11-06",
+  "kind": "refund_change_engineering_scripted_model",
+  "tests": 19,
+  "failures": 1,
+  "errors": 0,
+  "seconds": 8.46,
+  "real_model_calls": 0,
+  "failure_details": [
+    {
+      "test": "test_refund_02_confirmed_layouts_and_missing_refund_capability (__main__.RefundHttpTests.test_refund_02_confirmed_layouts_and_missing_refund_capability)",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/haohao4/Downloads/multi-agent.zip/commerce-insight/experiments/refund-change/verify.py\", line 57, in test_refund_02_confirmed_layouts_and_missing_refund_capability\n    with self.assertRaises(ApiFailure) as exc:self.create({**QUERY,\"dataset_id\":d[\"dataset_id\"]})\n                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/haohao4/Downloads/multi-agent.zip/commerce-insight/experiments/web-demo/verify.py\", line 98, in create\n    self.assertEqual(code, 202, task)\nAssertionError: 422 != 202 : {'error': 'dataset_metric_unavailable'}\n"
+    }
+  ]
+}

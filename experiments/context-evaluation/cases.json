@@ -1,0 +1,852 @@
+{
+  "version": "composite-context-v1",
+  "oracle_origin": "Hand-calculated financial fields reused from sales/refund v1 fixtures; composite questions and expected query combinations frozen before live execution. No model-generated labels.",
+  "development": [
+    {
+      "id": "dev_both",
+      "family": "complete_composite",
+      "question": "按 UTC 比较 2026-10-05（含）至 10-12（不含）和 10-12（含）至 10-19（不含）。请完整分析两件事：一是已支付金额（不扣退款）的商品变化贡献；二是按发生时间的成功退款变化、原订单支付来源、已关联商品和未归属金额。每项最多列 5 个商品；销售每个方向最多 5 个。",
+      "outcome": "answered",
+      "expected": [
+        {
+          "metric": "sales_change_by_product",
+          "start": "2026-10-05T00:00:00Z",
+          "end": "2026-10-12T00:00:00Z",
+          "current_start": "2026-10-12T00:00:00Z",
+          "current_end": "2026-10-19T00:00:00Z",
+          "top_n": 5,
+          "sales_change": {
+            "currency": "CNY",
+            "amount_scale": 2,
+            "result_unit": "minor_units",
+            "totals": {
+              "baseline_minor": 28000,
+              "current_minor": 15000,
+              "delta_minor": -13000,
+              "change_percent": "-46.43"
+            },
+            "product_count": 3,
+            "unchanged_count": 0,
+            "decreases": {
+              "product_count": 2,
+              "delta_minor": -14000,
+              "products": [
+                {
+                  "product_id": "P3",
+                  "baseline_minor": 10000,
+                  "current_minor": 0,
+                  "delta_minor": -10000,
+                  "change_percent": "-100.00",
+                  "period_presence": "baseline_only",
+                  "direction_share_percent": "71.43"
+                },
+                {
+                  "product_id": "P2",
+                  "baseline_minor": 4000,
+                  "current_minor": 0,
+                  "delta_minor": -4000,
+                  "change_percent": "-100.00",
+                  "period_presence": "baseline_only",
+                  "direction_share_percent": "28.57"
+                }
+              ],
+              "other": {
+                "product_count": 0,
+                "delta_minor": 0
+              }
+            },
+            "increases": {
+              "product_count": 1,
+              "delta_minor": 1000,
+              "products": [
+                {
+                  "product_id": "P1",
+                  "baseline_minor": 14000,
+                  "current_minor": 15000,
+                  "delta_minor": 1000,
+                  "change_percent": "7.14",
+                  "period_presence": "both",
+                  "direction_share_percent": "100.00"
+                }
+              ],
+              "other": {
+                "product_count": 0,
+                "delta_minor": 0
+              }
+            },
+            "reconciliation": {
+              "baseline_minor": 28000,
+              "current_minor": 15000,
+              "delta_minor": -13000,
+              "baseline_residual_minor": 0,
+              "current_residual_minor": 0,
+              "delta_residual_minor": 0
+            }
+          }
+        },
+        {
+          "metric": "refund_change",
+          "start": "2026-10-05T00:00:00Z",
+          "end": "2026-10-12T00:00:00Z",
+          "current_start": "2026-10-12T00:00:00Z",
+          "current_end": "2026-10-19T00:00:00Z",
+          "top_n": 5,
+          "refund_change": {
+            "currency": "CNY",
+            "amount_scale": 2,
+            "result_unit": "minor_units",
+            "totals": {
+              "baseline_minor": 0,
+              "current_minor": 5000,
+              "delta_minor": 5000,
+              "change_percent": null
+            },
+            "counts": {
+              "baseline_refunds": 0,
+              "baseline_orders": 0,
+              "current_refunds": 3,
+              "current_orders": 2
+            },
+            "origins": [
+              {
+                "origin": "prior_orders",
+                "baseline_minor": 0,
+                "current_minor": 5000,
+                "delta_minor": 5000
+              },
+              {
+                "origin": "same_period_orders",
+                "baseline_minor": 0,
+                "current_minor": 0,
+                "delta_minor": 0
+              }
+            ],
+            "attribution": {
+              "baseline_linked_minor": 0,
+              "current_linked_minor": 3000,
+              "delta_linked_minor": 3000,
+              "baseline_unattributed_minor": 0,
+              "current_unattributed_minor": 2000,
+              "delta_unattributed_minor": 2000,
+              "baseline_coverage_percent": null,
+              "current_coverage_percent": "60.00"
+            },
+            "products": {
+              "product_count": 2,
+              "rows": [
+                {
+                  "product_id": "P1",
+                  "baseline_minor": 0,
+                  "current_minor": 2000,
+                  "delta_minor": 2000,
+                  "change_percent": null
+                },
+                {
+                  "product_id": "P2",
+                  "baseline_minor": 0,
+                  "current_minor": 1000,
+                  "delta_minor": 1000,
+                  "change_percent": null
+                }
+              ],
+              "other": {
+                "product_count": 0,
+                "baseline_minor": 0,
+                "current_minor": 0,
+                "delta_minor": 0
+              }
+            },
+            "reconciliation": {
+              "baseline_minor": 0,
+              "current_minor": 5000,
+              "delta_minor": 5000,
+              "baseline_residual_minor": 0,
+              "current_residual_minor": 0,
+              "delta_residual_minor": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "dev_missing_dates",
+      "family": "both_dates_missing",
+      "question": "请完整分析最近两周不扣退款的已支付金额商品贡献，以及按发生时间的成功退款变化和商品归属。尚未确定日期和时区，请先问清。",
+      "outcome": "needs_clarification",
+      "expected": [],
+      "issue": "needs_time_range"
+    }
+  ],
+  "heldout": [
+    {
+      "id": "hold_top_one",
+      "family": "different_top_limits",
+      "question": "按 UTC 左闭右开区间，同时完成：支付金额不扣退款，比较 2026-10-05—10-12 与 10-12—10-19，按商品明细分摊金额，每个方向只列第一名且保留其他贡献；成功退款发生额比较 10-12—10-19 与 10-19—10-26，按变化绝对值只列第一名已关联商品、保留其他及未归属金额，并区分记录数与订单数。",
+      "outcome": "answered",
+      "expected": [
+        {
+          "metric": "sales_change_by_product",
+          "start": "2026-10-05T00:00:00Z",
+          "end": "2026-10-12T00:00:00Z",
+          "current_start": "2026-10-12T00:00:00Z",
+          "current_end": "2026-10-19T00:00:00Z",
+          "top_n": 1,
+          "sales_change": {
+            "currency": "CNY",
+            "amount_scale": 2,
+            "result_unit": "minor_units",
+            "totals": {
+              "baseline_minor": 28000,
+              "current_minor": 15000,
+              "delta_minor": -13000,
+              "change_percent": "-46.43"
+            },
+            "product_count": 3,
+            "unchanged_count": 0,
+            "decreases": {
+              "product_count": 2,
+              "delta_minor": -14000,
+              "products": [
+                {
+                  "product_id": "P3",
+                  "baseline_minor": 10000,
+                  "current_minor": 0,
+                  "delta_minor": -10000,
+                  "change_percent": "-100.00",
+                  "period_presence": "baseline_only",
+                  "direction_share_percent": "71.43"
+                }
+              ],
+              "other": {
+                "product_count": 1,
+                "delta_minor": -4000
+              }
+            },
+            "increases": {
+              "product_count": 1,
+              "delta_minor": 1000,
+              "products": [
+                {
+                  "product_id": "P1",
+                  "baseline_minor": 14000,
+                  "current_minor": 15000,
+                  "delta_minor": 1000,
+                  "change_percent": "7.14",
+                  "period_presence": "both",
+                  "direction_share_percent": "100.00"
+                }
+              ],
+              "other": {
+                "product_count": 0,
+                "delta_minor": 0
+              }
+            },
+            "reconciliation": {
+              "baseline_minor": 28000,
+              "current_minor": 15000,
+              "delta_minor": -13000,
+              "baseline_residual_minor": 0,
+              "current_residual_minor": 0,
+              "delta_residual_minor": 0
+            }
+          }
+        },
+        {
+          "metric": "refund_change",
+          "start": "2026-10-12T00:00:00Z",
+          "end": "2026-10-19T00:00:00Z",
+          "current_start": "2026-10-19T00:00:00Z",
+          "current_end": "2026-10-26T00:00:00Z",
+          "top_n": 1,
+          "refund_change": {
+            "currency": "CNY",
+            "amount_scale": 2,
+            "result_unit": "minor_units",
+            "totals": {
+              "baseline_minor": 5000,
+              "current_minor": 1000,
+              "delta_minor": -4000,
+              "change_percent": "-80.00"
+            },
+            "counts": {
+              "baseline_refunds": 3,
+              "baseline_orders": 2,
+              "current_refunds": 1,
+              "current_orders": 1
+            },
+            "origins": [
+              {
+                "origin": "prior_orders",
+                "baseline_minor": 5000,
+                "current_minor": 1000,
+                "delta_minor": -4000
+              },
+              {
+                "origin": "same_period_orders",
+                "baseline_minor": 0,
+                "current_minor": 0,
+                "delta_minor": 0
+              }
+            ],
+            "attribution": {
+              "baseline_linked_minor": 3000,
+              "current_linked_minor": 1000,
+              "delta_linked_minor": -2000,
+              "baseline_unattributed_minor": 2000,
+              "current_unattributed_minor": 0,
+              "delta_unattributed_minor": -2000,
+              "baseline_coverage_percent": "60.00",
+              "current_coverage_percent": "100.00"
+            },
+            "products": {
+              "product_count": 3,
+              "rows": [
+                {
+                  "product_id": "P1",
+                  "baseline_minor": 2000,
+                  "current_minor": 0,
+                  "delta_minor": -2000,
+                  "change_percent": "-100.00"
+                }
+              ],
+              "other": {
+                "product_count": 2,
+                "baseline_minor": 1000,
+                "current_minor": 1000,
+                "delta_minor": 0
+              }
+            },
+            "reconciliation": {
+              "baseline_minor": 5000,
+              "current_minor": 1000,
+              "delta_minor": -4000,
+              "baseline_residual_minor": 0,
+              "current_residual_minor": 0,
+              "delta_residual_minor": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "hold_offset",
+      "family": "timezone_composite",
+      "question": "请同时分析两个问题，时间均为北京时间（UTC+08:00），左闭右开：支付金额不扣退款，基期 2026-10-05 08:00 至 10-12 08:00，对比期 10-12 08:00 至 10-19 08:00，按商品分摊金额列每方向最多 5 个的贡献；成功退款按发生时间比较 10-12 08:00 至 10-19 08:00 和 10-19 08:00 至 10-26 08:00，给出原订单支付来源、已关联商品最多 5 个与未归属金额。",
+      "outcome": "answered",
+      "expected": [
+        {
+          "metric": "sales_change_by_product",
+          "start": "2026-10-05T00:00:00Z",
+          "end": "2026-10-12T00:00:00Z",
+          "current_start": "2026-10-12T00:00:00Z",
+          "current_end": "2026-10-19T00:00:00Z",
+          "top_n": 5,
+          "sales_change": {
+            "currency": "CNY",
+            "amount_scale": 2,
+            "result_unit": "minor_units",
+            "totals": {
+              "baseline_minor": 28000,
+              "current_minor": 15000,
+              "delta_minor": -13000,
+              "change_percent": "-46.43"
+            },
+            "product_count": 3,
+            "unchanged_count": 0,
+            "decreases": {
+              "product_count": 2,
+              "delta_minor": -14000,
+              "products": [
+                {
+                  "product_id": "P3",
+                  "baseline_minor": 10000,
+                  "current_minor": 0,
+                  "delta_minor": -10000,
+                  "change_percent": "-100.00",
+                  "period_presence": "baseline_only",
+                  "direction_share_percent": "71.43"
+                },
+                {
+                  "product_id": "P2",
+                  "baseline_minor": 4000,
+                  "current_minor": 0,
+                  "delta_minor": -4000,
+                  "change_percent": "-100.00",
+                  "period_presence": "baseline_only",
+                  "direction_share_percent": "28.57"
+                }
+              ],
+              "other": {
+                "product_count": 0,
+                "delta_minor": 0
+              }
+            },
+            "increases": {
+              "product_count": 1,
+              "delta_minor": 1000,
+              "products": [
+                {
+                  "product_id": "P1",
+                  "baseline_minor": 14000,
+                  "current_minor": 15000,
+                  "delta_minor": 1000,
+                  "change_percent": "7.14",
+                  "period_presence": "both",
+                  "direction_share_percent": "100.00"
+                }
+              ],
+              "other": {
+                "product_count": 0,
+                "delta_minor": 0
+              }
+            },
+            "reconciliation": {
+              "baseline_minor": 28000,
+              "current_minor": 15000,
+              "delta_minor": -13000,
+              "baseline_residual_minor": 0,
+              "current_residual_minor": 0,
+              "delta_residual_minor": 0
+            }
+          }
+        },
+        {
+          "metric": "refund_change",
+          "start": "2026-10-12T00:00:00Z",
+          "end": "2026-10-19T00:00:00Z",
+          "current_start": "2026-10-19T00:00:00Z",
+          "current_end": "2026-10-26T00:00:00Z",
+          "top_n": 5,
+          "refund_change": {
+            "currency": "CNY",
+            "amount_scale": 2,
+            "result_unit": "minor_units",
+            "totals": {
+              "baseline_minor": 5000,
+              "current_minor": 1000,
+              "delta_minor": -4000,
+              "change_percent": "-80.00"
+            },
+            "counts": {
+              "baseline_refunds": 3,
+              "baseline_orders": 2,
+              "current_refunds": 1,
+              "current_orders": 1
+            },
+            "origins": [
+              {
+                "origin": "prior_orders",
+                "baseline_minor": 5000,
+                "current_minor": 1000,
+                "delta_minor": -4000
+              },
+              {
+                "origin": "same_period_orders",
+                "baseline_minor": 0,
+                "current_minor": 0,
+                "delta_minor": 0
+              }
+            ],
+            "attribution": {
+              "baseline_linked_minor": 3000,
+              "current_linked_minor": 1000,
+              "delta_linked_minor": -2000,
+              "baseline_unattributed_minor": 2000,
+              "current_unattributed_minor": 0,
+              "delta_unattributed_minor": -2000,
+              "baseline_coverage_percent": "60.00",
+              "current_coverage_percent": "100.00"
+            },
+            "products": {
+              "product_count": 3,
+              "rows": [
+                {
+                  "product_id": "P1",
+                  "baseline_minor": 2000,
+                  "current_minor": 0,
+                  "delta_minor": -2000,
+                  "change_percent": "-100.00"
+                },
+                {
+                  "product_id": "P2",
+                  "baseline_minor": 1000,
+                  "current_minor": 0,
+                  "delta_minor": -1000,
+                  "change_percent": "-100.00"
+                },
+                {
+                  "product_id": "P3",
+                  "baseline_minor": 0,
+                  "current_minor": 1000,
+                  "delta_minor": 1000,
+                  "change_percent": null
+                }
+              ],
+              "other": {
+                "product_count": 0,
+                "baseline_minor": 0,
+                "current_minor": 0,
+                "delta_minor": 0
+              }
+            },
+            "reconciliation": {
+              "baseline_minor": 5000,
+              "current_minor": 1000,
+              "delta_minor": -4000,
+              "baseline_residual_minor": 0,
+              "current_residual_minor": 0,
+              "delta_residual_minor": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "hold_zero",
+      "family": "zero_sales_and_no_refunds",
+      "question": "两项都按 UTC 左闭右开：基期 2026-09-28 至 10-05，对比期 10-05 至 10-12。完整给出已支付金额（不扣退款）的商品贡献，以及成功退款发生额变化、原订单支付来源、已关联商品和未归属金额。商品每个方向或榜单最多 5 个；基期为零请保留事实，不猜增长率。",
+      "outcome": "answered",
+      "expected": [
+        {
+          "metric": "sales_change_by_product",
+          "start": "2026-09-28T00:00:00Z",
+          "end": "2026-10-05T00:00:00Z",
+          "current_start": "2026-10-05T00:00:00Z",
+          "current_end": "2026-10-12T00:00:00Z",
+          "top_n": 5,
+          "sales_change": {
+            "currency": "CNY",
+            "amount_scale": 2,
+            "result_unit": "minor_units",
+            "totals": {
+              "baseline_minor": 0,
+              "current_minor": 28000,
+              "delta_minor": 28000,
+              "change_percent": null
+            },
+            "product_count": 3,
+            "unchanged_count": 0,
+            "decreases": {
+              "product_count": 0,
+              "delta_minor": 0,
+              "products": [],
+              "other": {
+                "product_count": 0,
+                "delta_minor": 0
+              }
+            },
+            "increases": {
+              "product_count": 3,
+              "delta_minor": 28000,
+              "products": [
+                {
+                  "product_id": "P1",
+                  "baseline_minor": 0,
+                  "current_minor": 14000,
+                  "delta_minor": 14000,
+                  "change_percent": null,
+                  "period_presence": "current_only",
+                  "direction_share_percent": "50.00"
+                },
+                {
+                  "product_id": "P3",
+                  "baseline_minor": 0,
+                  "current_minor": 10000,
+                  "delta_minor": 10000,
+                  "change_percent": null,
+                  "period_presence": "current_only",
+                  "direction_share_percent": "35.71"
+                },
+                {
+                  "product_id": "P2",
+                  "baseline_minor": 0,
+                  "current_minor": 4000,
+                  "delta_minor": 4000,
+                  "change_percent": null,
+                  "period_presence": "current_only",
+                  "direction_share_percent": "14.29"
+                }
+              ],
+              "other": {
+                "product_count": 0,
+                "delta_minor": 0
+              }
+            },
+            "reconciliation": {
+              "baseline_minor": 0,
+              "current_minor": 28000,
+              "delta_minor": 28000,
+              "baseline_residual_minor": 0,
+              "current_residual_minor": 0,
+              "delta_residual_minor": 0
+            }
+          }
+        },
+        {
+          "metric": "refund_change",
+          "start": "2026-09-28T00:00:00Z",
+          "end": "2026-10-05T00:00:00Z",
+          "current_start": "2026-10-05T00:00:00Z",
+          "current_end": "2026-10-12T00:00:00Z",
+          "top_n": 5,
+          "refund_change": {
+            "currency": "CNY",
+            "amount_scale": 2,
+            "result_unit": "minor_units",
+            "totals": {
+              "baseline_minor": 0,
+              "current_minor": 0,
+              "delta_minor": 0,
+              "change_percent": null
+            },
+            "counts": {
+              "baseline_refunds": 0,
+              "baseline_orders": 0,
+              "current_refunds": 0,
+              "current_orders": 0
+            },
+            "origins": [
+              {
+                "origin": "prior_orders",
+                "baseline_minor": 0,
+                "current_minor": 0,
+                "delta_minor": 0
+              },
+              {
+                "origin": "same_period_orders",
+                "baseline_minor": 0,
+                "current_minor": 0,
+                "delta_minor": 0
+              }
+            ],
+            "attribution": {
+              "baseline_linked_minor": 0,
+              "current_linked_minor": 0,
+              "delta_linked_minor": 0,
+              "baseline_unattributed_minor": 0,
+              "current_unattributed_minor": 0,
+              "delta_unattributed_minor": 0,
+              "baseline_coverage_percent": null,
+              "current_coverage_percent": null
+            },
+            "products": {
+              "product_count": 0,
+              "rows": [],
+              "other": {
+                "product_count": 0,
+                "baseline_minor": 0,
+                "current_minor": 0,
+                "delta_minor": 0
+              }
+            },
+            "reconciliation": {
+              "baseline_minor": 0,
+              "current_minor": 0,
+              "delta_minor": 0,
+              "baseline_residual_minor": 0,
+              "current_residual_minor": 0,
+              "delta_residual_minor": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "hold_separate_periods",
+      "family": "independent_periods",
+      "question": "我要两张不同周期的分析，均 UTC、含起不含止，不能把周期混用。销售：2026-10-05 到 10-12 对比 10-12 到 10-19，按明细金额分析不扣退款的已支付金额商品贡献，每个方向最多 5 个。退款：2026-10-12 到 10-19 对比 10-19 到 10-26，按成功退款发生时间分析金额变化、原订单支付来源及商品归属，最多 5 个已关联商品，缺失单列。",
+      "outcome": "answered",
+      "expected": [
+        {
+          "metric": "sales_change_by_product",
+          "start": "2026-10-05T00:00:00Z",
+          "end": "2026-10-12T00:00:00Z",
+          "current_start": "2026-10-12T00:00:00Z",
+          "current_end": "2026-10-19T00:00:00Z",
+          "top_n": 5,
+          "sales_change": {
+            "currency": "CNY",
+            "amount_scale": 2,
+            "result_unit": "minor_units",
+            "totals": {
+              "baseline_minor": 28000,
+              "current_minor": 15000,
+              "delta_minor": -13000,
+              "change_percent": "-46.43"
+            },
+            "product_count": 3,
+            "unchanged_count": 0,
+            "decreases": {
+              "product_count": 2,
+              "delta_minor": -14000,
+              "products": [
+                {
+                  "product_id": "P3",
+                  "baseline_minor": 10000,
+                  "current_minor": 0,
+                  "delta_minor": -10000,
+                  "change_percent": "-100.00",
+                  "period_presence": "baseline_only",
+                  "direction_share_percent": "71.43"
+                },
+                {
+                  "product_id": "P2",
+                  "baseline_minor": 4000,
+                  "current_minor": 0,
+                  "delta_minor": -4000,
+                  "change_percent": "-100.00",
+                  "period_presence": "baseline_only",
+                  "direction_share_percent": "28.57"
+                }
+              ],
+              "other": {
+                "product_count": 0,
+                "delta_minor": 0
+              }
+            },
+            "increases": {
+              "product_count": 1,
+              "delta_minor": 1000,
+              "products": [
+                {
+                  "product_id": "P1",
+                  "baseline_minor": 14000,
+                  "current_minor": 15000,
+                  "delta_minor": 1000,
+                  "change_percent": "7.14",
+                  "period_presence": "both",
+                  "direction_share_percent": "100.00"
+                }
+              ],
+              "other": {
+                "product_count": 0,
+                "delta_minor": 0
+              }
+            },
+            "reconciliation": {
+              "baseline_minor": 28000,
+              "current_minor": 15000,
+              "delta_minor": -13000,
+              "baseline_residual_minor": 0,
+              "current_residual_minor": 0,
+              "delta_residual_minor": 0
+            }
+          }
+        },
+        {
+          "metric": "refund_change",
+          "start": "2026-10-12T00:00:00Z",
+          "end": "2026-10-19T00:00:00Z",
+          "current_start": "2026-10-19T00:00:00Z",
+          "current_end": "2026-10-26T00:00:00Z",
+          "top_n": 5,
+          "refund_change": {
+            "currency": "CNY",
+            "amount_scale": 2,
+            "result_unit": "minor_units",
+            "totals": {
+              "baseline_minor": 5000,
+              "current_minor": 1000,
+              "delta_minor": -4000,
+              "change_percent": "-80.00"
+            },
+            "counts": {
+              "baseline_refunds": 3,
+              "baseline_orders": 2,
+              "current_refunds": 1,
+              "current_orders": 1
+            },
+            "origins": [
+              {
+                "origin": "prior_orders",
+                "baseline_minor": 5000,
+                "current_minor": 1000,
+                "delta_minor": -4000
+              },
+              {
+                "origin": "same_period_orders",
+                "baseline_minor": 0,
+                "current_minor": 0,
+                "delta_minor": 0
+              }
+            ],
+            "attribution": {
+              "baseline_linked_minor": 3000,
+              "current_linked_minor": 1000,
+              "delta_linked_minor": -2000,
+              "baseline_unattributed_minor": 2000,
+              "current_unattributed_minor": 0,
+              "delta_unattributed_minor": -2000,
+              "baseline_coverage_percent": "60.00",
+              "current_coverage_percent": "100.00"
+            },
+            "products": {
+              "product_count": 3,
+              "rows": [
+                {
+                  "product_id": "P1",
+                  "baseline_minor": 2000,
+                  "current_minor": 0,
+                  "delta_minor": -2000,
+                  "change_percent": "-100.00"
+                },
+                {
+                  "product_id": "P2",
+                  "baseline_minor": 1000,
+                  "current_minor": 0,
+                  "delta_minor": -1000,
+                  "change_percent": "-100.00"
+                },
+                {
+                  "product_id": "P3",
+                  "baseline_minor": 0,
+                  "current_minor": 1000,
+                  "delta_minor": 1000,
+                  "change_percent": null
+                }
+              ],
+              "other": {
+                "product_count": 0,
+                "baseline_minor": 0,
+                "current_minor": 0,
+                "delta_minor": 0
+              }
+            },
+            "reconciliation": {
+              "baseline_minor": 5000,
+              "current_minor": 1000,
+              "delta_minor": -4000,
+              "baseline_residual_minor": 0,
+              "current_residual_minor": 0,
+              "delta_residual_minor": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "hold_missing_reason",
+      "family": "partial_unsupported",
+      "question": "按 UTC 左闭右开比较 2026-10-05—10-12 与 10-12—10-19，分析不扣退款的已支付金额商品贡献，每个方向 5 个；同时必须按退款原因字段计算其中质量问题造成的成功退款金额。两部分必须完整回答；若缺字段，明确整体数据不足，不能仅用总退款金额代替。",
+      "outcome": "unsupported",
+      "expected": [],
+      "issue": "missing_data"
+    },
+    {
+      "id": "hold_ambiguous_sales",
+      "family": "partial_ambiguous",
+      "question": "按 UTC 左闭右开比较 2026-10-05—10-12 与 10-12—10-19，分析销售额变化的商品贡献（还没决定是否扣退款），同时分析成功退款发生额变化、原订单来源和商品归属。两项各最多 5 个；需要完整分析，口径没确定前先确认。",
+      "outcome": "needs_clarification",
+      "expected": [],
+      "issue": "needs_metric_definition"
+    }
+  ],
+  "acceptance": {
+    "heldout_repeats": 2,
+    "published_numeric_or_reference_errors_allowed": 0,
+    "compact_min_input_token_reduction": 0.2,
+    "specialists_min_extra_successes": 2,
+    "specialists_max_cost_ratio": 1.5,
+    "specialists_max_median_time_ratio": 1.5
+  }
+}

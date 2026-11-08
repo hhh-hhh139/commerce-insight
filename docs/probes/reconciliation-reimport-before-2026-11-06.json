@@ -1,0 +1,9 @@
+{
+  "date": "2026-11-06",
+  "kind": "browser_export_reimport_before",
+  "real_model_calls": 0,
+  "source_task_id": "05cffe23-d4ac-415a-b68c-5ad69253d5ad",
+  "export_sha256": "31511de4b99425eaccb8ae041bed5b04f28178e5f50348bf27af1ab4393bff00",
+  "observed": "网页实际下载的 display_source/task 包装格式被报表上传解析器错误拒绝",
+  "fix": "解析受支持的导出包装，然后仍按单指标声明校验；不将包装或来源标识当成可信签名"
+}

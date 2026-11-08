@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>经营分析 · Commerce Insight</title>
+  <meta name="description" content="选择数据、比较销售变化、核查计算证据。Commerce Insight 本地分析工作台。">
+  <link rel="icon" href="data:,"><link rel="stylesheet" href="/demo/app.css">
+  <script defer src="/demo/session.js"></script><script defer src="/demo/app.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">跳到主要内容</a>
+<aside class="sidebar">
+  <a class="brand" href="/demo/index.html" aria-label="Commerce Insight 首页"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 17V7h4v10zm5 0V4h4v13zm5 0v-6h4v6z"/></svg></span><span>Commerce <strong>Insight</strong></span></a>
+  <div class="workspace"><span class="avatar">示</span><div>示例商店<small>个人工作空间</small></div><span class="workspace-tag">本地</span></div>
+  <nav aria-label="工作空间导航">
+    <a href="#workbench" data-view="analysis" class="nav-active" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19h16M6 15V9m6 6V5m6 10v-3"/></svg><span>经营分析</span></a>
+    <a href="/demo/imports.html"><svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v12c0 4 16 4 16 0V6M4 12c0 4 16 4 16 0"/></svg><span>数据管理</span></a>
+    <a href="#history" data-view="history"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 7v5l3 2"/></svg><span>任务记录</span></a>
+    <a href="#samples" data-view="samples"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l4 4v14H6zM14 3v5h5M9 12h7m-7 4h5"/></svg><span>Agent 样例</span></a>
+  </nav>
+  <div class="side-note"><span class="dot"></span> 本机演示<p>使用公开或合成数据</p><small>数据与报告保存在本机</small></div>
+</aside>
+<main id="main" tabindex="-1">
+  <header class="topbar"><span>示例商店 <span class="separator">/</span> <b id="breadcrumb">经营分析</b></span><span class="environment"><span class="dot"></span> 本地工作台</span></header>
+  <div class="page">
+    <header class="heading"><div><h1 id="page-title">经营分析</h1><p id="page-description" class="muted">比较销售变化，核查订单与退款。</p></div><a class="secondary heading-action" href="/demo/imports.html">导入数据</a></header>
+    <div id="notice" class="notice" role="alert" hidden></div>
+    <div id="analysis-view">
+      <div class="work-grid" id="workbench">
+        <details class="panel composer" id="query-panel" open>
+          <summary class="composer-summary"><span>分析条件</span><span class="subtle">选择数据与口径</span></summary>
+          <div class="composer-body">
+            <label for="dataset-select">数据版本</label><select id="dataset-select"><option value="demo-ledger-v1">合成电商账本 · 内置样例</option></select>
+            <details class="context" id="dataset-details"><summary>数据说明与分析边界</summary><p id="context-name">合成电商账本</p><dl><div><dt>版本</dt><dd id="context-version">demo-ledger-v1</dd></div><div><dt>币种 / 精度</dt><dd id="context-currency">CNY / 分</dd></div><div><dt>数据截至</dt><dd id="context-export">2026-10-26</dd></div></dl><p id="context-boundary" class="field-note">可以核查支付、退款与订单批次。缺少成本和流量，不能计算利润或证明变化原因。</p></details>
+            <div class="tabs" role="group" aria-label="分析方式"><button id="metric-tab" class="selected" aria-pressed="true">指标分析</button><button id="agent-tab" aria-pressed="false">自然语言</button><button id="reconcile-tab" aria-pressed="false">报表核对</button></div>
+            <form id="analysis-form">
+              <div id="metric-fields">
+                <label for="metric">分析内容</label><select id="metric" name="metric">
+                  <option value="sales_change_by_product">销售变化的商品贡献</option>
+                  <option value="refund_change">退款变化定位</option>
+                  <option value="cohort_net">订单批次净额</option><option value="paid_amount">已支付订单金额</option><option value="paid_order_count">已支付订单数</option><option value="refund_amount">期间成功退款金额</option><option value="event_net">期间支付金额减退款金额</option><option value="cohort_refunded_order_count">订单批次退款订单数</option><option value="paid_amount_for_product_orders">含指定商品的订单支付总额</option><option value="product_refund_amount">商品成功退款金额</option>
+                </select>
+                <p class="field-note metric-definition" id="metric-help"></p>
+                <fieldset class="period-fields"><legend id="baseline-label">基期</legend><div class="form-grid"><div><label for="start">开始日期（含）</label><input id="start" type="date" value="2026-10-05" required></div><div><label for="end">结束日期（不含）</label><input id="end" type="date" value="2026-10-12" required></div></div></fieldset>
+                <div id="comparison-fields"><fieldset class="period-fields"><legend>对比期</legend><div class="form-grid"><div><label for="current-start">开始日期（含）</label><input id="current-start" type="date" value="2026-10-12"></div><div><label for="current-end">结束日期（不含）</label><input id="current-end" type="date" value="2026-10-19"></div></div></fieldset><div class="compact-field"><label for="top-n" id="top-n-label">每个方向显示</label><select id="top-n"><option value="3">3 个商品</option><option value="5" selected>5 个商品</option><option value="10">10 个商品</option></select></div></div>
+                <div id="cutoff-field" class="additional-field" hidden><label for="cutoff">退款截止日期（不含）</label><input id="cutoff" type="date" value="2026-10-19"></div>
+                <div id="product-field" class="additional-field" hidden><label for="product">商品编号</label><input id="product" value="P1" maxlength="100"></div>
+              </div>
+              <div id="agent-fields" hidden><label for="question">描述你的经营问题</label><textarea id="question" maxlength="2000" rows="7" placeholder="例如：按 UTC，比较 10 月 5—12 日和 12—19 日的支付金额，看看变化集中在哪些商品。均含起始、不含结束，不扣退款。"></textarea><p class="field-note" id="agent-note"></p></div>
+              <div id="reconcile-fields" hidden>
+                <p class="field-note">选择两份结构化报表，与上方数据版本重算核对。支持本系统的单指标报告 JSON 和声明模板；每份不超过 100 KB。</p>
+                <button class="secondary" id="reconcile-example" type="button">载入差异示例</button>
+                <div class="claim-input"><label for="report-left-file">左报告</label><input id="report-left-file" type="file" accept=".json,application/json"><div id="report-left-preview" class="claim-preview">尚未选择</div></div>
+                <div class="claim-input"><label for="report-right-file">右报告</label><input id="report-right-file" type="file" accept=".json,application/json"><div id="report-right-preview" class="claim-preview">尚未选择</div></div>
+                <label class="report-confirm"><input id="report-confirm" type="checkbox"><span>已核对报告预览与所选账本，确认按声明口径重算。</span></label>
+                <p class="field-note">没有原始数据版本时只提供参考计算，不宣称验证成功。不会执行上传报告中的 SQL。</p>
+              </div>
+              <div class="form-footer"><button class="primary" id="submit" type="submit">运行分析</button><span id="time-note">日期按 UTC 00:00 计算</span></div>
+            </form>
+          </div>
+        </details>
+        <section class="panel report" id="report" tabindex="-1" aria-live="polite" aria-atomic="false">
+          <div class="section-heading"><h2>分析结果</h2><span class="pill">尚未运行</span></div>
+          <div class="empty"><svg class="empty-chart" viewBox="0 0 80 64" aria-hidden="true"><path d="M12 52h56M20 44V29m20 15V12m20 32V23"/></svg><h3>先选好条件，再看变化</h3><p>内置账本已准备好。点击「运行分析」，<br>查看两期销售额和各商品的变化贡献。</p><a class="text-link" href="#history">查看已有任务</a></div>
+          <div class="report-footnote">金额由数据查询计算，报告保留口径与来源证据。</div>
+        </section>
+      </div>
+    </div>
+    <section id="samples" hidden><div class="section-heading outside"><p class="muted">2026-11-06 的真实 DeepSeek 历史报告。查看样例不会发起模型调用。</p><span class="pill">历史记录</span></div><div class="samples" id="sample-list"></div></section>
+    <section class="panel history" id="history" hidden><div class="section-heading"><h2>本机任务</h2><button id="refresh-history" class="secondary">刷新记录</button></div><div class="history-columns" aria-hidden="true"><span>分析内容 / 数据版本</span><span>创建时间</span><span>状态</span></div><div id="history-list"><p class="muted">正在读取任务…</p></div><button id="more" class="secondary" hidden>加载更早记录</button></section>
+    <footer><span>Commerce Insight</span><span>个人项目 · 本机演示</span></footer>
+  </div>
+</main>
+</body></html>

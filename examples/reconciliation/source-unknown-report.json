@@ -1,0 +1,16 @@
+{
+  "schema_version": "commerce-report-claim-v1",
+  "name": "来源未知的净额报表",
+  "query": {
+    "metric": "cohort_net",
+    "start": "2026-10-05T00:00:00Z",
+    "end": "2026-10-12T00:00:00Z",
+    "as_of": "2026-10-19T00:00:00Z"
+  },
+  "reported_value": 23000,
+  "currency": "CNY",
+  "amount_scale": 2,
+  "result_unit": "minor_units",
+  "metric_version": "ledger-metrics-v1",
+  "source_sha256": null
+}

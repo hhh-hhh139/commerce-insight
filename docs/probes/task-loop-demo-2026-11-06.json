@@ -1,0 +1,63 @@
+{
+  "id": "a8968563-c118-44cb-bc75-d9e747719325",
+  "workspace_id": "demo-shop",
+  "status": "SUCCEEDED",
+  "attempt": 1,
+  "max_attempts": 3,
+  "request": {
+    "as_of": "2026-10-19T00:00:00Z",
+    "dataset_id": "demo-ledger-v1",
+    "end": "2026-10-12T00:00:00Z",
+    "metric": "cohort_net",
+    "start": "2026-10-05T00:00:00Z"
+  },
+  "source_sha256": "27048415cf67ccf74b818b62d046eb1d80eff6006e3966c8d7491bac25429cd4",
+  "created_at": 1793933440583,
+  "result": {
+    "amount_scale": 2,
+    "currency": "CNY",
+    "evidence": {
+      "canonical_sha256": "038a74a1981ea028a9847fdb63f5b5743f9f757c0ca48da36de740992bcd6353",
+      "implementation_sha256": {
+        "ledger.py": "c3d9fcd926db57374edfc6be9dd8b972d5cfe78dc6fc484afca5ce1267b50ca2",
+        "ledger_db.py": "c11a785aa7ae785b8a5d0dbc1a358b11f800f0b344556d02d882e2d10a7d98cc"
+      },
+      "source_sha256": "27048415cf67ccf74b818b62d046eb1d80eff6006e3966c8d7491bac25429cd4"
+    },
+    "metric": "cohort_net",
+    "metric_version": "ledger-metrics-v1",
+    "params": [
+      "2026-10-19T00:00:00.000000+00:00",
+      "2026-10-05T00:00:00.000000+00:00",
+      "2026-10-12T00:00:00.000000+00:00"
+    ],
+    "period": {
+      "as_of_exclusive": "2026-10-19T00:00:00.000000+00:00",
+      "end": "2026-10-12T00:00:00.000000+00:00",
+      "start": "2026-10-05T00:00:00.000000+00:00"
+    },
+    "result_unit": "minor_units",
+    "snapshot_id": "synthetic-ledger-2026-11-05-v1",
+    "sql": "WITH refunds_by_order AS (SELECT order_id, SUM(amount_minor) AS refunded FROM ledger_refunds WHERE status = 'succeeded' AND refunded_at < ? GROUP BY order_id) SELECT COALESCE(SUM(o.paid_minor - COALESCE(r.refunded, 0)), 0) FROM ledger_orders o LEFT JOIN refunds_by_order r ON o.order_id = r.order_id WHERE o.status = 'paid' AND o.paid_at >= ? AND o.paid_at < ?",
+    "value": 23000,
+    "workspace_id": "demo-shop"
+  },
+  "error_code": null,
+  "events": [
+    {
+      "at": 1793933440588,
+      "attempt": 0,
+      "kind": "CREATED"
+    },
+    {
+      "at": 1793933440644,
+      "attempt": 1,
+      "kind": "CLAIMED"
+    },
+    {
+      "at": 1793933440879,
+      "attempt": 1,
+      "kind": "SUCCEEDED"
+    }
+  ]
+}

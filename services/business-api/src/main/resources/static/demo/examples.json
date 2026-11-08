@@ -1,0 +1,585 @@
+{
+  "kind": "historical_live_examples",
+  "date": "2026-11-06",
+  "source": "docs/probes/single-agent-live-2026-11-06.json",
+  "source_sha256": "12a1e6cf312c4b612a4fc043be7b10bf5faf52c1aac2ee30b784f7fe46869481",
+  "examples": [
+    {
+      "case_id": "dev_comparison",
+      "title": "两周销售额如何变化？",
+      "description": "同口径比较、金额差额与变化率。",
+      "task": {
+        "attempt": 1,
+        "created_at": 1793944101630,
+        "error_code": null,
+        "events": [
+          {
+            "at": 1793944101631,
+            "attempt": 0,
+            "kind": "CREATED"
+          },
+          {
+            "at": 1793944101714,
+            "attempt": 1,
+            "kind": "CLAIMED"
+          },
+          {
+            "at": 1793944106158,
+            "attempt": 1,
+            "kind": "SUCCEEDED"
+          }
+        ],
+        "id": "7e52d276-ebf6-40db-b474-9241306b0d99",
+        "max_attempts": 3,
+        "request": {
+          "dataset_id": "demo-ledger-v1",
+          "kind": "agent",
+          "question": "按 UTC，比较 2026-10-05 至 10-12 与 2026-10-12 至 10-19 两期已支付订单金额，并给后一期减前一期的差值。均含起始不含结束，不扣退款。"
+        },
+        "result": {
+          "answer": "期间内已支付订单金额，不扣退款，不等于到账/利润：280.00 CNY；期间 [2026-10-05T00:00:00.000000+00:00, 2026-10-12T00:00:00.000000+00:00)。\n期间内已支付订单金额，不扣退款，不等于到账/利润：150.00 CNY；期间 [2026-10-12T00:00:00.000000+00:00, 2026-10-19T00:00:00.000000+00:00)。\n后一期减前一期：-130.00 CNY；变化率 -46.43%。\n这是指定快照和口径下的描述性计算，不等于利润、到账或因果解释。",
+          "comparisons": [
+            {
+              "baseline_id": "ev_fdfb6e13aa4c54ad1f2715d605729e10dea8796b3d6a768ddf467084b9b3a65e",
+              "change_percent": "-46.43",
+              "current_id": "ev_6ab81018a386f65e5bce281c78c88c30b99d0e80c8117effcb9694ab3c435706",
+              "delta": -13000,
+              "result_unit": "minor_units"
+            }
+          ],
+          "evidence": [
+            {
+              "evidence_id": "ev_fdfb6e13aa4c54ad1f2715d605729e10dea8796b3d6a768ddf467084b9b3a65e",
+              "query": {
+                "end": "2026-10-12T00:00:00.000000+00:00",
+                "metric": "paid_amount",
+                "start": "2026-10-05T00:00:00.000000+00:00"
+              },
+              "result": {
+                "amount_scale": 2,
+                "currency": "CNY",
+                "evidence": {
+                  "canonical_sha256": "038a74a1981ea028a9847fdb63f5b5743f9f757c0ca48da36de740992bcd6353",
+                  "implementation_sha256": {
+                    "ledger.py": "c3d9fcd926db57374edfc6be9dd8b972d5cfe78dc6fc484afca5ce1267b50ca2",
+                    "ledger_db.py": "c11a785aa7ae785b8a5d0dbc1a358b11f800f0b344556d02d882e2d10a7d98cc"
+                  },
+                  "source_sha256": "27048415cf67ccf74b818b62d046eb1d80eff6006e3966c8d7491bac25429cd4"
+                },
+                "metric": "paid_amount",
+                "metric_version": "ledger-metrics-v1",
+                "params": [
+                  "2026-10-05T00:00:00.000000+00:00",
+                  "2026-10-12T00:00:00.000000+00:00"
+                ],
+                "period": {
+                  "as_of_exclusive": null,
+                  "end": "2026-10-12T00:00:00.000000+00:00",
+                  "start": "2026-10-05T00:00:00.000000+00:00"
+                },
+                "result_unit": "minor_units",
+                "snapshot_id": "synthetic-ledger-2026-11-05-v1",
+                "sql": "SELECT COALESCE(SUM(o.paid_minor), 0) FROM ledger_orders o WHERE o.status = 'paid' AND o.paid_at >= ? AND o.paid_at < ?",
+                "value": 28000,
+                "workspace_id": "demo-shop"
+              }
+            },
+            {
+              "evidence_id": "ev_6ab81018a386f65e5bce281c78c88c30b99d0e80c8117effcb9694ab3c435706",
+              "query": {
+                "end": "2026-10-19T00:00:00.000000+00:00",
+                "metric": "paid_amount",
+                "start": "2026-10-12T00:00:00.000000+00:00"
+              },
+              "result": {
+                "amount_scale": 2,
+                "currency": "CNY",
+                "evidence": {
+                  "canonical_sha256": "038a74a1981ea028a9847fdb63f5b5743f9f757c0ca48da36de740992bcd6353",
+                  "implementation_sha256": {
+                    "ledger.py": "c3d9fcd926db57374edfc6be9dd8b972d5cfe78dc6fc484afca5ce1267b50ca2",
+                    "ledger_db.py": "c11a785aa7ae785b8a5d0dbc1a358b11f800f0b344556d02d882e2d10a7d98cc"
+                  },
+                  "source_sha256": "27048415cf67ccf74b818b62d046eb1d80eff6006e3966c8d7491bac25429cd4"
+                },
+                "metric": "paid_amount",
+                "metric_version": "ledger-metrics-v1",
+                "params": [
+                  "2026-10-12T00:00:00.000000+00:00",
+                  "2026-10-19T00:00:00.000000+00:00"
+                ],
+                "period": {
+                  "as_of_exclusive": null,
+                  "end": "2026-10-19T00:00:00.000000+00:00",
+                  "start": "2026-10-12T00:00:00.000000+00:00"
+                },
+                "result_unit": "minor_units",
+                "snapshot_id": "synthetic-ledger-2026-11-05-v1",
+                "sql": "SELECT COALESCE(SUM(o.paid_minor), 0) FROM ledger_orders o WHERE o.status = 'paid' AND o.paid_at >= ? AND o.paid_at < ?",
+                "value": 15000,
+                "workspace_id": "demo-shop"
+              }
+            }
+          ],
+          "issue": "none",
+          "kind": "agent_report_v1",
+          "outcome": "answered",
+          "provenance": {
+            "attempt": 1,
+            "checkpoint_count": 11,
+            "implementation_sha256": {
+              "__init__.py": "36c458d21ea66deb9072967a7ac038df3dddc98a3f17e1e7d8820b7ac5d83bbb",
+              "budget.py": "d94b781ec80b835cd71b944ad687d92b942e0d31d943272a9cd6f6785e73f75e",
+              "cli.py": "3899105acd9a77f02abee770969bb54b6eca7ceaf8adec7f7ca5b0b09ae77ffb",
+              "contracts.py": "89bd03603876c4690eb415a593b06642f7f66b76f742dc5605ba681743ba51bb",
+              "models.py": "0cf6431e4ade4d154f0bd0714ce028e448f282639454a4e55f08d4b7e99c2643",
+              "report.py": "45b2c3ca286c3ab03c7dba1f9417b65056437376a27c08a22983e73678e641bd",
+              "runtime.py": "407025c2dfc5276b4e0af9ab44e42ac6aeda1128eab7b221f0e71172e887d6d4",
+              "storage.py": "9d8b59a951cbcfb61f4f33ac6e40a57b907132510eebaea6a074d389bdd5d9d1",
+              "tools.py": "0905ec52fbd889aa339262b7c43b143597c09dd4359f571d74e8ea2e11692538"
+            },
+            "mode": "live",
+            "model": "deepseek-flash",
+            "prompt_sha256": "7ac8dbe871df8d13a6f5163c789bd4a9918d5ea0bff84e40626f7ed146c20d1c",
+            "request_sha256": "7245b2ea9cae8203094b08ab40ea7c58cde14c10d63e63d707e1153301523df8",
+            "response_models": [
+              "deepseek-flash"
+            ],
+            "resumed": false,
+            "script_sha256": null,
+            "source_sha256": "27048415cf67ccf74b818b62d046eb1d80eff6006e3966c8d7491bac25429cd4",
+            "task_id": "7e52d276-ebf6-40db-b474-9241306b0d99",
+            "versions": {
+              "langchain": "1.4.9",
+              "langchain-deepseek": "1.1.1",
+              "langgraph": "1.2.20",
+              "langgraph-checkpoint-sqlite": "3.1.3"
+            },
+            "workspace_id": "demo-shop"
+          },
+          "question_sha256": "ec58c4b1475c396cb6768a1730c812f96a1e96e8dd9c59ef62a57a48d60241a7",
+          "source_sha256": "27048415cf67ccf74b818b62d046eb1d80eff6006e3966c8d7491bac25429cd4",
+          "usage": {
+            "input_tokens": 3897,
+            "model_attempts": 2,
+            "output_tokens": 436,
+            "real_model_calls": 2,
+            "tool_attempts": 2,
+            "unknown_model_responses": 0
+          },
+          "workspace_id": "demo-shop"
+        },
+        "source_sha256": "27048415cf67ccf74b818b62d046eb1d80eff6006e3966c8d7491bac25429cd4",
+        "status": "SUCCEEDED",
+        "workspace_id": "demo-shop"
+      },
+      "passed": true,
+      "errors": []
+    },
+    {
+      "case_id": "dev_cohort",
+      "title": "这批订单最终留下多少钱？",
+      "description": "订单批次与跨期退款，口径明确到截止日。",
+      "task": {
+        "attempt": 1,
+        "created_at": 1793944095144,
+        "error_code": null,
+        "events": [
+          {
+            "at": 1793944095149,
+            "attempt": 0,
+            "kind": "CREATED"
+          },
+          {
+            "at": 1793944095255,
+            "attempt": 1,
+            "kind": "CLAIMED"
+          },
+          {
+            "at": 1793944101550,
+            "attempt": 1,
+            "kind": "SUCCEEDED"
+          }
+        ],
+        "id": "ca2efffd-b6ff-4693-adcf-3fb7f45cb68e",
+        "max_attempts": 3,
+        "request": {
+          "dataset_id": "demo-ledger-v1",
+          "kind": "agent",
+          "question": "按 UTC，统计 2026-10-05（含）至 2026-10-12（不含）已支付订单，扣除这批订单截至 2026-10-19 00:00（不含）的成功退款后的净额。"
+        },
+        "result": {
+          "answer": "期间支付的订单批次金额，减截至 as_of（不含）的该批订单成功退款：230.00 CNY；期间 [2026-10-05T00:00:00.000000+00:00, 2026-10-12T00:00:00.000000+00:00)。\n退款截止时间（不含）：2026-10-19T00:00:00.000000+00:00。\n这是指定快照和口径下的描述性计算，不等于利润、到账或因果解释。",
+          "comparisons": [],
+          "evidence": [
+            {
+              "evidence_id": "ev_eb0413f207bec3253ea1139a2e63ec9ac5e3d19710e4fa8abbaffb67e1a35750",
+              "query": {
+                "as_of": "2026-10-19T00:00:00.000000+00:00",
+                "end": "2026-10-12T00:00:00.000000+00:00",
+                "metric": "cohort_net",
+                "start": "2026-10-05T00:00:00.000000+00:00"
+              },
+              "result": {
+                "amount_scale": 2,
+                "currency": "CNY",
+                "evidence": {
+                  "canonical_sha256": "038a74a1981ea028a9847fdb63f5b5743f9f757c0ca48da36de740992bcd6353",
+                  "implementation_sha256": {
+                    "ledger.py": "c3d9fcd926db57374edfc6be9dd8b972d5cfe78dc6fc484afca5ce1267b50ca2",
+                    "ledger_db.py": "c11a785aa7ae785b8a5d0dbc1a358b11f800f0b344556d02d882e2d10a7d98cc"
+                  },
+                  "source_sha256": "27048415cf67ccf74b818b62d046eb1d80eff6006e3966c8d7491bac25429cd4"
+                },
+                "metric": "cohort_net",
+                "metric_version": "ledger-metrics-v1",
+                "params": [
+                  "2026-10-19T00:00:00.000000+00:00",
+                  "2026-10-05T00:00:00.000000+00:00",
+                  "2026-10-12T00:00:00.000000+00:00"
+                ],
+                "period": {
+                  "as_of_exclusive": "2026-10-19T00:00:00.000000+00:00",
+                  "end": "2026-10-12T00:00:00.000000+00:00",
+                  "start": "2026-10-05T00:00:00.000000+00:00"
+                },
+                "result_unit": "minor_units",
+                "snapshot_id": "synthetic-ledger-2026-11-05-v1",
+                "sql": "WITH refunds_by_order AS (SELECT order_id, SUM(amount_minor) AS refunded FROM ledger_refunds WHERE status = 'succeeded' AND refunded_at < ? GROUP BY order_id) SELECT COALESCE(SUM(o.paid_minor - COALESCE(r.refunded, 0)), 0) FROM ledger_orders o LEFT JOIN refunds_by_order r ON o.order_id = r.order_id WHERE o.status = 'paid' AND o.paid_at >= ? AND o.paid_at < ?",
+                "value": 23000,
+                "workspace_id": "demo-shop"
+              }
+            }
+          ],
+          "issue": "none",
+          "kind": "agent_report_v1",
+          "outcome": "answered",
+          "provenance": {
+            "attempt": 1,
+            "checkpoint_count": 11,
+            "implementation_sha256": {
+              "__init__.py": "36c458d21ea66deb9072967a7ac038df3dddc98a3f17e1e7d8820b7ac5d83bbb",
+              "budget.py": "d94b781ec80b835cd71b944ad687d92b942e0d31d943272a9cd6f6785e73f75e",
+              "cli.py": "3899105acd9a77f02abee770969bb54b6eca7ceaf8adec7f7ca5b0b09ae77ffb",
+              "contracts.py": "89bd03603876c4690eb415a593b06642f7f66b76f742dc5605ba681743ba51bb",
+              "models.py": "0cf6431e4ade4d154f0bd0714ce028e448f282639454a4e55f08d4b7e99c2643",
+              "report.py": "45b2c3ca286c3ab03c7dba1f9417b65056437376a27c08a22983e73678e641bd",
+              "runtime.py": "407025c2dfc5276b4e0af9ab44e42ac6aeda1128eab7b221f0e71172e887d6d4",
+              "storage.py": "9d8b59a951cbcfb61f4f33ac6e40a57b907132510eebaea6a074d389bdd5d9d1",
+              "tools.py": "0905ec52fbd889aa339262b7c43b143597c09dd4359f571d74e8ea2e11692538"
+            },
+            "mode": "live",
+            "model": "deepseek-flash",
+            "prompt_sha256": "7ac8dbe871df8d13a6f5163c789bd4a9918d5ea0bff84e40626f7ed146c20d1c",
+            "request_sha256": "fa07512e13a8dd3e0893754b9a41328a5084170d8e6cb02b1d9910f2cfd2203e",
+            "response_models": [
+              "deepseek-flash"
+            ],
+            "resumed": false,
+            "script_sha256": null,
+            "source_sha256": "27048415cf67ccf74b818b62d046eb1d80eff6006e3966c8d7491bac25429cd4",
+            "task_id": "ca2efffd-b6ff-4693-adcf-3fb7f45cb68e",
+            "versions": {
+              "langchain": "1.4.9",
+              "langchain-deepseek": "1.1.1",
+              "langgraph": "1.2.20",
+              "langgraph-checkpoint-sqlite": "3.1.3"
+            },
+            "workspace_id": "demo-shop"
+          },
+          "question_sha256": "63da7268a02e1feedfd15ce59407ab8b463b911dbc0a7a946043229adec48f46",
+          "source_sha256": "27048415cf67ccf74b818b62d046eb1d80eff6006e3966c8d7491bac25429cd4",
+          "usage": {
+            "input_tokens": 3429,
+            "model_attempts": 2,
+            "output_tokens": 244,
+            "real_model_calls": 2,
+            "tool_attempts": 1,
+            "unknown_model_responses": 0
+          },
+          "workspace_id": "demo-shop"
+        },
+        "source_sha256": "27048415cf67ccf74b818b62d046eb1d80eff6006e3966c8d7491bac25429cd4",
+        "status": "SUCCEEDED",
+        "workspace_id": "demo-shop"
+      },
+      "passed": true,
+      "errors": []
+    },
+    {
+      "case_id": "dev_missing_attribution",
+      "title": "能算商品 P1 的退款吗？",
+      "description": "数据不完整时，保留边界并说明无法计算。",
+      "task": {
+        "attempt": 1,
+        "created_at": 1793944106242,
+        "error_code": null,
+        "events": [
+          {
+            "at": 1793944106243,
+            "attempt": 0,
+            "kind": "CREATED"
+          },
+          {
+            "at": 1793944106345,
+            "attempt": 1,
+            "kind": "CLAIMED"
+          },
+          {
+            "at": 1793944111637,
+            "attempt": 1,
+            "kind": "SUCCEEDED"
+          }
+        ],
+        "id": "47f40c3e-12af-41f4-8d34-57782026316a",
+        "max_attempts": 3,
+        "request": {
+          "dataset_id": "demo-ledger-v1",
+          "kind": "agent",
+          "question": "按 UTC，计算 2026-10-12（含）至 2026-10-19（不含）商品 P1 的成功退款金额；如果缺少商品归属就明确说明不能计算。"
+        },
+        "result": {
+          "answer": "现有数据不足以支持该分析；请补充所需数据或调整问题。\n这是指定快照和口径下的描述性计算，不等于利润、到账或因果解释。",
+          "comparisons": [],
+          "evidence": [],
+          "issue": "missing_data",
+          "kind": "agent_report_v1",
+          "outcome": "unsupported",
+          "provenance": {
+            "attempt": 1,
+            "checkpoint_count": 16,
+            "implementation_sha256": {
+              "__init__.py": "36c458d21ea66deb9072967a7ac038df3dddc98a3f17e1e7d8820b7ac5d83bbb",
+              "budget.py": "d94b781ec80b835cd71b944ad687d92b942e0d31d943272a9cd6f6785e73f75e",
+              "cli.py": "3899105acd9a77f02abee770969bb54b6eca7ceaf8adec7f7ca5b0b09ae77ffb",
+              "contracts.py": "89bd03603876c4690eb415a593b06642f7f66b76f742dc5605ba681743ba51bb",
+              "models.py": "0cf6431e4ade4d154f0bd0714ce028e448f282639454a4e55f08d4b7e99c2643",
+              "report.py": "45b2c3ca286c3ab03c7dba1f9417b65056437376a27c08a22983e73678e641bd",
+              "runtime.py": "407025c2dfc5276b4e0af9ab44e42ac6aeda1128eab7b221f0e71172e887d6d4",
+              "storage.py": "9d8b59a951cbcfb61f4f33ac6e40a57b907132510eebaea6a074d389bdd5d9d1",
+              "tools.py": "0905ec52fbd889aa339262b7c43b143597c09dd4359f571d74e8ea2e11692538"
+            },
+            "mode": "live",
+            "model": "deepseek-flash",
+            "prompt_sha256": "7ac8dbe871df8d13a6f5163c789bd4a9918d5ea0bff84e40626f7ed146c20d1c",
+            "request_sha256": "ec7775d374233a967111166a4b5f4b6fa14e6c1a8144cdfbf3a555bd6142dbfa",
+            "response_models": [
+              "deepseek-flash"
+            ],
+            "resumed": false,
+            "script_sha256": null,
+            "source_sha256": "27048415cf67ccf74b818b62d046eb1d80eff6006e3966c8d7491bac25429cd4",
+            "task_id": "47f40c3e-12af-41f4-8d34-57782026316a",
+            "versions": {
+              "langchain": "1.4.9",
+              "langchain-deepseek": "1.1.1",
+              "langgraph": "1.2.20",
+              "langgraph-checkpoint-sqlite": "3.1.3"
+            },
+            "workspace_id": "demo-shop"
+          },
+          "question_sha256": "b5945f845d5f6c0b7508159604f33681fe2472ab0bffb21200f255680dabad1d",
+          "source_sha256": "27048415cf67ccf74b818b62d046eb1d80eff6006e3966c8d7491bac25429cd4",
+          "usage": {
+            "input_tokens": 4701,
+            "model_attempts": 3,
+            "output_tokens": 212,
+            "real_model_calls": 3,
+            "tool_attempts": 2,
+            "unknown_model_responses": 0
+          },
+          "workspace_id": "demo-shop"
+        },
+        "source_sha256": "27048415cf67ccf74b818b62d046eb1d80eff6006e3966c8d7491bac25429cd4",
+        "status": "SUCCEEDED",
+        "workspace_id": "demo-shop"
+      },
+      "passed": true,
+      "errors": []
+    },
+    {
+      "case_id": "hold_relative_time",
+      "title": "时间不明确，先澄清",
+      "description": "只说“上周”不足以确定分析区间。",
+      "task": {
+        "attempt": 1,
+        "created_at": 1793944126991,
+        "error_code": null,
+        "events": [
+          {
+            "at": 1793944126992,
+            "attempt": 0,
+            "kind": "CREATED"
+          },
+          {
+            "at": 1793944127071,
+            "attempt": 1,
+            "kind": "CLAIMED"
+          },
+          {
+            "at": 1793944130686,
+            "attempt": 1,
+            "kind": "SUCCEEDED"
+          }
+        ],
+        "id": "5ef1cb13-c9db-4772-8c58-68376be7d99a",
+        "max_attempts": 3,
+        "request": {
+          "dataset_id": "demo-ledger-v1",
+          "kind": "agent",
+          "question": "上周有多少笔已经支付的订单？"
+        },
+        "result": {
+          "answer": "请补充明确的起止时间及时间基准；相对日期不能自行猜测。\n这是指定快照和口径下的描述性计算，不等于利润、到账或因果解释。",
+          "comparisons": [],
+          "evidence": [],
+          "issue": "needs_time_range",
+          "kind": "agent_report_v1",
+          "outcome": "needs_clarification",
+          "provenance": {
+            "attempt": 1,
+            "checkpoint_count": 11,
+            "implementation_sha256": {
+              "__init__.py": "36c458d21ea66deb9072967a7ac038df3dddc98a3f17e1e7d8820b7ac5d83bbb",
+              "budget.py": "d94b781ec80b835cd71b944ad687d92b942e0d31d943272a9cd6f6785e73f75e",
+              "cli.py": "3899105acd9a77f02abee770969bb54b6eca7ceaf8adec7f7ca5b0b09ae77ffb",
+              "contracts.py": "89bd03603876c4690eb415a593b06642f7f66b76f742dc5605ba681743ba51bb",
+              "models.py": "0cf6431e4ade4d154f0bd0714ce028e448f282639454a4e55f08d4b7e99c2643",
+              "report.py": "45b2c3ca286c3ab03c7dba1f9417b65056437376a27c08a22983e73678e641bd",
+              "runtime.py": "407025c2dfc5276b4e0af9ab44e42ac6aeda1128eab7b221f0e71172e887d6d4",
+              "storage.py": "9d8b59a951cbcfb61f4f33ac6e40a57b907132510eebaea6a074d389bdd5d9d1",
+              "tools.py": "0905ec52fbd889aa339262b7c43b143597c09dd4359f571d74e8ea2e11692538"
+            },
+            "mode": "live",
+            "model": "deepseek-flash",
+            "prompt_sha256": "7ac8dbe871df8d13a6f5163c789bd4a9918d5ea0bff84e40626f7ed146c20d1c",
+            "request_sha256": "c156adce34be82446825075953fa2bebc5fad9d4d495f5515fb7cb8ad5cde2e8",
+            "response_models": [
+              "deepseek-flash"
+            ],
+            "resumed": false,
+            "script_sha256": null,
+            "source_sha256": "27048415cf67ccf74b818b62d046eb1d80eff6006e3966c8d7491bac25429cd4",
+            "task_id": "5ef1cb13-c9db-4772-8c58-68376be7d99a",
+            "versions": {
+              "langchain": "1.4.9",
+              "langchain-deepseek": "1.1.1",
+              "langgraph": "1.2.20",
+              "langgraph-checkpoint-sqlite": "3.1.3"
+            },
+            "workspace_id": "demo-shop"
+          },
+          "question_sha256": "47f05751a1ba57281ea8c7d60a567b6eed2fc299948ba4a0ab03bdb92c07b200",
+          "source_sha256": "27048415cf67ccf74b818b62d046eb1d80eff6006e3966c8d7491bac25429cd4",
+          "usage": {
+            "input_tokens": 2857,
+            "model_attempts": 2,
+            "output_tokens": 107,
+            "real_model_calls": 2,
+            "tool_attempts": 1,
+            "unknown_model_responses": 0
+          },
+          "workspace_id": "demo-shop"
+        },
+        "source_sha256": "27048415cf67ccf74b818b62d046eb1d80eff6006e3966c8d7491bac25429cd4",
+        "status": "SUCCEEDED",
+        "workspace_id": "demo-shop"
+      },
+      "passed": true,
+      "errors": []
+    },
+    {
+      "case_id": "hold_profit",
+      "title": "利润问题：一项保留的失败",
+      "description": "正确拒算，但拒答分类未通过原评测。",
+      "task": {
+        "attempt": 1,
+        "created_at": 1793944130765,
+        "error_code": null,
+        "events": [
+          {
+            "at": 1793944130766,
+            "attempt": 0,
+            "kind": "CREATED"
+          },
+          {
+            "at": 1793944130863,
+            "attempt": 1,
+            "kind": "CLAIMED"
+          },
+          {
+            "at": 1793944133996,
+            "attempt": 1,
+            "kind": "SUCCEEDED"
+          }
+        ],
+        "id": "b11abed7-5bfa-407f-8b29-6f58902205a2",
+        "max_attempts": 3,
+        "request": {
+          "dataset_id": "demo-ledger-v1",
+          "kind": "agent",
+          "question": "请计算 UTC 2026-10-05 到 2026-10-12 的净利润，必须包括商品成本和运营成本。"
+        },
+        "result": {
+          "answer": "现有数据不足以支持该分析；请补充所需数据或调整问题。\n这是指定快照和口径下的描述性计算，不等于利润、到账或因果解释。",
+          "comparisons": [],
+          "evidence": [],
+          "issue": "missing_data",
+          "kind": "agent_report_v1",
+          "outcome": "unsupported",
+          "provenance": {
+            "attempt": 1,
+            "checkpoint_count": 11,
+            "implementation_sha256": {
+              "__init__.py": "36c458d21ea66deb9072967a7ac038df3dddc98a3f17e1e7d8820b7ac5d83bbb",
+              "budget.py": "d94b781ec80b835cd71b944ad687d92b942e0d31d943272a9cd6f6785e73f75e",
+              "cli.py": "3899105acd9a77f02abee770969bb54b6eca7ceaf8adec7f7ca5b0b09ae77ffb",
+              "contracts.py": "89bd03603876c4690eb415a593b06642f7f66b76f742dc5605ba681743ba51bb",
+              "models.py": "0cf6431e4ade4d154f0bd0714ce028e448f282639454a4e55f08d4b7e99c2643",
+              "report.py": "45b2c3ca286c3ab03c7dba1f9417b65056437376a27c08a22983e73678e641bd",
+              "runtime.py": "407025c2dfc5276b4e0af9ab44e42ac6aeda1128eab7b221f0e71172e887d6d4",
+              "storage.py": "9d8b59a951cbcfb61f4f33ac6e40a57b907132510eebaea6a074d389bdd5d9d1",
+              "tools.py": "0905ec52fbd889aa339262b7c43b143597c09dd4359f571d74e8ea2e11692538"
+            },
+            "mode": "live",
+            "model": "deepseek-flash",
+            "prompt_sha256": "7ac8dbe871df8d13a6f5163c789bd4a9918d5ea0bff84e40626f7ed146c20d1c",
+            "request_sha256": "9c00de9551c81de01cab9b1e5dae7e2ce95b0f0f16d0b7458aa3ecc0e38f34a5",
+            "response_models": [
+              "deepseek-flash"
+            ],
+            "resumed": false,
+            "script_sha256": null,
+            "source_sha256": "27048415cf67ccf74b818b62d046eb1d80eff6006e3966c8d7491bac25429cd4",
+            "task_id": "b11abed7-5bfa-407f-8b29-6f58902205a2",
+            "versions": {
+              "langchain": "1.4.9",
+              "langchain-deepseek": "1.1.1",
+              "langgraph": "1.2.20",
+              "langgraph-checkpoint-sqlite": "3.1.3"
+            },
+            "workspace_id": "demo-shop"
+          },
+          "question_sha256": "b8061130b7e1dc9429725f5ae689b873853f4fe7528e1c5bf83c9703137840c7",
+          "source_sha256": "27048415cf67ccf74b818b62d046eb1d80eff6006e3966c8d7491bac25429cd4",
+          "usage": {
+            "input_tokens": 2903,
+            "model_attempts": 2,
+            "output_tokens": 102,
+            "real_model_calls": 2,
+            "tool_attempts": 1,
+            "unknown_model_responses": 0
+          },
+          "workspace_id": "demo-shop"
+        },
+        "source_sha256": "27048415cf67ccf74b818b62d046eb1d80eff6006e3966c8d7491bac25429cd4",
+        "status": "SUCCEEDED",
+        "workspace_id": "demo-shop"
+      },
+      "passed": false,
+      "errors": [
+        "wrong_issue"
+      ]
+    }
+  ]
+}

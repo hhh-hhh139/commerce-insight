@@ -1,0 +1,10 @@
+{
+  "date": "2026-11-06",
+  "kind": "external_data_import_engineering",
+  "tests": 25,
+  "failures": 0,
+  "errors": 0,
+  "seconds": 10.703,
+  "real_model_calls": 0,
+  "failure_details": []
+}

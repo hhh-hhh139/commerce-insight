@@ -1,0 +1,84 @@
+name: commerce-insight
+services:
+  db:
+    image: ${POSTGRES_IMAGE:-postgres:18.6-bookworm}
+    environment:
+      POSTGRES_USER: commerce_bootstrap
+      POSTGRES_DB: commerce
+      POSTGRES_PASSWORD_FILE: /run/secrets/postgres_admin_password
+      POSTGRES_INITDB_ARGS: --auth-host=scram-sha-256
+    secrets: [postgres_admin_password, COMMERCE_DB_PASSWORD]
+    volumes:
+      - database:/var/lib/postgresql
+      - ./init-database.sh:/docker-entrypoint-initdb.d/10-commerce.sh:ro
+      - ./database-privileges.sql:/deployment/database-privileges.sql:ro
+    healthcheck:
+      test: [CMD-SHELL, "pg_isready -U commerce_bootstrap -d commerce"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+    networks: [business]
+    restart: unless-stopped
+    mem_limit: 512m
+    pids_limit: 128
+    logging: {driver: json-file, options: {max-size: 10m, max-file: "3"}}
+  app:
+    build: {context: .., target: application}
+    image: commerce-insight:local
+    environment:
+      COMMERCE_DB_URL: jdbc:postgresql://db:5432/commerce
+      COMMERCE_DB_USER: commerce_app
+      COMMERCE_ORIGIN: ${COMMERCE_ORIGIN:?Set the single HTTPS origin}
+    secrets: [COMMERCE_DB_PASSWORD]
+    volumes:
+      - owner:/app/.local/owner-demo
+      - agent:/app/.local/single-agent
+      - control:/app/.local/state-control
+    tmpfs:
+      - /tmp:mode=1777,size=128m
+      - /app/.local/task-loop:uid=1000,gid=1000,mode=0700,size=128m
+    depends_on: {db: {condition: service_healthy}}
+    networks: [business]
+    init: true
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    mem_limit: 1536m
+    pids_limit: 128
+    stop_grace_period: 20s
+    restart: unless-stopped
+    logging: {driver: json-file, options: {max-size: 10m, max-file: "3"}}
+  proxy:
+    profiles: [public]
+    image: ${CADDY_IMAGE:-caddy:2.11.9-alpine}
+    environment:
+      COMMERCE_DOMAIN: ${COMMERCE_DOMAIN:-localhost}
+      COMMERCE_ACME_EMAIL: ${COMMERCE_ACME_EMAIL:-}
+      COMMERCE_UPSTREAM: http://app:18080
+    ports: ["80:80", "443:443", "443:443/udp"]
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./routes.caddy:/etc/caddy/routes.caddy:ro
+      - proxy_data:/data
+      - proxy_config:/config
+    depends_on: {app: {condition: service_healthy}}
+    networks: [business, edge]
+    restart: unless-stopped
+    mem_limit: 128m
+    pids_limit: 64
+    logging: {driver: json-file, options: {max-size: 10m, max-file: "3"}}
+networks:
+  business: {internal: true}
+  edge: {}
+volumes:
+  database: {}
+  owner: {}
+  agent: {}
+  control: {}
+  proxy_data: {}
+  proxy_config: {}
+secrets:
+  postgres_admin_password:
+    file: ../.local/deployment-secrets/postgres_admin_password
+  COMMERCE_DB_PASSWORD:
+    file: ../.local/deployment-secrets/COMMERCE_DB_PASSWORD

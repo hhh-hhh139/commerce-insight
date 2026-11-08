@@ -1,0 +1,7 @@
+refund_id,order_id,item_id,status,amount_minor,refunded_at,currency
+R1,A,A1,succeeded,2000,2026-10-13T10:00:00Z,CNY
+R2,A,A2,succeeded,1000,2026-10-14T10:00:00Z,CNY
+R3,B,,succeeded,2000,2026-10-15T10:00:00Z,CNY
+R4,C,C1,succeeded,1000,2026-10-20T10:00:00Z,CNY
+RF,A,A1,failed,999,,CNY
+RP,C,C1,pending,500,,CNY

@@ -1,0 +1,16 @@
+{
+  "schema_version": "commerce-report-claim-v1",
+  "name": "订单批次净额报表",
+  "query": {
+    "metric": "cohort_net",
+    "start": "2026-10-05T00:00:00Z",
+    "end": "2026-10-12T00:00:00Z",
+    "as_of": "2026-10-19T00:00:00Z"
+  },
+  "reported_value": 24000,
+  "currency": "CNY",
+  "amount_scale": 2,
+  "result_unit": "minor_units",
+  "metric_version": "ledger-metrics-v1",
+  "source_sha256": "27048415cf67ccf74b818b62d046eb1d80eff6006e3966c8d7491bac25429cd4"
+}

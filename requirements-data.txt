@@ -1,0 +1,4 @@
+# Only for the local data prototype; not the future Agent runtime lock.
+openpyxl==3.1.5
+et-xmlfile==2.0.0
+defusedxml==0.7.1

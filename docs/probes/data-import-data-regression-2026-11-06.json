@@ -1,0 +1,9 @@
+{
+  "date": "2026-11-06",
+  "command": ".local/wren-venv/bin/python -m unittest discover -s tests -p 'test_*.py' -v",
+  "tests": 58,
+  "seconds": 5.557,
+  "passed": true,
+  "includes_import_adapter_tests": 12,
+  "log_sha256": "970beb0cf788b1fec5870e3a55c4970774f85037e09821f73d83385cd98b4604"
+}

@@ -1,0 +1,10 @@
+{
+  "date": "2026-11-06",
+  "kind": "sales_change_engineering_scripted_model",
+  "tests": 21,
+  "failures": 0,
+  "errors": 0,
+  "seconds": 8.361,
+  "real_model_calls": 0,
+  "failure_details": []
+}

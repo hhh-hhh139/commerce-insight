@@ -1,0 +1,18 @@
+{
+  "kind": "sales_evaluator_engineering_only",
+  "date": "2026-11-06",
+  "tests": 11,
+  "failures": 1,
+  "errors": 0,
+  "seconds": 2.495,
+  "real_model_calls": 0,
+  "new_oracle_cases": 9,
+  "legacy_oracle_cases": 10,
+  "real_model_quality": "not_measured",
+  "failure_details": [
+    {
+      "test": "test_04_detect_product_others_percentage_currency_and_reconciliation_mutations (__main__.EvaluationTests.test_04_detect_product_others_percentage_currency_and_reconciliation_mutations) (mutation=6)",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/haohao4/Downloads/multi-agent.zip/commerce-insight/experiments/sales-evaluation/verify.py\", line 88, in test_04_detect_product_others_percentage_currency_and_reconciliation_mutations\n    self.assertTrue(audit_publication(self.case, report))\nAssertionError: [] is not true\n"
+    }
+  ]
+}

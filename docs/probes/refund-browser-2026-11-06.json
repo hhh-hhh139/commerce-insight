@@ -1,0 +1,31 @@
+{
+  "date": "2026-11-06",
+  "kind": "browser_observation",
+  "task_id": "94a971a5-2cb3-46b4-926c-4629b1919951",
+  "real_model_calls": 0,
+  "desktop_width": 1280,
+  "desktop_document_width": 1280,
+  "mobile_width": 390,
+  "mobile_document_width": 390,
+  "checks": [
+    "实际表单提交并发布成功",
+    "50→10 元与 -40 元",
+    "3→1 笔与 2→1 单",
+    "覆盖率 60%→100%",
+    "未归属 20→0 元单列",
+    "历史记录恢复条件",
+    "窄屏报告查看与无整页横向溢出",
+    "控制台无 error/warn",
+    "恢复默认视口"
+  ],
+  "screenshots": {
+    "desktop": {
+      "path": ".local/refund-change/browser/desktop.png",
+      "sha256": "e142b4d3f06ca374be3d3dd0e17f256424c3d0daacdb6439d71f2af667c88932"
+    },
+    "mobile": {
+      "path": ".local/refund-change/browser/mobile.png",
+      "sha256": "7202f59730a8722e0e158952987ab10f67afaa87ef2e587ddb95c4073388cc5c"
+    }
+  }
+}

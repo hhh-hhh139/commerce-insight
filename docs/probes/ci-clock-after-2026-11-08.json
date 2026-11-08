@@ -1,0 +1,11 @@
+{
+  "date": "2026-11-08",
+  "kind": "offline_test_future_date_regression",
+  "simulated_budget_date": "2026-11-09",
+  "tests": 3,
+  "passed": true,
+  "seconds": 9.449,
+  "real_model_calls": 0,
+  "production_pricing_policy_changed": false,
+  "errors": []
+}

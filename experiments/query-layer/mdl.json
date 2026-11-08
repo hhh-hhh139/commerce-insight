@@ -1,0 +1,49 @@
+{
+  "catalog": "wren", "schema": "public",
+  "models": [
+    {
+      "name": "Orders", "tableReference": {"catalog":"fixture","schema":"main","table":"ledger_orders"},
+      "primaryKey": "order_id",
+      "columns": [
+        {"name":"order_id","type":"VARCHAR","notNull":true},
+        {"name":"status","type":"VARCHAR"},
+        {"name":"paid_minor","type":"BIGINT"},
+        {"name":"paid_at","type":"TIMESTAMPTZ"},
+        {"name":"currency","type":"VARCHAR"},
+        {"name":"items","type":"Items","relationship":"OrderItems"},
+        {"name":"refunds","type":"Refunds","relationship":"OrderRefunds"},
+        {"name":"item_total_minor","type":"BIGINT","isCalculated":true,"expression":"SUM(items.line_minor)"},
+        {"name":"successful_refunds_all_snapshot_minor","type":"BIGINT","isCalculated":true,"expression":"SUM(refunds.successful_amount_minor)"}
+      ]
+    },
+    {
+      "name": "Items", "tableReference": {"catalog":"fixture","schema":"main","table":"ledger_items"},
+      "primaryKey": "item_id",
+      "columns": [
+        {"name":"item_id","type":"VARCHAR","notNull":true},
+        {"name":"order_id","type":"VARCHAR"},
+        {"name":"product_id","type":"VARCHAR"},
+        {"name":"line_minor","type":"BIGINT"}
+      ]
+    },
+    {
+      "name": "Refunds", "tableReference": {"catalog":"fixture","schema":"main","table":"ledger_refunds"},
+      "primaryKey": "refund_id",
+      "columns": [
+        {"name":"refund_id","type":"VARCHAR","notNull":true},
+        {"name":"order_id","type":"VARCHAR"},
+        {"name":"item_id","type":"VARCHAR"},
+        {"name":"status","type":"VARCHAR"},
+        {"name":"amount_minor","type":"BIGINT"},
+        {"name":"refunded_at","type":"TIMESTAMPTZ"},
+        {"name":"currency","type":"VARCHAR"},
+        {"name":"successful_amount_minor","type":"BIGINT","isCalculated":true,"expression":"CASE WHEN status = 'succeeded' THEN amount_minor ELSE 0 END"}
+      ]
+    }
+  ],
+  "relationships": [
+    {"name":"OrderItems","models":["Orders","Items"],"joinType":"ONE_TO_MANY","condition":"Orders.order_id = Items.order_id"},
+    {"name":"OrderRefunds","models":["Orders","Refunds"],"joinType":"ONE_TO_MANY","condition":"Orders.order_id = Refunds.order_id"}
+  ],
+  "views": []
+}

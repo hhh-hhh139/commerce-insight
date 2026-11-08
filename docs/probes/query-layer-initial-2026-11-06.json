@@ -1,0 +1,748 @@
+{
+  "boundary_checks": [
+    {
+      "backend": "controlled_database",
+      "case": "database_write",
+      "error_type": "InvalidInputException",
+      "rejected": true
+    },
+    {
+      "backend": "controlled_database",
+      "case": "external_file",
+      "error_type": "PermissionException",
+      "rejected": true
+    },
+    {
+      "backend": "wren_strict_sdk",
+      "case": "write",
+      "error": "[BLOCKED_STATEMENT] 'DELETE' is not a read-only query. Only read-only SELECT statements are accepted. phase=SQL_POLICY_CHECK",
+      "error_type": "WrenError",
+      "rejected": true
+    },
+    {
+      "backend": "wren_strict_sdk",
+      "case": "unmodeled_table",
+      "error": "[MODEL_NOT_FOUND] Table 'snapshot_identity' is not defined in the MDL manifest. In strict mode, all table references must correspond to MDL models. phase=SQL_POLICY_CHECK",
+      "error_type": "WrenError",
+      "rejected": true
+    },
+    {
+      "backend": "wren_strict_sdk",
+      "case": "external_file",
+      "error": "[MODEL_NOT_FOUND] Data-reading function 'readcsv' is not allowed. In strict mode, reading data outside the MDL manifest (files, URLs, or external databases) is forbidden in all query positions. phase=SQL_POLICY_CHECK",
+      "error_type": "WrenError",
+      "rejected": true
+    },
+    {
+      "backend": "wren_strict_sdk",
+      "case": "multi_statement",
+      "error": "[BLOCKED_STATEMENT] 'BLOCK' is not a read-only query. Only read-only SELECT statements are accepted. phase=SQL_POLICY_CHECK",
+      "error_type": "WrenError",
+      "rejected": true
+    },
+    {
+      "backend": "wren_strict_sdk",
+      "case": "source_generator",
+      "error": "[MODEL_NOT_FOUND] Table-valued function 'GENERATE_SERIES(0, 5)' is not allowed. In strict mode, all table references must correspond to MDL models. phase=SQL_POLICY_CHECK",
+      "error_type": "WrenError",
+      "rejected": true
+    }
+  ],
+  "cases": [
+    {
+      "controlled": {
+        "amount_scale": 2,
+        "currency": "CNY",
+        "evidence": {
+          "canonical_sha256": "038a74a1981ea028a9847fdb63f5b5743f9f757c0ca48da36de740992bcd6353",
+          "implementation_sha256": {
+            "ledger.py": "c3d9fcd926db57374edfc6be9dd8b972d5cfe78dc6fc484afca5ce1267b50ca2",
+            "ledger_db.py": "c11a785aa7ae785b8a5d0dbc1a358b11f800f0b344556d02d882e2d10a7d98cc"
+          },
+          "source_sha256": "27048415cf67ccf74b818b62d046eb1d80eff6006e3966c8d7491bac25429cd4"
+        },
+        "metric": "paid_amount",
+        "metric_version": "ledger-metrics-v1",
+        "params": [
+          "2026-10-05T00:00:00.000000+00:00",
+          "2026-10-12T00:00:00.000000+00:00"
+        ],
+        "period": {
+          "as_of_exclusive": null,
+          "end": "2026-10-12T00:00:00.000000+00:00",
+          "start": "2026-10-05T00:00:00.000000+00:00"
+        },
+        "result_unit": "minor_units",
+        "snapshot_id": "synthetic-ledger-2026-11-05-v1",
+        "sql": "SELECT COALESCE(SUM(o.paid_minor), 0) FROM ledger_orders o WHERE o.status = 'paid' AND o.paid_at >= ? AND o.paid_at < ?",
+        "value": 28000,
+        "workspace_id": "demo-shop"
+      },
+      "controlled_correct": true,
+      "controlled_ms": 1.090959005523473,
+      "expected": 28000,
+      "id": "week1_payments",
+      "wren_correct": false,
+      "wren_error": "[INVALID_SQL] Failed to analyze MDL: Error during planning: cyclic dependency detected: wren.public.Orders.successful_refunds_all_snapshot_minor phase=SQL_PLANNING",
+      "wren_plan_plus_query_ms": 390.3683749958873,
+      "wren_sql": "SELECT COALESCE(SUM(o.paid_minor), 0) FROM \"Orders\" o WHERE o.status = 'paid' AND o.paid_at >= '2026-10-05T00:00:00.000000+00:00' AND o.paid_at < '2026-10-12T00:00:00.000000+00:00'"
+    },
+    {
+      "controlled": {
+        "amount_scale": 2,
+        "currency": "CNY",
+        "evidence": {
+          "canonical_sha256": "038a74a1981ea028a9847fdb63f5b5743f9f757c0ca48da36de740992bcd6353",
+          "implementation_sha256": {
+            "ledger.py": "c3d9fcd926db57374edfc6be9dd8b972d5cfe78dc6fc484afca5ce1267b50ca2",
+            "ledger_db.py": "c11a785aa7ae785b8a5d0dbc1a358b11f800f0b344556d02d882e2d10a7d98cc"
+          },
+          "source_sha256": "27048415cf67ccf74b818b62d046eb1d80eff6006e3966c8d7491bac25429cd4"
+        },
+        "metric": "paid_amount",
+        "metric_version": "ledger-metrics-v1",
+        "params": [
+          "2026-10-12T00:00:00.000000+00:00",
+          "2026-10-19T00:00:00.000000+00:00"
+        ],
+        "period": {
+          "as_of_exclusive": null,
+          "end": "2026-10-19T00:00:00.000000+00:00",
+          "start": "2026-10-12T00:00:00.000000+00:00"
+        },
+        "result_unit": "minor_units",
+        "snapshot_id": "synthetic-ledger-2026-11-05-v1",
+        "sql": "SELECT COALESCE(SUM(o.paid_minor), 0) FROM ledger_orders o WHERE o.status = 'paid' AND o.paid_at >= ? AND o.paid_at < ?",
+        "value": 15000,
+        "workspace_id": "demo-shop"
+      },
+      "controlled_correct": true,
+      "controlled_ms": 0.3076670109294355,
+      "expected": 15000,
+      "id": "week2_payments",
+      "wren_correct": false,
+      "wren_error": "[INVALID_SQL] Failed to analyze MDL: Error during planning: cyclic dependency detected: wren.public.Orders.successful_refunds_all_snapshot_minor phase=SQL_PLANNING",
+      "wren_plan_plus_query_ms": 3.8304170011542737,
+      "wren_sql": "SELECT COALESCE(SUM(o.paid_minor), 0) FROM \"Orders\" o WHERE o.status = 'paid' AND o.paid_at >= '2026-10-12T00:00:00.000000+00:00' AND o.paid_at < '2026-10-19T00:00:00.000000+00:00'"
+    },
+    {
+      "controlled": {
+        "amount_scale": 2,
+        "currency": "CNY",
+        "evidence": {
+          "canonical_sha256": "038a74a1981ea028a9847fdb63f5b5743f9f757c0ca48da36de740992bcd6353",
+          "implementation_sha256": {
+            "ledger.py": "c3d9fcd926db57374edfc6be9dd8b972d5cfe78dc6fc484afca5ce1267b50ca2",
+            "ledger_db.py": "c11a785aa7ae785b8a5d0dbc1a358b11f800f0b344556d02d882e2d10a7d98cc"
+          },
+          "source_sha256": "27048415cf67ccf74b818b62d046eb1d80eff6006e3966c8d7491bac25429cd4"
+        },
+        "metric": "refund_amount",
+        "metric_version": "ledger-metrics-v1",
+        "params": [
+          "2026-10-05T00:00:00.000000+00:00",
+          "2026-10-12T00:00:00.000000+00:00"
+        ],
+        "period": {
+          "as_of_exclusive": null,
+          "end": "2026-10-12T00:00:00.000000+00:00",
+          "start": "2026-10-05T00:00:00.000000+00:00"
+        },
+        "result_unit": "minor_units",
+        "snapshot_id": "synthetic-ledger-2026-11-05-v1",
+        "sql": "SELECT COALESCE(SUM(r.amount_minor), 0) FROM ledger_refunds r WHERE r.status = 'succeeded' AND r.refunded_at >= ? AND r.refunded_at < ?",
+        "value": 0,
+        "workspace_id": "demo-shop"
+      },
+      "controlled_correct": true,
+      "controlled_ms": 0.23329202667810023,
+      "expected": 0,
+      "id": "week1_refunds",
+      "wren_correct": true,
+      "wren_plan": "WITH \"Refunds\" AS (SELECT \"wren_src_Refunds\".amount_minor AS amount_minor, \"wren_src_Refunds\".\"status\" AS status, \"wren_src_Refunds\".refunded_at AS refunded_at FROM (SELECT \"Refunds\".amount_minor, \"Refunds\".refunded_at, \"Refunds\".\"status\" FROM (SELECT __source.amount_minor AS amount_minor, __source.refunded_at AS refunded_at, __source.\"status\" AS \"status\" FROM fixture.\"main\".ledger_refunds AS __source) AS \"Refunds\") AS \"wren_src_Refunds\") SELECT COALESCE(SUM(r.amount_minor), 0) FROM \"Refunds\" AS r WHERE r.status = 'succeeded' AND r.refunded_at >= '2026-10-05T00:00:00.000000+00:00' AND r.refunded_at < '2026-10-12T00:00:00.000000+00:00'",
+      "wren_plan_plus_query_ms": 1154.0477499947883,
+      "wren_sql": "SELECT COALESCE(SUM(r.amount_minor), 0) FROM \"Refunds\" r WHERE r.status = 'succeeded' AND r.refunded_at >= '2026-10-05T00:00:00.000000+00:00' AND r.refunded_at < '2026-10-12T00:00:00.000000+00:00'",
+      "wren_value": 0
+    },
+    {
+      "controlled": {
+        "amount_scale": 2,
+        "currency": "CNY",
+        "evidence": {
+          "canonical_sha256": "038a74a1981ea028a9847fdb63f5b5743f9f757c0ca48da36de740992bcd6353",
+          "implementation_sha256": {
+            "ledger.py": "c3d9fcd926db57374edfc6be9dd8b972d5cfe78dc6fc484afca5ce1267b50ca2",
+            "ledger_db.py": "c11a785aa7ae785b8a5d0dbc1a358b11f800f0b344556d02d882e2d10a7d98cc"
+          },
+          "source_sha256": "27048415cf67ccf74b818b62d046eb1d80eff6006e3966c8d7491bac25429cd4"
+        },
+        "metric": "refund_amount",
+        "metric_version": "ledger-metrics-v1",
+        "params": [
+          "2026-10-12T00:00:00.000000+00:00",
+          "2026-10-19T00:00:00.000000+00:00"
+        ],
+        "period": {
+          "as_of_exclusive": null,
+          "end": "2026-10-19T00:00:00.000000+00:00",
+          "start": "2026-10-12T00:00:00.000000+00:00"
+        },
+        "result_unit": "minor_units",
+        "snapshot_id": "synthetic-ledger-2026-11-05-v1",
+        "sql": "SELECT COALESCE(SUM(r.amount_minor), 0) FROM ledger_refunds r WHERE r.status = 'succeeded' AND r.refunded_at >= ? AND r.refunded_at < ?",
+        "value": 5000,
+        "workspace_id": "demo-shop"
+      },
+      "controlled_correct": true,
+      "controlled_ms": 0.2908750029746443,
+      "expected": 5000,
+      "id": "week2_successful_refunds",
+      "wren_correct": true,
+      "wren_plan": "WITH \"Refunds\" AS (SELECT \"wren_src_Refunds\".amount_minor AS amount_minor, \"wren_src_Refunds\".\"status\" AS status, \"wren_src_Refunds\".refunded_at AS refunded_at FROM (SELECT \"Refunds\".amount_minor, \"Refunds\".refunded_at, \"Refunds\".\"status\" FROM (SELECT __source.amount_minor AS amount_minor, __source.refunded_at AS refunded_at, __source.\"status\" AS \"status\" FROM fixture.\"main\".ledger_refunds AS __source) AS \"Refunds\") AS \"wren_src_Refunds\") SELECT COALESCE(SUM(r.amount_minor), 0) FROM \"Refunds\" AS r WHERE r.status = 'succeeded' AND r.refunded_at >= '2026-10-12T00:00:00.000000+00:00' AND r.refunded_at < '2026-10-19T00:00:00.000000+00:00'",
+      "wren_plan_plus_query_ms": 11.788750009145588,
+      "wren_sql": "SELECT COALESCE(SUM(r.amount_minor), 0) FROM \"Refunds\" r WHERE r.status = 'succeeded' AND r.refunded_at >= '2026-10-12T00:00:00.000000+00:00' AND r.refunded_at < '2026-10-19T00:00:00.000000+00:00'",
+      "wren_value": 5000
+    },
+    {
+      "controlled": {
+        "amount_scale": 2,
+        "currency": "CNY",
+        "evidence": {
+          "canonical_sha256": "038a74a1981ea028a9847fdb63f5b5743f9f757c0ca48da36de740992bcd6353",
+          "implementation_sha256": {
+            "ledger.py": "c3d9fcd926db57374edfc6be9dd8b972d5cfe78dc6fc484afca5ce1267b50ca2",
+            "ledger_db.py": "c11a785aa7ae785b8a5d0dbc1a358b11f800f0b344556d02d882e2d10a7d98cc"
+          },
+          "source_sha256": "27048415cf67ccf74b818b62d046eb1d80eff6006e3966c8d7491bac25429cd4"
+        },
+        "metric": "event_net",
+        "metric_version": "ledger-metrics-v1",
+        "params": [
+          "2026-10-05T00:00:00.000000+00:00",
+          "2026-10-12T00:00:00.000000+00:00",
+          "2026-10-05T00:00:00.000000+00:00",
+          "2026-10-12T00:00:00.000000+00:00"
+        ],
+        "period": {
+          "as_of_exclusive": null,
+          "end": "2026-10-12T00:00:00.000000+00:00",
+          "start": "2026-10-05T00:00:00.000000+00:00"
+        },
+        "result_unit": "minor_units",
+        "snapshot_id": "synthetic-ledger-2026-11-05-v1",
+        "sql": "SELECT (SELECT COALESCE(SUM(o.paid_minor), 0) FROM ledger_orders o WHERE o.status = 'paid' AND o.paid_at >= ? AND o.paid_at < ?) - (SELECT COALESCE(SUM(r.amount_minor), 0) FROM ledger_refunds r WHERE r.status = 'succeeded' AND r.refunded_at >= ? AND r.refunded_at < ?)",
+        "value": 28000,
+        "workspace_id": "demo-shop"
+      },
+      "controlled_correct": true,
+      "controlled_ms": 0.5057079833932221,
+      "expected": 28000,
+      "id": "week1_event_net",
+      "wren_correct": false,
+      "wren_error": "[INVALID_SQL] Failed to analyze MDL: Error during planning: cyclic dependency detected: wren.public.Orders.successful_refunds_all_snapshot_minor phase=SQL_PLANNING",
+      "wren_plan_plus_query_ms": 5.944583012023941,
+      "wren_sql": "SELECT (SELECT COALESCE(SUM(o.paid_minor), 0) FROM \"Orders\" o WHERE o.status = 'paid' AND o.paid_at >= '2026-10-05T00:00:00.000000+00:00' AND o.paid_at < '2026-10-12T00:00:00.000000+00:00') - (SELECT COALESCE(SUM(r.amount_minor), 0) FROM \"Refunds\" r WHERE r.status = 'succeeded' AND r.refunded_at >= '2026-10-05T00:00:00.000000+00:00' AND r.refunded_at < '2026-10-12T00:00:00.000000+00:00')"
+    },
+    {
+      "controlled": {
+        "amount_scale": 2,
+        "currency": "CNY",
+        "evidence": {
+          "canonical_sha256": "038a74a1981ea028a9847fdb63f5b5743f9f757c0ca48da36de740992bcd6353",
+          "implementation_sha256": {
+            "ledger.py": "c3d9fcd926db57374edfc6be9dd8b972d5cfe78dc6fc484afca5ce1267b50ca2",
+            "ledger_db.py": "c11a785aa7ae785b8a5d0dbc1a358b11f800f0b344556d02d882e2d10a7d98cc"
+          },
+          "source_sha256": "27048415cf67ccf74b818b62d046eb1d80eff6006e3966c8d7491bac25429cd4"
+        },
+        "metric": "event_net",
+        "metric_version": "ledger-metrics-v1",
+        "params": [
+          "2026-10-12T00:00:00.000000+00:00",
+          "2026-10-19T00:00:00.000000+00:00",
+          "2026-10-12T00:00:00.000000+00:00",
+          "2026-10-19T00:00:00.000000+00:00"
+        ],
+        "period": {
+          "as_of_exclusive": null,
+          "end": "2026-10-19T00:00:00.000000+00:00",
+          "start": "2026-10-12T00:00:00.000000+00:00"
+        },
+        "result_unit": "minor_units",
+        "snapshot_id": "synthetic-ledger-2026-11-05-v1",
+        "sql": "SELECT (SELECT COALESCE(SUM(o.paid_minor), 0) FROM ledger_orders o WHERE o.status = 'paid' AND o.paid_at >= ? AND o.paid_at < ?) - (SELECT COALESCE(SUM(r.amount_minor), 0) FROM ledger_refunds r WHERE r.status = 'succeeded' AND r.refunded_at >= ? AND r.refunded_at < ?)",
+        "value": 10000,
+        "workspace_id": "demo-shop"
+      },
+      "controlled_correct": true,
+      "controlled_ms": 0.4334160184953362,
+      "expected": 10000,
+      "id": "week2_event_net",
+      "wren_correct": false,
+      "wren_error": "[INVALID_SQL] Failed to analyze MDL: Error during planning: cyclic dependency detected: wren.public.Orders.successful_refunds_all_snapshot_minor phase=SQL_PLANNING",
+      "wren_plan_plus_query_ms": 5.32200001180172,
+      "wren_sql": "SELECT (SELECT COALESCE(SUM(o.paid_minor), 0) FROM \"Orders\" o WHERE o.status = 'paid' AND o.paid_at >= '2026-10-12T00:00:00.000000+00:00' AND o.paid_at < '2026-10-19T00:00:00.000000+00:00') - (SELECT COALESCE(SUM(r.amount_minor), 0) FROM \"Refunds\" r WHERE r.status = 'succeeded' AND r.refunded_at >= '2026-10-12T00:00:00.000000+00:00' AND r.refunded_at < '2026-10-19T00:00:00.000000+00:00')"
+    },
+    {
+      "controlled": {
+        "amount_scale": 2,
+        "currency": "CNY",
+        "evidence": {
+          "canonical_sha256": "038a74a1981ea028a9847fdb63f5b5743f9f757c0ca48da36de740992bcd6353",
+          "implementation_sha256": {
+            "ledger.py": "c3d9fcd926db57374edfc6be9dd8b972d5cfe78dc6fc484afca5ce1267b50ca2",
+            "ledger_db.py": "c11a785aa7ae785b8a5d0dbc1a358b11f800f0b344556d02d882e2d10a7d98cc"
+          },
+          "source_sha256": "27048415cf67ccf74b818b62d046eb1d80eff6006e3966c8d7491bac25429cd4"
+        },
+        "metric": "cohort_net",
+        "metric_version": "ledger-metrics-v1",
+        "params": [
+          "2026-10-19T00:00:00.000000+00:00",
+          "2026-10-05T00:00:00.000000+00:00",
+          "2026-10-12T00:00:00.000000+00:00"
+        ],
+        "period": {
+          "as_of_exclusive": "2026-10-19T00:00:00.000000+00:00",
+          "end": "2026-10-12T00:00:00.000000+00:00",
+          "start": "2026-10-05T00:00:00.000000+00:00"
+        },
+        "result_unit": "minor_units",
+        "snapshot_id": "synthetic-ledger-2026-11-05-v1",
+        "sql": "WITH refunds_by_order AS (SELECT order_id, SUM(amount_minor) AS refunded FROM ledger_refunds WHERE status = 'succeeded' AND refunded_at < ? GROUP BY order_id) SELECT COALESCE(SUM(o.paid_minor - COALESCE(r.refunded, 0)), 0) FROM ledger_orders o LEFT JOIN refunds_by_order r ON o.order_id = r.order_id WHERE o.status = 'paid' AND o.paid_at >= ? AND o.paid_at < ?",
+        "value": 23000,
+        "workspace_id": "demo-shop"
+      },
+      "controlled_correct": true,
+      "controlled_ms": 0.5635419802274555,
+      "expected": 23000,
+      "id": "week1_cohort_at_week2_end",
+      "wren_correct": false,
+      "wren_error": "[INVALID_SQL] Failed to analyze MDL: Error during planning: cyclic dependency detected: wren.public.Orders.successful_refunds_all_snapshot_minor phase=SQL_PLANNING",
+      "wren_plan_plus_query_ms": 4.991665977286175,
+      "wren_sql": "WITH refunds_by_order AS (SELECT order_id, SUM(amount_minor) AS refunded FROM \"Refunds\" WHERE status = 'succeeded' AND refunded_at < '2026-10-19T00:00:00.000000+00:00' GROUP BY order_id) SELECT COALESCE(SUM(o.paid_minor - COALESCE(r.refunded, 0)), 0) FROM \"Orders\" o LEFT JOIN refunds_by_order r ON o.order_id = r.order_id WHERE o.status = 'paid' AND o.paid_at >= '2026-10-05T00:00:00.000000+00:00' AND o.paid_at < '2026-10-12T00:00:00.000000+00:00'"
+    },
+    {
+      "controlled": {
+        "amount_scale": 2,
+        "currency": "CNY",
+        "evidence": {
+          "canonical_sha256": "038a74a1981ea028a9847fdb63f5b5743f9f757c0ca48da36de740992bcd6353",
+          "implementation_sha256": {
+            "ledger.py": "c3d9fcd926db57374edfc6be9dd8b972d5cfe78dc6fc484afca5ce1267b50ca2",
+            "ledger_db.py": "c11a785aa7ae785b8a5d0dbc1a358b11f800f0b344556d02d882e2d10a7d98cc"
+          },
+          "source_sha256": "27048415cf67ccf74b818b62d046eb1d80eff6006e3966c8d7491bac25429cd4"
+        },
+        "metric": "cohort_net",
+        "metric_version": "ledger-metrics-v1",
+        "params": [
+          "2026-10-26T00:00:00.000000+00:00",
+          "2026-10-05T00:00:00.000000+00:00",
+          "2026-10-12T00:00:00.000000+00:00"
+        ],
+        "period": {
+          "as_of_exclusive": "2026-10-26T00:00:00.000000+00:00",
+          "end": "2026-10-12T00:00:00.000000+00:00",
+          "start": "2026-10-05T00:00:00.000000+00:00"
+        },
+        "result_unit": "minor_units",
+        "snapshot_id": "synthetic-ledger-2026-11-05-v1",
+        "sql": "WITH refunds_by_order AS (SELECT order_id, SUM(amount_minor) AS refunded FROM ledger_refunds WHERE status = 'succeeded' AND refunded_at < ? GROUP BY order_id) SELECT COALESCE(SUM(o.paid_minor - COALESCE(r.refunded, 0)), 0) FROM ledger_orders o LEFT JOIN refunds_by_order r ON o.order_id = r.order_id WHERE o.status = 'paid' AND o.paid_at >= ? AND o.paid_at < ?",
+        "value": 22000,
+        "workspace_id": "demo-shop"
+      },
+      "controlled_correct": true,
+      "controlled_ms": 0.48600000445730984,
+      "expected": 22000,
+      "id": "week1_cohort_at_week3_end",
+      "wren_correct": false,
+      "wren_error": "[INVALID_SQL] Failed to analyze MDL: Error during planning: cyclic dependency detected: wren.public.Orders.successful_refunds_all_snapshot_minor phase=SQL_PLANNING",
+      "wren_plan_plus_query_ms": 4.633875010767952,
+      "wren_sql": "WITH refunds_by_order AS (SELECT order_id, SUM(amount_minor) AS refunded FROM \"Refunds\" WHERE status = 'succeeded' AND refunded_at < '2026-10-26T00:00:00.000000+00:00' GROUP BY order_id) SELECT COALESCE(SUM(o.paid_minor - COALESCE(r.refunded, 0)), 0) FROM \"Orders\" o LEFT JOIN refunds_by_order r ON o.order_id = r.order_id WHERE o.status = 'paid' AND o.paid_at >= '2026-10-05T00:00:00.000000+00:00' AND o.paid_at < '2026-10-12T00:00:00.000000+00:00'"
+    },
+    {
+      "controlled": {
+        "amount_scale": 2,
+        "currency": "CNY",
+        "evidence": {
+          "canonical_sha256": "038a74a1981ea028a9847fdb63f5b5743f9f757c0ca48da36de740992bcd6353",
+          "implementation_sha256": {
+            "ledger.py": "c3d9fcd926db57374edfc6be9dd8b972d5cfe78dc6fc484afca5ce1267b50ca2",
+            "ledger_db.py": "c11a785aa7ae785b8a5d0dbc1a358b11f800f0b344556d02d882e2d10a7d98cc"
+          },
+          "source_sha256": "27048415cf67ccf74b818b62d046eb1d80eff6006e3966c8d7491bac25429cd4"
+        },
+        "metric": "paid_order_count",
+        "metric_version": "ledger-metrics-v1",
+        "params": [
+          "2026-10-05T00:00:00.000000+00:00",
+          "2026-10-12T00:00:00.000000+00:00"
+        ],
+        "period": {
+          "as_of_exclusive": null,
+          "end": "2026-10-12T00:00:00.000000+00:00",
+          "start": "2026-10-05T00:00:00.000000+00:00"
+        },
+        "result_unit": "orders",
+        "snapshot_id": "synthetic-ledger-2026-11-05-v1",
+        "sql": "SELECT COUNT(*) FROM ledger_orders o WHERE o.status = 'paid' AND o.paid_at >= ? AND o.paid_at < ?",
+        "value": 3,
+        "workspace_id": "demo-shop"
+      },
+      "controlled_correct": true,
+      "controlled_ms": 0.24891598150134087,
+      "expected": 3,
+      "id": "distinct_paid_orders",
+      "wren_correct": false,
+      "wren_error": "[INVALID_SQL] Failed to analyze MDL: Error during planning: cyclic dependency detected: wren.public.Orders.successful_refunds_all_snapshot_minor phase=SQL_PLANNING",
+      "wren_plan_plus_query_ms": 4.286957992007956,
+      "wren_sql": "SELECT COUNT(*) FROM \"Orders\" o WHERE o.status = 'paid' AND o.paid_at >= '2026-10-05T00:00:00.000000+00:00' AND o.paid_at < '2026-10-12T00:00:00.000000+00:00'"
+    },
+    {
+      "controlled": {
+        "amount_scale": 2,
+        "currency": "CNY",
+        "evidence": {
+          "canonical_sha256": "038a74a1981ea028a9847fdb63f5b5743f9f757c0ca48da36de740992bcd6353",
+          "implementation_sha256": {
+            "ledger.py": "c3d9fcd926db57374edfc6be9dd8b972d5cfe78dc6fc484afca5ce1267b50ca2",
+            "ledger_db.py": "c11a785aa7ae785b8a5d0dbc1a358b11f800f0b344556d02d882e2d10a7d98cc"
+          },
+          "source_sha256": "27048415cf67ccf74b818b62d046eb1d80eff6006e3966c8d7491bac25429cd4"
+        },
+        "metric": "cohort_refunded_order_count",
+        "metric_version": "ledger-metrics-v1",
+        "params": [
+          "2026-10-05T00:00:00.000000+00:00",
+          "2026-10-12T00:00:00.000000+00:00",
+          "2026-10-19T00:00:00.000000+00:00"
+        ],
+        "period": {
+          "as_of_exclusive": "2026-10-19T00:00:00.000000+00:00",
+          "end": "2026-10-12T00:00:00.000000+00:00",
+          "start": "2026-10-05T00:00:00.000000+00:00"
+        },
+        "result_unit": "orders",
+        "snapshot_id": "synthetic-ledger-2026-11-05-v1",
+        "sql": "SELECT COUNT(*) FROM ledger_orders o WHERE o.status = 'paid' AND o.paid_at >= ? AND o.paid_at < ? AND EXISTS (SELECT 1 FROM ledger_refunds r WHERE r.order_id = o.order_id AND r.status = 'succeeded' AND r.refunded_at < ?)",
+        "value": 2,
+        "workspace_id": "demo-shop"
+      },
+      "controlled_correct": true,
+      "controlled_ms": 0.5641670140903443,
+      "expected": 2,
+      "id": "distinct_refunded_orders",
+      "wren_correct": false,
+      "wren_error": "[INVALID_SQL] Failed to analyze MDL: Error during planning: cyclic dependency detected: wren.public.Orders.successful_refunds_all_snapshot_minor phase=SQL_PLANNING",
+      "wren_plan_plus_query_ms": 3.9392080216202885,
+      "wren_sql": "SELECT COUNT(*) FROM \"Orders\" o WHERE o.status = 'paid' AND o.paid_at >= '2026-10-05T00:00:00.000000+00:00' AND o.paid_at < '2026-10-12T00:00:00.000000+00:00' AND EXISTS (SELECT 1 FROM \"Refunds\" r WHERE r.order_id = o.order_id AND r.status = 'succeeded' AND r.refunded_at < '2026-10-19T00:00:00.000000+00:00')"
+    },
+    {
+      "controlled": {
+        "amount_scale": 2,
+        "currency": "CNY",
+        "evidence": {
+          "canonical_sha256": "038a74a1981ea028a9847fdb63f5b5743f9f757c0ca48da36de740992bcd6353",
+          "implementation_sha256": {
+            "ledger.py": "c3d9fcd926db57374edfc6be9dd8b972d5cfe78dc6fc484afca5ce1267b50ca2",
+            "ledger_db.py": "c11a785aa7ae785b8a5d0dbc1a358b11f800f0b344556d02d882e2d10a7d98cc"
+          },
+          "source_sha256": "27048415cf67ccf74b818b62d046eb1d80eff6006e3966c8d7491bac25429cd4"
+        },
+        "metric": "paid_amount_for_product_orders",
+        "metric_version": "ledger-metrics-v1",
+        "params": [
+          "2026-10-05T00:00:00.000000+00:00",
+          "2026-10-12T00:00:00.000000+00:00",
+          "P1"
+        ],
+        "period": {
+          "as_of_exclusive": null,
+          "end": "2026-10-12T00:00:00.000000+00:00",
+          "start": "2026-10-05T00:00:00.000000+00:00"
+        },
+        "result_unit": "minor_units",
+        "snapshot_id": "synthetic-ledger-2026-11-05-v1",
+        "sql": "SELECT COALESCE(SUM(o.paid_minor), 0) FROM ledger_orders o WHERE o.status = 'paid' AND o.paid_at >= ? AND o.paid_at < ? AND EXISTS (SELECT 1 FROM ledger_items i WHERE i.order_id = o.order_id AND i.product_id = ?)",
+        "value": 18000,
+        "workspace_id": "demo-shop"
+      },
+      "controlled_correct": true,
+      "controlled_ms": 0.548334006452933,
+      "expected": 18000,
+      "id": "orders_containing_product",
+      "wren_correct": false,
+      "wren_error": "[INVALID_SQL] Failed to analyze MDL: Error during planning: cyclic dependency detected: wren.public.Orders.successful_refunds_all_snapshot_minor phase=SQL_PLANNING",
+      "wren_plan_plus_query_ms": 3.8096249918453395,
+      "wren_sql": "SELECT COALESCE(SUM(o.paid_minor), 0) FROM \"Orders\" o WHERE o.status = 'paid' AND o.paid_at >= '2026-10-05T00:00:00.000000+00:00' AND o.paid_at < '2026-10-12T00:00:00.000000+00:00' AND EXISTS (SELECT 1 FROM \"Items\" i WHERE i.order_id = o.order_id AND i.product_id = 'P1')"
+    },
+    {
+      "controlled": {
+        "amount_scale": 2,
+        "currency": "CNY",
+        "evidence": {
+          "canonical_sha256": "038a74a1981ea028a9847fdb63f5b5743f9f757c0ca48da36de740992bcd6353",
+          "implementation_sha256": {
+            "ledger.py": "c3d9fcd926db57374edfc6be9dd8b972d5cfe78dc6fc484afca5ce1267b50ca2",
+            "ledger_db.py": "c11a785aa7ae785b8a5d0dbc1a358b11f800f0b344556d02d882e2d10a7d98cc"
+          },
+          "source_sha256": "27048415cf67ccf74b818b62d046eb1d80eff6006e3966c8d7491bac25429cd4"
+        },
+        "metric": "paid_amount_for_product_orders",
+        "metric_version": "ledger-metrics-v1",
+        "params": [
+          "2026-10-05T00:00:00.000000+00:00",
+          "2026-10-12T00:00:00.000000+00:00",
+          "P1' OR 1=1 --"
+        ],
+        "period": {
+          "as_of_exclusive": null,
+          "end": "2026-10-12T00:00:00.000000+00:00",
+          "start": "2026-10-05T00:00:00.000000+00:00"
+        },
+        "result_unit": "minor_units",
+        "snapshot_id": "synthetic-ledger-2026-11-05-v1",
+        "sql": "SELECT COALESCE(SUM(o.paid_minor), 0) FROM ledger_orders o WHERE o.status = 'paid' AND o.paid_at >= ? AND o.paid_at < ? AND EXISTS (SELECT 1 FROM ledger_items i WHERE i.order_id = o.order_id AND i.product_id = ?)",
+        "value": 0,
+        "workspace_id": "demo-shop"
+      },
+      "controlled_correct": true,
+      "controlled_ms": 0.43966597877442837,
+      "expected": 0,
+      "id": "quoted_product_is_data",
+      "wren_correct": false,
+      "wren_error": "[INVALID_SQL] Failed to analyze MDL: Error during planning: cyclic dependency detected: wren.public.Orders.successful_refunds_all_snapshot_minor phase=SQL_PLANNING",
+      "wren_plan_plus_query_ms": 3.7318750109989196,
+      "wren_sql": "SELECT COALESCE(SUM(o.paid_minor), 0) FROM \"Orders\" o WHERE o.status = 'paid' AND o.paid_at >= '2026-10-05T00:00:00.000000+00:00' AND o.paid_at < '2026-10-12T00:00:00.000000+00:00' AND EXISTS (SELECT 1 FROM \"Items\" i WHERE i.order_id = o.order_id AND i.product_id = 'P1'' OR 1=1 --')"
+    },
+    {
+      "controlled": {
+        "amount_scale": 2,
+        "currency": "CNY",
+        "evidence": {
+          "canonical_sha256": "038a74a1981ea028a9847fdb63f5b5743f9f757c0ca48da36de740992bcd6353",
+          "implementation_sha256": {
+            "ledger.py": "c3d9fcd926db57374edfc6be9dd8b972d5cfe78dc6fc484afca5ce1267b50ca2",
+            "ledger_db.py": "c11a785aa7ae785b8a5d0dbc1a358b11f800f0b344556d02d882e2d10a7d98cc"
+          },
+          "source_sha256": "27048415cf67ccf74b818b62d046eb1d80eff6006e3966c8d7491bac25429cd4"
+        },
+        "metric": "paid_amount",
+        "metric_version": "ledger-metrics-v1",
+        "params": [
+          "2026-10-01T00:00:00.000000+00:00",
+          "2026-10-05T00:00:00.000000+00:00"
+        ],
+        "period": {
+          "as_of_exclusive": null,
+          "end": "2026-10-05T00:00:00.000000+00:00",
+          "start": "2026-10-01T00:00:00.000000+00:00"
+        },
+        "result_unit": "minor_units",
+        "snapshot_id": "synthetic-ledger-2026-11-05-v1",
+        "sql": "SELECT COALESCE(SUM(o.paid_minor), 0) FROM ledger_orders o WHERE o.status = 'paid' AND o.paid_at >= ? AND o.paid_at < ?",
+        "value": 0,
+        "workspace_id": "demo-shop"
+      },
+      "controlled_correct": true,
+      "controlled_ms": 0.2080000122077763,
+      "expected": 0,
+      "id": "empty_period",
+      "wren_correct": false,
+      "wren_error": "[INVALID_SQL] Failed to analyze MDL: Error during planning: cyclic dependency detected: wren.public.Orders.successful_refunds_all_snapshot_minor phase=SQL_PLANNING",
+      "wren_plan_plus_query_ms": 3.244000021368265,
+      "wren_sql": "SELECT COALESCE(SUM(o.paid_minor), 0) FROM \"Orders\" o WHERE o.status = 'paid' AND o.paid_at >= '2026-10-01T00:00:00.000000+00:00' AND o.paid_at < '2026-10-05T00:00:00.000000+00:00'"
+    },
+    {
+      "controlled": {
+        "amount_scale": 2,
+        "currency": "CNY",
+        "evidence": {
+          "canonical_sha256": "038a74a1981ea028a9847fdb63f5b5743f9f757c0ca48da36de740992bcd6353",
+          "implementation_sha256": {
+            "ledger.py": "c3d9fcd926db57374edfc6be9dd8b972d5cfe78dc6fc484afca5ce1267b50ca2",
+            "ledger_db.py": "c11a785aa7ae785b8a5d0dbc1a358b11f800f0b344556d02d882e2d10a7d98cc"
+          },
+          "source_sha256": "27048415cf67ccf74b818b62d046eb1d80eff6006e3966c8d7491bac25429cd4"
+        },
+        "metric": "cohort_net",
+        "metric_version": "ledger-metrics-v1",
+        "params": [
+          "2026-10-13T10:00:00.000000+00:00",
+          "2026-10-05T00:00:00.000000+00:00",
+          "2026-10-12T00:00:00.000000+00:00"
+        ],
+        "period": {
+          "as_of_exclusive": "2026-10-13T10:00:00.000000+00:00",
+          "end": "2026-10-12T00:00:00.000000+00:00",
+          "start": "2026-10-05T00:00:00.000000+00:00"
+        },
+        "result_unit": "minor_units",
+        "snapshot_id": "synthetic-ledger-2026-11-05-v1",
+        "sql": "WITH refunds_by_order AS (SELECT order_id, SUM(amount_minor) AS refunded FROM ledger_refunds WHERE status = 'succeeded' AND refunded_at < ? GROUP BY order_id) SELECT COALESCE(SUM(o.paid_minor - COALESCE(r.refunded, 0)), 0) FROM ledger_orders o LEFT JOIN refunds_by_order r ON o.order_id = r.order_id WHERE o.status = 'paid' AND o.paid_at >= ? AND o.paid_at < ?",
+        "value": 28000,
+        "workspace_id": "demo-shop"
+      },
+      "controlled_correct": true,
+      "controlled_ms": 0.4021669737994671,
+      "expected": 28000,
+      "id": "as_of_excludes_exact_boundary",
+      "wren_correct": false,
+      "wren_error": "[INVALID_SQL] Failed to analyze MDL: Error during planning: cyclic dependency detected: wren.public.Orders.successful_refunds_all_snapshot_minor phase=SQL_PLANNING",
+      "wren_plan_plus_query_ms": 3.711083991220221,
+      "wren_sql": "WITH refunds_by_order AS (SELECT order_id, SUM(amount_minor) AS refunded FROM \"Refunds\" WHERE status = 'succeeded' AND refunded_at < '2026-10-13T10:00:00.000000+00:00' GROUP BY order_id) SELECT COALESCE(SUM(o.paid_minor - COALESCE(r.refunded, 0)), 0) FROM \"Orders\" o LEFT JOIN refunds_by_order r ON o.order_id = r.order_id WHERE o.status = 'paid' AND o.paid_at >= '2026-10-05T00:00:00.000000+00:00' AND o.paid_at < '2026-10-12T00:00:00.000000+00:00'"
+    },
+    {
+      "controlled": {
+        "amount_scale": 2,
+        "currency": "CNY",
+        "evidence": {
+          "canonical_sha256": "038a74a1981ea028a9847fdb63f5b5743f9f757c0ca48da36de740992bcd6353",
+          "implementation_sha256": {
+            "ledger.py": "c3d9fcd926db57374edfc6be9dd8b972d5cfe78dc6fc484afca5ce1267b50ca2",
+            "ledger_db.py": "c11a785aa7ae785b8a5d0dbc1a358b11f800f0b344556d02d882e2d10a7d98cc"
+          },
+          "source_sha256": "27048415cf67ccf74b818b62d046eb1d80eff6006e3966c8d7491bac25429cd4"
+        },
+        "metric": "product_refund_amount",
+        "metric_version": "ledger-metrics-v1",
+        "params": [
+          "2026-10-13T10:00:00.000000+00:00",
+          "2026-10-15T00:00:00.000000+00:00",
+          "P1"
+        ],
+        "period": {
+          "as_of_exclusive": null,
+          "end": "2026-10-15T00:00:00.000000+00:00",
+          "start": "2026-10-13T10:00:00.000000+00:00"
+        },
+        "result_unit": "minor_units",
+        "snapshot_id": "synthetic-ledger-2026-11-05-v1",
+        "sql": "SELECT COALESCE(SUM(r.amount_minor), 0) FROM ledger_refunds r JOIN ledger_items i ON r.item_id = i.item_id WHERE r.status = 'succeeded' AND r.refunded_at >= ? AND r.refunded_at < ? AND i.product_id = ?",
+        "value": 2000,
+        "workspace_id": "demo-shop"
+      },
+      "controlled_correct": true,
+      "controlled_ms": 0.35279200528748333,
+      "expected": 2000,
+      "id": "complete_product_refund_period",
+      "wren_correct": true,
+      "wren_plan": "WITH \"Refunds\" AS (SELECT \"wren_src_Refunds\".amount_minor AS amount_minor, \"wren_src_Refunds\".item_id AS item_id, \"wren_src_Refunds\".\"status\" AS status, \"wren_src_Refunds\".refunded_at AS refunded_at FROM (SELECT \"Refunds\".amount_minor, \"Refunds\".item_id, \"Refunds\".refunded_at, \"Refunds\".\"status\" FROM (SELECT __source.amount_minor AS amount_minor, __source.item_id AS item_id, __source.refunded_at AS refunded_at, __source.\"status\" AS \"status\" FROM fixture.\"main\".ledger_refunds AS __source) AS \"Refunds\") AS \"wren_src_Refunds\"), \"Items\" AS (SELECT \"wren_src_Items\".item_id AS item_id, \"wren_src_Items\".product_id AS product_id FROM (SELECT \"Items\".item_id, \"Items\".product_id FROM (SELECT __source.item_id AS item_id, __source.product_id AS product_id FROM fixture.\"main\".ledger_items AS __source) AS \"Items\") AS \"wren_src_Items\") SELECT COALESCE(SUM(r.amount_minor), 0) FROM \"Refunds\" AS r JOIN \"Items\" AS i ON r.item_id = i.item_id WHERE r.status = 'succeeded' AND r.refunded_at >= '2026-10-13T10:00:00.000000+00:00' AND r.refunded_at < '2026-10-15T00:00:00.000000+00:00' AND i.product_id = 'P1'",
+      "wren_plan_plus_query_ms": 15.334583004005253,
+      "wren_sql": "SELECT COALESCE(SUM(r.amount_minor), 0) FROM \"Refunds\" r JOIN \"Items\" i ON r.item_id = i.item_id WHERE r.status = 'succeeded' AND r.refunded_at >= '2026-10-13T10:00:00.000000+00:00' AND r.refunded_at < '2026-10-15T00:00:00.000000+00:00' AND i.product_id = 'P1'",
+      "wren_value": 2000
+    }
+  ],
+  "configuration": {
+    "memory_or_llm": false,
+    "wren_connection": "explicit dedicated fixture directory, no global profile",
+    "wren_strict_mode": true
+  },
+  "database_unchanged": true,
+  "environment": {
+    "packages": {
+      "PyJWT": "2.15.1",
+      "PyYAML": "6.0.3",
+      "Pygments": "2.21.0",
+      "annotated-doc": "0.0.5",
+      "annotated-types": "0.8.0",
+      "boto3": "1.43.125",
+      "botocore": "1.43.125",
+      "certifi": "2026.10.23",
+      "cffi": "2.1.1",
+      "charset-normalizer": "3.5.2",
+      "cryptography": "50.0.2",
+      "defusedxml": "0.7.1",
+      "duckdb": "1.5.0",
+      "et_xmlfile": "2.0.0",
+      "idna": "3.20",
+      "jmespath": "1.1.0",
+      "loguru": "0.7.3",
+      "lxml": "6.1.3",
+      "markdown-it-py": "4.2.0",
+      "mdurl": "0.1.2",
+      "numpy": "2.5.4",
+      "opendal": "0.47.12",
+      "openpyxl": "3.1.5",
+      "pandas": "3.1.1",
+      "pyOpenSSL": "26.4.0",
+      "pyarrow": "26.0.1",
+      "pyarrow-hotfix": "0.7",
+      "pyasn1": "0.6.5",
+      "pycparser": "3.12",
+      "pydantic": "2.14.3",
+      "pydantic_core": "2.50.4",
+      "python-dateutil": "2.9.0.post0",
+      "python-dotenv": "1.2.4",
+      "requests": "2.34.2",
+      "rich": "15.0.0",
+      "s3transfer": "0.19.3",
+      "shellingham": "1.5.4",
+      "six": "1.17.0",
+      "sqlglot": "30.29.0",
+      "typer": "0.27.3",
+      "typing-inspection": "0.4.5",
+      "typing_extensions": "4.16.0",
+      "urllib3": "2.8.0",
+      "wren-core-py": "0.8.2",
+      "wrenai": "0.17.1"
+    },
+    "python": "3.12.16"
+  },
+  "evidence": {
+    "canonical_sha256": "038a74a1981ea028a9847fdb63f5b5743f9f757c0ca48da36de740992bcd6353",
+    "cases_sha256": "99636dfa791d7055b66f81c05b866ed76ddd19bcca192485850022247c848d22",
+    "lock_sha256": "63fe3be9c0a418a8018343b901b6d1773e3d3e44bfa231413289e8c1fb033e0e",
+    "mdl_sha256": "ca5ba91fdcb60dee4def6cd0d0838a77f84b07941782e59a411603c2f1670927",
+    "script_sha256": "ddf5b15c64fa5c4ae81794dc816f62593e2ec47f3fbd758f57ec6d9a17f4cdd2",
+    "source_sha256": "27048415cf67ccf74b818b62d046eb1d80eff6006e3966c8d7491bac25429cd4"
+  },
+  "experiment": "controlled-vs-wren-v1",
+  "negative_aggregation_examples": [
+    {
+      "business_expected": 28000,
+      "case": "naive_join",
+      "error": "[INVALID_SQL] Failed to analyze MDL: Error during planning: cyclic dependency detected: wren.public.Orders.successful_refunds_all_snapshot_minor phase=SQL_PLANNING",
+      "sql": "SELECT SUM(o.paid_minor) AS value FROM \"Orders\" o JOIN \"Items\" i ON o.order_id = i.order_id WHERE o.paid_at >= '2026-10-05T00:00:00Z' AND o.paid_at < '2026-10-12T00:00:00Z'"
+    },
+    {
+      "business_expected": 28000,
+      "case": "distinct_amount",
+      "error": "[INVALID_SQL] Failed to analyze MDL: Error during planning: cyclic dependency detected: wren.public.Orders.successful_refunds_all_snapshot_minor phase=SQL_PLANNING",
+      "sql": "SELECT SUM(DISTINCT o.paid_minor) AS value FROM \"Orders\" o JOIN \"Items\" i ON o.order_id = i.order_id WHERE o.paid_at >= '2026-10-05T00:00:00Z' AND o.paid_at < '2026-10-12T00:00:00Z'"
+    }
+  ],
+  "relationship_examples": [
+    {
+      "case": "relationship_item_sum",
+      "correct": false,
+      "error": "[INVALID_SQL] Failed to analyze MDL: Error during planning: cyclic dependency detected: wren.public.Orders.successful_refunds_all_snapshot_minor phase=SQL_PLANNING",
+      "expected": [
+        {
+          "item_total_minor": 10000,
+          "order_id": "A"
+        }
+      ],
+      "sql": "SELECT order_id, item_total_minor FROM \"Orders\" WHERE order_id = 'A'"
+    },
+    {
+      "case": "relationship_successful_refunds",
+      "correct": false,
+      "error": "[INVALID_SQL] Failed to analyze MDL: Error during planning: cyclic dependency detected: wren.public.Orders.successful_refunds_all_snapshot_minor phase=SQL_PLANNING",
+      "expected": [
+        {
+          "order_id": "A",
+          "successful_refunds_all_snapshot_minor": 3000
+        }
+      ],
+      "sql": "SELECT order_id, successful_refunds_all_snapshot_minor FROM \"Orders\" WHERE order_id = 'A'"
+    }
+  ],
+  "summary": {
+    "all_boundary_checks_rejected": true,
+    "case_count": 15,
+    "controlled_correct": 15,
+    "wren_correct": 3
+  }
+}

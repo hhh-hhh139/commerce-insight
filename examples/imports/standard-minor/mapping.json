@@ -1,0 +1,49 @@
+{
+  "schema_version": "ledger-csv-map-v1",
+  "currency": "CNY",
+  "time_basis": "explicit_offset",
+  "exported_at": "2026-10-26T00:00:00Z",
+  "tables": {
+    "orders": {
+      "columns": {
+        "order_id": "order_id",
+        "status": "status",
+        "paid_minor": "paid_minor",
+        "paid_at": "paid_at",
+        "currency": "currency"
+      },
+      "amount_unit": "minor",
+      "statuses": {
+        "paid": "paid",
+        "pending": "pending",
+        "cancelled": "cancelled"
+      }
+    },
+    "items": {
+      "columns": {
+        "item_id": "item_id",
+        "order_id": "order_id",
+        "product_id": "product_id",
+        "line_minor": "line_minor"
+      },
+      "amount_unit": "minor"
+    },
+    "refunds": {
+      "columns": {
+        "refund_id": "refund_id",
+        "order_id": "order_id",
+        "item_id": "item_id",
+        "status": "status",
+        "amount_minor": "amount_minor",
+        "refunded_at": "refunded_at",
+        "currency": "currency"
+      },
+      "amount_unit": "minor",
+      "statuses": {
+        "succeeded": "succeeded",
+        "pending": "pending",
+        "failed": "failed"
+      }
+    }
+  }
+}

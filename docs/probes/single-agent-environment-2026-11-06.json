@@ -1,0 +1,232 @@
+{
+  "date": "2026-11-06",
+  "platform": "Darwin arm64",
+  "python": "3.12.16",
+  "java": "Temurin 21.0.13+9",
+  "spring_boot": "4.1.2",
+  "packages": [
+    {
+      "name": "aiosqlite",
+      "version": "0.22.1"
+    },
+    {
+      "name": "annotated-types",
+      "version": "0.8.0"
+    },
+    {
+      "name": "anyio",
+      "version": "4.16.0"
+    },
+    {
+      "name": "certifi",
+      "version": "2026.10.23"
+    },
+    {
+      "name": "charset-normalizer",
+      "version": "3.5.2"
+    },
+    {
+      "name": "distro",
+      "version": "1.9.0"
+    },
+    {
+      "name": "duckdb",
+      "version": "1.5.0"
+    },
+    {
+      "name": "h11",
+      "version": "0.16.0"
+    },
+    {
+      "name": "httpcore",
+      "version": "1.0.9"
+    },
+    {
+      "name": "httpcore2",
+      "version": "2.16.0"
+    },
+    {
+      "name": "httpx",
+      "version": "0.28.1"
+    },
+    {
+      "name": "httpx2",
+      "version": "2.16.0"
+    },
+    {
+      "name": "idna",
+      "version": "3.20"
+    },
+    {
+      "name": "jiter",
+      "version": "0.18.0"
+    },
+    {
+      "name": "jsonpatch",
+      "version": "1.43"
+    },
+    {
+      "name": "jsonpointer",
+      "version": "3.9"
+    },
+    {
+      "name": "langchain",
+      "version": "1.4.9"
+    },
+    {
+      "name": "langchain-core",
+      "version": "1.7.6"
+    },
+    {
+      "name": "langchain-deepseek",
+      "version": "1.1.1"
+    },
+    {
+      "name": "langchain-openai",
+      "version": "1.7.4"
+    },
+    {
+      "name": "langchain-protocol",
+      "version": "0.0.21"
+    },
+    {
+      "name": "langgraph",
+      "version": "1.2.20"
+    },
+    {
+      "name": "langgraph-checkpoint",
+      "version": "4.3.1"
+    },
+    {
+      "name": "langgraph-checkpoint-sqlite",
+      "version": "3.1.3"
+    },
+    {
+      "name": "langgraph-prebuilt",
+      "version": "1.1.1"
+    },
+    {
+      "name": "langgraph-sdk",
+      "version": "0.4.14"
+    },
+    {
+      "name": "langsmith",
+      "version": "0.14.17"
+    },
+    {
+      "name": "openai",
+      "version": "3.46.0"
+    },
+    {
+      "name": "orjson",
+      "version": "3.13.0"
+    },
+    {
+      "name": "ormsgpack",
+      "version": "1.13.0"
+    },
+    {
+      "name": "packaging",
+      "version": "26.3"
+    },
+    {
+      "name": "pydantic",
+      "version": "2.14.3"
+    },
+    {
+      "name": "pydantic_core",
+      "version": "2.50.4"
+    },
+    {
+      "name": "PyYAML",
+      "version": "6.0.3"
+    },
+    {
+      "name": "regex",
+      "version": "2026.9.29"
+    },
+    {
+      "name": "requests",
+      "version": "2.34.2"
+    },
+    {
+      "name": "requests-toolbelt",
+      "version": "1.0.0"
+    },
+    {
+      "name": "sniffio",
+      "version": "1.3.1"
+    },
+    {
+      "name": "sqlite-vec",
+      "version": "0.1.9"
+    },
+    {
+      "name": "tenacity",
+      "version": "9.2.1"
+    },
+    {
+      "name": "tiktoken",
+      "version": "0.14.0"
+    },
+    {
+      "name": "truststore",
+      "version": "0.10.5"
+    },
+    {
+      "name": "typing-inspection",
+      "version": "0.4.5"
+    },
+    {
+      "name": "typing_extensions",
+      "version": "4.16.0"
+    },
+    {
+      "name": "urllib3",
+      "version": "2.8.0"
+    },
+    {
+      "name": "uuid_utils",
+      "version": "0.19.0"
+    },
+    {
+      "name": "websockets",
+      "version": "17.4"
+    },
+    {
+      "name": "xxhash",
+      "version": "4.0.2"
+    },
+    {
+      "name": "zstandard",
+      "version": "0.25.0"
+    }
+  ],
+  "implementation_sha256": {
+    "commerce_agent/__init__.py": "36c458d21ea66deb9072967a7ac038df3dddc98a3f17e1e7d8820b7ac5d83bbb",
+    "commerce_agent/budget.py": "d94b781ec80b835cd71b944ad687d92b942e0d31d943272a9cd6f6785e73f75e",
+    "commerce_agent/cli.py": "3899105acd9a77f02abee770969bb54b6eca7ceaf8adec7f7ca5b0b09ae77ffb",
+    "commerce_agent/contracts.py": "89bd03603876c4690eb415a593b06642f7f66b76f742dc5605ba681743ba51bb",
+    "commerce_agent/models.py": "0cf6431e4ade4d154f0bd0714ce028e448f282639454a4e55f08d4b7e99c2643",
+    "commerce_agent/prompt.txt": "7ac8dbe871df8d13a6f5163c789bd4a9918d5ea0bff84e40626f7ed146c20d1c",
+    "commerce_agent/report.py": "45b2c3ca286c3ab03c7dba1f9417b65056437376a27c08a22983e73678e641bd",
+    "commerce_agent/runtime.py": "407025c2dfc5276b4e0af9ab44e42ac6aeda1128eab7b221f0e71172e887d6d4",
+    "commerce_agent/storage.py": "9d8b59a951cbcfb61f4f33ac6e40a57b907132510eebaea6a074d389bdd5d9d1",
+    "commerce_agent/tools.py": "0905ec52fbd889aa339262b7c43b143597c09dd4359f571d74e8ea2e11692538",
+    "commerce_worker/worker.py": "4e0faac7560280c30bb42e2ab31a50382038ce5844cb319a1c294a82630092ad",
+    "experiments/single-agent/cases.json": "b231304bfa1ea086307f31881b6139f3244448c22e9b392aa2d17ad20fcf5552",
+    "experiments/single-agent/verify.py": "14528b2567fa1b9b25a00a3aacd66223fc2b9a1d2e07022ff4a17d4b4bf92947",
+    "requirements-agent.in": "2be879517db1c1086b41b2ac93a8814f2b11c59a7e24f5dd6a0bab1fcad5da78",
+    "requirements-agent.lock": "82f6eef4683f02a0eadad724cc6a7d974124e8f34600db6c798e00d3fe476f41",
+    "scripts/evaluate_personal_agent.py": "88b099cba01025b33296b64ed7f83cf5708a1448ef6bdbfe8aae644426999f7d",
+    "services/business-api/src/main/java/dev/commerceinsight/ApiError.java": "fc60b6f4d07ad4869f8c11ee2616fd14a5ed8259a849402c9ab0d6624577cbd9",
+    "services/business-api/src/main/java/dev/commerceinsight/Application.java": "183f9da8025e11f6bb81083c5e7ce44e9687d5d9975d3c738ee64e685d12d4ab",
+    "services/business-api/src/main/java/dev/commerceinsight/Errors.java": "66eacb4f3e28fbf4a0204ca89f718e22e1cccb1df36ccc523f68f3495a53f0b5",
+    "services/business-api/src/main/java/dev/commerceinsight/LocalAuthFilter.java": "6833128d601d47c7267a8e5a7eefebeb25fa4e0ab652d183030c2696434d31d2",
+    "services/business-api/src/main/java/dev/commerceinsight/TaskController.java": "b1e01663d472981a08050c5dfa9b301a8081b5d131b21933eba9e71634b6a273",
+    "services/business-api/src/main/java/dev/commerceinsight/TaskService.java": "6536f43d18761bdcb063fbbbbe35b3c2bdbfb465bfe032bdf03a3f2d5bc8a3be",
+    "services/business-api/src/main/resources/application.properties": "e1389928c120cb818c56064404f6d7f1b398a1aa6a0d3300b25629b96205e02b",
+    "services/business-api/src/main/resources/schema.sql": "000bfa0803bf2e856a10bc0fc49dda144d46d3be06fe97966142db86e025b228"
+  },
+  "java_jar_sha256": "f602e4af59d6f48009c1cf058e949c2cc7f9f74378cdeb1fdd600d0d3b28034a"
+}

@@ -1,0 +1,38 @@
+{
+  "date": "2026-11-08",
+  "kind": "owner_access_browser",
+  "real_model_calls": 0,
+  "analysis_task_id": "e84b809c-e128-488d-8384-f595c7a948a1",
+  "import_id": "d4d97e63-0681-428e-aa9e-05b1ac100ba0",
+  "dataset_id": "ds-d4d97e63-0681-428e-aa9e-05b1ac100ba0-r1",
+  "checks": [
+    "错误密码中文提示",
+    "正确登录及有会话的 280→150 元销售分析",
+    "CSV 上传、映射检查、人工确认发布数据版本",
+    "数据默认不允许模型使用",
+    "另一标签页退出使旧页面提交跳转 /login?expired",
+    "过期提示明确未提交文件需重新选择",
+    "最终手机视口和文档宽度均为 390",
+    "浏览器 warn/error 日志为空",
+    "恢复默认视口，关闭额外测试标签页"
+  ],
+  "viewport_note": "首次 viewport 应用在另一活动标签页，读数仍为 1280；关闭该标签页后重新应用并实际确认 390，不把首次当成手机验收。",
+  "screenshots": {
+    "analysis": {
+      "path": ".local/owner-access/browser/analysis.png",
+      "sha256": "b357d8a2b47a8ffd521d9bf76a4b0f1823a1fe1df92fc5a9cc425bcdd15a550a"
+    },
+    "import-ready": {
+      "path": ".local/owner-access/browser/import-ready.png",
+      "sha256": "abdeabf58ba84445d0b2df74cde7256ebd9faa86cd336c8058949c40518f99b2"
+    },
+    "login-expired-desktop": {
+      "path": ".local/owner-access/browser/login-expired-desktop.png",
+      "sha256": "894f10fb19fd9ec1b04365520b660cf98e90b7c29f95190ed552323d0c9d507b"
+    },
+    "login-mobile": {
+      "path": ".local/owner-access/browser/login-mobile.png",
+      "sha256": "7104ddcc4d1d22767cac9dbd407687ebb270ca3e6dde39c60cdd7318d1a3891a"
+    }
+  }
+}

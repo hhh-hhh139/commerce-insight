@@ -1,0 +1,17 @@
+[
+  {"id":"week1_payments","metric":"paid_amount","start":"2026-10-05T00:00:00Z","end":"2026-10-12T00:00:00Z","expected":28000},
+  {"id":"week2_payments","metric":"paid_amount","start":"2026-10-12T00:00:00Z","end":"2026-10-19T00:00:00Z","expected":15000},
+  {"id":"week1_refunds","metric":"refund_amount","start":"2026-10-05T00:00:00Z","end":"2026-10-12T00:00:00Z","expected":0},
+  {"id":"week2_successful_refunds","metric":"refund_amount","start":"2026-10-12T00:00:00Z","end":"2026-10-19T00:00:00Z","expected":5000},
+  {"id":"week1_event_net","metric":"event_net","start":"2026-10-05T00:00:00Z","end":"2026-10-12T00:00:00Z","expected":28000},
+  {"id":"week2_event_net","metric":"event_net","start":"2026-10-12T00:00:00Z","end":"2026-10-19T00:00:00Z","expected":10000},
+  {"id":"week1_cohort_at_week2_end","metric":"cohort_net","start":"2026-10-05T00:00:00Z","end":"2026-10-12T00:00:00Z","as_of":"2026-10-19T00:00:00Z","expected":23000},
+  {"id":"week1_cohort_at_week3_end","metric":"cohort_net","start":"2026-10-05T00:00:00Z","end":"2026-10-12T00:00:00Z","as_of":"2026-10-26T00:00:00Z","expected":22000},
+  {"id":"distinct_paid_orders","metric":"paid_order_count","start":"2026-10-05T00:00:00Z","end":"2026-10-12T00:00:00Z","expected":3},
+  {"id":"distinct_refunded_orders","metric":"cohort_refunded_order_count","start":"2026-10-05T00:00:00Z","end":"2026-10-12T00:00:00Z","as_of":"2026-10-19T00:00:00Z","expected":2},
+  {"id":"orders_containing_product","metric":"paid_amount_for_product_orders","start":"2026-10-05T00:00:00Z","end":"2026-10-12T00:00:00Z","product_id":"P1","expected":18000},
+  {"id":"quoted_product_is_data","metric":"paid_amount_for_product_orders","start":"2026-10-05T00:00:00Z","end":"2026-10-12T00:00:00Z","product_id":"P1' OR 1=1 --","expected":0},
+  {"id":"empty_period","metric":"paid_amount","start":"2026-10-01T00:00:00Z","end":"2026-10-05T00:00:00Z","expected":0},
+  {"id":"as_of_excludes_exact_boundary","metric":"cohort_net","start":"2026-10-05T00:00:00Z","end":"2026-10-12T00:00:00Z","as_of":"2026-10-13T10:00:00Z","expected":28000},
+  {"id":"complete_product_refund_period","metric":"product_refund_amount","start":"2026-10-13T10:00:00Z","end":"2026-10-15T00:00:00Z","product_id":"P1","expected":2000}
+]

@@ -1,0 +1,6 @@
+order_id,status,paid_minor,paid_at,currency
+A,paid,10000,2026-10-06T08:00:00Z,CNY
+B,paid,8000,2026-10-07T08:00:00Z,CNY
+C,paid,10000,2026-10-08T08:00:00Z,CNY
+D,paid,15000,2026-10-13T08:00:00Z,CNY
+U,cancelled,0,,CNY

@@ -1,0 +1,36 @@
+{
+  "date": "2026-11-06",
+  "verification": "manual browser actions using CUA against loopback Java app",
+  "input": "examples/imports/renamed-major/*.csv (synthetic)",
+  "import_id": "2984ba8e-6ddc-4532-a8fa-650da132a961",
+  "dataset_id": "ds-2984ba8e-6ddc-4532-a8fa-650da132a961-r2",
+  "task_id": "62f4a7f4-da39-4657-9c99-fa5295612a8d",
+  "revision": 2,
+  "source_sha256": "b217ff4638b06a7cf070d84a0ed5c6fc44b7eea947f3dd98298bd91c60000d38",
+  "mapping_sha256": "0cb3fa5074353ed3624b9ec8f31d4bc85cb6bf2c5e39025038bb5c2de94e8c75",
+  "result_minor": 23000,
+  "currency": "CNY",
+  "model_allowed": false,
+  "observed": [
+    "upload_structure_5_orders_5_items_6_refunds",
+    "explicit_major_units_and_UTC+08_mapping",
+    "mapping_change_hides_confirmation",
+    "confirmed_mapping_locked_after_refresh",
+    "product_refund_option_disabled",
+    "agent_submit_disabled_without_permission",
+    "analysis_result_and_sql_evidence",
+    "same_report_after_preview_restart",
+    "downloaded_report_verified",
+    "ready_quality_text_after_fix"
+  ],
+  "console_errors_or_warnings": [],
+  "real_model_calls": 0,
+  "export_sha256": "67dec0c66636c7dc29da080ec50e498572a8b00fd827d0e0008438183dcc8a65",
+  "screenshot": ".local/data-import/browser-result.jpg",
+  "screenshot_sha256": "9641d21d5fdc277a3b330f2046a89f98ec60f41195d7bb9bb7029eab55ad48da",
+  "preview_process_stopped": true,
+  "limitations": [
+    "single in-app browser session; not a cross-browser or automated accessibility test",
+    "new imported data not evaluated with a live model"
+  ]
+}

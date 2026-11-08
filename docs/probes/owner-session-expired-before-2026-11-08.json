@@ -1,0 +1,8 @@
+{
+  "date": "2026-11-08",
+  "kind": "browser_session_expiry_before",
+  "observed": "Long-idle authenticated data-import page submitted with an expired session; server returned session_request_rejected and the page showed a generic error without redirecting to login.",
+  "fix": "Return 401/login_required for unauthenticated workbench CSRF rejection, keep authenticated invalid-CSRF 403, redirect with an expiry explanation.",
+  "screenshot_sha256": "06a4642fe69c18253484ac712bac2197e6a12a5f4aa14e7c4b33603c78dbdb42",
+  "real_model_calls": 0
+}

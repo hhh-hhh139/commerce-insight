@@ -1,0 +1,13 @@
+{
+  "kind": "sales_evaluator_engineering_only",
+  "date": "2026-11-06",
+  "tests": 11,
+  "failures": 0,
+  "errors": 0,
+  "seconds": 2.188,
+  "real_model_calls": 0,
+  "new_oracle_cases": 9,
+  "legacy_oracle_cases": 10,
+  "real_model_quality": "not_measured",
+  "failure_details": []
+}

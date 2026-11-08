@@ -1,0 +1,53 @@
+{
+  "date": "2026-11-06",
+  "method": "CUA browser interaction with loopback Java app",
+  "task_id": "03b84370-07cc-4510-b404-d337ef841f7f",
+  "dataset_id": "ds-2984ba8e-6ddc-4532-a8fa-650da132a961-r2",
+  "source_sha256": "b217ff4638b06a7cf070d84a0ed5c6fc44b7eea947f3dd98298bd91c60000d38",
+  "result": {
+    "baseline_minor": 28000,
+    "change_percent": "-46.43",
+    "current_minor": 15000,
+    "delta_minor": -13000
+  },
+  "decreases": [
+    {
+      "product_id": "P3",
+      "delta_minor": -10000,
+      "direction_share_percent": "71.43"
+    },
+    {
+      "product_id": "P2",
+      "delta_minor": -4000,
+      "direction_share_percent": "28.57"
+    }
+  ],
+  "increases": [
+    {
+      "product_id": "P1",
+      "delta_minor": 1000
+    }
+  ],
+  "empty_period_task_id": "72f4072f-b4b3-4497-bdc2-65e40a3faa16",
+  "observed": [
+    "confirmed imported version reused without reimport",
+    "correct product contribution table and opposite movement",
+    "unequal periods rejected with Chinese feedback",
+    "empty periods show no products and no percentage",
+    "download report matches source and amounts",
+    "SQL and reconciliation evidence expand",
+    "restart and refresh preserve report",
+    "hash-only navigation and browser back now switch correct report"
+  ],
+  "discovered_issue": {
+    "before": "URL task changed to 03b84370 while report remained 72f4072f; missing hashchange route",
+    "fix": "routeFromHash listens for hash changes, preserving existing generation fence",
+    "verified": true
+  },
+  "console_errors_or_warnings_after_fix": [],
+  "export_sha256": "44160e6376bf75d12a43a287996d60893ae9ffaf2e2c61fb0b52f562488873f9",
+  "screenshot": ".local/sales-change/browser-result.jpg",
+  "screenshot_sha256": "5940e80d1efc364138b735026ae83fad227fde9cab4856c4b6974b36902a0529",
+  "preview_stopped": true,
+  "real_model_calls": 0
+}

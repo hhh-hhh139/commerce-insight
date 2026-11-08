@@ -1,0 +1,142 @@
+{
+  "all_accepted_records": {
+    "accepted_lines": 5,
+    "cancellation_record_amount": "10",
+    "distinct_positive_invoice_ids": 3,
+    "positive_record_amount": "80",
+    "record_net_amount": "70"
+  },
+  "analysis_status": "computed",
+  "capabilities": {
+    "cancellation_records": true,
+    "cash_collected": false,
+    "causal_explanation": false,
+    "product_refund_attribution": false,
+    "profit": false,
+    "record_sales": true,
+    "refund_rate": false
+  },
+  "comparison": {
+    "baseline": {
+      "accepted_lines": 3,
+      "cancellation_record_amount": "0",
+      "distinct_positive_invoice_ids": 2,
+      "positive_record_amount": "50",
+      "record_net_amount": "50"
+    },
+    "baseline_start": "2026-10-05T00:00:00",
+    "by_country": [
+      {
+        "baseline": {
+          "accepted_lines": 1,
+          "cancellation_record_amount": "0",
+          "distinct_positive_invoice_ids": 1,
+          "positive_record_amount": "25",
+          "record_net_amount": "25"
+        },
+        "country": "FR",
+        "current": {
+          "accepted_lines": 0,
+          "cancellation_record_amount": "0",
+          "distinct_positive_invoice_ids": 0,
+          "positive_record_amount": "0",
+          "record_net_amount": "0"
+        },
+        "positive_amount_change": "-25"
+      },
+      {
+        "baseline": {
+          "accepted_lines": 2,
+          "cancellation_record_amount": "0",
+          "distinct_positive_invoice_ids": 1,
+          "positive_record_amount": "25",
+          "record_net_amount": "25"
+        },
+        "country": "UK",
+        "current": {
+          "accepted_lines": 2,
+          "cancellation_record_amount": "10",
+          "distinct_positive_invoice_ids": 1,
+          "positive_record_amount": "30",
+          "record_net_amount": "20"
+        },
+        "positive_amount_change": "5"
+      }
+    ],
+    "current": {
+      "accepted_lines": 2,
+      "cancellation_record_amount": "10",
+      "distinct_positive_invoice_ids": 1,
+      "positive_record_amount": "30",
+      "record_net_amount": "20"
+    },
+    "current_end": "2026-10-19T00:00:00",
+    "interval_convention": "[start,end)",
+    "positive_amount_change": "-20",
+    "positive_amount_change_rate": "-0.4",
+    "rate_unavailable_reason": null,
+    "split": "2026-10-12T00:00:00"
+  },
+  "contract_version": "invoice-lines-v1",
+  "evidence": {
+    "code_sha256": {
+      "__init__.py": "88b945da0cd5d9d5c99c31c3d160dbc0e980084080256017fcdc6e2a8e6a86b8",
+      "__main__.py": "2000115de1e050ad738345be5b88443820803132101528dfdf2f7e6568a41bcf",
+      "core.py": "33d26885f597014781ed7c7b0e8806097fde656a4a7811c8b56399d8906088be",
+      "files.py": "67b093e5bede25854ec3f5316d074343a30dd44e63022df685557a52c891c845"
+    },
+    "formula": "sum(abs(quantity * unit_price * unit_price_multiplier)) by confirmed event rule",
+    "mapping_file_sha256": "75b33bd25363590952fefade0bcc6512ad3aff7696de848a8b0a51caff7265c6",
+    "mapping_semantics_sha256": "f06728011252f075e3f2475ad34ccb19a0cf4620db30edbdb66796f10a7477d4",
+    "python": "3.9.6",
+    "reader": {
+      "reader": "stdlib.csv"
+    },
+    "sheet": null,
+    "source_file": "invoice-lines.csv",
+    "source_sha256": "aee99d24e4cd8e3755f99fcc106d0ceea199519600e8603849c4671cdb741c91"
+  },
+  "mapping": {
+    "contract_version": "invoice-lines-v1",
+    "currency": "GBP",
+    "dataset_name": "uci-online-retail",
+    "duplicate_policy": "keep_and_flag",
+    "event_rule": {
+      "cancellation_prefix": "C",
+      "mode": "invoice_prefix"
+    },
+    "fields": {
+      "country": "Country",
+      "customer_id": "CustomerID",
+      "description": "Description",
+      "event_time": "InvoiceDate",
+      "invoice_id": "InvoiceNo",
+      "product_id": "StockCode",
+      "quantity": "Quantity",
+      "unit_price": "UnitPrice"
+    },
+    "time_basis": "source_local_unspecified_zone",
+    "unit_price_multiplier": "1"
+  },
+  "metric_version": "invoice-record-amount-v1",
+  "quality": {
+    "accepted_rows": 5,
+    "accepted_time_max": "2026-10-14T10:00:00",
+    "accepted_time_min": "2026-10-06T10:00:00",
+    "duplicate_extra_rows": 0,
+    "input_rows": 5,
+    "invalid_by_reason": {},
+    "invalid_examples": [],
+    "missing_by_column": {
+      "CustomerID": 1
+    },
+    "quarantined_rows": 0
+  },
+  "warnings": [
+    "invoice_records_are_not_cash_payments_or_accounting_revenue",
+    "cancellations_are_not_linked_refund_cashflows",
+    "source_timezone_unknown_no_cross_zone_comparison",
+    "line_amounts_may_include_non_merchandise_items",
+    "coverage_must_be_confirmed_source_max_time_is_not_a_completeness_guarantee"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "date": "2026-11-08",
+  "kind": "personal_publication_boundary_offline",
+  "tests": 4,
+  "passed": true,
+  "unittest_seconds": 0.904,
+  "checks": ["wrong_account_stops_before_repo_access", "exact_repo_and_push_permission", "isolated_git_environment", "actual_git_askpass_with_synthetic_value_and_wrong_target_denial"],
+  "external_authenticated_requests": 0,
+  "remote_writes": 0,
+  "real_model_calls": 0
+}

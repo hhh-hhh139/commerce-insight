@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-08",
+  "kind": "actual_postgres_contract_regression",
+  "postgres_version": "18.6",
+  "tests": 3,
+  "passed": true,
+  "seconds": 10.18,
+  "cases": [
+    {
+      "name": "test_20_h2_schema_is_not_a_postgres_migration",
+      "passed": true,
+      "seconds": 0.315
+    },
+    {
+      "name": "test_21_modified_migration_refuses_startup",
+      "passed": true,
+      "seconds": 3.033
+    },
+    {
+      "name": "test_22_failed_upgrade_rolls_back_schema",
+      "passed": true,
+      "seconds": 3.147
+    }
+  ],
+  "real_model_calls": 0,
+  "selection": "migration_failures",
+  "scope": "project-owned temporary PostgreSQL cluster, no system services or existing databases"
+}

@@ -1,0 +1,414 @@
+{
+  "kind": "sales_change_live_personal_deepseek",
+  "date": "2026-11-06",
+  "suite": "sales-change",
+  "cases_version": "sales-change-cases-v1",
+  "model_requested": "deepseek-flash",
+  "provider_version_statement": "DeepSeek-V4.1-Flash-1017 (official pricing page, 2026-11-06; alias may change)",
+  "thinking": "disabled",
+  "temperature": 0,
+  "completed": true,
+  "heldout_passed": true,
+  "independent_cases": 9,
+  "executions": 15,
+  "development": {
+    "passed": 3,
+    "total": 3
+  },
+  "heldout_rounds": [
+    {
+      "repeat": 1,
+      "passed": 6,
+      "total": 6
+    },
+    {
+      "repeat": 2,
+      "passed": 6,
+      "total": 6
+    }
+  ],
+  "published_report_reaudit": {
+    "reports": 15,
+    "numeric_reports": 9,
+    "errors": 0
+  },
+  "usage": {
+    "model_attempts": 30,
+    "real_model_calls": 30,
+    "tool_attempts": 17,
+    "input_tokens": 74151,
+    "output_tokens": 3555,
+    "unknown_model_responses": 0
+  },
+  "duration_seconds": {
+    "sum_task_durations": 69.169,
+    "median": 4.464,
+    "p95_nearest_rank": 8.144,
+    "min": 2.787,
+    "max": 8.144
+  },
+  "cost": {
+    "starting_micro_cny": 137988,
+    "incremental_upper_micro_cny": 176742,
+    "cumulative_upper_micro_cny": 314730,
+    "cap_micro_cny": 5000000,
+    "ledger_call_count": 65,
+    "new_ledger_call_count": 30,
+    "unknown_reservations": 0,
+    "basis": "conservative peak cache-miss upper bound; not provider invoice"
+  },
+  "cases_sha256": "29b7d86b11438a0f18a94269eec29c2472502dc19dc1875669372bcfd4db3498",
+  "prompt_sha256": "c0b5b52b24f34fb5e4827d2a79ad0c4f1b1b46f528b4ba145808c74d7e9ed21e",
+  "evaluator_sha256": "8e253cf1825c43f5155572bd802aba513de594ea98163d1944b17eec0430e23f",
+  "implementation_sha256": {
+    "__init__.py": "36c458d21ea66deb9072967a7ac038df3dddc98a3f17e1e7d8820b7ac5d83bbb",
+    "budget.py": "d94b781ec80b835cd71b944ad687d92b942e0d31d943272a9cd6f6785e73f75e",
+    "cli.py": "3899105acd9a77f02abee770969bb54b6eca7ceaf8adec7f7ca5b0b09ae77ffb",
+    "contracts.py": "fd72ca5904cded681455518df1945e7473a80fc5ab77175fb1cc4f29b0ac4389",
+    "models.py": "c66ca69a5b0f35d65634d2e69b7c95cd8a55598f43a905de1d185958dd4e33ff",
+    "report.py": "a739831380f0fdef71482bbdf0f68566747f35824da0d661d179eb19fe0ad4ba",
+    "runtime.py": "25f0fd72e9e38fc68a9555ad9cb05659fd20a060b9c6ee033697a92b11a1d129",
+    "storage.py": "9d8b59a951cbcfb61f4f33ac6e40a57b907132510eebaea6a074d389bdd5d9d1",
+    "tools.py": "76204b67f001bf734e13b71f7fa4ed8a63835092e7b0bf3c1936540d1f783377"
+  },
+  "raw_report_relative_path": ".local/single-agent/live-runs/run-nkdjt7sm/evaluation.json",
+  "raw_report_sha256": "82e6e0eb0529634e6fc26f5ce741da9bd50950dddfdd468e3fea9f6bb253e858",
+  "results": [
+    {
+      "case_id": "dev_full_contribution",
+      "family": "complete_breakdown",
+      "split": "development",
+      "repeat": 1,
+      "passed": true,
+      "errors": [],
+      "publication_errors": [],
+      "seconds": 8.144,
+      "task_id": "53bd862e-00cb-4a19-9b11-c2e12cdfdaca",
+      "outcome": "answered",
+      "issue": "none",
+      "evidence_count": 1,
+      "usage": {
+        "input_tokens": 5432,
+        "model_attempts": 2,
+        "output_tokens": 273,
+        "real_model_calls": 2,
+        "tool_attempts": 1,
+        "unknown_model_responses": 0
+      }
+    },
+    {
+      "case_id": "dev_metric_ambiguity",
+      "family": "ambiguous_metric",
+      "split": "development",
+      "repeat": 1,
+      "passed": true,
+      "errors": [],
+      "publication_errors": [],
+      "seconds": 2.787,
+      "task_id": "6743c91b-9c43-4a93-b07b-61166470e5dd",
+      "outcome": "needs_clarification",
+      "issue": "needs_metric_definition",
+      "evidence_count": 0,
+      "usage": {
+        "input_tokens": 1709,
+        "model_attempts": 1,
+        "output_tokens": 92,
+        "real_model_calls": 1,
+        "tool_attempts": 0,
+        "unknown_model_responses": 0
+      }
+    },
+    {
+      "case_id": "dev_missing_period",
+      "family": "missing_period",
+      "split": "development",
+      "repeat": 1,
+      "passed": true,
+      "errors": [],
+      "publication_errors": [],
+      "seconds": 2.874,
+      "task_id": "5f969092-d408-48c8-8775-99ffbe41d66f",
+      "outcome": "needs_clarification",
+      "issue": "needs_time_range",
+      "evidence_count": 0,
+      "usage": {
+        "input_tokens": 1684,
+        "model_attempts": 1,
+        "output_tokens": 90,
+        "real_model_calls": 1,
+        "tool_attempts": 0,
+        "unknown_model_responses": 0
+      }
+    },
+    {
+      "case_id": "hold_top_one",
+      "family": "truncated_contribution",
+      "split": "heldout",
+      "repeat": 1,
+      "passed": true,
+      "errors": [],
+      "publication_errors": [],
+      "seconds": 4.505,
+      "task_id": "e92cc9e7-c920-4dd8-b7a7-97e1c335a483",
+      "outcome": "answered",
+      "issue": "none",
+      "evidence_count": 1,
+      "usage": {
+        "input_tokens": 5337,
+        "model_attempts": 2,
+        "output_tokens": 269,
+        "real_model_calls": 2,
+        "tool_attempts": 1,
+        "unknown_model_responses": 0
+      }
+    },
+    {
+      "case_id": "hold_empty",
+      "family": "empty_periods",
+      "split": "heldout",
+      "repeat": 1,
+      "passed": true,
+      "errors": [],
+      "publication_errors": [],
+      "seconds": 4.191,
+      "task_id": "2d51197f-03f9-4520-8463-0bf918324058",
+      "outcome": "answered",
+      "issue": "none",
+      "evidence_count": 1,
+      "usage": {
+        "input_tokens": 5118,
+        "model_attempts": 2,
+        "output_tokens": 275,
+        "real_model_calls": 2,
+        "tool_attempts": 1,
+        "unknown_model_responses": 0
+      }
+    },
+    {
+      "case_id": "hold_zero_baseline",
+      "family": "zero_denominator",
+      "split": "heldout",
+      "repeat": 1,
+      "passed": true,
+      "errors": [],
+      "publication_errors": [],
+      "seconds": 4.464,
+      "task_id": "3ddf3d0d-fe96-4d0c-9664-634ff1f90638",
+      "outcome": "answered",
+      "issue": "none",
+      "evidence_count": 1,
+      "usage": {
+        "input_tokens": 5410,
+        "model_attempts": 2,
+        "output_tokens": 279,
+        "real_model_calls": 2,
+        "tool_attempts": 1,
+        "unknown_model_responses": 0
+      }
+    },
+    {
+      "case_id": "hold_offset",
+      "family": "explicit_timezone_conversion",
+      "split": "heldout",
+      "repeat": 1,
+      "passed": true,
+      "errors": [],
+      "publication_errors": [],
+      "seconds": 4.357,
+      "task_id": "ed210785-2eea-4fda-921e-b4699fc21b30",
+      "outcome": "answered",
+      "issue": "none",
+      "evidence_count": 1,
+      "usage": {
+        "input_tokens": 5456,
+        "model_attempts": 2,
+        "output_tokens": 285,
+        "real_model_calls": 2,
+        "tool_attempts": 1,
+        "unknown_model_responses": 0
+      }
+    },
+    {
+      "case_id": "hold_price_quantity",
+      "family": "missing_price_quantity",
+      "split": "heldout",
+      "repeat": 1,
+      "passed": true,
+      "errors": [],
+      "publication_errors": [],
+      "seconds": 4.11,
+      "task_id": "339646ed-fb7b-4ee8-adec-3e90f2d17d38",
+      "outcome": "unsupported",
+      "issue": "missing_data",
+      "evidence_count": 0,
+      "usage": {
+        "input_tokens": 3813,
+        "model_attempts": 2,
+        "output_tokens": 102,
+        "real_model_calls": 2,
+        "tool_attempts": 1,
+        "unknown_model_responses": 0
+      }
+    },
+    {
+      "case_id": "hold_net_product",
+      "family": "missing_refund_attribution",
+      "split": "heldout",
+      "repeat": 1,
+      "passed": true,
+      "errors": [],
+      "publication_errors": [],
+      "seconds": 6.938,
+      "task_id": "83ff73c9-4c1e-4076-9f96-0a7847d19a60",
+      "outcome": "unsupported",
+      "issue": "missing_data",
+      "evidence_count": 0,
+      "usage": {
+        "input_tokens": 7529,
+        "model_attempts": 3,
+        "output_tokens": 340,
+        "real_model_calls": 3,
+        "tool_attempts": 3,
+        "unknown_model_responses": 0
+      }
+    },
+    {
+      "case_id": "hold_top_one",
+      "family": "truncated_contribution",
+      "split": "heldout",
+      "repeat": 2,
+      "passed": true,
+      "errors": [],
+      "publication_errors": [],
+      "seconds": 3.952,
+      "task_id": "e06e40fb-8420-48d5-a47d-10b031d394b7",
+      "outcome": "answered",
+      "issue": "none",
+      "evidence_count": 1,
+      "usage": {
+        "input_tokens": 5337,
+        "model_attempts": 2,
+        "output_tokens": 269,
+        "real_model_calls": 2,
+        "tool_attempts": 1,
+        "unknown_model_responses": 0
+      }
+    },
+    {
+      "case_id": "hold_empty",
+      "family": "empty_periods",
+      "split": "heldout",
+      "repeat": 2,
+      "passed": true,
+      "errors": [],
+      "publication_errors": [],
+      "seconds": 4.579,
+      "task_id": "c8074cec-bea0-48db-afeb-577c5a138594",
+      "outcome": "answered",
+      "issue": "none",
+      "evidence_count": 1,
+      "usage": {
+        "input_tokens": 5118,
+        "model_attempts": 2,
+        "output_tokens": 275,
+        "real_model_calls": 2,
+        "tool_attempts": 1,
+        "unknown_model_responses": 0
+      }
+    },
+    {
+      "case_id": "hold_zero_baseline",
+      "family": "zero_denominator",
+      "split": "heldout",
+      "repeat": 2,
+      "passed": true,
+      "errors": [],
+      "publication_errors": [],
+      "seconds": 4.516,
+      "task_id": "637866ed-5feb-43e8-a858-be83542c1618",
+      "outcome": "answered",
+      "issue": "none",
+      "evidence_count": 1,
+      "usage": {
+        "input_tokens": 5410,
+        "model_attempts": 2,
+        "output_tokens": 279,
+        "real_model_calls": 2,
+        "tool_attempts": 1,
+        "unknown_model_responses": 0
+      }
+    },
+    {
+      "case_id": "hold_offset",
+      "family": "explicit_timezone_conversion",
+      "split": "heldout",
+      "repeat": 2,
+      "passed": true,
+      "errors": [],
+      "publication_errors": [],
+      "seconds": 4.47,
+      "task_id": "97f51e6c-ed06-47a7-875f-1ea8e7396751",
+      "outcome": "answered",
+      "issue": "none",
+      "evidence_count": 1,
+      "usage": {
+        "input_tokens": 5456,
+        "model_attempts": 2,
+        "output_tokens": 285,
+        "real_model_calls": 2,
+        "tool_attempts": 1,
+        "unknown_model_responses": 0
+      }
+    },
+    {
+      "case_id": "hold_price_quantity",
+      "family": "missing_price_quantity",
+      "split": "heldout",
+      "repeat": 2,
+      "passed": true,
+      "errors": [],
+      "publication_errors": [],
+      "seconds": 3.617,
+      "task_id": "f993c92e-9463-48c0-911c-3be9ac2d9f18",
+      "outcome": "unsupported",
+      "issue": "missing_data",
+      "evidence_count": 0,
+      "usage": {
+        "input_tokens": 3813,
+        "model_attempts": 2,
+        "output_tokens": 102,
+        "real_model_calls": 2,
+        "tool_attempts": 1,
+        "unknown_model_responses": 0
+      }
+    },
+    {
+      "case_id": "hold_net_product",
+      "family": "missing_refund_attribution",
+      "split": "heldout",
+      "repeat": 2,
+      "passed": true,
+      "errors": [],
+      "publication_errors": [],
+      "seconds": 5.665,
+      "task_id": "cb456653-e81b-4c3c-9c39-f81d56c944dc",
+      "outcome": "unsupported",
+      "issue": "missing_data",
+      "evidence_count": 0,
+      "usage": {
+        "input_tokens": 7529,
+        "model_attempts": 3,
+        "output_tokens": 340,
+        "real_model_calls": 3,
+        "tool_attempts": 3,
+        "unknown_model_responses": 0
+      }
+    }
+  ],
+  "limitations": [
+    "固定合成账本，9 道不同题目；保留 6 题重复两轮，不是 12 道独立题",
+    "问题有显式业务口径和边界提示，不代表自然运营问题泛化",
+    "不替代退款分析、导入数据真实模型、生产部署或商家试用验收",
+    "旧阶段 2b 利润问题的拒答分类失败未在本专项重新验证"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "date": "2026-11-06",
+  "kind": "refund_change_engineering_scripted_model",
+  "tests": 19,
+  "failures": 0,
+  "errors": 0,
+  "seconds": 7.574,
+  "real_model_calls": 0,
+  "failure_details": []
+}

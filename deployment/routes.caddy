@@ -1,0 +1,8 @@
+# Import inside the site's block. Internal bearer endpoints never leave the app network.
+@public path / /login /login.css /login.js /logout /session/csrf /demo/*
+handle @public {
+    reverse_proxy {$COMMERCE_UPSTREAM}
+}
+handle {
+    respond 404
+}

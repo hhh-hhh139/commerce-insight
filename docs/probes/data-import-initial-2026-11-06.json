@@ -1,0 +1,43 @@
+{
+  "date": "2026-11-06",
+  "kind": "external_data_import_engineering",
+  "tests": 21,
+  "failures": 8,
+  "errors": 0,
+  "seconds": 1.732,
+  "real_model_calls": 0,
+  "failure_details": [
+    {
+      "test": "test_import_01_two_layouts_publish_and_query_same_values (__main__.ImportHttpTests.test_import_01_two_layouts_publish_and_query_same_values)",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/haohao4/Downloads/multi-agent.zip/commerce-insight/experiments/data-import/verify.py\", line 69, in test_import_01_two_layouts_publish_and_query_same_values\n    a=self.publish();b=self.publish(adapter.fixture(\"renamed-major\"))\n      ^^^^^^^^^^^^^^\n  File \"/Users/haohao4/Downloads/multi-agent.zip/commerce-insight/experiments/data-import/verify.py\", line 55, in publish\n    p=p or adapter.fixture();d=self.check(self.upload(p),p[\"mapping\"])\n                                          ^^^^^^^^^^^^^^\n  File \"/Users/haohao4/Downloads/multi-agent.zip/commerce-insight/experiments/data-import/verify.py\", line 43, in upload\n    self.assertEqual(code,202,d);self.drafts.append(d[\"id\"])\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 500 != 202 : {'timestamp': '2026-11-06T06:46:16.004Z', 'status': 500, 'error': 'Internal Server Error', 'path': '/demo/api/imports'}\n"
+    },
+    {
+      "test": "test_import_02_confirmation_required_and_blocking_errors (__main__.ImportHttpTests.test_import_02_confirmation_required_and_blocking_errors)",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/haohao4/Downloads/multi-agent.zip/commerce-insight/experiments/data-import/verify.py\", line 79, in test_import_02_confirmation_required_and_blocking_errors\n    d=self.upload(p)\n      ^^^^^^^^^^^^^^\n  File \"/Users/haohao4/Downloads/multi-agent.zip/commerce-insight/experiments/data-import/verify.py\", line 43, in upload\n    self.assertEqual(code,202,d);self.drafts.append(d[\"id\"])\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 500 != 202 : {'timestamp': '2026-11-06T06:46:16.014Z', 'status': 500, 'error': 'Internal Server Error', 'path': '/demo/api/imports'}\n"
+    },
+    {
+      "test": "test_import_03_latest_revision_and_digest_fence (__main__.ImportHttpTests.test_import_03_latest_revision_and_digest_fence)",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/haohao4/Downloads/multi-agent.zip/commerce-insight/experiments/data-import/verify.py\", line 89, in test_import_03_latest_revision_and_digest_fence\n    p=adapter.fixture();d=self.upload(p)\n                          ^^^^^^^^^^^^^^\n  File \"/Users/haohao4/Downloads/multi-agent.zip/commerce-insight/experiments/data-import/verify.py\", line 43, in upload\n    self.assertEqual(code,202,d);self.drafts.append(d[\"id\"])\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 500 != 202 : {'timestamp': '2026-11-06T06:46:16.022Z', 'status': 500, 'error': 'Internal Server Error', 'path': '/demo/api/imports'}\n"
+    },
+    {
+      "test": "test_import_04_upload_and_confirmation_idempotency (__main__.ImportHttpTests.test_import_04_upload_and_confirmation_idempotency)",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/haohao4/Downloads/multi-agent.zip/commerce-insight/experiments/data-import/verify.py\", line 103, in test_import_04_upload_and_confirmation_idempotency\n    p=adapter.fixture();key=str(uuid.uuid4());a=self.upload(p,key);b=self.upload(p,key)\n                                                ^^^^^^^^^^^^^^^^^^\n  File \"/Users/haohao4/Downloads/multi-agent.zip/commerce-insight/experiments/data-import/verify.py\", line 43, in upload\n    self.assertEqual(code,202,d);self.drafts.append(d[\"id\"])\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 500 != 202 : {'timestamp': '2026-11-06T06:46:16.028Z', 'status': 500, 'error': 'Internal Server Error', 'path': '/demo/api/imports'}\n"
+    },
+    {
+      "test": "test_import_05_capability_and_model_permission_enforced (__main__.ImportHttpTests.test_import_05_capability_and_model_permission_enforced)",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/haohao4/Downloads/multi-agent.zip/commerce-insight/experiments/data-import/verify.py\", line 112, in test_import_05_capability_and_model_permission_enforced\n    d=self.publish(adapter.fixture(refunds=False));base={**web.QUERY,\"dataset_id\":d[\"dataset_id\"]}\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/haohao4/Downloads/multi-agent.zip/commerce-insight/experiments/data-import/verify.py\", line 55, in publish\n    p=p or adapter.fixture();d=self.check(self.upload(p),p[\"mapping\"])\n                                          ^^^^^^^^^^^^^^\n  File \"/Users/haohao4/Downloads/multi-agent.zip/commerce-insight/experiments/data-import/verify.py\", line 43, in upload\n    self.assertEqual(code,202,d);self.drafts.append(d[\"id\"])\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 500 != 202 : {'timestamp': '2026-11-06T06:46:16.037Z', 'status': 500, 'error': 'Internal Server Error', 'path': '/demo/api/imports'}\n"
+    },
+    {
+      "test": "test_import_06_archive_preserves_queued_snapshot_and_restart (__main__.ImportHttpTests.test_import_06_archive_preserves_queued_snapshot_and_restart)",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/haohao4/Downloads/multi-agent.zip/commerce-insight/experiments/data-import/verify.py\", line 125, in test_import_06_archive_preserves_queued_snapshot_and_restart\n    d=self.publish();task=self.create({**web.QUERY,\"dataset_id\":d[\"dataset_id\"]})\n      ^^^^^^^^^^^^^^\n  File \"/Users/haohao4/Downloads/multi-agent.zip/commerce-insight/experiments/data-import/verify.py\", line 55, in publish\n    p=p or adapter.fixture();d=self.check(self.upload(p),p[\"mapping\"])\n                                          ^^^^^^^^^^^^^^\n  File \"/Users/haohao4/Downloads/multi-agent.zip/commerce-insight/experiments/data-import/verify.py\", line 43, in upload\n    self.assertEqual(code,202,d);self.drafts.append(d[\"id\"])\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 500 != 202 : {'timestamp': '2026-11-06T06:46:16.044Z', 'status': 500, 'error': 'Internal Server Error', 'path': '/demo/api/imports'}\n"
+    },
+    {
+      "test": "test_import_08_offline_langgraph_on_confirmed_version (__main__.ImportHttpTests.test_import_08_offline_langgraph_on_confirmed_version)",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/haohao4/Downloads/multi-agent.zip/commerce-insight/experiments/data-import/verify.py\", line 146, in test_import_08_offline_langgraph_on_confirmed_version\n    d=self.publish(allowed=True)\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/haohao4/Downloads/multi-agent.zip/commerce-insight/experiments/data-import/verify.py\", line 55, in publish\n    p=p or adapter.fixture();d=self.check(self.upload(p),p[\"mapping\"])\n                                          ^^^^^^^^^^^^^^\n  File \"/Users/haohao4/Downloads/multi-agent.zip/commerce-insight/experiments/data-import/verify.py\", line 43, in upload\n    self.assertEqual(code,202,d);self.drafts.append(d[\"id\"])\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 500 != 202 : {'timestamp': '2026-11-06T06:46:16.102Z', 'status': 500, 'error': 'Internal Server Error', 'path': '/demo/api/imports'}\n"
+    },
+    {
+      "test": "test_import_09_stale_cancelled_check_cannot_publish (__main__.ImportHttpTests.test_import_09_stale_cancelled_check_cannot_publish)",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/haohao4/Downloads/multi-agent.zip/commerce-insight/experiments/data-import/verify.py\", line 154, in test_import_09_stale_cancelled_check_cannot_publish\n    d=self.upload(finish=False);claim=self.worker.call(\"/internal/tasks/claim\",{})\n      ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/haohao4/Downloads/multi-agent.zip/commerce-insight/experiments/data-import/verify.py\", line 43, in upload\n    self.assertEqual(code,202,d);self.drafts.append(d[\"id\"])\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 500 != 202 : {'timestamp': '2026-11-06T06:46:16.111Z', 'status': 500, 'error': 'Internal Server Error', 'path': '/demo/api/imports'}\n"
+    }
+  ]
+}

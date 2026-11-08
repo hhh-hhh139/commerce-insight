@@ -1,0 +1,12 @@
+{
+  "kind": "context_engineering_only",
+  "date": "2026-11-08",
+  "tests": 12,
+  "failures": 0,
+  "errors": 0,
+  "seconds": 14.146,
+  "real_model_calls": 0,
+  "model_quality": "not_measured",
+  "case_set_sha256": "327e4b378522a000da073a7c1aeca93bf1dd8d0b9d3a419f339f482d85872f78",
+  "failure_details": []
+}

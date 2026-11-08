@@ -1,0 +1,109 @@
+{
+  "date": "2026-11-06",
+  "kind": "real_local_process_fault_tests",
+  "tests_run": 18,
+  "success": true,
+  "cases": [
+    {
+      "name": "test_01_real_python_duckdb_result_and_evidence",
+      "passed": true,
+      "seconds": 0.308
+    },
+    {
+      "name": "test_02_idempotent_creation_concurrent_and_conflict",
+      "passed": true,
+      "seconds": 0.049
+    },
+    {
+      "name": "test_03_concurrent_claim_one_owner",
+      "passed": true,
+      "seconds": 0.022
+    },
+    {
+      "name": "test_04_expired_claim_fenced_before_and_after_reclaim",
+      "passed": true,
+      "seconds": 1.63
+    },
+    {
+      "name": "test_05_heartbeats_keep_slow_execution_owned",
+      "passed": true,
+      "seconds": 2.36
+    },
+    {
+      "name": "test_06_lost_completion_response_retried_without_duplicate",
+      "passed": true,
+      "seconds": 0.234
+    },
+    {
+      "name": "test_07_repeated_completion_rejects_changed_content",
+      "passed": true,
+      "seconds": 1.621
+    },
+    {
+      "name": "test_08_cancel_stops_child_and_cannot_resurrect",
+      "passed": true,
+      "seconds": 0.05
+    },
+    {
+      "name": "test_09_backoff_and_retry_budget",
+      "passed": true,
+      "seconds": 0.802
+    },
+    {
+      "name": "test_10_unsupported_product_refund_is_terminal",
+      "passed": true,
+      "seconds": 0.172
+    },
+    {
+      "name": "test_11_java_sigkill_restart_persists_all_states",
+      "passed": true,
+      "seconds": 3.509
+    },
+    {
+      "name": "test_12_roles_and_workspace_are_enforced",
+      "passed": true,
+      "seconds": 0.133
+    },
+    {
+      "name": "test_13_evidence_binding_rejects_wrong_source_metric_period",
+      "passed": true,
+      "seconds": 0.123
+    },
+    {
+      "name": "test_14_corrupted_input_rejected_without_execution",
+      "passed": true,
+      "seconds": 0.056
+    },
+    {
+      "name": "test_15_execution_timeout_kills_child_and_exhausts_budget",
+      "passed": true,
+      "seconds": 1.335
+    },
+    {
+      "name": "test_16_repeated_worker_crashes_exhaust_budget",
+      "passed": true,
+      "seconds": 5.0
+    },
+    {
+      "name": "test_17_cancel_completion_race_has_one_terminal_outcome",
+      "passed": true,
+      "seconds": 0.075
+    },
+    {
+      "name": "test_18_queued_input_frozen_across_registry_change",
+      "passed": true,
+      "seconds": 3.722
+    }
+  ],
+  "model_calls": 0,
+  "snapshot_sha256": "27048415cf67ccf74b818b62d046eb1d80eff6006e3966c8d7491bac25429cd4",
+  "lease_ms": 1500,
+  "retry_ms": 100,
+  "max_attempts": 3,
+  "limitations": [
+    "single Java instance",
+    "H2 file database",
+    "synthetic ledger",
+    "no real-model or PostgreSQL tests"
+  ]
+}

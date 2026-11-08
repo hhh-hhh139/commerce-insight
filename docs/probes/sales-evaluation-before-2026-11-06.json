@@ -1,0 +1,13 @@
+{
+  "kind": "sales_evaluator_before",
+  "real_model_calls": 0,
+  "report_mode": "scripted",
+  "correct_tool_delta_minor": -13000,
+  "grader_failure": {
+    "type": "KeyError",
+    "key": "'value'"
+  },
+  "audit_errors": [
+    "published_report_audit_failed"
+  ]
+}

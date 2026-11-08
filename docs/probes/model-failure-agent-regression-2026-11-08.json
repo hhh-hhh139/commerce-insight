@@ -1,0 +1,221 @@
+{
+  "date": "2026-11-06",
+  "kind": "offline_engineering_real_langgraph_scripted_model",
+  "real_model_calls": 0,
+  "tests_run": 42,
+  "passed": true,
+  "cases": [
+    {
+      "name": "test_actual_graph_tools_and_numeric_evidence",
+      "passed": true,
+      "seconds": 0.21
+    },
+    {
+      "name": "test_budget_concurrent_reservations_and_missing_usage",
+      "passed": true,
+      "seconds": 0.019
+    },
+    {
+      "name": "test_budget_unknown_requests_stay_reserved_after_restart",
+      "passed": true,
+      "seconds": 0.035
+    },
+    {
+      "name": "test_checkpoint_identity_and_task_isolation",
+      "passed": true,
+      "seconds": 0.169
+    },
+    {
+      "name": "test_checkpoint_single_writer_lock",
+      "passed": true,
+      "seconds": 0.003
+    },
+    {
+      "name": "test_comparison_computed_by_code",
+      "passed": true,
+      "seconds": 0.109
+    },
+    {
+      "name": "test_deepseek_sdk_wire_contract_without_external_requests",
+      "passed": true,
+      "seconds": 0.744
+    },
+    {
+      "name": "test_different_metrics_not_comparable",
+      "passed": true,
+      "seconds": 0.109
+    },
+    {
+      "name": "test_dynamic_tool_error_then_parameter_correction",
+      "passed": true,
+      "seconds": 0.13
+    },
+    {
+      "name": "test_explicit_clarification_is_not_fabricated_answer",
+      "passed": true,
+      "seconds": 0.052
+    },
+    {
+      "name": "test_fabricated_reference_rejected",
+      "passed": true,
+      "seconds": 0.059
+    },
+    {
+      "name": "test_incomplete_refund_data_is_unsupported",
+      "passed": true,
+      "seconds": 0.083
+    },
+    {
+      "name": "test_input_hash_and_workspace_binding",
+      "passed": true,
+      "seconds": 0.001
+    },
+    {
+      "name": "test_model_amount_field_rejected_then_corrected",
+      "passed": true,
+      "seconds": 0.088
+    },
+    {
+      "name": "test_model_and_tool_attempt_limits_are_durable",
+      "passed": true,
+      "seconds": 0.184
+    },
+    {
+      "name": "test_restart_resumes_saved_tool_results",
+      "passed": true,
+      "seconds": 1.055
+    },
+    {
+      "name": "test_unknown_tool_never_executes_sql",
+      "passed": true,
+      "seconds": 0.173
+    },
+    {
+      "name": "test_workspace_argument_cannot_override_bound_data",
+      "passed": true,
+      "seconds": 0.099
+    },
+    {
+      "name": "test_zero_baseline_does_not_divide",
+      "passed": true,
+      "seconds": 0.14
+    },
+    {
+      "name": "test_01_real_python_duckdb_result_and_evidence",
+      "passed": true,
+      "seconds": 0.286
+    },
+    {
+      "name": "test_02_idempotent_creation_concurrent_and_conflict",
+      "passed": true,
+      "seconds": 0.227
+    },
+    {
+      "name": "test_03_concurrent_claim_one_owner",
+      "passed": true,
+      "seconds": 0.181
+    },
+    {
+      "name": "test_04_expired_claim_fenced_before_and_after_reclaim",
+      "passed": true,
+      "seconds": 1.643
+    },
+    {
+      "name": "test_05_heartbeats_keep_slow_execution_owned",
+      "passed": true,
+      "seconds": 2.459
+    },
+    {
+      "name": "test_06_lost_completion_response_retried_without_duplicate",
+      "passed": true,
+      "seconds": 0.376
+    },
+    {
+      "name": "test_07_repeated_completion_rejects_changed_content",
+      "passed": true,
+      "seconds": 1.787
+    },
+    {
+      "name": "test_08_cancel_stops_child_and_cannot_resurrect",
+      "passed": true,
+      "seconds": 0.043
+    },
+    {
+      "name": "test_09_backoff_and_retry_budget",
+      "passed": true,
+      "seconds": 0.77
+    },
+    {
+      "name": "test_10_unsupported_product_refund_is_terminal",
+      "passed": true,
+      "seconds": 0.137
+    },
+    {
+      "name": "test_11_java_sigkill_restart_persists_all_states",
+      "passed": true,
+      "seconds": 3.996
+    },
+    {
+      "name": "test_12_roles_and_workspace_are_enforced",
+      "passed": true,
+      "seconds": 0.031
+    },
+    {
+      "name": "test_13_evidence_binding_rejects_wrong_source_metric_period",
+      "passed": true,
+      "seconds": 0.047
+    },
+    {
+      "name": "test_14_corrupted_input_rejected_without_execution",
+      "passed": true,
+      "seconds": 0.017
+    },
+    {
+      "name": "test_15_execution_timeout_kills_child_and_exhausts_budget",
+      "passed": true,
+      "seconds": 1.339
+    },
+    {
+      "name": "test_16_repeated_worker_crashes_exhaust_budget",
+      "passed": true,
+      "seconds": 4.983
+    },
+    {
+      "name": "test_17_cancel_completion_race_has_one_terminal_outcome",
+      "passed": true,
+      "seconds": 0.073
+    },
+    {
+      "name": "test_18_queued_input_frozen_across_registry_change",
+      "passed": true,
+      "seconds": 3.731
+    },
+    {
+      "name": "test_19_agent_worker_java_publication",
+      "passed": true,
+      "seconds": 1.086
+    },
+    {
+      "name": "test_20_agent_request_forbids_model_configuration",
+      "passed": true,
+      "seconds": 0.009
+    },
+    {
+      "name": "test_21_agent_report_binding_and_idempotency",
+      "passed": true,
+      "seconds": 0.14
+    },
+    {
+      "name": "test_22_cancelled_agent_cannot_publish",
+      "passed": true,
+      "seconds": 0.124
+    },
+    {
+      "name": "test_23_missing_personal_key_fails_without_remote_request",
+      "passed": true,
+      "seconds": 0.907
+    }
+  ],
+  "includes_previous_task_loop_tests": 18,
+  "case_set_sha256": "f8a6462a0238649056b428428f0271ed1ca347388f967d45c23420e784dfc762"
+}

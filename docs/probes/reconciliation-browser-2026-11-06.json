@@ -1,0 +1,34 @@
+{
+  "date": "2026-11-06",
+  "kind": "browser_observation",
+  "real_model_calls": 0,
+  "tasks": {
+    "discrepancy": "e9c64982-5991-48c6-b4cb-d25c3d403ee8",
+    "needs_review": "93dfafd9-52dc-4962-9bca-90d451ef9510",
+    "matched_reimport": "916c3bc2-94aa-4496-8213-0bf6d037a470"
+  },
+  "mobile_width": 390,
+  "mobile_document_width": 390,
+  "checks": [
+    "未确认前提交禁用",
+    "280→240 元保留 +10 元偏差",
+    "未知源只显示参考计算且无桥接",
+    "真实导出包装重新上传后 230→230 元匹配",
+    "历史恢复不自动勾选确认",
+    "390px 表单折叠且无整页横向溢出",
+    "恢复默认 1280px 视口"
+  ],
+  "console_audit": "最后日志读取结果因工具输出截断未保留，不声称独立日志验收通过",
+  "screenshots": {
+    "desktop": {
+      "path": ".local/reconciliation/browser/desktop.png",
+      "sha256": "ff22603d25791838b30f3fe76f1b2dd640ea03e5d0dac2585b2ea632d631c907",
+      "bytes": 151767
+    },
+    "mobile": {
+      "path": ".local/reconciliation/browser/mobile.png",
+      "sha256": "980945dc0c8c2ea06dc46a8b01ffc5d9216727baf197b30da0f17224af7ef8d2",
+      "bytes": 38685
+    }
+  }
+}

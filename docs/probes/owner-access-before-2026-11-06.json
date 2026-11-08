@@ -1,0 +1,17 @@
+{
+  "date": "2026-11-06",
+  "kind": "owner_access_before",
+  "real_model_calls": 0,
+  "observations": {
+    "anonymous_workbench": {
+      "http_status": 200
+    },
+    "login_page": {
+      "http_status": 401
+    },
+    "foreign_host": {
+      "http_status": 403
+    }
+  },
+  "interpretation": "Existing local-only mode intentionally has no application login. Anonymous loopback access is allowed and foreign Host is denied; this is a deployment capability gap, not evidence of a public leak."
+}

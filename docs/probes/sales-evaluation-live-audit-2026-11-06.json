@@ -1,0 +1,18 @@
+{
+  "date": "2026-11-06",
+  "before_archive_sha256": "b69f6ec21a484481d785225461cece787c8ee33dae8fd22c8f58ba55f5655da9",
+  "modified_existing": [
+    "README.md",
+    "docs/project-plan.md",
+    "docs/research/009-sales-evaluation.md",
+    "experiments/sales-evaluation/README.md"
+  ],
+  "business_code_frontend_runtime_prompt_tools_dependencies_unchanged": true,
+  "live_report_sha256": "82e6e0eb0529634e6fc26f5ce741da9bd50950dddfdd468e3fea9f6bb253e858",
+  "matching_cases_prompt_evaluator_implementation_hashes": true,
+  "reports_regraded_and_reaudited": 15,
+  "numeric_reports": 9,
+  "publication_errors": 0,
+  "additional_model_calls_by_assistant": 0,
+  "personal_project_only": true
+}

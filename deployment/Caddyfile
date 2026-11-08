@@ -1,0 +1,8 @@
+{
+    admin off
+    email {$COMMERCE_ACME_EMAIL}
+}
+
+{$COMMERCE_DOMAIN} {
+    import /etc/caddy/routes.caddy
+}

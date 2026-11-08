@@ -1,0 +1,20 @@
+{
+  "date": "2026-11-08",
+  "kind": "incomplete_real_evaluation",
+  "release_sha256": "b49e054202a0db8077258a0f46afc3862b2c1814ae5b957dcb8e21e4bbbf5d66",
+  "legacy_report_sha256": "aaf27623248c92a074b0ac9dccdd80d6d8bcdc5fec282e122b4bee461c912059",
+  "task_id": "32f6cb0c-d076-49a7-9c12-199528e031c7",
+  "tasks_attempted": 1,
+  "task_attempts": 3,
+  "provider_reservations": 2,
+  "responses_with_usage": 0,
+  "tool_calls": 0,
+  "final_error": "personal_budget_exhausted",
+  "new_charged_micro_cny": 4210688,
+  "cumulative_charged_micro_cny": 4525418,
+  "historical_known_charged_micro_cny": 314730,
+  "actual_new_provider_bill": "unknown",
+  "comparison_ran": false,
+  "original_provider_error_kind": "not_retained_by_previous_runtime",
+  "paid_requests_not_retried_by_assistant": true
+}

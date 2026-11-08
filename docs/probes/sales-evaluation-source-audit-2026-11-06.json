@@ -1,0 +1,24 @@
+{
+  "date": "2026-11-06",
+  "before_archive_sha256": "38ccd4cb1d43742decad4f51ead9233fcd7a3dbe1ac65db8bdb4d1e19f77e9f7",
+  "modified_existing": [
+    "README.md",
+    "docs/project-plan.md",
+    "scripts/evaluate_personal_agent.py"
+  ],
+  "new_files": [
+    "docs/baselines/phase-02g-2026-11-06.md",
+    "docs/probes/sales-evaluation-before-2026-11-06.json",
+    "docs/probes/sales-evaluation-engineering-2026-11-06.json",
+    "docs/probes/sales-evaluation-initial-2026-11-06.json",
+    "docs/research/009-sales-evaluation.md",
+    "experiments/sales-evaluation/README.md",
+    "experiments/sales-evaluation/cases.json",
+    "experiments/sales-evaluation/verify.py"
+  ],
+  "cases_sha256": "29b7d86b11438a0f18a94269eec29c2472502dc19dc1875669372bcfd4db3498",
+  "runtime_prompt_tools_frontend_dependencies_unchanged": true,
+  "paid_model_requests_from_this_work": 0,
+  "shared_ledger_requests_observed": 35,
+  "shared_ledger_upper_cny_observed": 0.137988
+}

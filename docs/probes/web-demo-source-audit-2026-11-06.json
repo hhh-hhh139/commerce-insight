@@ -1,0 +1,13 @@
+{
+  "changed_existing_files": [
+    "README.md",
+    "docs/project-plan.md",
+    "services/business-api/src/main/java/dev/commerceinsight/LocalAuthFilter.java",
+    "services/business-api/src/main/java/dev/commerceinsight/TaskController.java",
+    "services/business-api/src/main/java/dev/commerceinsight/TaskService.java"
+  ],
+  "agent_and_data_sources_unchanged": true,
+  "documentation_links_valid": true,
+  "personal_model_total_calls": 35,
+  "budget_upper_cny": 0.137988
+}

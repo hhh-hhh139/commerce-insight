@@ -1,0 +1,53 @@
+{
+  "date": "2026-11-06",
+  "kind": "reliability_controls",
+  "tests": 8,
+  "failures": 8,
+  "errors": 0,
+  "seconds": 18.467,
+  "real_model_calls": 0,
+  "test_limits": {
+    "total": 5,
+    "active": 3,
+    "running": 1,
+    "lifetime_ms": [
+      2000,
+      15000
+    ]
+  },
+  "failure_details": [
+    {
+      "test": "test_comparison_negative_zero (__main__.NumericTests.test_comparison_negative_zero)",
+      "trace": "Traceback (most recent call last):\n  File \"/Users/haohao4/Downloads/multi-agent.zip/commerce-insight/experiments/reliability/verify.py\", line 137, in test_comparison_negative_zero\n    self.assertEqual(comparison(a,b)[\"change_percent\"],\"0.00\")\nAssertionError: '-0.00' != '0.00'\n- -0.00\n? -\n+ 0.00\n\n"
+    },
+    {
+      "test": "test_sales_negative_zero (__main__.NumericTests.test_sales_negative_zero)",
+      "trace": "Traceback (most recent call last):\n  File \"/Users/haohao4/Downloads/multi-agent.zip/commerce-insight/experiments/reliability/verify.py\", line 130, in test_sales_negative_zero\n    def test_sales_negative_zero(self):self.assertEqual(percent(-1,1000000),\"0.00\")\n                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: '-0.00' != '0.00'\n- -0.00\n? -\n+ 0.00\n\n"
+    },
+    {
+      "test": "test_concurrent_admission_and_idempotent_replay (__main__.ReliabilityTests.test_concurrent_admission_and_idempotent_replay)",
+      "trace": "Traceback (most recent call last):\n  File \"/Users/haohao4/Downloads/multi-agent.zip/commerce-insight/experiments/reliability/verify.py\", line 73, in test_concurrent_admission_and_idempotent_replay\n    self.assertEqual(sum(isinstance(v,dict) for v in out),2,out)\nAssertionError: 10 != 2 : [{'id': '220a893b-731f-4741-866f-cbbbe273d0ed', 'workspace_id': 'demo-shop', 'status': 'QUEUED', 'attempt': 0, 'max_attempts': 3, 'request': {'dataset_id': 'demo-ledger-v1', 'end': '2026-10-12T00:00:00Z', 'metric': 'paid_amount', 'start': '2026-10-05T00:00:00Z'}, 'source_sha256': '27048415cf67ccf74b818b62d046eb1d80eff6006e3966c8d7491bac25429cd4', 'created_at': 1793957619746, 'result': None, 'error_code': None}, {'id': '0b8fe482-3dee-42a4-b8ee-c6d979c7e071', 'workspace_id': 'demo-shop', 'status': 'QUEUED', 'attempt': 0, 'max_attempts': 3, 'request': {'dataset_id': 'demo-ledger-v1', 'end': '2026-10-12T00:00:00Z', 'metric': 'paid_amount', 'start': '2026-10-05T00:00:00Z'}, 'source_sha256': '27048415cf67ccf74b818b62d046eb1d80eff6006e3966c8d7491bac25429cd4', 'created_at': 1793957619744, 'result': None, 'error_code': None}, {'id': 'd33528a4-cc39-4049-a1ee-79764199cd08', 'workspace_id': 'demo-shop', 'status': 'QUEUED', 'attempt': 0, 'max_attempts': 3, 'request': {'dataset_id': 'demo-ledger-v1', 'end': '2026-10-12T00:00:00Z', 'metric': 'paid_amount', 'start': '2026-10-05T00:00:00Z'}, 'source_sha256': '27048415cf67ccf74b818b62d046eb1d80eff6006e3966c8d7491bac25429cd4', 'created_at': 1793957619744, 'result': None, 'error_code': None}, {'id': '70687baf-bfa2-4d72-ad99-29160e4cd846', 'workspace_id': 'demo-shop', 'status': 'QUEUED', 'attempt': 0, 'max_attempts': 3, 'request': {'dataset_id': 'demo-ledger-v1', 'end': '2026-10-12T00:00:00Z', 'metric': 'paid_amount', 'start': '2026-10-05T00:00:00Z'}, 'source_sha256': '27048415cf67ccf74b818b62d046eb1d80eff6006e3966c8d7491bac25429cd4', 'created_at': 1793957619744, 'result': None, 'error_code': None}, {'id': 'a74718e9-53fa-417e-8391-1837600fff2b', 'workspace_id': 'demo-shop', 'status': 'QUEUED', 'attempt': 0, 'max_attempts': 3, 'request': {'dataset_id': 'demo-ledger-v1', 'end': '2026-10-12T00:00:00Z', 'metric': 'paid_amount', 'start': '2026-10-05T00:00:00Z'}, 'source_sha256': '27048415cf67ccf74b818b62d046eb1d80eff6006e3966c8d7491bac25429cd4', 'created_at': 1793957619749, 'result': None, 'error_code': None}, {'id': '690a22d5-18ee-4bdc-8a87-8bbb204bff59', 'workspace_id': 'demo-shop', 'status': 'QUEUED', 'attempt': 0, 'max_attempts': 3, 'request': {'dataset_id': 'demo-ledger-v1', 'end': '2026-10-12T00:00:00Z', 'metric': 'paid_amount', 'start': '2026-10-05T00:00:00Z'}, 'source_sha256': '27048415cf67ccf74b818b62d046eb1d80eff6006e3966c8d7491bac25429cd4', 'created_at': 1793957619746, 'result': None, 'error_code': None}, {'id': '17e25835-7f89-4135-a8f9-471dab9cb16f', 'workspace_id': 'demo-shop', 'status': 'QUEUED', 'attempt': 0, 'max_attempts': 3, 'request': {'dataset_id': 'demo-ledger-v1', 'end': '2026-10-12T00:00:00Z', 'metric': 'paid_amount', 'start': '2026-10-05T00:00:00Z'}, 'source_sha256': '27048415cf67ccf74b818b62d046eb1d80eff6006e3966c8d7491bac25429cd4', 'created_at': 1793957619745, 'result': None, 'error_code': None}, {'id': '993102ab-d61f-4726-80d8-4d044579b383', 'workspace_id': 'demo-shop', 'status': 'QUEUED', 'attempt': 0, 'max_attempts': 3, 'request': {'dataset_id': 'demo-ledger-v1', 'end': '2026-10-12T00:00:00Z', 'metric': 'paid_amount', 'start': '2026-10-05T00:00:00Z'}, 'source_sha256': '27048415cf67ccf74b818b62d046eb1d80eff6006e3966c8d7491bac25429cd4', 'created_at': 1793957619748, 'result': None, 'error_code': None}, {'id': '31fd21d7-e3ef-4dbb-9146-09f429b63ec3', 'workspace_id': 'demo-shop', 'status': 'QUEUED', 'attempt': 0, 'max_attempts': 3, 'request': {'dataset_id': 'demo-ledger-v1', 'end': '2026-10-12T00:00:00Z', 'metric': 'paid_amount', 'start': '2026-10-05T00:00:00Z'}, 'source_sha256': '27048415cf67ccf74b818b62d046eb1d80eff6006e3966c8d7491bac25429cd4', 'created_at': 1793957619749, 'result': None, 'error_code': None}, {'id': 'f023ef2d-6e29-4d6e-b9fc-12e4ef5619d0', 'workspace_id': 'demo-shop', 'status': 'QUEUED', 'attempt': 0, 'max_attempts': 3, 'request': {'dataset_id': 'demo-ledger-v1', 'end': '2026-10-12T00:00:00Z', 'metric': 'paid_amount', 'start': '2026-10-05T00:00:00Z'}, 'source_sha256': '27048415cf67ccf74b818b62d046eb1d80eff6006e3966c8d7491bac25429cd4', 'created_at': 1793957619748, 'result': None, 'error_code': None}]\n"
+    },
+    {
+      "test": "test_deadline_survives_heartbeats_and_restart (__main__.ReliabilityTests.test_deadline_survives_heartbeats_and_restart)",
+      "trace": "Traceback (most recent call last):\n  File \"/Users/haohao4/Downloads/multi-agent.zip/commerce-insight/experiments/reliability/verify.py\", line 98, in test_deadline_survives_heartbeats_and_restart\n    saved=self.get(t);self.assertEqual(saved[\"status\"],\"FAILED\",saved)\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'RUNNING' != 'FAILED'\n- RUNNING\n+ FAILED\n : {'id': '7090aef2-a0f7-4b7e-ad2d-ec3add710a9c', 'workspace_id': 'demo-shop', 'status': 'RUNNING', 'attempt': 1, 'max_attempts': 3, 'request': {'dataset_id': 'demo-ledger-v1', 'end': '2026-10-12T00:00:00Z', 'metric': 'paid_amount', 'start': '2026-10-05T00:00:00Z'}, 'source_sha256': '27048415cf67ccf74b818b62d046eb1d80eff6006e3966c8d7491bac25429cd4', 'created_at': 1793957621242, 'result': None, 'error_code': None, 'events': [{'at': 1793957621247, 'attempt': 0, 'kind': 'CREATED'}, {'at': 1793957621256, 'attempt': 1, 'kind': 'CLAIMED'}]}\n"
+    },
+    {
+      "test": "test_deadline_without_worker (__main__.ReliabilityTests.test_deadline_without_worker)",
+      "trace": "Traceback (most recent call last):\n  File \"/Users/haohao4/Downloads/multi-agent.zip/commerce-insight/experiments/reliability/verify.py\", line 106, in test_deadline_without_worker\n    self.assertEqual(self.get(t)[\"status\"],\"FAILED\")\nAssertionError: 'QUEUED' != 'FAILED'\n- QUEUED\n+ FAILED\n\n"
+    },
+    {
+      "test": "test_executor_output_stopped_before_timeout (__main__.ReliabilityTests.test_executor_output_stopped_before_timeout)",
+      "trace": "Traceback (most recent call last):\n  File \"/Users/haohao4/Downloads/multi-agent.zip/commerce-insight/experiments/reliability/verify.py\", line 124, in test_executor_output_stopped_before_timeout\n    self.assertEqual(out[\"outcome\"],\"executor_output_limit\",out)\nAssertionError: 'execution_timeout' != 'executor_output_limit'\n- execution_timeout\n+ executor_output_limit\n : {'id': 'bdb698fc-cee1-45fe-b31d-a83b2adbf34e', 'outcome': 'execution_timeout'}\n"
+    },
+    {
+      "test": "test_retention_quota_and_protected_observation (__main__.ReliabilityTests.test_retention_quota_and_protected_observation)",
+      "trace": "Traceback (most recent call last):\n  File \"/Users/haohao4/Downloads/multi-agent.zip/commerce-insight/experiments/reliability/verify.py\", line 111, in test_retention_quota_and_protected_observation\n    self.error(429,self.create)\n  File \"/Users/haohao4/Downloads/multi-agent.zip/commerce-insight/experiments/reliability/verify.py\", line 64, in error\n    with self.assertRaises(ApiFailure) as caught:fn(*args,**kwargs)\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ApiFailure not raised\n"
+    },
+    {
+      "test": "test_running_cap_and_reclaim (__main__.ReliabilityTests.test_running_cap_and_reclaim)",
+      "trace": "Traceback (most recent call last):\n  File \"/Users/haohao4/Downloads/multi-agent.zip/commerce-insight/experiments/reliability/verify.py\", line 83, in test_running_cap_and_reclaim\n    self.assertIsNone(self.worker.call(\"/internal/tasks/claim\",{}))\nAssertionError: {'id': 'e3fe73b1-526a-4c01-97f0-e27ef9ab62f0', 'workspace_id': 'demo-shop', 'status': 'RUNNING', 'attempt': 1, 'max_attempts': 3, 'request': {'dataset_id': 'demo-ledger-v1', 'end': '2026-10-12T00:00:00Z', 'metric': 'paid_amount', 'start': '2026-10-05T00:00:00Z'}, 'source_sha256': '27048415cf67ccf74b818b62d046eb1d80eff6006e3966c8d7491bac25429cd4', 'created_at': 1793957636230, 'result': None, 'error_code': None, 'lease_token': '[synthetic run value omitted]', 'lease_ms': 1500, 'dataset_base64': '[synthetic run value omitted]'} is not None\n"
+    }
+  ],
+  "redaction": "Removed ephemeral lease identifiers and repeated base64 synthetic snapshot from failure traces; assertions unchanged."
+}

@@ -1,0 +1,14 @@
+{
+  "contract_version": "invoice-lines-v1",
+  "dataset_name": "synthetic-renamed-pence-export",
+  "fields": {
+    "invoice_id": "单号", "product_id": "条目编码",
+    "quantity": "数量", "unit_price": "单价便士", "event_time": "记录时间",
+    "country": "地区", "customer_id": "客户编号", "description": "描述"
+  },
+  "currency": "GBP",
+  "unit_price_multiplier": "0.01",
+  "time_basis": "source_local_unspecified_zone",
+  "event_rule": {"mode": "status_column", "column": "业务状态", "values": {"1": "sale", "9": "cancellation"}},
+  "duplicate_policy": "keep_and_flag"
+}

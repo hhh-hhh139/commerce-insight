@@ -1,0 +1,89 @@
+{
+  "kind": "synthetic_sql_probe_not_agent_evaluation",
+  "fixture_version": "synthetic-orders-v1",
+  "fixture_sha256": "6e66c7b9cfc33b67b780d37069dbc2af96f1808970a7e2cdedc4888ef3c24ed7",
+  "script_sha256": "3eafa530def1d7ad2b7496533f72db7082e1a19278fa142edff1782b7b055434",
+  "runtime": {
+    "python": "3.9.6",
+    "sqlite": "3.51.0"
+  },
+  "amount_unit": "fen",
+  "currency": "CNY",
+  "timezone": "UTC",
+  "observations": {
+    "base_naive_join": {
+      "actual_minor": 28000,
+      "expected_observation_minor": 28000,
+      "matches_expected_observation": true,
+      "sql": "SELECT SUM(o.paid_minor)\n        FROM orders o LEFT JOIN items i ON i.order_id = o.order_id",
+      "parameters": {}
+    },
+    "base_amount_distinct": {
+      "actual_minor": 18000,
+      "expected_observation_minor": 18000,
+      "matches_expected_observation": true,
+      "sql": "SELECT SUM(DISTINCT o.paid_minor)\n        FROM orders o LEFT JOIN items i ON i.order_id = o.order_id",
+      "parameters": {}
+    },
+    "base_order_identity": {
+      "actual_minor": 18000,
+      "expected_observation_minor": 18000,
+      "matches_expected_observation": true,
+      "sql": "SELECT SUM(paid_minor) FROM (\n            SELECT DISTINCT o.order_id, o.paid_minor\n            FROM orders o LEFT JOIN items i ON i.order_id = o.order_id\n        )",
+      "parameters": {}
+    },
+    "equal_naive_join": {
+      "actual_minor": 38000,
+      "expected_observation_minor": 38000,
+      "matches_expected_observation": true,
+      "sql": "SELECT SUM(o.paid_minor)\n        FROM orders o LEFT JOIN items i ON i.order_id = o.order_id",
+      "parameters": {}
+    },
+    "equal_amount_distinct": {
+      "actual_minor": 18000,
+      "expected_observation_minor": 18000,
+      "matches_expected_observation": true,
+      "sql": "SELECT SUM(DISTINCT o.paid_minor)\n        FROM orders o LEFT JOIN items i ON i.order_id = o.order_id",
+      "parameters": {}
+    },
+    "equal_order_identity": {
+      "actual_minor": 28000,
+      "expected_observation_minor": 28000,
+      "matches_expected_observation": true,
+      "sql": "SELECT SUM(paid_minor) FROM (\n            SELECT DISTINCT o.order_id, o.paid_minor\n            FROM orders o LEFT JOIN items i ON i.order_id = o.order_id\n        )",
+      "parameters": {}
+    },
+    "week1_event_net": {
+      "actual_minor": 18000,
+      "expected_observation_minor": 18000,
+      "matches_expected_observation": true,
+      "sql": "SELECT COALESCE(SUM(amount_minor), 0) FROM (\n        SELECT paid_minor AS amount_minor, paid_at AS event_at FROM orders\n        UNION ALL\n        SELECT -amount_minor, posted_at FROM refunds\n    ) WHERE event_at >= :start AND event_at < :end",
+      "parameters": {
+        "start": "2026-10-05T00:00:00Z",
+        "end": "2026-10-12T00:00:00Z"
+      }
+    },
+    "week2_event_net": {
+      "actual_minor": -2000,
+      "expected_observation_minor": -2000,
+      "matches_expected_observation": true,
+      "sql": "SELECT COALESCE(SUM(amount_minor), 0) FROM (\n        SELECT paid_minor AS amount_minor, paid_at AS event_at FROM orders\n        UNION ALL\n        SELECT -amount_minor, posted_at FROM refunds\n    ) WHERE event_at >= :start AND event_at < :end",
+      "parameters": {
+        "start": "2026-10-12T00:00:00Z",
+        "end": "2026-10-19T00:00:00Z"
+      }
+    },
+    "week1_paid_cohort_net_as_of": {
+      "actual_minor": 16000,
+      "expected_observation_minor": 16000,
+      "matches_expected_observation": true,
+      "sql": "WITH refunds_as_of AS (\n        SELECT order_id, SUM(amount_minor) AS refund_minor\n        FROM refunds WHERE posted_at < :as_of\n        GROUP BY order_id\n    )\n    SELECT COALESCE(SUM(o.paid_minor - COALESCE(r.refund_minor, 0)), 0)\n    FROM orders o LEFT JOIN refunds_as_of r ON r.order_id = o.order_id\n    WHERE o.paid_at >= :start AND o.paid_at < :end",
+      "parameters": {
+        "start": "2026-10-05T00:00:00Z",
+        "end": "2026-10-12T00:00:00Z",
+        "as_of": "2026-10-19T00:00:00Z"
+      }
+    }
+  },
+  "all_expected_observations_reproduced": true
+}

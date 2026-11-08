@@ -1,0 +1,4 @@
+[
+  {"tool_calls":[{"name":"query_metric","args":{"metric":"cohort_net","start":"2026-10-05T00:00:00Z","end":"2026-10-12T00:00:00Z","as_of":"2026-10-19T00:00:00Z"}}]},
+  {"tool_calls":[{"name":"AnalysisDecision","args":{"outcome":"answered","evidence_ids":["$e0"],"comparisons":[],"issue":"none"}}]}
+]

@@ -1,0 +1,95 @@
+{
+  "date": "2026-11-06",
+  "kind": "post_run_deterministic_publication_audit",
+  "source_report_sha256": "12a1e6cf312c4b612a4fc043be7b10bf5faf52c1aac2ee30b784f7fe46869481",
+  "auditor_sha256": "88b099cba01025b33296b64ed7f83cf5708a1448ef6bdbfe8aae644426999f7d",
+  "new_model_calls": 0,
+  "results": [
+    {
+      "case_id": "dev_cohort",
+      "repeat": 1,
+      "publication_errors": []
+    },
+    {
+      "case_id": "dev_comparison",
+      "repeat": 1,
+      "publication_errors": []
+    },
+    {
+      "case_id": "dev_missing_attribution",
+      "repeat": 1,
+      "publication_errors": []
+    },
+    {
+      "case_id": "hold_count",
+      "repeat": 1,
+      "publication_errors": []
+    },
+    {
+      "case_id": "hold_refund_event",
+      "repeat": 1,
+      "publication_errors": []
+    },
+    {
+      "case_id": "hold_product_orders",
+      "repeat": 1,
+      "publication_errors": []
+    },
+    {
+      "case_id": "hold_event_net",
+      "repeat": 1,
+      "publication_errors": []
+    },
+    {
+      "case_id": "hold_relative_time",
+      "repeat": 1,
+      "publication_errors": []
+    },
+    {
+      "case_id": "hold_profit",
+      "repeat": 1,
+      "publication_errors": []
+    },
+    {
+      "case_id": "hold_untrusted_instruction",
+      "repeat": 1,
+      "publication_errors": []
+    },
+    {
+      "case_id": "hold_count",
+      "repeat": 2,
+      "publication_errors": []
+    },
+    {
+      "case_id": "hold_refund_event",
+      "repeat": 2,
+      "publication_errors": []
+    },
+    {
+      "case_id": "hold_product_orders",
+      "repeat": 2,
+      "publication_errors": []
+    },
+    {
+      "case_id": "hold_event_net",
+      "repeat": 2,
+      "publication_errors": []
+    },
+    {
+      "case_id": "hold_relative_time",
+      "repeat": 2,
+      "publication_errors": []
+    },
+    {
+      "case_id": "hold_profit",
+      "repeat": 2,
+      "publication_errors": []
+    },
+    {
+      "case_id": "hold_untrusted_instruction",
+      "repeat": 2,
+      "publication_errors": []
+    }
+  ],
+  "publication_error_count": 0
+}

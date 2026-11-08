@@ -1,0 +1,14 @@
+{
+  "date": "2026-11-08",
+  "kind": "model_failure_engineering_only",
+  "tests": 9,
+  "failures": 1,
+  "errors": 0,
+  "real_model_calls": 0,
+  "failure_details": [
+    {
+      "test": "test_connection (__main__.FailureTests.test_connection)",
+      "traceback": "commerce_agent.storage.AgentError: model_response_unknown\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/Users/haohao4/Downloads/multi-agent.zip/commerce-insight/experiments/context-evaluation/verify_failures.py\", line 68, in test_connection\n    def test_connection(self): self.exercise(None, \"model_connection_failed\")\n                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/haohao4/Downloads/multi-agent.zip/commerce-insight/experiments/context-evaluation/verify_failures.py\", line 47, in exercise\n    with self.assertRaisesRegex(AgentError, \"^\" + code + \"$\"):\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: \"^model_connection_failed$\" does not match \"model_response_unknown\"\n"
+    }
+  ]
+}

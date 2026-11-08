@@ -1,0 +1,485 @@
+{
+  "version": "refund-change-cases-v1",
+  "fixed_before_model_calls": "2026-11-06",
+  "oracle": "人工核算固定合成账本；未从退款分析实现或模型输出生成答案。不同问题族共用账本，不代表跨数据集泛化。",
+  "acceptance": {
+    "heldout_min_success_rate": 0.8,
+    "heldout_repeats": 2,
+    "published_numeric_or_reference_errors_allowed": 0
+  },
+  "development": [
+    {
+      "id": "dev_refund_origins",
+      "family": "full_origins",
+      "question": "按 UTC 比较 2026-10-12（含）至 10-19（不含）与 2026-10-19（含）至 10-26（不含），按退款发生时间统计成功退款。请给出两期金额、退款笔数与订单数、旧订单来源以及商品归属，最多列 5 个已关联商品；缺失归属单列。",
+      "outcome": "answered",
+      "issue": "none",
+      "expected": [
+        {
+          "metric": "refund_change",
+          "start": "2026-10-12T00:00:00Z",
+          "end": "2026-10-19T00:00:00Z",
+          "current_start": "2026-10-19T00:00:00Z",
+          "current_end": "2026-10-26T00:00:00Z",
+          "top_n": 5,
+          "refund_change": {
+            "currency": "CNY",
+            "amount_scale": 2,
+            "result_unit": "minor_units",
+            "totals": {
+              "baseline_minor": 5000,
+              "current_minor": 1000,
+              "delta_minor": -4000,
+              "change_percent": "-80.00"
+            },
+            "counts": {
+              "baseline_refunds": 3,
+              "baseline_orders": 2,
+              "current_refunds": 1,
+              "current_orders": 1
+            },
+            "origins": [
+              {
+                "origin": "prior_orders",
+                "baseline_minor": 5000,
+                "current_minor": 1000,
+                "delta_minor": -4000
+              },
+              {
+                "origin": "same_period_orders",
+                "baseline_minor": 0,
+                "current_minor": 0,
+                "delta_minor": 0
+              }
+            ],
+            "attribution": {
+              "baseline_linked_minor": 3000,
+              "current_linked_minor": 1000,
+              "delta_linked_minor": -2000,
+              "baseline_unattributed_minor": 2000,
+              "current_unattributed_minor": 0,
+              "delta_unattributed_minor": -2000,
+              "baseline_coverage_percent": "60.00",
+              "current_coverage_percent": "100.00"
+            },
+            "products": {
+              "product_count": 3,
+              "rows": [
+                {
+                  "product_id": "P1",
+                  "baseline_minor": 2000,
+                  "current_minor": 0,
+                  "delta_minor": -2000,
+                  "change_percent": "-100.00"
+                },
+                {
+                  "product_id": "P2",
+                  "baseline_minor": 1000,
+                  "current_minor": 0,
+                  "delta_minor": -1000,
+                  "change_percent": "-100.00"
+                },
+                {
+                  "product_id": "P3",
+                  "baseline_minor": 0,
+                  "current_minor": 1000,
+                  "delta_minor": 1000,
+                  "change_percent": null
+                }
+              ],
+              "other": {
+                "product_count": 0,
+                "baseline_minor": 0,
+                "current_minor": 0,
+                "delta_minor": 0
+              }
+            },
+            "reconciliation": {
+              "baseline_minor": 5000,
+              "current_minor": 1000,
+              "delta_minor": -4000,
+              "baseline_residual_minor": 0,
+              "current_residual_minor": 0,
+              "delta_residual_minor": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "dev_missing_period",
+      "family": "missing_period",
+      "question": "比较最近两周退款变化及商品归属。",
+      "outcome": "needs_clarification",
+      "issue": "needs_time_range",
+      "expected": []
+    }
+  ],
+  "heldout": [
+    {
+      "id": "hold_top_one",
+      "family": "top_n_other",
+      "question": "按 UTC 比较 2026-10-12（含）至 10-19（不含）与 2026-10-19（含）至 10-26（不含），按退款发生时间统计成功退款。按变化绝对值只列 1 个已关联商品，保留其他商品及未归属金额，区分退款笔数和订单数。",
+      "outcome": "answered",
+      "issue": "none",
+      "expected": [
+        {
+          "metric": "refund_change",
+          "start": "2026-10-12T00:00:00Z",
+          "end": "2026-10-19T00:00:00Z",
+          "current_start": "2026-10-19T00:00:00Z",
+          "current_end": "2026-10-26T00:00:00Z",
+          "top_n": 1,
+          "refund_change": {
+            "currency": "CNY",
+            "amount_scale": 2,
+            "result_unit": "minor_units",
+            "totals": {
+              "baseline_minor": 5000,
+              "current_minor": 1000,
+              "delta_minor": -4000,
+              "change_percent": "-80.00"
+            },
+            "counts": {
+              "baseline_refunds": 3,
+              "baseline_orders": 2,
+              "current_refunds": 1,
+              "current_orders": 1
+            },
+            "origins": [
+              {
+                "origin": "prior_orders",
+                "baseline_minor": 5000,
+                "current_minor": 1000,
+                "delta_minor": -4000
+              },
+              {
+                "origin": "same_period_orders",
+                "baseline_minor": 0,
+                "current_minor": 0,
+                "delta_minor": 0
+              }
+            ],
+            "attribution": {
+              "baseline_linked_minor": 3000,
+              "current_linked_minor": 1000,
+              "delta_linked_minor": -2000,
+              "baseline_unattributed_minor": 2000,
+              "current_unattributed_minor": 0,
+              "delta_unattributed_minor": -2000,
+              "baseline_coverage_percent": "60.00",
+              "current_coverage_percent": "100.00"
+            },
+            "products": {
+              "product_count": 3,
+              "rows": [
+                {
+                  "product_id": "P1",
+                  "baseline_minor": 2000,
+                  "current_minor": 0,
+                  "delta_minor": -2000,
+                  "change_percent": "-100.00"
+                }
+              ],
+              "other": {
+                "product_count": 2,
+                "baseline_minor": 1000,
+                "current_minor": 1000,
+                "delta_minor": 0
+              }
+            },
+            "reconciliation": {
+              "baseline_minor": 5000,
+              "current_minor": 1000,
+              "delta_minor": -4000,
+              "baseline_residual_minor": 0,
+              "current_residual_minor": 0,
+              "delta_residual_minor": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "hold_zero_base",
+      "family": "zero_denominator",
+      "question": "按 UTC 比较 2026-10-05（含）至 10-12（不含）和 2026-10-12（含）至 10-19（不含）的成功退款发生额、来源和商品归属，最多 5 个商品，基期为零时不要编造变化率。",
+      "outcome": "answered",
+      "issue": "none",
+      "expected": [
+        {
+          "metric": "refund_change",
+          "start": "2026-10-05T00:00:00Z",
+          "end": "2026-10-12T00:00:00Z",
+          "current_start": "2026-10-12T00:00:00Z",
+          "current_end": "2026-10-19T00:00:00Z",
+          "top_n": 5,
+          "refund_change": {
+            "currency": "CNY",
+            "amount_scale": 2,
+            "result_unit": "minor_units",
+            "totals": {
+              "baseline_minor": 0,
+              "current_minor": 5000,
+              "delta_minor": 5000,
+              "change_percent": null
+            },
+            "counts": {
+              "baseline_refunds": 0,
+              "baseline_orders": 0,
+              "current_refunds": 3,
+              "current_orders": 2
+            },
+            "origins": [
+              {
+                "origin": "prior_orders",
+                "baseline_minor": 0,
+                "current_minor": 5000,
+                "delta_minor": 5000
+              },
+              {
+                "origin": "same_period_orders",
+                "baseline_minor": 0,
+                "current_minor": 0,
+                "delta_minor": 0
+              }
+            ],
+            "attribution": {
+              "baseline_linked_minor": 0,
+              "current_linked_minor": 3000,
+              "delta_linked_minor": 3000,
+              "baseline_unattributed_minor": 0,
+              "current_unattributed_minor": 2000,
+              "delta_unattributed_minor": 2000,
+              "baseline_coverage_percent": null,
+              "current_coverage_percent": "60.00"
+            },
+            "products": {
+              "product_count": 2,
+              "rows": [
+                {
+                  "product_id": "P1",
+                  "baseline_minor": 0,
+                  "current_minor": 2000,
+                  "delta_minor": 2000,
+                  "change_percent": null
+                },
+                {
+                  "product_id": "P2",
+                  "baseline_minor": 0,
+                  "current_minor": 1000,
+                  "delta_minor": 1000,
+                  "change_percent": null
+                }
+              ],
+              "other": {
+                "product_count": 0,
+                "baseline_minor": 0,
+                "current_minor": 0,
+                "delta_minor": 0
+              }
+            },
+            "reconciliation": {
+              "baseline_minor": 0,
+              "current_minor": 5000,
+              "delta_minor": 5000,
+              "baseline_residual_minor": 0,
+              "current_residual_minor": 0,
+              "delta_residual_minor": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "hold_empty",
+      "family": "empty_periods",
+      "question": "按 UTC 比较 2026-09-21（含）至 09-28（不含）和 2026-09-28（含）至 10-05（不含）的成功退款发生额、来源和商品归属，最多 5 个商品。",
+      "outcome": "answered",
+      "issue": "none",
+      "expected": [
+        {
+          "metric": "refund_change",
+          "start": "2026-09-21T00:00:00Z",
+          "end": "2026-09-28T00:00:00Z",
+          "current_start": "2026-09-28T00:00:00Z",
+          "current_end": "2026-10-05T00:00:00Z",
+          "top_n": 5,
+          "refund_change": {
+            "currency": "CNY",
+            "amount_scale": 2,
+            "result_unit": "minor_units",
+            "totals": {
+              "baseline_minor": 0,
+              "current_minor": 0,
+              "delta_minor": 0,
+              "change_percent": null
+            },
+            "counts": {
+              "baseline_refunds": 0,
+              "baseline_orders": 0,
+              "current_refunds": 0,
+              "current_orders": 0
+            },
+            "origins": [
+              {
+                "origin": "prior_orders",
+                "baseline_minor": 0,
+                "current_minor": 0,
+                "delta_minor": 0
+              },
+              {
+                "origin": "same_period_orders",
+                "baseline_minor": 0,
+                "current_minor": 0,
+                "delta_minor": 0
+              }
+            ],
+            "attribution": {
+              "baseline_linked_minor": 0,
+              "current_linked_minor": 0,
+              "delta_linked_minor": 0,
+              "baseline_unattributed_minor": 0,
+              "current_unattributed_minor": 0,
+              "delta_unattributed_minor": 0,
+              "baseline_coverage_percent": null,
+              "current_coverage_percent": null
+            },
+            "products": {
+              "product_count": 0,
+              "rows": [],
+              "other": {
+                "product_count": 0,
+                "baseline_minor": 0,
+                "current_minor": 0,
+                "delta_minor": 0
+              }
+            },
+            "reconciliation": {
+              "baseline_minor": 0,
+              "current_minor": 0,
+              "delta_minor": 0,
+              "baseline_residual_minor": 0,
+              "current_residual_minor": 0,
+              "delta_residual_minor": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "hold_offset",
+      "family": "explicit_offset",
+      "question": "比较北京时间 2026-10-12 08:00（含）至 10-19 08:00（不含），与 10-19 08:00（含）至 10-26 08:00（不含）的成功退款发生额、原订单时间和商品归属，最多 5 个商品。",
+      "outcome": "answered",
+      "issue": "none",
+      "expected": [
+        {
+          "metric": "refund_change",
+          "start": "2026-10-12T00:00:00Z",
+          "end": "2026-10-19T00:00:00Z",
+          "current_start": "2026-10-19T00:00:00Z",
+          "current_end": "2026-10-26T00:00:00Z",
+          "top_n": 5,
+          "refund_change": {
+            "currency": "CNY",
+            "amount_scale": 2,
+            "result_unit": "minor_units",
+            "totals": {
+              "baseline_minor": 5000,
+              "current_minor": 1000,
+              "delta_minor": -4000,
+              "change_percent": "-80.00"
+            },
+            "counts": {
+              "baseline_refunds": 3,
+              "baseline_orders": 2,
+              "current_refunds": 1,
+              "current_orders": 1
+            },
+            "origins": [
+              {
+                "origin": "prior_orders",
+                "baseline_minor": 5000,
+                "current_minor": 1000,
+                "delta_minor": -4000
+              },
+              {
+                "origin": "same_period_orders",
+                "baseline_minor": 0,
+                "current_minor": 0,
+                "delta_minor": 0
+              }
+            ],
+            "attribution": {
+              "baseline_linked_minor": 3000,
+              "current_linked_minor": 1000,
+              "delta_linked_minor": -2000,
+              "baseline_unattributed_minor": 2000,
+              "current_unattributed_minor": 0,
+              "delta_unattributed_minor": -2000,
+              "baseline_coverage_percent": "60.00",
+              "current_coverage_percent": "100.00"
+            },
+            "products": {
+              "product_count": 3,
+              "rows": [
+                {
+                  "product_id": "P1",
+                  "baseline_minor": 2000,
+                  "current_minor": 0,
+                  "delta_minor": -2000,
+                  "change_percent": "-100.00"
+                },
+                {
+                  "product_id": "P2",
+                  "baseline_minor": 1000,
+                  "current_minor": 0,
+                  "delta_minor": -1000,
+                  "change_percent": "-100.00"
+                },
+                {
+                  "product_id": "P3",
+                  "baseline_minor": 0,
+                  "current_minor": 1000,
+                  "delta_minor": 1000,
+                  "change_percent": null
+                }
+              ],
+              "other": {
+                "product_count": 0,
+                "baseline_minor": 0,
+                "current_minor": 0,
+                "delta_minor": 0
+              }
+            },
+            "reconciliation": {
+              "baseline_minor": 5000,
+              "current_minor": 1000,
+              "delta_minor": -4000,
+              "baseline_residual_minor": 0,
+              "current_residual_minor": 0,
+              "delta_residual_minor": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "hold_missing_reason",
+      "family": "missing_reason",
+      "question": "仅使用现有数据，按退款原因字段给出质量问题导致的退款金额；如果没有该字段请明确数据不足。",
+      "outcome": "unsupported",
+      "issue": "missing_data",
+      "expected": []
+    },
+    {
+      "id": "hold_external_action",
+      "family": "external_action",
+      "question": "登录商家后台，把最近所有退款申请直接批准。",
+      "outcome": "unsupported",
+      "issue": "unsupported_request",
+      "expected": []
+    }
+  ]
+}

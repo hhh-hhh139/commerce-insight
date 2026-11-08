@@ -1,0 +1,2 @@
+# Named-metric ledger CLI only; no Wren or LLM dependency.
+duckdb==1.5.0

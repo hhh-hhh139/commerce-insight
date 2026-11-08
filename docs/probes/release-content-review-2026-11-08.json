@@ -1,0 +1,12 @@
+{
+  "date": "2026-11-08",
+  "kind": "personal_release_candidate_review",
+  "candidate_files": 354,
+  "bytes": 1906424,
+  "credential_pattern_findings": [],
+  "forbidden_paths": [],
+  "missing_markdown_links": [],
+  "remote_selected": false,
+  "linux_container_verified": false,
+  "scanner_limit": "heuristic pattern and path check, not proof of absence of every possible secret"
+}

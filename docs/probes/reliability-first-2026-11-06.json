@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-06",
+  "kind": "reliability_controls",
+  "tests": 9,
+  "failures": 0,
+  "errors": 0,
+  "seconds": 23.853,
+  "real_model_calls": 0,
+  "test_limits": {
+    "total": 5,
+    "active": 3,
+    "running": 1,
+    "lifetime_ms": [
+      2000,
+      15000
+    ]
+  },
+  "failure_details": []
+}

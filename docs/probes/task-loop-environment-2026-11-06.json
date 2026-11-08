@@ -1,0 +1,198 @@
+{
+  "date": "2026-11-06",
+  "platform": "Darwin arm64",
+  "python": "3.12.16",
+  "jdk": "Temurin 21.0.13+9",
+  "maven": "3.9.16",
+  "spring_boot": "4.1.2",
+  "duckdb": "1.5.0",
+  "jar_sha256": "70380b1c80798cfe4218af9dd596e91eb05073f1639252c69a6e7926f4a6f239",
+  "runtime_jars": [
+    {
+      "file": "logback-classic-1.5.38.jar",
+      "sha256": "afb439c61fa287c9e1925523b13baab03617e724406a389d48b61c2c3e46b700"
+    },
+    {
+      "file": "logback-core-1.5.38.jar",
+      "sha256": "a855a0fc97b1d06f4efb1c3bba5ebd0eb508d8b58e68e89e4bbc23a85135c883"
+    },
+    {
+      "file": "log4j-to-slf4j-2.25.5.jar",
+      "sha256": "b68e8b47342dbc9b35644a14fe2efc0b7bf18da703910cd05ad5501ffe07bba1"
+    },
+    {
+      "file": "log4j-api-2.25.5.jar",
+      "sha256": "64777f73ea0b3104c04eb82befbdccc30a425a19e83ad06cb2f93aa303511863"
+    },
+    {
+      "file": "jul-to-slf4j-2.0.20.jar",
+      "sha256": "062249d0677a0e08039120a2292a8db064c69d04282bf562af2e54c53ff06976"
+    },
+    {
+      "file": "spring-boot-autoconfigure-4.1.2.jar",
+      "sha256": "a3582f417c8194a621776d14ea281e072d84e85bdbabc1e02df5c035835b5096"
+    },
+    {
+      "file": "jakarta.annotation-api-3.0.0.jar",
+      "sha256": "b01f55552284cfb149411e64eabca75e942d26d2e1786b32914250e4330afaa2"
+    },
+    {
+      "file": "snakeyaml-2.6.jar",
+      "sha256": "c8f7a98e7394adda02f6317249710e4d1b4c7a25aa8c7eace0c2eea52eb8bf85"
+    },
+    {
+      "file": "spring-boot-jackson-4.1.2.jar",
+      "sha256": "83a8d3ca9ac434f22e6d148e41ba82aeb52add220484bf7f9551c74323d9cbc7"
+    },
+    {
+      "file": "jackson-databind-3.1.7.jar",
+      "sha256": "48c781de87e2016e1f0d973748a27130f11643e7ac080173f40e2d9669d84be3"
+    },
+    {
+      "file": "jackson-annotations-2.21.jar",
+      "sha256": "53ca085f4a150f703f49e1aabd935bd03b43e1ea3d55d135438292af22cef56b"
+    },
+    {
+      "file": "jackson-core-3.1.7.jar",
+      "sha256": "7608c367fd8a92666d28711519599543c180298259963184ce04d2947a8f71e7"
+    },
+    {
+      "file": "spring-boot-web-server-4.1.2.jar",
+      "sha256": "e5b2fa7222baf36621566a2d0f7d924aa92a8462680f8e67d972f965ef18356a"
+    },
+    {
+      "file": "tomcat-embed-core-11.0.27.jar",
+      "sha256": "b71785ff101c0df501064b3e3b8c4a02e4f9cc3047a7fa686c41fc4edc2f0cb4"
+    },
+    {
+      "file": "tomcat-embed-el-11.0.27.jar",
+      "sha256": "206d6c6b1b6ce67b1c9af9ed0f6f43b4dbbc26164dd47bb49b9aad1583191f33"
+    },
+    {
+      "file": "tomcat-embed-websocket-11.0.27.jar",
+      "sha256": "cbcd7ed6d7428fa71af6572d541a3ef74ceff42dfc523273950fe586062dc60f"
+    },
+    {
+      "file": "spring-boot-tomcat-4.1.2.jar",
+      "sha256": "f0b1d8d33b090bc773298005708b4df1576d1c4b1bbf9583afce065580e13002"
+    },
+    {
+      "file": "spring-boot-http-converter-4.1.2.jar",
+      "sha256": "d1e655ce47617315c6d87e754597928a31d21478b5c28b0e3300963b0915b551"
+    },
+    {
+      "file": "spring-boot-4.1.2.jar",
+      "sha256": "1fbf6443a301eb9a098bd024149c0edc6578b073f75da8c98bc1af84c43a8f59"
+    },
+    {
+      "file": "spring-core-7.0.10.jar",
+      "sha256": "a236f31a7c07e3a1a8e7839ec5c0d47b5cc75709132db50416d5dad320341f12"
+    },
+    {
+      "file": "commons-logging-1.3.6.jar",
+      "sha256": "f8ead8943401081dea0aa824b5b1ba40a0e4ed297a572a0f02258150a0b62357"
+    },
+    {
+      "file": "jspecify-1.0.1.jar",
+      "sha256": "070d75f261fe4c5b8202508366715f7f2d4660f88c8ef7e6d3575e48c9683b66"
+    },
+    {
+      "file": "spring-context-7.0.10.jar",
+      "sha256": "f0065166b6a5101a871ab8702d6c4011cf39faed370a64e7ef14a3ad2bf2a99a"
+    },
+    {
+      "file": "spring-web-7.0.10.jar",
+      "sha256": "76ddb03d236547f6852def8cb303e1cf2cd2c1954dec5bf2abd87d11b89dfee7"
+    },
+    {
+      "file": "spring-beans-7.0.10.jar",
+      "sha256": "bd67c6fc887afa30cbcb489ff4f82bf19f818e79ab1cf1bef98dff8a289108ec"
+    },
+    {
+      "file": "micrometer-observation-1.17.2.jar",
+      "sha256": "d3ff53cfa0532dc1af0de349073f9aeb985e01f4b88c1d904350178805859695"
+    },
+    {
+      "file": "micrometer-commons-1.17.2.jar",
+      "sha256": "af8c85e879025ce30c381e6810e14c4f52b4150894e36c815860d14763271348"
+    },
+    {
+      "file": "spring-boot-webmvc-4.1.2.jar",
+      "sha256": "3c39a0578d1e66b5b5371641790a66c89b14f8099731987a7dd6502e2fdd32b5"
+    },
+    {
+      "file": "spring-boot-servlet-4.1.2.jar",
+      "sha256": "0ff3618e8b37143843d1a8824e42ffd66b4ff73d6225b2087acce4dfc676d0e8"
+    },
+    {
+      "file": "spring-webmvc-7.0.10.jar",
+      "sha256": "8ad0e813999d0ef1c65b8d5e55c21e4a6c0d6895cd3df32a33f9cc57bf9d226a"
+    },
+    {
+      "file": "spring-aop-7.0.10.jar",
+      "sha256": "babf50a645f4f788e1267078cf891e472f657cabf65518055cf5214220574e3f"
+    },
+    {
+      "file": "spring-expression-7.0.10.jar",
+      "sha256": "12067b66548f7613fa8938ca6051a6d1dd8c397bf478e0bb1adb9936358ec81d"
+    },
+    {
+      "file": "spring-boot-jdbc-4.1.2.jar",
+      "sha256": "2c4f460e7b965fd9a3d7ee6c3d7c5f3ebbc9b447841c118abed20d7b5a72d184"
+    },
+    {
+      "file": "spring-boot-sql-4.1.2.jar",
+      "sha256": "6055db3a7e6f9b59814aac0a346a604d54a8638beff8a145273415b263936d45"
+    },
+    {
+      "file": "spring-boot-transaction-4.1.2.jar",
+      "sha256": "f0430406b83310c65219082ff16a9af5ee74e2c1ee19f9f478f6a0ab8ec1f70f"
+    },
+    {
+      "file": "spring-boot-persistence-4.1.2.jar",
+      "sha256": "fd1473df17db5d4d444eac14ed262407a971fc0a3a9631e6753343d72e7859af"
+    },
+    {
+      "file": "spring-tx-7.0.10.jar",
+      "sha256": "9442610a8ed3d44e70fa97f49896ea810c831da62620101450f0feb522edb4cd"
+    },
+    {
+      "file": "spring-jdbc-7.0.10.jar",
+      "sha256": "bc4ba6bd242f2db2642938960ae27589b53dd6a611d700a260af7b3383cd0c6c"
+    },
+    {
+      "file": "HikariCP-7.0.2.jar",
+      "sha256": "f1e612fa27345be3107a85431e8a8aeb205c15364ab2f2d411e40a9d7bb08095"
+    },
+    {
+      "file": "slf4j-api-2.0.20.jar",
+      "sha256": "7e1446499b359675d8aabe6af2de86b85e72ae8a2a932c0b40d0e5ba57097439"
+    },
+    {
+      "file": "h2-2.4.240.jar",
+      "sha256": "29b70e427cc1c40cdc376283adbb0cc62853073797bb5fe5761f81fe73d57ce0"
+    },
+    {
+      "file": "spring-boot-jarmode-tools-4.1.2.jar",
+      "sha256": "a0d9e74c09c81f2c8e096bc856f327605a34df2209e5cf6884351170c6aa3547"
+    }
+  ],
+  "implementation_sha256": {
+    "commerce_worker/__init__.py": "3b3705450b9808945174b408961bc2e4cf939b92d45cebb7b32137e66c26d1e1",
+    "commerce_worker/worker.py": "ff6cbb67781eafbd72599fd94334b2ba5b814b0dbaa09683b9301bbbd8daceb9",
+    "experiments/task-loop/baseline.py": "5261e86ec8cff9cc7f84b53eb902efbebcbf3295b43dc16c800e023122f306b5",
+    "experiments/task-loop/verify.py": "1c4fef824f0d2b9aa832d0cc439540a177b3b106088ef591872edb6afe43e666",
+    "scripts/bootstrap_java.py": "4b78156b96591fc3c688b10f40b7006f5a7bdf0873b098b166b875ae75cb0515",
+    "scripts/java_local.py": "2ac2b2d9df2da018ae2d7437bbf5ed6b285c005f7f51aba51a1aaf12bab2fede",
+    "scripts/task_demo.py": "0ba152b7751bc20dad7b95fa93ca45c344f6c215759028ea4de923a040336c57",
+    "services/business-api/pom.xml": "d5a378f7254716f98070dcf0626181855e5ef246be0aefec047c0b0fd546431a",
+    "services/business-api/src/main/java/dev/commerceinsight/ApiError.java": "fc60b6f4d07ad4869f8c11ee2616fd14a5ed8259a849402c9ab0d6624577cbd9",
+    "services/business-api/src/main/java/dev/commerceinsight/Application.java": "183f9da8025e11f6bb81083c5e7ce44e9687d5d9975d3c738ee64e685d12d4ab",
+    "services/business-api/src/main/java/dev/commerceinsight/Errors.java": "66eacb4f3e28fbf4a0204ca89f718e22e1cccb1df36ccc523f68f3495a53f0b5",
+    "services/business-api/src/main/java/dev/commerceinsight/LocalAuthFilter.java": "6833128d601d47c7267a8e5a7eefebeb25fa4e0ab652d183030c2696434d31d2",
+    "services/business-api/src/main/java/dev/commerceinsight/TaskController.java": "b1e01663d472981a08050c5dfa9b301a8081b5d131b21933eba9e71634b6a273",
+    "services/business-api/src/main/java/dev/commerceinsight/TaskService.java": "09c27d7c05de1712108d66dfd16bd4baf2bda63deb96dcb1324a7448fc1b20c6",
+    "services/business-api/src/main/resources/application.properties": "e1389928c120cb818c56064404f6d7f1b398a1aa6a0d3300b25629b96205e02b",
+    "services/business-api/src/main/resources/schema.sql": "000bfa0803bf2e856a10bc0fc49dda144d46d3be06fe97966142db86e025b228"
+  }
+}

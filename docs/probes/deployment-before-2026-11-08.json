@@ -1,0 +1,25 @@
+{
+  "date": "2026-11-08",
+  "kind": "deployment_source_baseline",
+  "observed": {
+    "business_database": "H2 file",
+    "schema_manager": "spring.sql.init.mode=always, schema.sql",
+    "postgres_driver_declared": false,
+    "flyway_declared": false,
+    "java_launcher": "project-local macOS Contents/Home layout",
+    "container_build_verified": false,
+    "backup_restore_verified": false
+  },
+  "source_sha256": {
+    "services/business-api/pom.xml": "88b42da13ef58f491a590c6d89d9df94fc3681c87d8a60c5c346bc6207e1ce5d",
+    "services/business-api/src/main/resources/application.properties": "67100c68135405d9a5519a6956482ffe1d4b77b2bc6b76c3ee1c92a184e72c35",
+    "services/business-api/src/main/resources/schema.sql": "fca2d0087eb67e4022ff244a69c41ec0a13a681b79dd8d9e04c7d7aa1480bb8e",
+    "scripts/java_local.py": "2ac2b2d9df2da018ae2d7437bbf5ed6b285c005f7f51aba51a1aaf12bab2fede"
+  },
+  "note": "New deployment capability gap; no fabricated PostgreSQL runtime failure. Actual database tests follow isolated toolchain preparation.",
+  "source_archive": {
+    "files": 306,
+    "path": ".local/baselines/before-postgres-20261108/source.tar.gz",
+    "sha256": "719cecf86713e882089f25348681821258a7f0e3bab5f2f993a67a22804c0e43"
+  }
+}

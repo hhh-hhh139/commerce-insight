@@ -1,0 +1,6 @@
+单号,条目编码,描述,数量,记录时间,单价便士,客户编号,地区,业务状态
+A,P1,synthetic item one,2,2026-10-06 10:00:00,1000,101,UK,1
+A,P2,synthetic item two,1,2026-10-06 10:00:00,500,101,UK,1
+B,P3,synthetic item three,1,2026-10-07 10:00:00,2500,,FR,1
+D,P1,synthetic item one,3,2026-10-13 10:00:00,1000,102,UK,1
+CA,P1,synthetic cancellation,-1,2026-10-14 10:00:00,1000,101,UK,9

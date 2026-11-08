@@ -1,0 +1,12 @@
+{
+  "date": "2026-11-08",
+  "kind": "actual_caddy_tls_owner_session",
+  "caddy": "2.11.9",
+  "tests": 3,
+  "passed": true,
+  "seconds": 10.467,
+  "real_model_calls": 0,
+  "system_trust_modified": false,
+  "public_acme_tested": false,
+  "failures": []
+}

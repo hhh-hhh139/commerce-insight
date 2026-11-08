@@ -1,0 +1,20 @@
+{
+  "date": "2026-11-06",
+  "kind": "observed_existing_capability_boundary",
+  "source_sha256": "27048415cf67ccf74b818b62d046eb1d80eff6006e3966c8d7491bac25429cd4",
+  "baseline_minor": 28000,
+  "current_minor": 15000,
+  "delta_minor": -13000,
+  "existing_product_order_totals": {
+    "P1": 18000,
+    "P2": 10000,
+    "P3": 10000
+  },
+  "incorrect_sum_if_treated_as_product_sales": 38000,
+  "note": "The existing metric is correct for its documented definition. It is not an additive product allocation. New grouped comparison is absent.",
+  "manual_expected_product_deltas": {
+    "P1": 1000,
+    "P2": -4000,
+    "P3": -10000
+  }
+}

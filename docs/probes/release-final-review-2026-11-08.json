@@ -1,0 +1,14 @@
+{
+  "date": "2026-11-08",
+  "kind": "personal_release_candidate_final_review",
+  "candidate_files": 362,
+  "bytes": 1929933,
+  "credential_pattern_findings": [],
+  "forbidden_paths": [],
+  "missing_markdown_links": [],
+  "repository": "hhhhao139-ai/commerce-insight",
+  "source_published": false,
+  "linux_container_verified": false,
+  "initial_scanner_false_positives": "task- filenames matched an unanchored sk- pattern; checked surrounding path text and added a token boundary",
+  "scanner_limit": "heuristic pattern and path check, not proof of absence of every possible secret"
+}

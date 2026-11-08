@@ -1,0 +1,91 @@
+{
+  "kind": "agent_report_v1",
+  "outcome": "answered",
+  "issue": "none",
+  "workspace_id": "demo-shop",
+  "source_sha256": "27048415cf67ccf74b818b62d046eb1d80eff6006e3966c8d7491bac25429cd4",
+  "question_sha256": "63da7268a02e1feedfd15ce59407ab8b463b911dbc0a7a946043229adec48f46",
+  "evidence": [
+    {
+      "query": {
+        "metric": "cohort_net",
+        "start": "2026-10-05T00:00:00.000000+00:00",
+        "end": "2026-10-12T00:00:00.000000+00:00",
+        "as_of": "2026-10-19T00:00:00.000000+00:00"
+      },
+      "result": {
+        "metric": "cohort_net",
+        "metric_version": "ledger-metrics-v1",
+        "sql": "WITH refunds_by_order AS (SELECT order_id, SUM(amount_minor) AS refunded FROM ledger_refunds WHERE status = 'succeeded' AND refunded_at < ? GROUP BY order_id) SELECT COALESCE(SUM(o.paid_minor - COALESCE(r.refunded, 0)), 0) FROM ledger_orders o LEFT JOIN refunds_by_order r ON o.order_id = r.order_id WHERE o.status = 'paid' AND o.paid_at >= ? AND o.paid_at < ?",
+        "params": [
+          "2026-10-19T00:00:00.000000+00:00",
+          "2026-10-05T00:00:00.000000+00:00",
+          "2026-10-12T00:00:00.000000+00:00"
+        ],
+        "currency": "CNY",
+        "amount_scale": 2,
+        "result_unit": "minor_units",
+        "period": {
+          "start": "2026-10-05T00:00:00.000000+00:00",
+          "end": "2026-10-12T00:00:00.000000+00:00",
+          "as_of_exclusive": "2026-10-19T00:00:00.000000+00:00"
+        },
+        "workspace_id": "demo-shop",
+        "snapshot_id": "synthetic-ledger-2026-11-05-v1",
+        "value": 23000,
+        "evidence": {
+          "source_sha256": "27048415cf67ccf74b818b62d046eb1d80eff6006e3966c8d7491bac25429cd4",
+          "canonical_sha256": "038a74a1981ea028a9847fdb63f5b5743f9f757c0ca48da36de740992bcd6353",
+          "implementation_sha256": {
+            "ledger.py": "c3d9fcd926db57374edfc6be9dd8b972d5cfe78dc6fc484afca5ce1267b50ca2",
+            "ledger_db.py": "c11a785aa7ae785b8a5d0dbc1a358b11f800f0b344556d02d882e2d10a7d98cc"
+          }
+        }
+      },
+      "evidence_id": "ev_eb0413f207bec3253ea1139a2e63ec9ac5e3d19710e4fa8abbaffb67e1a35750"
+    }
+  ],
+  "comparisons": [],
+  "answer": "期间支付的订单批次金额，减截至 as_of（不含）的该批订单成功退款：230.00 CNY；期间 [2026-10-05T00:00:00.000000+00:00, 2026-10-12T00:00:00.000000+00:00)。\n退款截止时间（不含）：2026-10-19T00:00:00.000000+00:00。\n这是指定快照和口径下的描述性计算，不等于利润、到账或因果解释。",
+  "provenance": {
+    "task_id": "artifact-90231a41edf7400ebb05da0cb7561327",
+    "source_sha256": "27048415cf67ccf74b818b62d046eb1d80eff6006e3966c8d7491bac25429cd4",
+    "workspace_id": "demo-shop",
+    "request_sha256": "fa07512e13a8dd3e0893754b9a41328a5084170d8e6cb02b1d9910f2cfd2203e",
+    "prompt_sha256": "7ac8dbe871df8d13a6f5163c789bd4a9918d5ea0bff84e40626f7ed146c20d1c",
+    "versions": {
+      "langchain": "1.4.9",
+      "langgraph": "1.2.20",
+      "langgraph-checkpoint-sqlite": "3.1.3",
+      "langchain-deepseek": "1.1.1"
+    },
+    "implementation_sha256": {
+      "__init__.py": "36c458d21ea66deb9072967a7ac038df3dddc98a3f17e1e7d8820b7ac5d83bbb",
+      "budget.py": "d94b781ec80b835cd71b944ad687d92b942e0d31d943272a9cd6f6785e73f75e",
+      "cli.py": "3899105acd9a77f02abee770969bb54b6eca7ceaf8adec7f7ca5b0b09ae77ffb",
+      "contracts.py": "89bd03603876c4690eb415a593b06642f7f66b76f742dc5605ba681743ba51bb",
+      "models.py": "0cf6431e4ade4d154f0bd0714ce028e448f282639454a4e55f08d4b7e99c2643",
+      "report.py": "45b2c3ca286c3ab03c7dba1f9417b65056437376a27c08a22983e73678e641bd",
+      "runtime.py": "407025c2dfc5276b4e0af9ab44e42ac6aeda1128eab7b221f0e71172e887d6d4",
+      "storage.py": "9d8b59a951cbcfb61f4f33ac6e40a57b907132510eebaea6a074d389bdd5d9d1",
+      "tools.py": "0905ec52fbd889aa339262b7c43b143597c09dd4359f571d74e8ea2e11692538"
+    },
+    "mode": "scripted",
+    "model": "scripted-engineering-test",
+    "script_sha256": "601223889d1c5344670ca2befe6a0e5179b60b247f421ade160f1752021da4b2",
+    "attempt": 1,
+    "resumed": false,
+    "checkpoint_count": 11,
+    "response_models": [
+      "scripted-engineering-test"
+    ]
+  },
+  "usage": {
+    "model_attempts": 2,
+    "tool_attempts": 1,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "unknown_model_responses": 0,
+    "real_model_calls": 0
+  }
+}

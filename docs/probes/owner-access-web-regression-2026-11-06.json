@@ -1,0 +1,10 @@
+{
+  "kind": "web_demo_engineering_verification",
+  "date": "2026-11-06",
+  "tests": 11,
+  "failures": 0,
+  "errors": 0,
+  "seconds": 14.117,
+  "real_model_calls": 0,
+  "failure_details": []
+}

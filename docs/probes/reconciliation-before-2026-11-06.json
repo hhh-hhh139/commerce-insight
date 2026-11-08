@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-06",
+  "kind": "report_reconciliation_before",
+  "real_model_calls": 0,
+  "paid_minor": 28000,
+  "cohort_net_minor": 23000,
+  "existing_scalar_comparison": "incomparable_evidence",
+  "interpretation": "旧比较正确拒绝不同指标；尚无解释口径差异及上传报表核对能力，不作为既有功能 bug。",
+  "manual_bridge_minor": -5000,
+  "external_report_example": {
+    "left_reported_minor": 28000,
+    "right_reported_minor": 24000,
+    "observed_delta_minor": -4000,
+    "recomputed_delta_minor": -5000,
+    "unexplained_delta_minor": 1000
+  },
+  "source_sha256": "27048415cf67ccf74b818b62d046eb1d80eff6006e3966c8d7491bac25429cd4",
+  "baseline_archive_sha256": "1772c7a88d0c1b1a7787f8f500ec5ea91dc29a250299524c44bb2ecbb80fe69f"
+}

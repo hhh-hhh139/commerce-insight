@@ -1,0 +1,37 @@
+{
+  "date": "2026-11-06",
+  "kind": "spring_security_owner_acceptance",
+  "tests": 8,
+  "failures": 5,
+  "errors": 1,
+  "seconds": 17.23,
+  "real_model_calls": 0,
+  "credential_kind": "ephemeral_generated_synthetic",
+  "tls_end_to_end": false,
+  "failure_details": [
+    {
+      "test": "test_host_origin_and_forwarded_identity_not_trusted (__main__.OwnerTests.test_host_origin_and_forwarded_identity_not_trusted)",
+      "trace": "Traceback (most recent call last):\n  File \"/Users/haohao4/Downloads/multi-agent.zip/commerce-insight/experiments/owner-access/verify.py\", line 131, in test_host_origin_and_forwarded_identity_not_trusted\n    headers=self.login()\n            ^^^^^^^^^^^^\n  File \"/Users/haohao4/Downloads/multi-agent.zip/commerce-insight/experiments/owner-access/verify.py\", line 84, in login\n    self.assertEqual(code,302);self.assertEqual(headers.get(\"Location\"),\"/demo/index.html\")\n                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'http://127.0.0.1:62010/demo/index.html' != '/demo/index.html'\n- http://127.0.0.1:62010/demo/index.html\n+ /demo/index.html\n\n"
+    },
+    {
+      "test": "test_login_rotation_csrf_real_task_and_role_isolation (__main__.OwnerTests.test_login_rotation_csrf_real_task_and_role_isolation)",
+      "trace": "Traceback (most recent call last):\n  File \"/Users/haohao4/Downloads/multi-agent.zip/commerce-insight/experiments/owner-access/verify.py\", line 98, in test_login_rotation_csrf_real_task_and_role_isolation\n    headers=self.login()\n            ^^^^^^^^^^^^\n  File \"/Users/haohao4/Downloads/multi-agent.zip/commerce-insight/experiments/owner-access/verify.py\", line 84, in login\n    self.assertEqual(code,302);self.assertEqual(headers.get(\"Location\"),\"/demo/index.html\")\n                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'http://127.0.0.1:62083/demo/index.html' != '/demo/index.html'\n- http://127.0.0.1:62083/demo/index.html\n+ /demo/index.html\n\n"
+    },
+    {
+      "test": "test_logout_requires_csrf_and_invalidates_session (__main__.OwnerTests.test_logout_requires_csrf_and_invalidates_session)",
+      "trace": "Traceback (most recent call last):\n  File \"/Users/haohao4/Downloads/multi-agent.zip/commerce-insight/experiments/owner-access/verify.py\", line 110, in test_logout_requires_csrf_and_invalidates_session\n    headers=self.login()\n            ^^^^^^^^^^^^\n  File \"/Users/haohao4/Downloads/multi-agent.zip/commerce-insight/experiments/owner-access/verify.py\", line 84, in login\n    self.assertEqual(code,302);self.assertEqual(headers.get(\"Location\"),\"/demo/index.html\")\n                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'http://127.0.0.1:62104/demo/index.html' != '/demo/index.html'\n- http://127.0.0.1:62104/demo/index.html\n+ /demo/index.html\n\n"
+    },
+    {
+      "test": "test_restart_invalidates_old_session_but_preserves_task (__main__.OwnerTests.test_restart_invalidates_old_session_but_preserves_task)",
+      "trace": "Traceback (most recent call last):\n  File \"/Users/haohao4/Downloads/multi-agent.zip/commerce-insight/experiments/owner-access/verify.py\", line 117, in test_restart_invalidates_old_session_but_preserves_task\n    headers=self.login();code,t,_=self.http(\"/demo/api/tasks\",QUERY,{**headers,\"Idempotency-Key\":str(uuid.uuid4())});self.assertEqual(code,202)\n            ^^^^^^^^^^^^\n  File \"/Users/haohao4/Downloads/multi-agent.zip/commerce-insight/experiments/owner-access/verify.py\", line 84, in login\n    self.assertEqual(code,302);self.assertEqual(headers.get(\"Location\"),\"/demo/index.html\")\n                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'http://127.0.0.1:62129/demo/index.html' != '/demo/index.html'\n- http://127.0.0.1:62129/demo/index.html\n+ /demo/index.html\n\n"
+    },
+    {
+      "test": "test_wrong_password_and_bounded_login_window (__main__.OwnerTests.test_wrong_password_and_bounded_login_window)",
+      "trace": "Traceback (most recent call last):\n  File \"/Users/haohao4/Downloads/multi-agent.zip/commerce-insight/experiments/owner-access/verify.py\", line 125, in test_wrong_password_and_bounded_login_window\n    self.assertEqual(code,302);self.assertEqual(headers.get(\"Location\"),\"/login?error\")\n                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'http://127.0.0.1:62161/login?error' != '/login?error'\n- http://127.0.0.1:62161/login?error\n+ /login?error\n\n"
+    },
+    {
+      "test": "test_bad_configuration_fails_closed_and_https_requires_secure_cookie (__main__.OwnerTests.test_bad_configuration_fails_closed_and_https_requires_secure_cookie)",
+      "trace": "Traceback (most recent call last):\n  File \"/Users/haohao4/Downloads/multi-agent.zip/commerce-insight/experiments/owner-access/verify.py\", line 148, in test_bad_configuration_fails_closed_and_https_requires_secure_cookie\n    self.start([\"--commerce.owner.origin=https://personal.example\",\"--server.servlet.session.cookie.secure=true\"])\n  File \"/Users/haohao4/Downloads/multi-agent.zip/commerce-insight/experiments/owner-access/verify.py\", line 50, in start\n    raise RuntimeError(\"owner startup failed; \"+str(self.runtime/\"java.log\"))\nRuntimeError: owner startup failed; /Users/haohao4/Downloads/multi-agent.zip/commerce-insight/.local/owner-access/verification/tmp8x1u8sb7/java.log\n"
+    }
+  ]
+}

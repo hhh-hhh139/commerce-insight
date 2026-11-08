@@ -1,0 +1,49 @@
+{
+  "kind": "manual_browser_acceptance",
+  "date": "2026-11-06",
+  "automation_suite": false,
+  "real_model_calls": 0,
+  "viewports_checked": [
+    1440,
+    696,
+    390
+  ],
+  "page_horizontal_overflow": false,
+  "sales_task": "7e244f35-1cd7-4b5c-bec5-157b4bc8c269",
+  "import_task": "74a952a2-805e-47a8-9e48-061a15d1f240",
+  "import_id": "f41a5a48-e863-4056-a29e-fe7397a962e8",
+  "import_final_state": "ARCHIVED",
+  "checks": {
+    "sales_280_to_150": true,
+    "products_minus100_minus40_plus10": true,
+    "sql_expansion": true,
+    "json_export_assertions": true,
+    "history_restores_periods": true,
+    "browser_back_returns_history": true,
+    "empty_period_zero_no_percent": true,
+    "historical_model_label": true,
+    "offline_agent_disabled": true,
+    "three_file_upload_mapping_check_confirm": true,
+    "new_import_cohort_230": true,
+    "model_permission_default_false": true,
+    "archived_report_readable_new_submit_disabled": true,
+    "available_version_clears_warning": true,
+    "mobile_named_navigation": true,
+    "mobile_context_accessible": true,
+    "keyboard_visible_focus": true,
+    "final_console_error_warn_count": 0
+  },
+  "screenshots": {
+    "before.jpg": "700a0217232920216188f87e1be069e324ce20a7089bf98ee03d05964e897089",
+    "desktop.jpg": "f935b8b80ac041921559019e106eced25ba177a761bb6d243260a95efbb63a6d",
+    "mobile.jpg": "b87474f6d97d5f9e7298b8533646628e5cb6ca7b390b522451a10368341e5e79",
+    "import-desktop.jpg": "1db2d7b7c5b6e476bce01aade3a2d08e790347bdc7c4a749f5ceed181cdb1958",
+    "default-width.jpg": "f935b8b80ac041921559019e106eced25ba177a761bb6d243260a95efbb63a6d"
+  },
+  "export_sha256": "8da1ac3307d5e4096608437f07c422be43df5ce328e8e414764d816b81aa3dda",
+  "limitations": [
+    "手工浏览器验收，非自动化测试套件",
+    "未完成跨浏览器或完整 WCAG 审计",
+    "未做真实用户试用；没有效率提升测量"
+  ]
+}

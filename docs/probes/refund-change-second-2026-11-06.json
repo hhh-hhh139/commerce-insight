@@ -1,0 +1,15 @@
+{
+  "date": "2026-11-06",
+  "kind": "refund_change_engineering_scripted_model",
+  "tests": 19,
+  "failures": 0,
+  "errors": 1,
+  "seconds": 8.455,
+  "real_model_calls": 0,
+  "failure_details": [
+    {
+      "test": "test_refund_02_confirmed_layouts_and_missing_refund_capability (__main__.RefundHttpTests.test_refund_02_confirmed_layouts_and_missing_refund_capability)",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/haohao4/Downloads/multi-agent.zip/commerce-insight/experiments/refund-change/verify.py\", line 57, in test_refund_02_confirmed_layouts_and_missing_refund_capability\n    code,error=self.http(\"/demo/api/tasks\",{**QUERY,\"dataset_id\":d[\"dataset_id\"]},{\"Idempotency-Key\":str(uuid.uuid4())})\n    ^^^^^^^^^^\nValueError: too many values to unpack (expected 2)\n"
+    }
+  ]
+}

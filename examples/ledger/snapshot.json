@@ -1,0 +1,32 @@
+{
+  "schema_version": "commerce-ledger-v1",
+  "snapshot_id": "synthetic-ledger-2026-11-05-v1",
+  "workspace_id": "demo-shop",
+  "currency": "CNY",
+  "amount_scale": 2,
+  "exported_at": "2026-10-26T00:00:00Z",
+  "tables": {
+    "orders": [
+      {"order_id":"A","status":"paid","paid_minor":10000,"paid_at":"2026-10-06T08:00:00Z","currency":"CNY"},
+      {"order_id":"B","status":"paid","paid_minor":8000,"paid_at":"2026-10-07T08:00:00Z","currency":"CNY"},
+      {"order_id":"C","status":"paid","paid_minor":10000,"paid_at":"2026-10-08T08:00:00Z","currency":"CNY"},
+      {"order_id":"D","status":"paid","paid_minor":15000,"paid_at":"2026-10-13T08:00:00Z","currency":"CNY"},
+      {"order_id":"U","status":"cancelled","paid_minor":0,"paid_at":null,"currency":"CNY"}
+    ],
+    "items": [
+      {"item_id":"A1","order_id":"A","product_id":"P1","line_minor":6000},
+      {"item_id":"A2","order_id":"A","product_id":"P2","line_minor":4000},
+      {"item_id":"B1","order_id":"B","product_id":"P1","line_minor":8000},
+      {"item_id":"C1","order_id":"C","product_id":"P3","line_minor":10000},
+      {"item_id":"D1","order_id":"D","product_id":"P1","line_minor":15000}
+    ],
+    "refunds": [
+      {"refund_id":"R1","order_id":"A","item_id":"A1","status":"succeeded","amount_minor":2000,"refunded_at":"2026-10-13T10:00:00Z","currency":"CNY"},
+      {"refund_id":"R2","order_id":"A","item_id":"A2","status":"succeeded","amount_minor":1000,"refunded_at":"2026-10-14T10:00:00Z","currency":"CNY"},
+      {"refund_id":"R3","order_id":"B","item_id":null,"status":"succeeded","amount_minor":2000,"refunded_at":"2026-10-15T10:00:00Z","currency":"CNY"},
+      {"refund_id":"R4","order_id":"C","item_id":"C1","status":"succeeded","amount_minor":1000,"refunded_at":"2026-10-20T10:00:00Z","currency":"CNY"},
+      {"refund_id":"RF","order_id":"A","item_id":"A1","status":"failed","amount_minor":999,"refunded_at":null,"currency":"CNY"},
+      {"refund_id":"RP","order_id":"C","item_id":"C1","status":"pending","amount_minor":500,"refunded_at":null,"currency":"CNY"}
+    ]
+  }
+}

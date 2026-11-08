@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-06",
+  "changed_existing_files": [
+    "README.md",
+    "commerce_agent/runtime.py",
+    "commerce_agent/tools.py",
+    "commerce_worker/worker.py",
+    "docs/project-plan.md",
+    "experiments/web-demo/README.md",
+    "services/business-api/src/main/java/dev/commerceinsight/DemoController.java",
+    "services/business-api/src/main/java/dev/commerceinsight/LocalAuthFilter.java",
+    "services/business-api/src/main/java/dev/commerceinsight/TaskService.java",
+    "services/business-api/src/main/resources/schema.sql",
+    "services/business-api/src/main/resources/static/demo/app.js",
+    "services/business-api/src/main/resources/static/demo/index.html"
+  ],
+  "data_sources_unchanged": true,
+  "changed_agent_sources": [
+    "commerce_agent/runtime.py",
+    "commerce_agent/tools.py"
+  ],
+  "prompt_model_budget_dependencies_unchanged": true,
+  "packaged_csv_matches_synthetic_source": true,
+  "personal_model_total_calls": 35,
+  "budget_upper_cny": 0.137988,
+  "new_live_model_calls": 0
+}

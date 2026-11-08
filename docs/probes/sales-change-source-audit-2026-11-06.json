@@ -1,0 +1,29 @@
+{
+  "date": "2026-11-06",
+  "changed_existing_files": [
+    "README.md",
+    "commerce_agent/contracts.py",
+    "commerce_agent/models.py",
+    "commerce_agent/prompt.txt",
+    "commerce_agent/report.py",
+    "commerce_agent/tools.py",
+    "commerce_worker/worker.py",
+    "docs/project-plan.md",
+    "services/business-api/src/main/java/dev/commerceinsight/DatasetRepository.java",
+    "services/business-api/src/main/java/dev/commerceinsight/TaskService.java",
+    "services/business-api/src/main/resources/static/demo/app.css",
+    "services/business-api/src/main/resources/static/demo/app.js",
+    "services/business-api/src/main/resources/static/demo/index.html"
+  ],
+  "before_archive_sha256": "006b5aecfff657c4ab3aec2d457d087cb52d4ef5e5a8608d48231743e5e477bf",
+  "existing_data_engine_unchanged": true,
+  "import_adapter_and_immutable_data_unchanged": true,
+  "personal_provider_configuration_unchanged": true,
+  "model_budget_dependencies_unchanged": true,
+  "historical_live_reports_unchanged": true,
+  "agent_prompt_and_tool_contract_changed": true,
+  "checkpoint_implementation_identity_changes": true,
+  "personal_model_total_calls": 35,
+  "budget_upper_cny": 0.137988,
+  "new_live_model_calls": 0
+}

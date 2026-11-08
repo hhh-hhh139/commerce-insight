@@ -1,0 +1,6 @@
+InvoiceNo,StockCode,Description,Quantity,InvoiceDate,UnitPrice,CustomerID,Country
+A,P1,synthetic item one,2,2026-10-06 10:00:00,10,101,UK
+A,P2,synthetic item two,1,2026-10-06 10:00:00,5,101,UK
+B,P3,synthetic item three,1,2026-10-07 10:00:00,25,,FR
+D,P1,synthetic item one,3,2026-10-13 10:00:00,10,102,UK
+CA,P1,synthetic cancellation,-1,2026-10-14 10:00:00,10,101,UK

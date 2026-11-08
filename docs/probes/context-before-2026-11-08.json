@@ -1,0 +1,29 @@
+{
+  "date": "2026-11-08",
+  "kind": "context_and_pricing_baseline",
+  "real_model_calls": 0,
+  "prompt_utf8_bytes": 3507,
+  "tool_count": 4,
+  "samples": [
+    {
+      "tool": "query_sales_change",
+      "full_envelope_bytes": 4445,
+      "prototype_summary_bytes": 1424,
+      "full_envelope_sha256": "155cbf2e398499ed1b44517d6533e5bc5715c75d12484ec3d029172c2d214a6e"
+    },
+    {
+      "tool": "query_refund_change",
+      "full_envelope_bytes": 5028,
+      "prototype_summary_bytes": 1264,
+      "full_envelope_sha256": "20e40e823fd642205d47b45f2c60fedadbfba281e51af08f0d5421e3906917ca"
+    }
+  ],
+  "size_measurement_note": "UTF-8 serialized bytes, not model tokens, model quality, or measured cost savings. Projection is a prototype only.",
+  "budget": {
+    "ledger": ".local/single-agent/personal-budget-2026-11-06.json",
+    "historical_calls": 65,
+    "charged_micro_cny": 314730,
+    "policy_date": "2026-11-06",
+    "current_date_behavior": "model_pricing_needs_revalidation"
+  }
+}

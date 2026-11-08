@@ -1,0 +1,9 @@
+{
+  "kind": "refund_change_before",
+  "date": "2026-11-06",
+  "real_model_calls": 0,
+  "existing_refund_metric_minor": 5000,
+  "naive_order_item_join_minor": 8000,
+  "interpretation": "错误关联方案的反例；现有受控标量指标本身正确，新变化定位能力尚未实现",
+  "before_source_archive_sha256": "b996be29d65fa0657036cd039defb6f138ed74b0fd287638898bedf42613b04e"
+}

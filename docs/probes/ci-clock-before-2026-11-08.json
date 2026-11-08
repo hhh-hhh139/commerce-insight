@@ -1,0 +1,14 @@
+{
+  "date": "2026-11-08",
+  "kind": "offline_test_future_date_counterexample",
+  "simulated_budget_date": "2026-11-09",
+  "tests": 1,
+  "passed": false,
+  "real_model_calls": 0,
+  "errors": [
+    {
+      "test": "test_deepseek_sdk_wire_contract_without_external_requests (future_price_baseline.AgentTests.test_deepseek_sdk_wire_contract_without_external_requests)",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/haohao4/Downloads/multi-agent.zip/commerce-insight/experiments/single-agent/verify.py\", line 213, in test_deepseek_sdk_wire_contract_without_external_requests\n    report = execute_agent(request, SNAPSHOT, model, state_root=self.directory, budget_path=self.directory / \"wire-budget.json\")\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/haohao4/Downloads/multi-agent.zip/commerce-insight/scripts/state_guard.py\", line 29, in wrapped\n    return function(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/haohao4/Downloads/multi-agent.zip/commerce-insight/commerce_agent/runtime.py\", line 139, in execute_agent\n    budget = Budget(budget_path) if budget_path else None\n             ^^^^^^^^^^^^^^^^^^^\n  File \"/Users/haohao4/Downloads/multi-agent.zip/commerce-insight/commerce_agent/budget.py\", line 24, in __init__\n    raise AgentError(\"model_pricing_needs_revalidation\")\ncommerce_agent.storage.AgentError: model_pricing_needs_revalidation\n"
+    }
+  ]
+}

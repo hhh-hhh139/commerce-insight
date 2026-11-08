@@ -1,0 +1,9 @@
+{
+  "date": "2026-11-08",
+  "kind": "model_failure_engineering_only",
+  "tests": 9,
+  "failures": 0,
+  "errors": 0,
+  "real_model_calls": 0,
+  "failure_details": []
+}

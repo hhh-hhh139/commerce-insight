@@ -1,0 +1,49 @@
+{
+  "schema_version": "ledger-csv-map-v1",
+  "currency": "CNY",
+  "time_basis": "UTC+08:00",
+  "exported_at": "2026-10-26T08:00:00",
+  "tables": {
+    "orders": {
+      "columns": {
+        "order_id": "订单编号",
+        "status": "支付状态",
+        "paid_minor": "实付金额",
+        "paid_at": "支付时间",
+        "currency": "币种"
+      },
+      "amount_unit": "major",
+      "statuses": {
+        "已支付": "paid",
+        "待支付": "pending",
+        "已取消": "cancelled"
+      }
+    },
+    "items": {
+      "columns": {
+        "item_id": "明细编号",
+        "order_id": "所属订单",
+        "product_id": "商品编码",
+        "line_minor": "分摊金额"
+      },
+      "amount_unit": "major"
+    },
+    "refunds": {
+      "columns": {
+        "refund_id": "退款编号",
+        "order_id": "所属订单",
+        "item_id": "关联明细",
+        "status": "售后状态",
+        "amount_minor": "退款金额",
+        "refunded_at": "退款成功时间",
+        "currency": "币种"
+      },
+      "amount_unit": "major",
+      "statuses": {
+        "退款成功": "succeeded",
+        "处理中": "pending",
+        "退款失败": "failed"
+      }
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "version": "synthetic-orders-v1",
+  "provenance": "Project-authored synthetic data; no customer or company data",
+  "currency": "CNY",
+  "amount_unit": "fen",
+  "timezone": "UTC",
+  "orders": [
+    {"order_id": "A", "paid_minor": 10000, "paid_at": "2026-10-06T10:00:00Z"},
+    {"order_id": "B", "paid_minor": 8000, "paid_at": "2026-10-07T10:00:00Z"}
+  ],
+  "items": [
+    {"item_id": "A1", "order_id": "A"},
+    {"item_id": "A2", "order_id": "A"},
+    {"item_id": "B1", "order_id": "B"}
+  ],
+  "refunds": [
+    {"refund_id": "R1", "order_id": "A", "amount_minor": 2000, "posted_at": "2026-10-13T10:00:00Z"}
+  ],
+  "equal_amount_order": {"order_id": "C", "paid_minor": 10000, "paid_at": "2026-10-08T10:00:00Z"},
+  "equal_amount_item": {"item_id": "C1", "order_id": "C"},
+  "periods": {
+    "week1_start": "2026-10-05T00:00:00Z",
+    "week2_start": "2026-10-12T00:00:00Z",
+    "as_of_exclusive": "2026-10-19T00:00:00Z"
+  },
+  "expected_observations_minor": {
+    "base_naive_join": 28000,
+    "base_amount_distinct": 18000,
+    "base_order_identity": 18000,
+    "equal_naive_join": 38000,
+    "equal_amount_distinct": 18000,
+    "equal_order_identity": 28000,
+    "week1_event_net": 18000,
+    "week2_event_net": -2000,
+    "week1_paid_cohort_net_as_of": 16000
+  }
+}

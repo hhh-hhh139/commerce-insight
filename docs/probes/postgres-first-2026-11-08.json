@@ -1,0 +1,232 @@
+{
+  "date": "2026-11-08",
+  "kind": "actual_postgres_contract_regression",
+  "postgres_version": "18.6",
+  "tests": 44,
+  "passed": false,
+  "seconds": 60.143,
+  "cases": [
+    {
+      "name": "test_01_real_python_duckdb_result_and_evidence",
+      "passed": true,
+      "seconds": 0.372
+    },
+    {
+      "name": "test_02_idempotent_creation_concurrent_and_conflict",
+      "passed": true,
+      "seconds": 0.089
+    },
+    {
+      "name": "test_03_concurrent_claim_one_owner",
+      "passed": true,
+      "seconds": 0.285
+    },
+    {
+      "name": "test_04_expired_claim_fenced_before_and_after_reclaim",
+      "passed": true,
+      "seconds": 1.693
+    },
+    {
+      "name": "test_05_heartbeats_keep_slow_execution_owned",
+      "passed": true,
+      "seconds": 2.405
+    },
+    {
+      "name": "test_06_lost_completion_response_retried_without_duplicate",
+      "passed": true,
+      "seconds": 0.24
+    },
+    {
+      "name": "test_07_repeated_completion_rejects_changed_content",
+      "passed": true,
+      "seconds": 1.632
+    },
+    {
+      "name": "test_08_cancel_stops_child_and_cannot_resurrect",
+      "passed": true,
+      "seconds": 0.039
+    },
+    {
+      "name": "test_09_backoff_and_retry_budget",
+      "passed": true,
+      "seconds": 0.836
+    },
+    {
+      "name": "test_10_unsupported_product_refund_is_terminal",
+      "passed": true,
+      "seconds": 0.17
+    },
+    {
+      "name": "test_11_java_sigkill_restart_persists_all_states",
+      "passed": true,
+      "seconds": 3.552
+    },
+    {
+      "name": "test_12_roles_and_workspace_are_enforced",
+      "passed": true,
+      "seconds": 0.188
+    },
+    {
+      "name": "test_13_evidence_binding_rejects_wrong_source_metric_period",
+      "passed": true,
+      "seconds": 0.252
+    },
+    {
+      "name": "test_14_corrupted_input_rejected_without_execution",
+      "passed": true,
+      "seconds": 0.02
+    },
+    {
+      "name": "test_15_execution_timeout_kills_child_and_exhausts_budget",
+      "passed": true,
+      "seconds": 1.392
+    },
+    {
+      "name": "test_16_repeated_worker_crashes_exhaust_budget",
+      "passed": true,
+      "seconds": 4.991
+    },
+    {
+      "name": "test_17_cancel_completion_race_has_one_terminal_outcome",
+      "passed": true,
+      "seconds": 0.097
+    },
+    {
+      "name": "test_18_queued_input_frozen_across_registry_change",
+      "passed": true,
+      "seconds": 3.916
+    },
+    {
+      "name": "test_19_flyway_version_and_repeat_startup",
+      "passed": true,
+      "seconds": 1.677
+    },
+    {
+      "name": "test_20_h2_schema_is_not_a_postgres_migration (__main__.PostgresTasks.test_20_h2_schema_is_not_a_postgres_migration)",
+      "passed": false,
+      "kind": "assertion"
+    },
+    {
+      "name": "test_01_assets_csp_and_config",
+      "passed": true,
+      "seconds": 0.038
+    },
+    {
+      "name": "test_02_origin_host_and_role_boundaries",
+      "passed": true,
+      "seconds": 0.065
+    },
+    {
+      "name": "test_03_disabled_live_and_bounded_input",
+      "passed": true,
+      "seconds": 0.037
+    },
+    {
+      "name": "test_04_real_query_history_and_restart",
+      "passed": true,
+      "seconds": 1.862
+    },
+    {
+      "name": "test_05_cancel_fences_publication",
+      "passed": true,
+      "seconds": 0.127
+    },
+    {
+      "name": "test_06_history_keyset_pagination_and_idempotency",
+      "passed": true,
+      "seconds": 0.673
+    },
+    {
+      "name": "test_07_missing_attribution_failure",
+      "passed": true,
+      "seconds": 0.142
+    },
+    {
+      "name": "test_08_historical_examples_are_unchanged_and_explicit",
+      "passed": true,
+      "seconds": 0.02
+    },
+    {
+      "name": "test_09_server_default_disables_demo",
+      "passed": true,
+      "seconds": 3.389
+    },
+    {
+      "name": "test_10_live_opt_in_accepts_task_without_calling_model",
+      "passed": true,
+      "seconds": 3.473
+    },
+    {
+      "name": "test_11_demo_rejects_unreviewed_snapshot_at_startup",
+      "passed": true,
+      "seconds": 3.013
+    },
+    {
+      "name": "test_import_01_two_layouts_publish_and_query_same_values",
+      "passed": true,
+      "seconds": 1.232
+    },
+    {
+      "name": "test_import_02_confirmation_required_and_blocking_errors",
+      "passed": true,
+      "seconds": 0.722
+    },
+    {
+      "name": "test_import_03_latest_revision_and_digest_fence",
+      "passed": true,
+      "seconds": 0.385
+    },
+    {
+      "name": "test_import_04_upload_and_confirmation_idempotency",
+      "passed": true,
+      "seconds": 0.36
+    },
+    {
+      "name": "test_import_05_capability_and_model_permission_enforced",
+      "passed": true,
+      "seconds": 1.182
+    },
+    {
+      "name": "test_import_06_archive_preserves_queued_snapshot_and_restart",
+      "passed": true,
+      "seconds": 2.118
+    },
+    {
+      "name": "test_import_07_input_and_workspace_boundaries",
+      "passed": true,
+      "seconds": 0.291
+    },
+    {
+      "name": "test_import_08_offline_langgraph_on_confirmed_version",
+      "passed": true,
+      "seconds": 4.504
+    },
+    {
+      "name": "test_import_09_stale_cancelled_check_cannot_publish",
+      "passed": true,
+      "seconds": 0.115
+    },
+    {
+      "name": "test_import_10_new_source_keeps_old_report_unchanged",
+      "passed": true,
+      "seconds": 1.429
+    },
+    {
+      "name": "test_import_11_agent_tool_cannot_bypass_dataset_capabilities",
+      "passed": true,
+      "seconds": 1.198
+    },
+    {
+      "name": "test_import_12_check_result_bound_to_exact_input_and_revision",
+      "passed": true,
+      "seconds": 0.046
+    },
+    {
+      "name": "test_import_13_parser_process_does_not_inherit_personal_model_key",
+      "passed": true,
+      "seconds": 0.131
+    }
+  ],
+  "real_model_calls": 0,
+  "scope": "project-owned temporary PostgreSQL cluster, no system services or existing databases"
+}

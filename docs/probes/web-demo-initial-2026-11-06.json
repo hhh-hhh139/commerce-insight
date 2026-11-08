@@ -1,0 +1,19 @@
+{
+  "kind": "web_demo_engineering_verification",
+  "date": "2026-11-06",
+  "tests": 10,
+  "failures": 0,
+  "errors": 2,
+  "seconds": 9.293,
+  "real_model_calls": 0,
+  "failure_details": [
+    {
+      "test": "test_04_real_query_history_and_restart (__main__.WebTests.test_04_real_query_history_and_restart)",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/haohao4/Downloads/multi-agent.zip/commerce-insight/experiments/web-demo/verify.py\", line 72, in tearDown\n    self.user.call(\"/api/workspaces/demo-shop/tasks/\" + task_id + \"/cancel\", {})\n  File \"/Users/haohao4/Downloads/multi-agent.zip/commerce-insight/commerce_worker/worker.py\", line 55, in call\n    raise ApiFailure(exc.code, \"api_\" + str(exc.code)) from None\ncommerce_worker.worker.ApiFailure: api_409\n"
+    },
+    {
+      "test": "test_07_missing_attribution_failure (__main__.WebTests.test_07_missing_attribution_failure)",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/haohao4/Downloads/multi-agent.zip/commerce-insight/experiments/web-demo/verify.py\", line 72, in tearDown\n    self.user.call(\"/api/workspaces/demo-shop/tasks/\" + task_id + \"/cancel\", {})\n  File \"/Users/haohao4/Downloads/multi-agent.zip/commerce-insight/commerce_worker/worker.py\", line 55, in call\n    raise ApiFailure(exc.code, \"api_\" + str(exc.code)) from None\ncommerce_worker.worker.ApiFailure: api_409\n"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "date": "2026-11-08",
+  "kind": "context_final_measurement_no_model_calls",
+  "serialized_format": "json.dumps(ensure_ascii=False, sort_keys=True, separators=(',',':'))",
+  "samples": [
+    {
+      "metric": "sales_change_by_product",
+      "query": {
+        "current_end": "2026-10-19T00:00:00.000000+00:00",
+        "current_start": "2026-10-12T00:00:00.000000+00:00",
+        "end": "2026-10-12T00:00:00.000000+00:00",
+        "metric": "sales_change_by_product",
+        "start": "2026-10-05T00:00:00.000000+00:00",
+        "top_n": 5
+      },
+      "full_utf8_bytes": 4445,
+      "compact_utf8_bytes": 1561
+    },
+    {
+      "metric": "refund_change",
+      "query": {
+        "current_end": "2026-10-19T00:00:00.000000+00:00",
+        "current_start": "2026-10-12T00:00:00.000000+00:00",
+        "end": "2026-10-12T00:00:00.000000+00:00",
+        "metric": "refund_change",
+        "start": "2026-10-05T00:00:00.000000+00:00",
+        "top_n": 5
+      },
+      "full_utf8_bytes": 5028,
+      "compact_utf8_bytes": 1402
+    }
+  ],
+  "budget": {
+    "ledger": ".local/single-agent/personal-budget-2026-11-06.json",
+    "calls": 65,
+    "charged_micro_cny": 314730,
+    "sha256_before": "59f96d05c7eed34372da092172c9a3c16f36437b99dfca55d4fc2917d4150bad",
+    "sha256_after": "59f96d05c7eed34372da092172c9a3c16f36437b99dfca55d4fc2917d4150bad",
+    "price_policy_date": "2026-11-06",
+    "price_verified_date": "2026-11-08"
+  },
+  "real_model_calls": 0,
+  "quality_and_token_reduction": "not_measured"
+}

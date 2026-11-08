@@ -1,0 +1,6 @@
+item_id,order_id,product_id,line_minor
+A1,A,P1,6000
+A2,A,P2,4000
+B1,B,P1,8000
+C1,C,P3,10000
+D1,D,P1,15000

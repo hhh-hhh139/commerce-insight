@@ -1,0 +1,9 @@
+{
+  "date": "2026-11-08",
+  "kind": "unauthenticated_connectivity_probe",
+  "endpoint": "https://api.deepseek.com/models",
+  "credentials_sent": false,
+  "inference_requested": false,
+  "trust_env": false,
+  "http_status": 401
+}

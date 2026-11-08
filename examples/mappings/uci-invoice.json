@@ -1,0 +1,14 @@
+{
+  "contract_version": "invoice-lines-v1",
+  "dataset_name": "uci-online-retail",
+  "fields": {
+    "invoice_id": "InvoiceNo", "product_id": "StockCode",
+    "quantity": "Quantity", "unit_price": "UnitPrice", "event_time": "InvoiceDate",
+    "country": "Country", "customer_id": "CustomerID", "description": "Description"
+  },
+  "currency": "GBP",
+  "unit_price_multiplier": "1",
+  "time_basis": "source_local_unspecified_zone",
+  "event_rule": {"mode": "invoice_prefix", "cancellation_prefix": "C"},
+  "duplicate_policy": "keep_and_flag"
+}
