@@ -15,7 +15,7 @@
 | 本地仓库 | 独立仓库，目录见上 |
 | 远程配置 | 本次在该目录运行 `git remote`，结果为空 |
 | 个人 GitHub 用户名 | `hhh-hhh139`；2026-11-09 从用户给定的 Chrome 设置页核对用户名及 “Your personal account” |
-| 个人远程仓库 | 2026-11-09 在新账号创建公开空仓库 `https://github.com/hhh-hhh139/commerce-insight`，页面确认用户拥有该仓库；源码待发布 |
+| 个人远程仓库 | 2026-11-09 在新账号创建并核对 `https://github.com/hhh-hhh139/commerce-insight`；本人终端发布 `8769463`，后续局部修复由同一个人浏览器会话提交；应用版本 `8855db6` 已通过干净 Linux CI，见[阶段 5f](baselines/phase-05f-2026-11-09.md) |
 | Git 命令行认证与提交身份 | 不检查或使用机器已有身份；本项目提交显式使用个人用户名与 GitHub noreply 地址，发布时再次验证 token 账户归属 |
 | 全局 Git / SSH / 公司认证 | 不做修改 |
 
