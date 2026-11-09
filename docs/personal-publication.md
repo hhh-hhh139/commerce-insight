@@ -1,6 +1,6 @@
 # 个人仓库发布与干净 CI
 
-更新：2026-11-09。用户换用个人账号 `hhh-hhh139`，其公开空仓库已创建并核对。旧账号与旧发布候选不再适用；源码和 CI 尚待实际发布/运行。
+更新：2026-11-09。用户换用个人账号 `hhh-hhh139`，本人终端发布 `8769463` 后已核对远程提交；三个局部修复在同一个人浏览器会话完成。应用提交 `8855db6` 的[干净 Linux CI](https://github.com/hhh-hhh139/commerce-insight/actions/runs/42557209900)通过，过程和局限见[阶段 5f](baselines/phase-05f-2026-11-09.md)。旧账号与旧发布候选不再适用。
 
 ## 为什么采用这个入口
 
@@ -27,7 +27,7 @@
 
 `.github/workflows/verify.yml` 使用官方固定 commit 的 Actions，权限为 `contents: read`，没有个人/公司 secret。仅本个人仓库 owner 的 GitHub-hosted Ubuntu runner 可运行部署验收器。流程解析并记录镜像 digest、构建镜像、执行离线契约、启动全新 PostgreSQL/应用/Caddy 卷，验证 TLS、会话、CSRF、任务与重启持久化，最后保存失败或成功的原始 artifact 并回收本次资源。没有模型 API 调用。
 
-Compose 的 CI 覆盖用 `!override` 将端口限定为 runner 回环，依据 [Compose 合并规则](https://docs.docker.com/reference/compose-file/merge/) 要求 Compose 2.24.4 及以上。不能省略该限制而把生产端口一起开放。当前未得到实际 Linux 镜像 digest，不捏造部署成功或镜像锁定记录。
+Compose 的 CI 覆盖用 `!override` 将端口限定为 runner 回环，依据 [Compose 合并规则](https://docs.docker.com/reference/compose-file/merge/) 要求 Compose 2.24.4 及以上。不能省略该限制而把生产端口一起开放。实际基础镜像 digest、四轮结果与 artifact SHA 已保存在[公开证据](probes/clean-linux-2026-11-09.json)；默认精确版本 tag 不等于永久锁定所有构建输入。
 
 ## 新账号切换的依据与验证（2026-11-09）
 
