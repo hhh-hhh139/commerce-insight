@@ -1,0 +1,267 @@
+{
+  "date": "2026-11-09",
+  "kind": "actual_clean_linux_container_recovery",
+  "baseline": {
+    "date": "2026-11-09",
+    "source_commit": "f238c19580f11faed761ff3d274ff9fd6bffc02e",
+    "source_tree": "f509c3c271ab9e51cdb7b26d6a0a39c70f42358e",
+    "observed_empty_mount_root_error": "restore_state_target_exists",
+    "database_contacted": false,
+    "container_restore_tested": false,
+    "files": {
+      "scripts/backup_state.py": "fdb70ea7f660c8ceadcea0ea68fc9f32880f46d0a5761475c06002e1ac105488",
+      "Dockerfile": "5a0cbc7bd32a2dd9b795fb8b06a4cfdf01235670c607facfef1f89a459de3959",
+      "deployment/compose.yaml": "74f5549376c7128a265f8516518d99631659c04727aae102a85b1ec21b68988f",
+      "deployment/verify_clean_ci.py": "8cc55f9112a78caf6b23235949290ad7a4e3737b72fab4c4d3090c15d39d8750"
+    }
+  },
+  "source_commit": "3eed114d68f70eaac6cbaae3a58b9e264e88ca0f",
+  "ci_url": "https://github.com/hhh-hhh139/commerce-insight/actions/runs/42584328249",
+  "artifact": {
+    "id": 13659010577,
+    "bytes": 23160,
+    "sha256": "6c7309ba4c3095be5d22c0f94fc6b266c8e24b39f7450b473a204bf0f78af35e",
+    "retention_days": 14
+  },
+  "release": {
+    "started_at": "2026-11-09T08:13:07.177473+00:00",
+    "source_commit": "3eed114d68f70eaac6cbaae3a58b9e264e88ca0f",
+    "repository": "hhh-hhh139/commerce-insight",
+    "real_model_calls": 0,
+    "passed": true,
+    "stage": "complete",
+    "images": {
+      "python": {
+        "tag": "python:3.12.16-slim-bookworm",
+        "resolved": "python@sha256:935c3c5b12357a7e10caa9c1e6ca5692344d97cf229832ef584be2cec9fc03df"
+      },
+      "java": {
+        "tag": "eclipse-temurin:21.0.13_9-jdk-jammy",
+        "resolved": "eclipse-temurin@sha256:4b1a74fbffbe6b4e7b6f0171a472478282fb463790a51edf10e465d578f22b69"
+      },
+      "postgres": {
+        "tag": "postgres:18.6-bookworm",
+        "resolved": "postgres@sha256:f1ea2a1a4fb7b68d4836be1fdcb8a6466a89b072158bf9d97663600538c294c5"
+      },
+      "caddy": {
+        "tag": "caddy:2.11.9-alpine",
+        "resolved": "caddy@sha256:0bbb055bda6793c999bde78b1b5ce3e89f829fb031af2cf50056ea1246559fee"
+      }
+    },
+    "checks": [
+      "linux_agent",
+      "linux_imports",
+      "linux_context",
+      "linux_model-failures",
+      "linux_backup_path_boundaries",
+      "tls_owner_csrf_worker_result_internal_routes",
+      "nonroot_readonly_no_app_host_port",
+      "restart_keeps_report_invalidates_session_and_logout",
+      "independent_compose_volume_recovery"
+    ],
+    "recovery": {
+      "passed": true,
+      "real_model_calls": 0,
+      "checks": [
+        "live_application_backup_refused",
+        "corruption_and_implementation_mismatch_refused",
+        "all_state_hashes_modes_markers_and_nonempty_target_refusal",
+        "nonempty_database_refused_before_creating_state",
+        "import_report_pending_task_checkpoint_replay_budget_preserved",
+        "restored_owner_tls_login_and_original_report"
+      ],
+      "maintenance_versions": {
+        "python": "3.11.2",
+        "pg_dump": "pg_dump (PostgreSQL) 18.6 (Debian 18.6-1.pgdg12+2)"
+      },
+      "seed": {
+        "passed": true,
+        "action": "seed",
+        "report_value_minor": 23000,
+        "pending_status": "QUEUED",
+        "real_model_calls": 0
+      },
+      "backup": {
+        "passed": true,
+        "action": "backup",
+        "files": 10,
+        "manifest_sha256": "b38eb3c632d0c9270513893f7734c969c8c6cba4592978ed54c0003df0e84246"
+      },
+      "files": {
+        "passed": true,
+        "state_files_verified": 9
+      },
+      "resume": {
+        "passed": true,
+        "action": "verify",
+        "report_value_minor": 23000,
+        "pending_value_minor": 23000,
+        "pending_success_events": 1,
+        "checkpoint_resumed": true,
+        "replay_extra_calls": 0,
+        "model_attempts": 2,
+        "tool_attempts": 2,
+        "synthetic_budget_preserved": true,
+        "unknown_reservation_preserved": true,
+        "real_model_calls": 0
+      }
+    },
+    "finished_at": "2026-11-09T08:17:06.516595+00:00"
+  },
+  "native_regression": {
+    "date": "2026-11-09",
+    "kind": "actual_postgres_state_recovery",
+    "tests": 5,
+    "passed": true,
+    "seconds": 17.053,
+    "cases": [
+      {
+        "name": "test_backup_01_end_to_end_restore",
+        "passed": true,
+        "seconds": 6.822
+      },
+      {
+        "name": "test_backup_02_schema_owner_has_no_cluster_admin_rights",
+        "passed": true,
+        "seconds": 0.07
+      },
+      {
+        "name": "test_backup_03_maintenance_and_runtime_exclude_each_other",
+        "passed": true,
+        "seconds": 0.001
+      },
+      {
+        "name": "test_backup_04_postgres_launcher_stops_both_children",
+        "passed": true,
+        "seconds": 3.062
+      },
+      {
+        "name": "test_backup_05_configtree_password_and_container_logs",
+        "passed": true,
+        "seconds": 3.014
+      }
+    ],
+    "real_model_calls": 0,
+    "postgres_role": "schema owner without cluster administration",
+    "original_budget_modified": false
+  },
+  "compose_configuration": {
+    "started_at": "2026-11-09T08:08:50.729849+00:00",
+    "passed": true,
+    "kind": "official_compose_configuration_only",
+    "binary_sha256": "54495ff81dd8cae11861455f0308a293a530149beba8f1d90ff3f295b11cf035",
+    "daemon_target": "nonexistent_project_local_socket",
+    "real_model_calls": 0,
+    "container_runtime_verified": false,
+    "checks": [
+      "base",
+      "ci"
+    ],
+    "source_sha256": {
+      "deployment/compose.yaml": "62a23077f024934a14c092b017537f06cf12722bb35f1c6106ab1a165e0df93f",
+      "deployment/verify_clean_ci.py": "077c8dc45f72b6c349e933b1f4123b7c9ba2aeab28cf986bb28fbf95eebe2381",
+      "experiments/deployment/verify_compose_config.py": "bdc3921473352eb5d3c34fb7a40c6f351f6b486ed067d24e0b08b0752c4ff0b1"
+    },
+    "version": "Docker Compose version v5.7.0",
+    "seconds": 0.093
+  },
+  "path_boundaries": {
+    "tests": 3,
+    "passed": true,
+    "seconds": 0.005
+  },
+  "source_files": [
+    {
+      "path": "scripts/backup_state.py",
+      "sha256": "ea52a6aca9a83bdeb933031b8d75da6e238c9ec4f06efb45e93faa46bff7ed29"
+    },
+    {
+      "path": "deployment/maintenance.py",
+      "sha256": "5332a10360d5e260010602418a24b378bada93cc98d43ece1cac6623e99b7c93"
+    },
+    {
+      "path": "Dockerfile",
+      "sha256": "dccccb2dc9b43311d63c0b52d99a5e02c6ffb84916406e8fc100546dc7a630c9"
+    },
+    {
+      "path": "deployment/compose.yaml",
+      "sha256": "62a23077f024934a14c092b017537f06cf12722bb35f1c6106ab1a165e0df93f"
+    },
+    {
+      "path": "experiments/deployment/recovery_fixture.py",
+      "sha256": "8530b8f5233ea507976de5d95c63affc16985d7f99a560158673d2cc84f64742"
+    },
+    {
+      "path": "deployment/verify_container_recovery.py",
+      "sha256": "27407e2dd72e1a32b920ba810f0006ebe04e3af01c627fd8025dcbae8db13da0"
+    },
+    {
+      "path": "experiments/postgres/verify_backup.py",
+      "sha256": "7f04197215b020a293e468c57d102b1dcf1bbc8df4e8d4e905fb57dcfa312408"
+    },
+    {
+      "path": "experiments/deployment/verify_compose_config.py",
+      "sha256": "bdc3921473352eb5d3c34fb7a40c6f351f6b486ed067d24e0b08b0752c4ff0b1"
+    },
+    {
+      "path": "docs/research/020-container-recovery.md",
+      "sha256": "7ed428047696f08417a069a49af4f4a714f27934479c9048a30683c4b1f77ea5"
+    },
+    {
+      "path": "deployment/verify_clean_ci.py",
+      "sha256": "077c8dc45f72b6c349e933b1f4123b7c9ba2aeab28cf986bb28fbf95eebe2381"
+    }
+  ],
+  "raw_artifact_file_sha256": {
+    "agent.json": "0e249fa2bdfbb7252f7071f95e5e04660601ba7ae9924a09e640bc3da4496318",
+    "commands.log": "9718cce951cc36c70ea3912b26dac03dec86458dad195a6b046bf2b04ffa3460",
+    "compose-config.json": "d8980502daad1857df431bbc5e37c9eec8ad8dcf39f6701cd1ff60af2e104497",
+    "container-recovery.json": "57460a48f17e4d54834186bc7224342b4ee1e91f60fa3de8c9c94072304bbaf9",
+    "context.json": "cdb2d05113d692cf52cee8b80843e588e96a9ee7c6ba031d52a1156b4d9119ac",
+    "images.json": "c24cbf3e698934d8d8ccdaa90635f702267b193642bdfe227955fcd1f6b0122b",
+    "imports.json": "ad34f4aa151bee8a243dadc9d656471457f472c6b992edec2efd0014735b92c9",
+    "model-failures.json": "0f201ba04b15d576cc23ba9ba7baadf5c84ca9f4eff3fb3fa51087d2bc16587a",
+    "release.json": "9f03025856a52992e097aa8a25b7627f94b6f5394b3e19b72053abee534843a5"
+  },
+  "offline_suites": {
+    "agent": {
+      "kind": "offline_engineering_real_langgraph_scripted_model",
+      "real_model_calls": 0,
+      "tests_run": 42,
+      "passed": true,
+      "case_set_sha256": "f8a6462a0238649056b428428f0271ed1ca347388f967d45c23420e784dfc762"
+    },
+    "imports": {
+      "kind": "external_data_import_engineering",
+      "tests": 25,
+      "failures": 0,
+      "errors": 0,
+      "seconds": 31.378,
+      "real_model_calls": 0
+    },
+    "context": {
+      "kind": "context_engineering_only",
+      "tests": 12,
+      "failures": 0,
+      "errors": 0,
+      "seconds": 21.903,
+      "real_model_calls": 0,
+      "case_set_sha256": "327e4b378522a000da073a7c1aeca93bf1dd8d0b9d3a419f339f482d85872f78"
+    },
+    "model-failures": {
+      "kind": "model_failure_engineering_only",
+      "tests": 9,
+      "failures": 0,
+      "errors": 0,
+      "real_model_calls": 0
+    }
+  },
+  "limitations": [
+    "single_instance_stopped_restore_not_HA_or_PITR",
+    "synthetic_budget_not_provider_billing",
+    "latest_real_model_evaluation_deferred_by_user",
+    "no_public_domain_or_independent_trial",
+    "agent_and_import_suite_date_fields_are_historical_fixture_metadata_use_release_timestamps"
+  ],
+  "verification_seconds": 239.339
+}
