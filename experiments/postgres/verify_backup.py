@@ -116,6 +116,23 @@ class BackupTests(contracts.PostgresImports):
             (corrupted / "runtime/link").symlink_to(ledger)
             with self.assertRaisesRegex(ValueError, "backup_symlink_rejected"):
                 restore(PG.connection(PG.database()), corrupted, parent / "link-runtime", parent / "link-agent")
+            # Named Docker volumes expose an existing empty mount root. The opt-in
+            # must restore it without allowing an existing budget to be replaced.
+            mount_agent = parent / "empty-agent-mount"; mount_agent.mkdir()
+            mount_runtime = parent / "mount-runtime"
+            mount_db = PG.database()
+            with self.assertRaisesRegex(ValueError, "restore_state_target_exists"):
+                restore(PG.connection(mount_db), bundle, mount_runtime, mount_agent)
+            self.assertFalse(mount_runtime.exists())
+            restore(PG.connection(mount_db), bundle, mount_runtime, mount_agent, allow_empty_targets=True)
+            self.assertEqual(sha(mount_agent / ledger.name), ledger_before)
+            self.assertEqual(mount_agent.stat().st_mode & 0o777, 0o700)
+            self.assertFalse((mount_agent / "RESTORE_INCOMPLETE").exists())
+            with self.assertRaisesRegex(ValueError, "restore_state_target_exists"):
+                restore(PG.connection(mount_db), bundle, parent / "must-not-create", mount_agent,
+                        allow_empty_targets=True)
+            self.assertFalse((parent / "must-not-create").exists())
+            self.assertEqual(sha(mount_agent / ledger.name), ledger_before)
         finally:
             self.stop()
             type(self).runtime = original_runtime; type(self).database = original_database
