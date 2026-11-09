@@ -119,7 +119,10 @@ class ContextTests(unittest.TestCase):
         with self.assertRaisesRegex(AgentError, "evidence_source_binding_mismatch"):
             collected_evidence([message(changed, compact_evidence(changed))], source_sha256=job(self.case)["source_sha256"])
 
-    def test_05_actual_sdk_request_excludes_artifact_but_report_retains_it(self):
+    @patch("commerce_agent.budget.datetime")
+    def test_05_actual_sdk_request_excludes_artifact_but_report_retains_it(self, pricing_clock):
+        # HTTP is mocked; keep this serialization test independent of the real billing date.
+        pricing_clock.now.return_value.date.return_value.isoformat.return_value = "2026-11-08"
         import httpx
         requests = []
         def respond(request):
