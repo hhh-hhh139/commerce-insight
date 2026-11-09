@@ -1,0 +1,53 @@
+# 首次个人发布与干净 Linux 验收
+
+日期：2026-11-09。当前唯一目标为个人公开仓库 `hhh-hhh139/commerce-insight`。
+
+## 问题与基线
+
+此前已验收 macOS 上的 Java/Python、PostgreSQL 和 TLS，但不能据此声称 Linux 容器可部署。
+首次发布提交 `8769463199dc9afb4071d88019f97413e571e214` 的真实 GitHub hosted CI 暴露两个环境差异，保留失败，不把重跑结果覆盖原记录：
+
+1. [运行 1](https://github.com/hhh-hhh139/commerce-insight/actions/runs/42554876042)：两种镜像构建成功，Agent 42/42、导入 25/25；上下文 12 项中 1 项错误。Mock HTTP 的序列化测试读取了真实日期，11 月 9 日触发生产价格复核门禁。
+2. 修复第一项后的 [运行 2](https://github.com/hhh-hhh139/commerce-insight/actions/runs/42555889381)：离线套件全部通过，Compose 数据库和应用健康；首个 HTTPS 请求出现 `TLSV1_ALERT_INTERNAL_ERROR`，尚未进入登录验收。
+
+可恢复源码基线分别为上述提交和 `17d5fac2194fdc2863bf8da32158bd9f2d4fafe6`。本地保留每轮 artifact ZIP、SHA-256、原始 JSON/日志与修复前文件摘要；后续阶段记录列出可公开的实测结果。
+
+## 官方依据与方案比较
+
+这是现有组件的验收缺陷，沿用部署模块对 Metabase、Supabase、Caddy 的比较，不为两个测试问题重新引入部署平台。参考 [TLS 原选型](017-tls-deployment.md)。本日复查以下一手来源，文档为滚动版本：
+
+- [Python unittest.mock：where to patch](https://docs.python.org/3.12/library/unittest.mock.html#where-to-patch)：应在被测试代码实际查找对象的命名空间替换依赖。
+- [Caddy default_sni](https://caddyserver.com/docs/caddyfile/options#default-sni)：在客户端没有发送 SNI 时提供明确名称。
+- [Caddy 指定证书](https://caddyserver.com/docs/caddyfile/directives/tls)：手动证书和私钥配置。
+- [Caddy 官方问题记录 6364](https://github.com/caddyserver/caddy/issues/6364)：IP 访问与 NAT 下的相同握手现象；该讨论提供排查线索，最终结论由实际组件复现确认。
+
+| 问题 | 备选 | 选择与理由 |
+| --- | --- | --- |
+| Mock 测试受真实日期影响 | 放开生产价格检查；改全局时钟；只固定该测试的价格时钟 | 选择局部 `patch("commerce_agent.budget.datetime")`。该用例验证 SDK 内容序列化，真实价格日期不是变量；生产日期门禁和原账本保持不变 |
+| IP 证书经过地址映射后不可选 | 改用 DNS 测试域名及证书；显式默认 SNI；关闭证书校验 | 选择只在 CI 临时 Caddyfile 中配置 `default_sni 127.0.0.1`。保留原 IP Origin、SAN、路由及客户端校验；DNS 方案有效但需要同时改多项固定输入。关闭校验无法解决服务端选不到证书的问题，也失去验收意义 |
+
+## 机制与验证
+
+第一项：测试只在 `commerce_agent.budget` 查找日期时固定为已核验日期。SDK 请求仍走 HTTP Mock，既无模型请求，也不更新真实价格核验日期。局部套件从 11/12 变为 12/12，本机耗时 17.751 秒；随后 Linux 同一套件 12/12。
+
+第二项：IP 客户端不发 SNI；Caddy 无默认名称时使用连接本地地址匹配证书。原 macOS 测试直接监听 `127.0.0.1`，恰好匹配 SAN；Docker 映射后目的地址不同。用实际 Caddy 2.11.9 监听 `::1`、客户端仍验证 `127.0.0.1`，可在不修改系统网络的情况下复现这一差异：原配置握手失败，增加默认名称后 HTTP 200，不信任证书或验证错误 IP 仍报 `CERTIFICATE_VERIFY_FAILED`。这组回环实验不是 Docker 结果；容器结果以独立 CI 为准。
+
+复现入口：在已通过 `scripts/bootstrap_caddy.py` 准备 Caddy 的个人 macOS 环境执行：
+
+```sh
+.local/agent-venv/bin/python experiments/deployment/verify_tls_selection.py
+```
+
+仅使用本项目 `.local/ci-tls-probe`、回环 IPv6、临时证书与进程，结束回收进程；不安装 CA、不改系统信任、不访问 Docker daemon。证书/私钥和原始日志不发布。
+
+修复分别发布为 `17d5fac` 和 `f190be0`；后者只修改 CI 证书选择。部署域名/ACME、付费模型、商家试用等仍按各自验收门槛记录，不由 CI 工程通过推定。
+
+## 第三轮：只读根目录下的临时数据库
+
+[运行 3](https://github.com/hhh-hhh139/commerce-insight/actions/runs/42556666416) 已通过 TLS、未登录拒绝、会话轮换、登录和 CSRF；真实 Worker 在分析任务返回 `analysis_rejected`。检查发现所有确定性账本 CLI 都在 `.local/ledger-runs` 创建临时 DuckDB，但 Compose 只为 `.local/task-loop` 提供 tmpfs，应用根文件系统只读。此前离线套件在可写验收容器运行，不能发现这条部署路径缺失。
+
+实际文件系统反例用非 root 用户将独立测试根目录设为不可写，只将 CLI 的源码位置指向该测试目录：未提供临时目录时 exit 2；仅预置可写 `ledger-runs` 后真实 DuckDB 返回 28000 分，临时数据库清理成功，父目录继续不可写。程序见 `experiments/deployment/verify_readonly_scratch.py`；它没有模拟文件系统或计算，但也不是 Docker 的只读挂载实验。
+
+本日复查 [Docker tmpfs 官方说明](https://docs.docker.com/engine/storage/tmpfs/)（滚动版本）。比较：去掉根目录只读过度扩大写入范围；永久 volume 会保留无需恢复的查询中间文件；修改全部 CLI 到其他目录会扩大代码改动。选择给既有目录增加 UID/GID 1000、0700、128 MiB tmpfs，并在 Compose 解析验证器中检查。tmpfs 占用容器内存限额，可能被 OS swap，不能宣称永不落盘；业务报告、数据版本和预算仍使用原持久化状态。
+
+源码基线 `f190be0`，挂载修复 `8855db6`。官方 Compose 5.7.0 的正式/CI 两组配置检查均通过，0.102 秒，未连接本机 Docker。最终容器运行结果见阶段 5f，不能仅凭配置检查认定任务恢复成功。
