@@ -51,3 +51,17 @@
 本日复查 [Docker tmpfs 官方说明](https://docs.docker.com/engine/storage/tmpfs/)（滚动版本）。比较：去掉根目录只读过度扩大写入范围；永久 volume 会保留无需恢复的查询中间文件；修改全部 CLI 到其他目录会扩大代码改动。选择给既有目录增加 UID/GID 1000、0700、128 MiB tmpfs，并在 Compose 解析验证器中检查。tmpfs 占用容器内存限额，可能被 OS swap，不能宣称永不落盘；业务报告、数据版本和预算仍使用原持久化状态。
 
 源码基线 `f190be0`，挂载修复 `8855db6`。官方 Compose 5.7.0 的正式/CI 两组配置检查均通过，0.102 秒，未连接本机 Docker。最终容器运行结果见阶段 5f，不能仅凭配置检查认定任务恢复成功。
+
+## 交付审查：业务专项在 Linux 的覆盖缺口
+
+2026-11-09，基线 `1d9fee876316604d070102e640ffa6131c845b75`、tree `db1e210d74eab8f436b60cbbf7bcb70ade23417a`。第 5 轮已实际通过独立容器恢复；读取 `verify_clean_ci.py` 的执行列表及下载产物后确认：销售变化、退款变化、报表核对、资源可靠性和 owner 登录的独立专项没有进入 Linux CI。这不是已观察到的业务故障，而是交付证据缺口。上下文题集和 TLS 冒烟不能替代这些专项的业务 API、篡改拒绝与竞态断言。
+
+本日读取以下官方滚动文档：
+
+- [Metabase 开发与测试](https://www.metabase.com/docs/latest/developers-guide/devenv)：区分隔离业务逻辑的单元测试与模拟用户流程的端到端测试。可借鉴分层覆盖，不把一种测试名称扩写为全部验证。
+- [Supabase 测试概览](https://supabase.com/docs/guides/local-development/testing/overview)：同时介绍数据库测试和通过应用客户端验证策略的应用层测试，支持把真实接口边界纳入 CI。
+- [GitHub Actions matrix](https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/run-job-variations)：适合多个操作系统、语言版本或任务配置；可以控制并发和失败行为，但并不自动补足测试覆盖。
+
+比较保留现状（无法关闭缺口）、拆成矩阵任务（需要重复构建或分发镜像）、在同一构建镜像中分别启动容器运行已有专项。选择最后一种：本项目当前只承诺一组 Linux/Python/Java 版本，原完整验收约 4 分钟，新增五套无需新框架或模型服务。每套独立容器、单独 JSON，失败保留日志，后续再运行 Compose TLS/恢复流程；不把本机再次通过当作 Linux 证据。
+
+预定验证：现有 Agent 42、导入 25、上下文 12、模型故障 9 和备份路径继续通过；新增销售、退款、核对、可靠性、owner 五套必须实际执行并通过，结果记录 commit、镜像 digest、题/测试源 SHA 和耗时。它们仍是无真实模型的工程测试；视觉交互沿用有日期的人工浏览器记录，不改称自动 UI 验收。若耗时或资源成为问题，再基于测量考虑并行。实施结果另记本日交付审查。
