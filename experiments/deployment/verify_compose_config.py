@@ -56,6 +56,10 @@ def main():
             (out / (name + ".json")).write_text(json.dumps(data, indent=2) + "\n")
             app, db, proxy = (data["services"][key] for key in ("app", "db", "proxy"))
             assert app["read_only"] and app["cap_drop"] == ["ALL"] and app["init"]
+            assert set(app["tmpfs"]) == {
+                "/tmp:mode=1777,size=128m",
+                "/app/.local/task-loop:uid=1000,gid=1000,mode=0700,size=128m",
+                "/app/.local/ledger-runs:uid=1000,gid=1000,mode=0700,size=128m"}
             assert not app.get("ports") and not db.get("ports")
             assert data["networks"]["business"]["internal"] and list(app["networks"]) == ["business"]
             assert {v["target"] for v in app["volumes"]} == {
