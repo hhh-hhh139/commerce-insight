@@ -37,6 +37,7 @@ services:
     tmpfs:
       - /tmp:mode=1777,size=128m
       - /app/.local/task-loop:uid=1000,gid=1000,mode=0700,size=128m
+      - /app/.local/ledger-runs:uid=1000,gid=1000,mode=0700,size=128m
     depends_on: {db: {condition: service_healthy}}
     networks: [business]
     init: true
