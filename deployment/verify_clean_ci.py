@@ -84,7 +84,9 @@ def main():
              "-out", str(private / "cert.pem"), "-config", str(openssl)])
         (private / "key.pem").chmod(0o600)
         origin = "https://127.0.0.1:18443"
-        (private / "Caddyfile").write_text("{\n admin off\n auto_https off\n}\n" + origin
+        # IP clients omit SNI; Docker changes the local destination IP seen by Caddy.
+        # Select the test certificate explicitly without disabling client verification.
+        (private / "Caddyfile").write_text("{\n admin off\n auto_https off\n default_sni 127.0.0.1\n}\n" + origin
             + " {\n tls /test-cert/cert.pem /test-cert/key.pem\n import /etc/caddy/routes.caddy\n}\n")
         override = private / "compose.yaml"
         override.write_text("services:\n  proxy:\n    ports: !override [\"127.0.0.1:18443:18443\"]\n    volumes:\n"
