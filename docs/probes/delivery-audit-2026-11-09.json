@@ -1,0 +1,543 @@
+{
+  "date": "2026-11-09",
+  "kind": "delivery_audit_clean_linux_evidence",
+  "baseline": {
+    "source_commit": "1d9fee876316604d070102e640ffa6131c845b75",
+    "source_tree": "db1e210d74eab8f436b60cbbf7bcb70ade23417a",
+    "files": {
+      "deployment/verify_clean_ci.py": "077c8dc45f72b6c349e933b1f4123b7c9ba2aeab28cf986bb28fbf95eebe2381",
+      "docs/research/019-clean-linux-ci.md": "751446c48a87494be6b0b33c7aa0118257ca1937cb7f25f45ecbbdaf3b90e8c5",
+      "docs/completion-plan.md": "1d3c49615dfdf3c612d1bd947c93516a2b402adcd4a27864a52135e7044b17a4",
+      "README.md": "8ed03838190327e0367bccd2d68f8713d84880ae6c793af0b7bf7b3aa4d72222"
+    },
+    "confirmed_gap": "five_business_and_control_suites_not_in_clean_linux_CI",
+    "previous_run": "https://github.com/hhh-hhh139/commerce-insight/actions/runs/42584328249",
+    "previous_checks": [
+      "linux_agent",
+      "linux_imports",
+      "linux_context",
+      "linux_model-failures",
+      "linux_backup_path_boundaries",
+      "tls_owner_csrf_worker_result_internal_routes",
+      "nonroot_readonly_no_app_host_port",
+      "restart_keeps_report_invalidates_session_and_logout",
+      "independent_compose_volume_recovery"
+    ],
+    "missing_suites": [
+      "sales-change",
+      "refund-change",
+      "reconciliation",
+      "reliability",
+      "owner-access"
+    ]
+  },
+  "inventory_baseline": {
+    "source_commit": "285ac29f3c651d444f48630ca85e34334844539f",
+    "requirement": "THIRD_PARTY_NOTICES.md requires a container image digest and package inventory with verified release",
+    "known_inventory_environment": "macOS ARM64 Python 3.12.16 / business-api Spring Boot 4.1.2",
+    "last_complete_artifact_files": [
+      "agent.json",
+      "commands.log",
+      "compose-config.json",
+      "container-recovery.json",
+      "context.json",
+      "images.json",
+      "imports.json",
+      "model-failures.json",
+      "release.json"
+    ],
+    "files": {
+      "deployment/verify_clean_ci.py": "059605142293816ee9b644901dbd68b1973d9cf8bd7379dc476efa854293e391",
+      "THIRD_PARTY_NOTICES.md": "e1cad5bb02579dc883cc902c3c2a653667dded0ad86f70a0a3e76d1dee4de271"
+    }
+  },
+  "runs": [
+    {
+      "run": 6,
+      "url": "https://github.com/hhh-hhh139/commerce-insight/actions/runs/42586103356",
+      "artifact_id": 13659397478,
+      "artifact_bytes": 26888,
+      "artifact_sha256": "ed5a1344db701a334824784eb64802c57236711728ed8af29ae0a165b22a58e2",
+      "job_seconds": 362,
+      "release": {
+        "started_at": "2026-11-09T08:27:46.262081+00:00",
+        "source_commit": "285ac29f3c651d444f48630ca85e34334844539f",
+        "repository": "hhh-hhh139/commerce-insight",
+        "real_model_calls": 0,
+        "passed": true,
+        "stage": "complete",
+        "images": {
+          "python": {
+            "tag": "python:3.12.16-slim-bookworm",
+            "resolved": "python@sha256:935c3c5b12357a7e10caa9c1e6ca5692344d97cf229832ef584be2cec9fc03df"
+          },
+          "java": {
+            "tag": "eclipse-temurin:21.0.13_9-jdk-jammy",
+            "resolved": "eclipse-temurin@sha256:4b1a74fbffbe6b4e7b6f0171a472478282fb463790a51edf10e465d578f22b69"
+          },
+          "postgres": {
+            "tag": "postgres:18.6-bookworm",
+            "resolved": "postgres@sha256:f1ea2a1a4fb7b68d4836be1fdcb8a6466a89b072158bf9d97663600538c294c5"
+          },
+          "caddy": {
+            "tag": "caddy:2.11.9-alpine",
+            "resolved": "caddy@sha256:0bbb055bda6793c999bde78b1b5ce3e89f829fb031af2cf50056ea1246559fee"
+          }
+        },
+        "checks": [
+          "linux_agent",
+          "linux_imports",
+          "linux_context",
+          "linux_model-failures",
+          "linux_sales-change",
+          "linux_refund-change",
+          "linux_reconciliation",
+          "linux_reliability",
+          "linux_owner-access",
+          "linux_backup_path_boundaries",
+          "tls_owner_csrf_worker_result_internal_routes",
+          "nonroot_readonly_no_app_host_port",
+          "restart_keeps_report_invalidates_session_and_logout",
+          "independent_compose_volume_recovery"
+        ],
+        "recovery": {
+          "passed": true,
+          "real_model_calls": 0,
+          "checks": [
+            "live_application_backup_refused",
+            "corruption_and_implementation_mismatch_refused",
+            "all_state_hashes_modes_markers_and_nonempty_target_refusal",
+            "nonempty_database_refused_before_creating_state",
+            "import_report_pending_task_checkpoint_replay_budget_preserved",
+            "restored_owner_tls_login_and_original_report"
+          ],
+          "maintenance_versions": {
+            "python": "3.11.2",
+            "pg_dump": "pg_dump (PostgreSQL) 18.6 (Debian 18.6-1.pgdg12+2)"
+          },
+          "seed": {
+            "passed": true,
+            "action": "seed",
+            "report_value_minor": 23000,
+            "pending_status": "QUEUED",
+            "real_model_calls": 0
+          },
+          "backup": {
+            "passed": true,
+            "action": "backup",
+            "files": 10,
+            "manifest_sha256": "0508efeb1161029ecd8537301614fa1b6e6137b2afdbdcaae5674ca62eea194b"
+          },
+          "files": {
+            "passed": true,
+            "state_files_verified": 9
+          },
+          "resume": {
+            "passed": true,
+            "action": "verify",
+            "report_value_minor": 23000,
+            "pending_value_minor": 23000,
+            "pending_success_events": 1,
+            "checkpoint_resumed": true,
+            "replay_extra_calls": 0,
+            "model_attempts": 2,
+            "tool_attempts": 2,
+            "synthetic_budget_preserved": true,
+            "unknown_reservation_preserved": true,
+            "real_model_calls": 0
+          }
+        },
+        "finished_at": "2026-11-09T08:33:41.156470+00:00"
+      },
+      "verifier_seconds": 354.894,
+      "suites": {
+        "agent": {
+          "date": "2026-11-06",
+          "kind": "offline_engineering_real_langgraph_scripted_model",
+          "real_model_calls": 0,
+          "tests_run": 42,
+          "passed": true,
+          "includes_previous_task_loop_tests": 18,
+          "case_set_sha256": "f8a6462a0238649056b428428f0271ed1ca347388f967d45c23420e784dfc762",
+          "raw_sha256": "9fdfc2a624e11215188dbf97b19e11f15b947bb41d2232ab29f3f6d4e6c92f84"
+        },
+        "imports": {
+          "date": "2026-11-06",
+          "kind": "external_data_import_engineering",
+          "tests": 25,
+          "failures": 0,
+          "errors": 0,
+          "seconds": 23.538,
+          "real_model_calls": 0,
+          "raw_sha256": "cd45a8d2524a7c24b0b1986625c0345c5e8d58230463318ffffe78c553bb2db2"
+        },
+        "context": {
+          "kind": "context_engineering_only",
+          "date": "2026-11-09",
+          "tests": 12,
+          "failures": 0,
+          "errors": 0,
+          "seconds": 18.202,
+          "real_model_calls": 0,
+          "model_quality": "not_measured",
+          "case_set_sha256": "327e4b378522a000da073a7c1aeca93bf1dd8d0b9d3a419f339f482d85872f78",
+          "raw_sha256": "d24e3c0e9c779fa6cea543348370e1477b9fb038fee5fa06987ffe9658f7156c"
+        },
+        "model-failures": {
+          "date": "2026-11-09",
+          "kind": "model_failure_engineering_only",
+          "tests": 9,
+          "failures": 0,
+          "errors": 0,
+          "real_model_calls": 0,
+          "raw_sha256": "0f201ba04b15d576cc23ba9ba7baadf5c84ca9f4eff3fb3fa51087d2bc16587a"
+        },
+        "sales-change": {
+          "date": "2026-11-06",
+          "kind": "sales_change_engineering_scripted_model",
+          "tests": 21,
+          "failures": 0,
+          "errors": 0,
+          "seconds": 18.372,
+          "real_model_calls": 0,
+          "raw_sha256": "020b1a23d12d4389ad408bcee212837cdfabd2db8fad820f97fdca35cc08c25c"
+        },
+        "refund-change": {
+          "date": "2026-11-06",
+          "kind": "refund_change_engineering_scripted_model",
+          "tests": 21,
+          "failures": 0,
+          "errors": 0,
+          "seconds": 22.912,
+          "real_model_calls": 0,
+          "raw_sha256": "f93808498a4e90daf303b253df2fe8c51e00a1f5187ba4e96d26916885d49a48"
+        },
+        "reconciliation": {
+          "date": "2026-11-06",
+          "kind": "report_reconciliation_engineering",
+          "tests": 19,
+          "failures": 0,
+          "errors": 0,
+          "seconds": 15.696,
+          "real_model_calls": 0,
+          "raw_sha256": "bbd65e1eb348b9709051b16d3c351fb37502cdbc81cef4715a7570c4fb6d8c90"
+        },
+        "reliability": {
+          "date": "2026-11-06",
+          "kind": "reliability_controls",
+          "tests": 12,
+          "failures": 0,
+          "errors": 0,
+          "seconds": 48.307,
+          "real_model_calls": 0,
+          "test_limits": {
+            "total": 5,
+            "active": 3,
+            "running": 1,
+            "lifetime_ms": [
+              2000,
+              15000
+            ]
+          },
+          "raw_sha256": "720b19397b7c8bc78d983ef1c0cf7fdda9a473927a79791e9db5e0b730bc5eff"
+        },
+        "owner-access": {
+          "date": "2026-11-09",
+          "kind": "spring_security_owner_acceptance",
+          "tests": 8,
+          "failures": 0,
+          "errors": 0,
+          "seconds": 41.396,
+          "real_model_calls": 0,
+          "credential_kind": "ephemeral_generated_synthetic",
+          "tls_end_to_end": false,
+          "raw_sha256": "29e779fe8ffbb7b719970b06445b64b59c72b9b57b87540395ca0a8eadbf18c9"
+        }
+      },
+      "raw_result_sha256": {
+        "reliability.json": "720b19397b7c8bc78d983ef1c0cf7fdda9a473927a79791e9db5e0b730bc5eff",
+        "refund-change.json": "f93808498a4e90daf303b253df2fe8c51e00a1f5187ba4e96d26916885d49a48",
+        "reconciliation.json": "bbd65e1eb348b9709051b16d3c351fb37502cdbc81cef4715a7570c4fb6d8c90",
+        "container-recovery.json": "11a2b72804e0dc93711043f4349d05a485cedab87975cb3c35269155154e60c8",
+        "owner-access.json": "29e779fe8ffbb7b719970b06445b64b59c72b9b57b87540395ca0a8eadbf18c9",
+        "images.json": "c24cbf3e698934d8d8ccdaa90635f702267b193642bdfe227955fcd1f6b0122b",
+        "model-failures.json": "0f201ba04b15d576cc23ba9ba7baadf5c84ca9f4eff3fb3fa51087d2bc16587a",
+        "agent.json": "9fdfc2a624e11215188dbf97b19e11f15b947bb41d2232ab29f3f6d4e6c92f84",
+        "release.json": "d3245dfbd1830b7d6ddfdab565ab8e8d0748bff6ff94ef1b65d8b61676230332",
+        "sales-change.json": "020b1a23d12d4389ad408bcee212837cdfabd2db8fad820f97fdca35cc08c25c",
+        "context.json": "d24e3c0e9c779fa6cea543348370e1477b9fb038fee5fa06987ffe9658f7156c",
+        "imports.json": "cd45a8d2524a7c24b0b1986625c0345c5e8d58230463318ffffe78c553bb2db2",
+        "compose-config.json": "d8980502daad1857df431bbc5e37c9eec8ad8dcf39f6701cd1ff60af2e104497"
+      }
+    },
+    {
+      "run": 7,
+      "url": "https://github.com/hhh-hhh139/commerce-insight/actions/runs/42586995399",
+      "artifact_id": 13660181112,
+      "artifact_bytes": 34825,
+      "artifact_sha256": "d6da13bb69936137d774d2ec419a69f13f2a79b1b78a479c47cd9a71d78b39d5",
+      "job_seconds": 431,
+      "release": {
+        "started_at": "2026-11-09T08:35:07.564065+00:00",
+        "source_commit": "b432ed43ad620e6d84356c06f269c3fed0583a2e",
+        "repository": "hhh-hhh139/commerce-insight",
+        "real_model_calls": 0,
+        "passed": true,
+        "stage": "complete",
+        "images": {
+          "python": {
+            "tag": "python:3.12.16-slim-bookworm",
+            "resolved": "python@sha256:935c3c5b12357a7e10caa9c1e6ca5692344d97cf229832ef584be2cec9fc03df"
+          },
+          "java": {
+            "tag": "eclipse-temurin:21.0.13_9-jdk-jammy",
+            "resolved": "eclipse-temurin@sha256:4b1a74fbffbe6b4e7b6f0171a472478282fb463790a51edf10e465d578f22b69"
+          },
+          "postgres": {
+            "tag": "postgres:18.6-bookworm",
+            "resolved": "postgres@sha256:f1ea2a1a4fb7b68d4836be1fdcb8a6466a89b072158bf9d97663600538c294c5"
+          },
+          "caddy": {
+            "tag": "caddy:2.11.9-alpine",
+            "resolved": "caddy@sha256:0bbb055bda6793c999bde78b1b5ce3e89f829fb031af2cf50056ea1246559fee"
+          }
+        },
+        "checks": [
+          "installed_image_software_inventory",
+          "linux_agent",
+          "linux_imports",
+          "linux_context",
+          "linux_model-failures",
+          "linux_sales-change",
+          "linux_refund-change",
+          "linux_reconciliation",
+          "linux_reliability",
+          "linux_owner-access",
+          "linux_backup_path_boundaries",
+          "tls_owner_csrf_worker_result_internal_routes",
+          "nonroot_readonly_no_app_host_port",
+          "restart_keeps_report_invalidates_session_and_logout",
+          "independent_compose_volume_recovery"
+        ],
+        "recovery": {
+          "passed": true,
+          "real_model_calls": 0,
+          "checks": [
+            "live_application_backup_refused",
+            "corruption_and_implementation_mismatch_refused",
+            "all_state_hashes_modes_markers_and_nonempty_target_refusal",
+            "nonempty_database_refused_before_creating_state",
+            "import_report_pending_task_checkpoint_replay_budget_preserved",
+            "restored_owner_tls_login_and_original_report"
+          ],
+          "maintenance_versions": {
+            "python": "3.11.2",
+            "pg_dump": "pg_dump (PostgreSQL) 18.6 (Debian 18.6-1.pgdg12+2)"
+          },
+          "seed": {
+            "passed": true,
+            "action": "seed",
+            "report_value_minor": 23000,
+            "pending_status": "QUEUED",
+            "real_model_calls": 0
+          },
+          "backup": {
+            "passed": true,
+            "action": "backup",
+            "files": 10,
+            "manifest_sha256": "82d17ff6ac119f65c7bf769258c4687263ac3c2bf15fb8e93ede035f02ff7bfa"
+          },
+          "files": {
+            "passed": true,
+            "state_files_verified": 9
+          },
+          "resume": {
+            "passed": true,
+            "action": "verify",
+            "report_value_minor": 23000,
+            "pending_value_minor": 23000,
+            "pending_success_events": 1,
+            "checkpoint_resumed": true,
+            "replay_extra_calls": 0,
+            "model_attempts": 2,
+            "tool_attempts": 2,
+            "synthetic_budget_preserved": true,
+            "unknown_reservation_preserved": true,
+            "real_model_calls": 0
+          }
+        },
+        "finished_at": "2026-11-09T08:42:13.535138+00:00"
+      },
+      "verifier_seconds": 425.971,
+      "suites": {
+        "agent": {
+          "date": "2026-11-06",
+          "kind": "offline_engineering_real_langgraph_scripted_model",
+          "real_model_calls": 0,
+          "tests_run": 42,
+          "passed": true,
+          "includes_previous_task_loop_tests": 18,
+          "case_set_sha256": "f8a6462a0238649056b428428f0271ed1ca347388f967d45c23420e784dfc762",
+          "raw_sha256": "4ca0658012c3ddc9ad4524e4c2fe2a0c3d71144b9d5e495c051d5a35b2a06108"
+        },
+        "imports": {
+          "date": "2026-11-06",
+          "kind": "external_data_import_engineering",
+          "tests": 25,
+          "failures": 0,
+          "errors": 0,
+          "seconds": 30.872,
+          "real_model_calls": 0,
+          "raw_sha256": "a330a57a6ffb2091c05653c90629d6f7b1ffd4e62d06085cf352de61845e2f2f"
+        },
+        "context": {
+          "kind": "context_engineering_only",
+          "date": "2026-11-09",
+          "tests": 12,
+          "failures": 0,
+          "errors": 0,
+          "seconds": 21.788,
+          "real_model_calls": 0,
+          "model_quality": "not_measured",
+          "case_set_sha256": "327e4b378522a000da073a7c1aeca93bf1dd8d0b9d3a419f339f482d85872f78",
+          "raw_sha256": "a67ebc615c6907d753d90bd77f7db06e20bc0c2b5c20159f8d3ff232d0ac23a6"
+        },
+        "model-failures": {
+          "date": "2026-11-09",
+          "kind": "model_failure_engineering_only",
+          "tests": 9,
+          "failures": 0,
+          "errors": 0,
+          "real_model_calls": 0,
+          "raw_sha256": "0f201ba04b15d576cc23ba9ba7baadf5c84ca9f4eff3fb3fa51087d2bc16587a"
+        },
+        "sales-change": {
+          "date": "2026-11-06",
+          "kind": "sales_change_engineering_scripted_model",
+          "tests": 21,
+          "failures": 0,
+          "errors": 0,
+          "seconds": 22.889,
+          "real_model_calls": 0,
+          "raw_sha256": "af1af20faebd17b1e524c91fecf2af0f34440dfb0ab8650babb087210eef2b46"
+        },
+        "refund-change": {
+          "date": "2026-11-06",
+          "kind": "refund_change_engineering_scripted_model",
+          "tests": 21,
+          "failures": 0,
+          "errors": 0,
+          "seconds": 26.501,
+          "real_model_calls": 0,
+          "raw_sha256": "8e790d8605077a77807d81e770be013616f0ca011637ac2d9288e7f02b3007ba"
+        },
+        "reconciliation": {
+          "date": "2026-11-06",
+          "kind": "report_reconciliation_engineering",
+          "tests": 19,
+          "failures": 0,
+          "errors": 0,
+          "seconds": 20.068,
+          "real_model_calls": 0,
+          "raw_sha256": "b4d8d319791ba3953861c445bb90a99bcdbe9c9ca720fec7838ffca90987feb8"
+        },
+        "reliability": {
+          "date": "2026-11-06",
+          "kind": "reliability_controls",
+          "tests": 12,
+          "failures": 0,
+          "errors": 0,
+          "seconds": 61.958,
+          "real_model_calls": 0,
+          "test_limits": {
+            "total": 5,
+            "active": 3,
+            "running": 1,
+            "lifetime_ms": [
+              2000,
+              15000
+            ]
+          },
+          "raw_sha256": "02531a1b39f368c614940745a990be12336421b730bdc3202e3d482b2c3ee609"
+        },
+        "owner-access": {
+          "date": "2026-11-09",
+          "kind": "spring_security_owner_acceptance",
+          "tests": 8,
+          "failures": 0,
+          "errors": 0,
+          "seconds": 54.53,
+          "real_model_calls": 0,
+          "credential_kind": "ephemeral_generated_synthetic",
+          "tls_end_to_end": false,
+          "raw_sha256": "305c6af0ef89fd96c0fb3c2effcd0b1788ce3b2190cf21f1920187414675d1ce"
+        }
+      },
+      "raw_result_sha256": {
+        "reliability.json": "02531a1b39f368c614940745a990be12336421b730bdc3202e3d482b2c3ee609",
+        "refund-change.json": "8e790d8605077a77807d81e770be013616f0ca011637ac2d9288e7f02b3007ba",
+        "reconciliation.json": "b4d8d319791ba3953861c445bb90a99bcdbe9c9ca720fec7838ffca90987feb8",
+        "container-recovery.json": "039f070eee63f07d98abbeffe4c5cd07dc29930e44fc9207ac83a21d6366e6d1",
+        "owner-access.json": "305c6af0ef89fd96c0fb3c2effcd0b1788ce3b2190cf21f1920187414675d1ce",
+        "images.json": "c24cbf3e698934d8d8ccdaa90635f702267b193642bdfe227955fcd1f6b0122b",
+        "model-failures.json": "0f201ba04b15d576cc23ba9ba7baadf5c84ca9f4eff3fb3fa51087d2bc16587a",
+        "agent.json": "4ca0658012c3ddc9ad4524e4c2fe2a0c3d71144b9d5e495c051d5a35b2a06108",
+        "release.json": "ed79995bc9acf242d4b50d0763e11c144f515203344173521f7839e9b7ed273c",
+        "sales-change.json": "af1af20faebd17b1e524c91fecf2af0f34440dfb0ab8650babb087210eef2b46",
+        "image-inventory.json": "ac401b8fb014d984a4161df6a7345b86b9786192a2b9ba7bae20cb7a49086dcb",
+        "context.json": "a67ebc615c6907d753d90bd77f7db06e20bc0c2b5c20159f8d3ff232d0ac23a6",
+        "imports.json": "a330a57a6ffb2091c05653c90629d6f7b1ffd4e62d06085cf352de61845e2f2f",
+        "compose-config.json": "d8980502daad1857df431bbc5e37c9eec8ad8dcf39f6701cd1ff60af2e104497"
+      }
+    }
+  ],
+  "inventory": {
+    "path": "image-inventory-2026-11-09.json",
+    "source_commit": "b432ed43ad620e6d84356c06f269c3fed0583a2e",
+    "raw_sha256": "ac401b8fb014d984a4161df6a7345b86b9786192a2b9ba7bae20cb7a49086dcb",
+    "os_package_counts": {
+      "application": 105,
+      "maintenance": 159,
+      "postgres": 147,
+      "proxy": 32
+    },
+    "python_distributions": 50,
+    "locked_distributions": 49,
+    "extra_distributions": [
+      {
+        "name": "pip",
+        "version": "25.0.1"
+      }
+    ],
+    "java_libraries": 52
+  },
+  "verified_source_sha256": {
+    "deployment/image_inventory.py": "c9a9b1f6d1008a58280042595b9b080ae05d109faf0cc74b72c4b10fc6ffbd52",
+    "deployment/verify_clean_ci.py": "594ca31ae45a69463776da06c90717f6ed08864f53918a717e9412b50c118792",
+    "Dockerfile": "dccccb2dc9b43311d63c0b52d99a5e02c6ffb84916406e8fc100546dc7a630c9",
+    ".github/workflows/verify.yml": "e4f1db61b79bf25c38567ce590962d4dd72e6f605a611ee284743d141d46b970",
+    "experiments/single-agent/verify.py": "5f1d853c546d046a0c877d8c6590b43ea8f7ee9ba1e83ab08d58a7a5047b3a90",
+    "experiments/data-import/verify.py": "9da2795e83bc6ba4514e085ae0fd177f16004da723fc9e87e548f3d2f58055f1",
+    "experiments/context-evaluation/verify.py": "b9deabb069cf6e0e5b8dd4e5ec5f74a3a495ac3574865f34be9e6f02550248a6",
+    "experiments/context-evaluation/verify_failures.py": "5e64c6721460756d9cc1612d78dfd3e1c946ddd1a52a0a617fbff7cfd80ab5c1",
+    "experiments/sales-change/verify.py": "46178ab93d62223c69635a3d9c51232795f14dec972505c1db9aad42e73c98a3",
+    "experiments/refund-change/verify.py": "c6f7b14664d5ca075d8b4dc399291eecd547afff5a049f1b418a50a4804c9e21",
+    "experiments/report-reconciliation/verify.py": "1aad2877046f1a523f2a63e0d264c2e066d44dcd42600d3156fdfa7af2b7662c",
+    "experiments/reliability/verify.py": "1947cd74de43ae14aefd76f499d18ab85e322331cbb85d5a1c3ad7d2f019fe0f",
+    "experiments/owner-access/verify.py": "32aa7505cf2f0695c846a13e5b4fd304d04846c06a02abb3045682d96584d868",
+    "tests/test_sales_change.py": "4c7201a24a8c8b85acb52677a2224a14aa2cbc18b409fdd015e95152e94b8111",
+    "tests/test_refund_change.py": "3e15a7ca3a19879ec2b83586e290d61566a0839b5fd687917c92d8fcba7320b6",
+    "tests/test_reconciliation.py": "98912e659b114f3dd3a2ae5807439ad406f089a681f7972ea3acb3e4b8c2e6e6",
+    "tests/test_import_adapter.py": "c112a7153dea896b10b575594c06717032c3d759585e9be5b8e60498485bfd2b",
+    "tests/test_backup_paths.py": "db367be91afc30d5e7c18c932202c29c8011dfeeb5cda682525ac2dcde2557a2"
+  },
+  "personal_budget_sha256_unchanged": "5d1f94e4003135ef6a559efdced43e58c6aa411007c5511704b436fc127b5dd3",
+  "real_model_calls": 0,
+  "limitations": [
+    "some suite date fields are historical constants; actual execution time is in release started_at/finished_at",
+    "suite counts overlap and are not a unique test total",
+    "UI browser evidence is historical manual acceptance",
+    "image inventory is not a vulnerability or full binary dependency scan",
+    "current real-model comparison, public hosting and independent user trial remain unverified"
+  ]
+}
