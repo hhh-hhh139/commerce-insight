@@ -2,6 +2,7 @@
 # No host .local files, credentials, raw data or old finance project enter this build.
 ARG PYTHON_IMAGE=python:3.12.16-slim-bookworm
 ARG JAVA_IMAGE=eclipse-temurin:21.0.13_9-jdk-jammy
+ARG POSTGRES_IMAGE=postgres:18.6-bookworm
 FROM ${JAVA_IMAGE} AS java
 FROM ${PYTHON_IMAGE} AS base
 RUN apt-get update && apt-get install -y --no-install-recommends ca-certificates libstdc++6 zlib1g \
@@ -65,3 +66,27 @@ COPY experiments experiments
 COPY docs/probes docs/probes
 COPY examples examples
 ENTRYPOINT ["/opt/agent-venv/bin/python"]
+
+# On-demand maintenance only. Same native PostgreSQL clients as the database;
+# no model runtime, no business listener, no inherited PostgreSQL entrypoint.
+FROM ${POSTGRES_IMAGE} AS maintenance
+RUN apt-get update && apt-get install -y --no-install-recommends python3 \
+    && rm -rf /var/lib/apt/lists/*
+WORKDIR /app
+ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1
+COPY --from=application /app/services/business-api/target/business-api-0.1.0.jar services/business-api/target/business-api-0.1.0.jar
+COPY --from=application /app/requirements-agent.lock requirements-agent.lock
+COPY --from=application /app/examples/ledger examples/ledger
+COPY --from=application /app/commerce_agent commerce_agent
+COPY --from=application /app/commerce_data commerce_data
+COPY --from=application /app/commerce_import commerce_import
+COPY --from=application /app/commerce_worker commerce_worker
+COPY --from=application /app/scripts scripts
+COPY deployment/maintenance.py deployment/maintenance.py
+RUN groupadd --gid 1000 commerce && useradd --uid 1000 --gid commerce --no-create-home commerce \
+    && mkdir -p .local/owner-demo .local/single-agent .local/state-control .local/backups \
+    && chown -R 1000:1000 .local
+USER 1000:1000
+HEALTHCHECK NONE
+ENTRYPOINT ["/usr/bin/python3", "deployment/maintenance.py"]
+CMD ["--help"]
