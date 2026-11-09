@@ -6,7 +6,7 @@
 
 - 本地项目：`/Users/haohao4/Downloads/multi-agent.zip/commerce-insight`。
 - 旧个人金融项目：仅按此前约定作为参考，不用于新项目的开发或推送。
-- 远程仓库：仅限个人 GitHub 用户 `hhhhao139-ai` 下、为本项目明确指定的仓库。
+- 当前唯一远程目标：`https://github.com/hhh-hhh139/commerce-insight`。用户于 2026-11-09 明确换用这个个人账号继续发布。
 
 ## 已核对状态
 
@@ -14,8 +14,8 @@
 | --- | --- |
 | 本地仓库 | 独立仓库，目录见上 |
 | 远程配置 | 本次在该目录运行 `git remote`，结果为空 |
-| 个人 GitHub 用户名 | `hhhhao139-ai`；用户完成登录后，已从 GitHub 账户导航核对 |
-| 个人远程仓库 | 2026-11-08 浏览器已核对公开空仓库 `https://github.com/hhhhao139-ai/commerce-insight`，源码待发布 |
+| 个人 GitHub 用户名 | `hhh-hhh139`；2026-11-09 从用户给定的 Chrome 设置页核对用户名及 “Your personal account” |
+| 个人远程仓库 | 2026-11-09 在新账号创建公开空仓库 `https://github.com/hhh-hhh139/commerce-insight`，页面确认用户拥有该仓库；源码待发布 |
 | Git 命令行认证与提交身份 | 不检查或使用机器已有身份；本项目提交显式使用个人用户名与 GitHub noreply 地址，发布时再次验证 token 账户归属 |
 | 全局 Git / SSH / 公司认证 | 不做修改 |
 
@@ -32,3 +32,7 @@
 `scripts/publish_personal.py` 只允许此绝对路径、此 owner、此 HTTPS 仓库和本地审核文件记录的固定 commit；不配置 remote 或全局身份，不强制推送。先通过 GitHub `/user` 和仓库 API 核对个人身份/写权限，再发布相同提交并回读远程 SHA。使用 Git 2.50.1 主动 Basic 认证，token 仅由用户终端隐藏输入并传给短期子进程；禁用系统/全局 Git 配置、credential helper、hooks、重定向和继承的 trace/proxy/认证变量。不给公司身份兜底机会。
 
 此处的 PAT 是独立的个人 GitHub 发布凭据，与 DeepSeek Key 和原 5 元账本无关。需要用户自行创建/授权限定这个个人仓库的短期 fine-grained PAT；不能让浏览器登录自动推导为命令行身份。过程与范围见 [发布说明](personal-publication.md)。
+
+## 账号切换记录（2026-11-09）
+
+此前 `hhhhao139-ai/commerce-insight` 与固定候选 `0e48851` 仅保留为历史证据，不再是本项目的发布目标。旧审核文件在本地忽略目录归档，新的代码拒绝旧审核目标、旧账号身份与旧 askpass 请求。不会删除、迁移或修改旧远程仓库，也不改写历史提交；后续本地提交显式使用新账号的 noreply 身份。

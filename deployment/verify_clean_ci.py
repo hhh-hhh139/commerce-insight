@@ -27,7 +27,9 @@ class NoRedirect(urllib.request.HTTPRedirectHandler):
 
 def main():
     if (os.environ.get("GITHUB_ACTIONS") != "true" or os.environ.get("RUNNER_ENVIRONMENT") != "github-hosted"
-            or os.environ.get("GITHUB_REPOSITORY_OWNER") != "hhhhao139-ai" or platform.system() != "Linux"):
+            or os.environ.get("GITHUB_REPOSITORY_OWNER") != "hhh-hhh139"
+            or os.environ.get("GITHUB_REPOSITORY") != "hhh-hhh139/commerce-insight"
+            or platform.system() != "Linux"):
         raise SystemExit("This verifier is restricted to the verified personal GitHub-hosted Linux runner.")
     results = ROOT / ".local/ci-results"; results.mkdir(parents=True, exist_ok=False); results.chmod(0o777)
     private = ROOT / ".local/ci-runtime"; private.mkdir(mode=0o700)

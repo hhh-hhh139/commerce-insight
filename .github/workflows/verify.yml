@@ -10,7 +10,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   verify:
-    if: github.repository_owner == 'hhhhao139-ai'
+    if: github.repository == 'hhh-hhh139/commerce-insight'
     runs-on: ubuntu-24.04
     timeout-minutes: 35
     steps:

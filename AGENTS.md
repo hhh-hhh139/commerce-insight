@@ -23,9 +23,11 @@ It takes precedence over convenience or defaults inherited from the environment.
   shell's default working directory.
 - Before remote operations, verify the personal username, repository owner and
   exact remote destination. Stop dependent operations if ownership is ambiguous.
-  The confirmed personal GitHub username is `hhhhao139-ai`. The browser verified
-  the newly created public repository `https://github.com/hhhhao139-ai/commerce-insight`
-  on 2026-11-08. See `docs/account-boundary.md` for publication status.
+  The user switched personal accounts on 2026-11-09. The browser verified
+  `hhh-hhh139` as "Your personal account" and the newly created public repository
+  `https://github.com/hhh-hhh139/commerce-insight`. This is the current allowed
+  destination; the former account is historical only. See
+  `docs/account-boundary.md` for publication status.
   Do not operate on any other owner or organization.
 - Do not change global/system Git configuration, credential helpers, machine SSH
   settings, company sign-ins, browser profiles, or corporate authentication.

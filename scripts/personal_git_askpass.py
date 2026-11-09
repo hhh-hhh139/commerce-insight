@@ -4,9 +4,9 @@ import os
 import sys
 
 prompt = sys.argv[1] if len(sys.argv) == 2 else ''
-if prompt == "Username for 'https://github.com/hhhhao139-ai/commerce-insight.git': ":
-    print('hhhhao139-ai')
-elif prompt == "Password for 'https://hhhhao139-ai@github.com/hhhhao139-ai/commerce-insight.git': ":
+if prompt == "Username for 'https://github.com/hhh-hhh139/commerce-insight.git': ":
+    print('hhh-hhh139')
+elif prompt == "Password for 'https://hhh-hhh139@github.com/hhh-hhh139/commerce-insight.git': ":
     print(os.environ['COMMERCE_PERSONAL_GIT_TOKEN'])
 else:
     raise SystemExit(1)

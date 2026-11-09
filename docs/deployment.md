@@ -6,7 +6,7 @@
 
 `Dockerfile` / `deployment/compose.yaml` / `.github/workflows/verify.yml` 已准备，**尚未构建启动验证，不是已完成的发布版本**。本机匿名 registry 请求超时，没有连接或检查公司的 Docker daemon。下一步在核对后的个人公开 GitHub 仓库的 hosted Linux runner 构建：先解析官方精确版本的镜像 digest，再构建应用/验收镜像，运行离线任务、导入、上下文和模型错误检查；随后在新卷启动 PostgreSQL + 应用 + 实际 Caddy TLS，验证登录、计算、内部 API 隔离和重启持久化。无模型 secret，默认无推送镜像权限。
 
-CI 只对个人 owner `hhhhao139-ai` 运行，checkout/upload action 固定 commit；结果在 `clean-linux-<commit>` artifact 留存 14 天，正式发布前另保存关键结果与链接。还没有真实运行链接或 digest，不提前填写。人工想在自己的 Docker 环境尝试时，必须明确选用自己的 context，不能使用公司的默认环境：
+CI 只对个人 owner `hhh-hhh139` 运行，checkout/upload action 固定 commit；结果在 `clean-linux-<commit>` artifact 留存 14 天，正式发布前另保存关键结果与链接。还没有真实运行链接或 digest，不提前填写。人工想在自己的 Docker 环境尝试时，必须明确选用自己的 context，不能使用公司的默认环境：
 
 ```sh
 python3 deployment/prepare_secrets.py

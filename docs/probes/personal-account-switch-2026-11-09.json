@@ -1,0 +1,39 @@
+{
+  "date": "2026-11-09",
+  "kind": "personal_account_switch",
+  "baseline_commit": "dd28300",
+  "owner": "hhh-hhh139",
+  "repository": "hhh-hhh139/commerce-insight",
+  "tests": 7,
+  "passed": true,
+  "exit_code": 0,
+  "seconds": 1.338,
+  "network_requests_in_tests": 0,
+  "remote_source_writes": 0,
+  "real_model_calls": 0,
+  "source_sha256": {
+    "scripts/publish_personal.py": "ca9b8911c370e41f9990eac0dd69a40c9dffed83c7cb229a64eceb81a6377de1",
+    "scripts/personal_git_askpass.py": "902c8b586a311c4d25da17702d0ada1ecf76f63f64b9db91323dcc1a710b81b2",
+    "deployment/verify_clean_ci.py": "c4eae07f9ad9b7b3807f71795c0685295b07a7c5bc76c976b5beb37a81c0af5c",
+    ".github/workflows/verify.yml": "e4f1db61b79bf25c38567ce590962d4dd72e6f605a611ee284743d141d46b970",
+    "tests/test_personal_publish.py": "b105aed8c0c7949fa50f84264dc2a8e0a2204102e393ba992c03566b04df0c5f"
+  },
+  "raw_log_sha256": "05ee743097a21bd49045a7dc10faa25e735997d8632e69390228eb2fc046a5af",
+  "before": {
+    "date": "2026-11-09",
+    "source_commit": "dd28300",
+    "old_owner": "hhhhao139-ai",
+    "requested_owner": "hhh-hhh139",
+    "new_identity_rejected_by_old_code": "personal_account_mismatch_or_authentication_failed",
+    "mock_urls": [
+      "https://api.github.com/user"
+    ],
+    "network_requests": 0,
+    "remote_writes": 0,
+    "real_model_calls": 0,
+    "old_tests": {
+      "run": 4,
+      "passed": 4
+    }
+  }
+}

@@ -14,7 +14,7 @@ import httpx
 
 ROOT = Path(__file__).resolve().parents[1]
 PERSONAL_ROOT = Path('/Users/haohao4/Downloads/multi-agent.zip/commerce-insight')
-OWNER = 'hhhhao139-ai'
+OWNER = 'hhh-hhh139'
 REPOSITORY = 'commerce-insight'
 REMOTE = f'https://github.com/{OWNER}/{REPOSITORY}.git'
 REVIEW = ROOT / '.local/personal-release/approved.json'
