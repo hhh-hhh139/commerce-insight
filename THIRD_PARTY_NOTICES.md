@@ -11,6 +11,15 @@ It records Python distribution metadata and Java POM/parent-POM declarations, wi
 separate checks for bundled artifacts whose POM does not declare a license. It is
 an inventory, not a claim that every component is MIT or a vulnerability audit.
 
+The separately verified Linux image package inventory is in
+[docs/probes/image-inventory-2026-11-09.json](docs/probes/image-inventory-2026-11-09.json).
+It records the actual application, maintenance, PostgreSQL and Caddy image IDs,
+OS package entries, Python distributions, bundled Java libraries and JDK metadata
+from application commit `b432ed43ad620e6d84356c06f269c3fed0583a2e`.
+The [delivery audit](docs/release-audit-2026-11-09.md) links the corresponding CI run,
+base-image digests and artifact hashes. This installed-software inventory does
+not enumerate every binary's internal dependencies or replace upstream notices.
+
 - Python runtime: LangChain/LangGraph/DuckDB and other MIT packages; HTTPX and
   related BSD packages; Apache-2.0 packages; certifi MPL-2.0; and packages with
   compound license expressions. Keep each installed distribution's license files.
