@@ -65,3 +65,11 @@
 比较保留现状（无法关闭缺口）、拆成矩阵任务（需要重复构建或分发镜像）、在同一构建镜像中分别启动容器运行已有专项。选择最后一种：本项目当前只承诺一组 Linux/Python/Java 版本，原完整验收约 4 分钟，新增五套无需新框架或模型服务。每套独立容器、单独 JSON，失败保留日志，后续再运行 Compose TLS/恢复流程；不把本机再次通过当作 Linux 证据。
 
 预定验证：现有 Agent 42、导入 25、上下文 12、模型故障 9 和备份路径继续通过；新增销售、退款、核对、可靠性、owner 五套必须实际执行并通过，结果记录 commit、镜像 digest、题/测试源 SHA 和耗时。它们仍是无真实模型的工程测试；视觉交互沿用有日期的人工浏览器记录，不改称自动 UI 验收。若耗时或资源成为问题，再基于测量考虑并行。实施结果另记本日交付审查。
+
+### 实际镜像软件清单
+
+同一审查发现 `THIRD_PARTY_NOTICES.md` 已要求已验证发布附带镜像 digest 和软件包清单，但原 artifact 只有 digest，现有许可清单明确来自 macOS，不能当作 Linux 系统包清单。基线为 `285ac29f3c651d444f48630ca85e34334844539f`，原文件 SHA 和 artifact 文件列表保存于本地审查记录。
+
+本日核对 [Python 3.12 importlib.metadata](https://docs.python.org/3.12/library/importlib.metadata.html)、[Debian dpkg-query](https://manpages.debian.org/bookworm/dpkg/dpkg-query.1.en.html)、[Alpine apk](https://docs.alpinelinux.org/user-handbook/0.1a/Working/apk.html) 官方文档。比较静态复制本机清单、引入完整 SBOM 生成工具、用镜像中已有的包数据库和标准库记录版本。当前没有标准化 SBOM 下游消费需求，选择第三种：从本轮实际 app/maintenance/PostgreSQL/Caddy 镜像读取软件版本，记录 image ID、发行版包、Python distribution、jar 内依赖及哈希。独立容器无网络、不挂应用数据或 secret，不操作宿主软件；没有新增运行时依赖。
+
+这份 JSON 是已安装软件/应用依赖的复现清单，不声称枚举每个复制的二进制内部依赖、完成许可法律审查或漏洞扫描。验证其 Python 版本与锁文件相符、关键 Java 依赖存在、OS 包条目非空，再随实际业务验收一起留存；许可说明仍保留各依赖原始声明。
