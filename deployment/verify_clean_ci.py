@@ -71,7 +71,12 @@ def main():
         run([*build, "--target", "maintenance", "--tag", "commerce-insight:maintenance", "."])
         report["stage"] = "offline_contracts"
         for name, script in (("agent", "experiments/single-agent/verify.py"), ("imports", "experiments/data-import/verify.py"),
-                             ("context", "experiments/context-evaluation/verify.py"), ("model-failures", "experiments/context-evaluation/verify_failures.py")):
+                             ("context", "experiments/context-evaluation/verify.py"), ("model-failures", "experiments/context-evaluation/verify_failures.py"),
+                             ("sales-change", "experiments/sales-change/verify.py"),
+                             ("refund-change", "experiments/refund-change/verify.py"),
+                             ("reconciliation", "experiments/report-reconciliation/verify.py"),
+                             ("reliability", "experiments/reliability/verify.py"),
+                             ("owner-access", "experiments/owner-access/verify.py")):
             run([*docker, "run", "--rm", "--network", "none", "--memory", "2g", "--pids-limit", "256",
                  "--mount", "type=bind,source=" + str(results) + ",target=/app/.local/ci-results",
                  "commerce-insight:verification", script, ".local/ci-results/" + name + ".json"])
