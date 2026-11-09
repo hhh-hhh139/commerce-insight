@@ -69,6 +69,11 @@ def main():
         run([*build, "--target", "verification", "--tag", "commerce-insight:verification", "."])
         run([*build, "--target", "application", "--tag", "commerce-insight:local", "."])
         run([*build, "--target", "maintenance", "--tag", "commerce-insight:maintenance", "."])
+        report["stage"] = "image_inventory"
+        from image_inventory import collect_inventory
+        inventory = collect_inventory(run, docker, report["images"])
+        (results / "image-inventory.json").write_text(json.dumps(inventory, indent=2) + "\n")
+        report["checks"].append("installed_image_software_inventory")
         report["stage"] = "offline_contracts"
         for name, script in (("agent", "experiments/single-agent/verify.py"), ("imports", "experiments/data-import/verify.py"),
                              ("context", "experiments/context-evaluation/verify.py"), ("model-failures", "experiments/context-evaluation/verify_failures.py"),
