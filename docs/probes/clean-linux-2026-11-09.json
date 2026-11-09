@@ -1,0 +1,398 @@
+{
+  "date": "2026-11-09",
+  "kind": "actual_personal_github_ci",
+  "repository": "hhh-hhh139/commerce-insight",
+  "runs": [
+    {
+      "run_id": "42554876042",
+      "url": "https://github.com/hhh-hhh139/commerce-insight/actions/runs/42554876042",
+      "artifact_sha256": "f224079e7e48e0b70adca4e6223a689d99f6548463e517cecc354912c602ca17",
+      "release": {
+        "started_at": "2026-11-09T03:10:16.448461+00:00",
+        "source_commit": "8769463199dc9afb4071d88019f97413e571e214",
+        "repository": "hhh-hhh139/commerce-insight",
+        "real_model_calls": 0,
+        "passed": false,
+        "stage": "offline_contracts",
+        "images": {
+          "python": {
+            "tag": "python:3.12.16-slim-bookworm",
+            "resolved": "python@sha256:935c3c5b12357a7e10caa9c1e6ca5692344d97cf229832ef584be2cec9fc03df"
+          },
+          "java": {
+            "tag": "eclipse-temurin:21.0.13_9-jdk-jammy",
+            "resolved": "eclipse-temurin@sha256:4b1a74fbffbe6b4e7b6f0171a472478282fb463790a51edf10e465d578f22b69"
+          },
+          "postgres": {
+            "tag": "postgres:18.6-bookworm",
+            "resolved": "postgres@sha256:f1ea2a1a4fb7b68d4836be1fdcb8a6466a89b072158bf9d97663600538c294c5"
+          },
+          "caddy": {
+            "tag": "caddy:2.11.9-alpine",
+            "resolved": "caddy@sha256:0bbb055bda6793c999bde78b1b5ce3e89f829fb031af2cf50056ea1246559fee"
+          }
+        },
+        "checks": [
+          "linux_agent",
+          "linux_imports"
+        ],
+        "error_type": "RuntimeError",
+        "finished_at": "2026-11-09T03:12:55.074040+00:00"
+      },
+      "suites": {
+        "agent": {
+          "kind": "offline_engineering_real_langgraph_scripted_model",
+          "real_model_calls": 0,
+          "tests_run": 42,
+          "passed": true,
+          "case_set_sha256": "f8a6462a0238649056b428428f0271ed1ca347388f967d45c23420e784dfc762",
+          "raw_sha256": "7c545c816f7bfc171c68c71ca84cc97d4fdf23db8874da1baba8326f75496632"
+        },
+        "imports": {
+          "kind": "external_data_import_engineering",
+          "tests": 25,
+          "failures": 0,
+          "errors": 0,
+          "seconds": 29.94,
+          "real_model_calls": 0,
+          "raw_sha256": "4412568f2f757d0844541f2dfd28ee5c47d729184ca9569d20a88ccb38040647"
+        },
+        "context": {
+          "kind": "context_engineering_only",
+          "tests": 12,
+          "failures": 0,
+          "errors": 1,
+          "seconds": 21.207,
+          "real_model_calls": 0,
+          "case_set_sha256": "327e4b378522a000da073a7c1aeca93bf1dd8d0b9d3a419f339f482d85872f78",
+          "raw_sha256": "426a352297b0a26dcd86ef456372ba72d694717a0b88044dc0546170b1e91d2e"
+        }
+      }
+    },
+    {
+      "run_id": "42555889381",
+      "url": "https://github.com/hhh-hhh139/commerce-insight/actions/runs/42555889381",
+      "artifact_sha256": "d3383e3514962474c34e0f5854c9a99ca7319c60b4382f0206b70da1f7e1299a",
+      "release": {
+        "started_at": "2026-11-09T03:20:52.668915+00:00",
+        "source_commit": "17d5fac2194fdc2863bf8da32158bd9f2d4fafe6",
+        "repository": "hhh-hhh139/commerce-insight",
+        "real_model_calls": 0,
+        "passed": false,
+        "stage": "tls_application",
+        "images": {
+          "python": {
+            "tag": "python:3.12.16-slim-bookworm",
+            "resolved": "python@sha256:935c3c5b12357a7e10caa9c1e6ca5692344d97cf229832ef584be2cec9fc03df"
+          },
+          "java": {
+            "tag": "eclipse-temurin:21.0.13_9-jdk-jammy",
+            "resolved": "eclipse-temurin@sha256:4b1a74fbffbe6b4e7b6f0171a472478282fb463790a51edf10e465d578f22b69"
+          },
+          "postgres": {
+            "tag": "postgres:18.6-bookworm",
+            "resolved": "postgres@sha256:f1ea2a1a4fb7b68d4836be1fdcb8a6466a89b072158bf9d97663600538c294c5"
+          },
+          "caddy": {
+            "tag": "caddy:2.11.9-alpine",
+            "resolved": "caddy@sha256:0bbb055bda6793c999bde78b1b5ce3e89f829fb031af2cf50056ea1246559fee"
+          }
+        },
+        "checks": [
+          "linux_agent",
+          "linux_imports",
+          "linux_context",
+          "linux_model-failures",
+          "linux_backup_path_boundaries"
+        ],
+        "error_type": "URLError",
+        "finished_at": "2026-11-09T03:23:37.038413+00:00"
+      },
+      "suites": {
+        "agent": {
+          "kind": "offline_engineering_real_langgraph_scripted_model",
+          "real_model_calls": 0,
+          "tests_run": 42,
+          "passed": true,
+          "case_set_sha256": "f8a6462a0238649056b428428f0271ed1ca347388f967d45c23420e784dfc762",
+          "raw_sha256": "f656bab3c2f59eac02bdf3387c07a37d4cd52f24d8a6bdc0683a88a4adea9c2b"
+        },
+        "imports": {
+          "kind": "external_data_import_engineering",
+          "tests": 25,
+          "failures": 0,
+          "errors": 0,
+          "seconds": 23.177,
+          "real_model_calls": 0,
+          "raw_sha256": "8cbd43da540ea2aa9167b65aa4a87e0270777af2feef58c29bcd3410201f2790"
+        },
+        "context": {
+          "kind": "context_engineering_only",
+          "tests": 12,
+          "failures": 0,
+          "errors": 0,
+          "seconds": 18.472,
+          "real_model_calls": 0,
+          "case_set_sha256": "327e4b378522a000da073a7c1aeca93bf1dd8d0b9d3a419f339f482d85872f78",
+          "raw_sha256": "23866c3a0ab3281f746a1adfa2f0f3abd9b5dd5600c554c8b48b1f5425de231a"
+        },
+        "model-failures": {
+          "kind": "model_failure_engineering_only",
+          "tests": 9,
+          "failures": 0,
+          "errors": 0,
+          "real_model_calls": 0,
+          "raw_sha256": "0f201ba04b15d576cc23ba9ba7baadf5c84ca9f4eff3fb3fa51087d2bc16587a"
+        }
+      }
+    },
+    {
+      "run_id": "42556666416",
+      "url": "https://github.com/hhh-hhh139/commerce-insight/actions/runs/42556666416",
+      "artifact_sha256": "c41d461b7c715caeed322bc800d10098a521f16676312d6c87bac5c3da45f620",
+      "release": {
+        "started_at": "2026-11-09T03:29:27.969126+00:00",
+        "source_commit": "f190be01c792e25eb13faa8a52acdad9ed899c8e",
+        "repository": "hhh-hhh139/commerce-insight",
+        "real_model_calls": 0,
+        "passed": false,
+        "stage": "tls_application",
+        "images": {
+          "python": {
+            "tag": "python:3.12.16-slim-bookworm",
+            "resolved": "python@sha256:935c3c5b12357a7e10caa9c1e6ca5692344d97cf229832ef584be2cec9fc03df"
+          },
+          "java": {
+            "tag": "eclipse-temurin:21.0.13_9-jdk-jammy",
+            "resolved": "eclipse-temurin@sha256:4b1a74fbffbe6b4e7b6f0171a472478282fb463790a51edf10e465d578f22b69"
+          },
+          "postgres": {
+            "tag": "postgres:18.6-bookworm",
+            "resolved": "postgres@sha256:f1ea2a1a4fb7b68d4836be1fdcb8a6466a89b072158bf9d97663600538c294c5"
+          },
+          "caddy": {
+            "tag": "caddy:2.11.9-alpine",
+            "resolved": "caddy@sha256:0bbb055bda6793c999bde78b1b5ce3e89f829fb031af2cf50056ea1246559fee"
+          }
+        },
+        "checks": [
+          "linux_agent",
+          "linux_imports",
+          "linux_context",
+          "linux_model-failures",
+          "linux_backup_path_boundaries"
+        ],
+        "error_type": "AssertionError",
+        "finished_at": "2026-11-09T03:32:30.158033+00:00"
+      },
+      "suites": {
+        "agent": {
+          "kind": "offline_engineering_real_langgraph_scripted_model",
+          "real_model_calls": 0,
+          "tests_run": 42,
+          "passed": true,
+          "case_set_sha256": "f8a6462a0238649056b428428f0271ed1ca347388f967d45c23420e784dfc762",
+          "raw_sha256": "97fd41b301234dc4ccae1c369d3605ededa512bf4f713a505cd704ab4dda3d35"
+        },
+        "imports": {
+          "kind": "external_data_import_engineering",
+          "tests": 25,
+          "failures": 0,
+          "errors": 0,
+          "seconds": 29.171,
+          "real_model_calls": 0,
+          "raw_sha256": "b2d2843a5b3d27614d98437271db3b9f9aa52b7d757242ccc322bc0d7d42858b"
+        },
+        "context": {
+          "kind": "context_engineering_only",
+          "tests": 12,
+          "failures": 0,
+          "errors": 0,
+          "seconds": 21.234,
+          "real_model_calls": 0,
+          "case_set_sha256": "327e4b378522a000da073a7c1aeca93bf1dd8d0b9d3a419f339f482d85872f78",
+          "raw_sha256": "afd48e3f1c432707a795120087be1002872ecb44b72f4f409de6283000947df9"
+        },
+        "model-failures": {
+          "kind": "model_failure_engineering_only",
+          "tests": 9,
+          "failures": 0,
+          "errors": 0,
+          "real_model_calls": 0,
+          "raw_sha256": "0f201ba04b15d576cc23ba9ba7baadf5c84ca9f4eff3fb3fa51087d2bc16587a"
+        }
+      }
+    },
+    {
+      "run_id": "42557209900",
+      "url": "https://github.com/hhh-hhh139/commerce-insight/actions/runs/42557209900",
+      "artifact_sha256": "adcee8f4c98487088f710b32fa23216558fb8fe14b8cb16c769f242412a0f6ab",
+      "release": {
+        "started_at": "2026-11-09T03:35:19.418183+00:00",
+        "source_commit": "8855db686717d249f0ca934f7f03ba96b3fae251",
+        "repository": "hhh-hhh139/commerce-insight",
+        "real_model_calls": 0,
+        "passed": true,
+        "stage": "complete",
+        "images": {
+          "python": {
+            "tag": "python:3.12.16-slim-bookworm",
+            "resolved": "python@sha256:935c3c5b12357a7e10caa9c1e6ca5692344d97cf229832ef584be2cec9fc03df"
+          },
+          "java": {
+            "tag": "eclipse-temurin:21.0.13_9-jdk-jammy",
+            "resolved": "eclipse-temurin@sha256:4b1a74fbffbe6b4e7b6f0171a472478282fb463790a51edf10e465d578f22b69"
+          },
+          "postgres": {
+            "tag": "postgres:18.6-bookworm",
+            "resolved": "postgres@sha256:f1ea2a1a4fb7b68d4836be1fdcb8a6466a89b072158bf9d97663600538c294c5"
+          },
+          "caddy": {
+            "tag": "caddy:2.11.9-alpine",
+            "resolved": "caddy@sha256:0bbb055bda6793c999bde78b1b5ce3e89f829fb031af2cf50056ea1246559fee"
+          }
+        },
+        "checks": [
+          "linux_agent",
+          "linux_imports",
+          "linux_context",
+          "linux_model-failures",
+          "linux_backup_path_boundaries",
+          "tls_owner_csrf_worker_result_internal_routes",
+          "nonroot_readonly_no_app_host_port",
+          "restart_keeps_report_invalidates_session_and_logout"
+        ],
+        "finished_at": "2026-11-09T03:38:41.360236+00:00"
+      },
+      "suites": {
+        "agent": {
+          "kind": "offline_engineering_real_langgraph_scripted_model",
+          "real_model_calls": 0,
+          "tests_run": 42,
+          "passed": true,
+          "case_set_sha256": "f8a6462a0238649056b428428f0271ed1ca347388f967d45c23420e784dfc762",
+          "raw_sha256": "9d2c4bfb273f046c3d8a057fdd234754a9b81e92d44fba55c29bb0185465eccc"
+        },
+        "imports": {
+          "kind": "external_data_import_engineering",
+          "tests": 25,
+          "failures": 0,
+          "errors": 0,
+          "seconds": 23.837,
+          "real_model_calls": 0,
+          "raw_sha256": "7eae08fb7f321a52abef94858c45e58662854fe1523510e3ef9d66b498eb459c"
+        },
+        "context": {
+          "kind": "context_engineering_only",
+          "tests": 12,
+          "failures": 0,
+          "errors": 0,
+          "seconds": 23.01,
+          "real_model_calls": 0,
+          "case_set_sha256": "327e4b378522a000da073a7c1aeca93bf1dd8d0b9d3a419f339f482d85872f78",
+          "raw_sha256": "b95f8f62890784c480723cf3980d93adf8f6b6d1471573817feccc2fd89b2d9b"
+        },
+        "model-failures": {
+          "kind": "model_failure_engineering_only",
+          "tests": 9,
+          "failures": 0,
+          "errors": 0,
+          "real_model_calls": 0,
+          "raw_sha256": "0f201ba04b15d576cc23ba9ba7baadf5c84ca9f4eff3fb3fa51087d2bc16587a"
+        }
+      }
+    }
+  ],
+  "local_context_after_fix": {
+    "kind": "context_engineering_only",
+    "date": "2026-11-09",
+    "tests": 12,
+    "failures": 0,
+    "errors": 0,
+    "seconds": 17.751,
+    "real_model_calls": 0,
+    "model_quality": "not_measured",
+    "case_set_sha256": "327e4b378522a000da073a7c1aeca93bf1dd8d0b9d3a419f339f482d85872f78",
+    "failure_details": []
+  },
+  "local_tls_selection": {
+    "kind": "actual_caddy_loopback_destination_mismatch",
+    "caddy": "2.11.9",
+    "date": "2026-11-09",
+    "real_model_calls": 0,
+    "system_trust_modified": false,
+    "container_test": false,
+    "cases": [
+      {
+        "case": "baseline_mismatched_destination",
+        "error": "[SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:1011)"
+      },
+      {
+        "case": "fixed_trusted",
+        "result": "HTTP/1.1 200 OK"
+      },
+      {
+        "case": "untrusted",
+        "error": "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1011)"
+      },
+      {
+        "case": "wrong_ip",
+        "error": "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: IP address mismatch, certificate is not valid for '127.0.0.2'. (_ssl.c:1011)"
+      }
+    ],
+    "passed": true,
+    "probe_sha256": "b5fdd0c91adda6eb1950af2536e242bb2f7a3e9264b0ff5af3693d5ebe613cf0"
+  },
+  "personal_budget_sha256_unchanged": "5d1f94e4003135ef6a559efdced43e58c6aa411007c5511704b436fc127b5dd3",
+  "real_model_calls": 0,
+  "notes": [
+    "Suite counts overlap and must not be summed as independent cases.",
+    "Run timestamps come from release.json; legacy agent/import date fields contain the original suite date.",
+    "Caddy loopback probe is a mechanism reproduction, not Docker evidence."
+  ],
+  "local_readonly_scratch": {
+    "date": "2026-11-09",
+    "kind": "actual_filesystem_cli_temporary_path",
+    "container_test": false,
+    "real_model_calls": 0,
+    "baseline_commit": "f190be01c792e25eb13faa8a52acdad9ed899c8e",
+    "before": {
+      "exit_code": 2,
+      "error": "PermissionError creating .local/ledger-runs"
+    },
+    "after": {
+      "exit_code": 0,
+      "value": 28000,
+      "root_parent_still_nonwritable": true,
+      "temporary_database_cleaned": true
+    },
+    "passed": true
+  },
+  "compose_scratch_config": {
+    "started_at": "2026-11-09T03:34:29.387296+00:00",
+    "passed": true,
+    "kind": "official_compose_configuration_only",
+    "binary_sha256": "54495ff81dd8cae11861455f0308a293a530149beba8f1d90ff3f295b11cf035",
+    "daemon_target": "nonexistent_project_local_socket",
+    "real_model_calls": 0,
+    "container_runtime_verified": false,
+    "checks": [
+      "base",
+      "ci"
+    ],
+    "source_sha256": {
+      "deployment/compose.yaml": "74f5549376c7128a265f8516518d99631659c04727aae102a85b1ec21b68988f",
+      "deployment/verify_clean_ci.py": "8cc55f9112a78caf6b23235949290ad7a4e3737b72fab4c4d3090c15d39d8750",
+      "experiments/deployment/verify_compose_config.py": "b13a3192daf82f8dc508ecf520a222d51a06508c0feba5967ecdca4848dd3211"
+    },
+    "version": "Docker Compose version v5.7.0",
+    "seconds": 0.102
+  },
+  "reproducer_sha256": {
+    "experiments/deployment/verify_tls_selection.py": "b5fdd0c91adda6eb1950af2536e242bb2f7a3e9264b0ff5af3693d5ebe613cf0",
+    "experiments/deployment/verify_readonly_scratch.py": "e7a58ad99926a5ebaeaf4f01ac33aab38ceb984ad5a24a9c39000a92b4c851e5",
+    "experiments/deployment/verify_compose_config.py": "b13a3192daf82f8dc508ecf520a222d51a06508c0feba5967ecdca4848dd3211"
+  },
+  "application_acceptance_commit": "8855db686717d249f0ca934f7f03ba96b3fae251",
+  "application_acceptance_passed": true
+}
