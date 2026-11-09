@@ -52,7 +52,7 @@ def main():
         base = ["--project-name", "commerce-config-review", "--env-file", str(out / "empty.env"),
                 "-f", str(ROOT / "deployment/compose.yaml")]
         for name, extra in (("base", []), ("ci", ["-f", str(out / "override.yaml")])):
-            data = json.loads(run([*base, *extra, "--profile", "public", "config", "--format", "json"]))
+            data = json.loads(run([*base, *extra, "--profile", "public", "--profile", "maintenance", "config", "--format", "json"]))
             (out / (name + ".json")).write_text(json.dumps(data, indent=2) + "\n")
             app, db, proxy = (data["services"][key] for key in ("app", "db", "proxy"))
             assert app["read_only"] and app["cap_drop"] == ["ALL"] and app["init"]
@@ -68,6 +68,16 @@ def main():
             assert int(app["mem_limit"]) == 1536 * 1024 * 1024 and app["pids_limit"] == 128
             assert {s["source"] for s in app["secrets"]} == {"COMMERCE_DB_PASSWORD"}
             assert "COMMERCE_DB_PASSWORD" not in app["environment"]
+            maintenance = data["services"]["maintenance"]
+            assert maintenance["profiles"] == ["maintenance"] and maintenance["read_only"]
+            assert maintenance["cap_drop"] == ["ALL"] and not maintenance.get("ports")
+            assert maintenance["build"]["target"] == "maintenance"
+            assert list(maintenance["networks"]) == ["business"]
+            assert {s["source"] for s in maintenance["secrets"]} == {"COMMERCE_DB_PASSWORD"}
+            assert {v["target"] for v in maintenance["volumes"]} == {
+                "/app/.local/owner-demo", "/app/.local/single-agent",
+                "/app/.local/state-control", "/app/.local/backups"}
+            assert int(maintenance["mem_limit"]) == 256 * 1024 * 1024
             ports = proxy["ports"]
             if name == "base":
                 assert {(p["target"], p["published"], p["protocol"]) for p in ports} == {
