@@ -1,12 +1,12 @@
 # 部署与恢复手册
 
-当前状态（2026-11-08）：macOS ARM64 上的真实 PostgreSQL、Flyway、受限业务账户、停写备份和恢复，以及实际 Caddy TLS 登录链路已验收。容器、Linux 另行记录；未部署公网。当前免费公网选择及限制见 [部署研究](research/016-deployment-and-database.md)。
+当前状态（2026-11-09）：macOS ARM64 上的真实 PostgreSQL、Flyway、受限业务账户、停写备份和恢复，以及实际 Caddy TLS 登录链路已验收。个人 hosted Linux 上的镜像构建、空卷 Compose 登录/分析/重启保留已通过，见 [阶段 5f](baselines/phase-05f-2026-11-09.md)；容器卷备份恢复、实时模型与公网尚未验收。免费公网选择及限制见 [部署研究](research/016-deployment-and-database.md)。
 
 ## 容器候选与干净验收
 
-`Dockerfile` / `deployment/compose.yaml` / `.github/workflows/verify.yml` 已准备，**尚未构建启动验证，不是已完成的发布版本**。本机匿名 registry 请求超时，没有连接或检查公司的 Docker daemon。下一步在核对后的个人公开 GitHub 仓库的 hosted Linux runner 构建：先解析官方精确版本的镜像 digest，再构建应用/验收镜像，运行离线任务、导入、上下文和模型错误检查；随后在新卷启动 PostgreSQL + 应用 + 实际 Caddy TLS，验证登录、计算、内部 API 隔离和重启持久化。无模型 secret，默认无推送镜像权限。
+`Dockerfile` / `deployment/compose.yaml` / `.github/workflows/verify.yml` 已在个人公开仓库的 hosted Ubuntu 24.04 runner 实际运行：解析官方精确版本的镜像 digest，构建应用/验收镜像，运行离线任务、导入、上下文和模型错误检查；随后从空卷启动 PostgreSQL + 应用 + Caddy TLS，完成登录、计算、内部 API 隔离和重启报告保留。应用提交为 `8855db6`。未连接或检查公司的 Docker daemon；无模型 secret，无推送镜像权限。
 
-CI 只对个人 owner `hhh-hhh139` 运行，checkout/upload action 固定 commit；结果在 `clean-linux-<commit>` artifact 留存 14 天，正式发布前另保存关键结果与链接。还没有真实运行链接或 digest，不提前填写。人工想在自己的 Docker 环境尝试时，必须明确选用自己的 context，不能使用公司的默认环境：
+CI 仅对精确个人仓库 `hhh-hhh139/commerce-insight` 运行，checkout/upload action 固定 commit；结果在 `clean-linux-<commit>` artifact 留存 14 天。[实际运行](https://github.com/hhh-hhh139/commerce-insight/actions/runs/42557209900)和 [digest/结果摘要](probes/clean-linux-2026-11-09.json)已经保存。分析临时目录采用限定 128 MiB tmpfs，业务状态继续持久化。人工在自己的 Docker 环境运行时，必须明确选用自己的 context，不能使用公司的默认环境：
 
 ```sh
 python3 deployment/prepare_secrets.py
