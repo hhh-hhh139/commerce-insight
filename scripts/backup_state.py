@@ -125,14 +125,18 @@ def backup(db, runtime, agent, destination):
         return {"files": len(hashes), "manifest_sha256": sha(destination / "manifest.json")}
 
 
-def restore(db, source, runtime, agent):
+def restore(db, source, runtime, agent, *, allow_empty_targets=False):
     source, runtime, agent = map(local, (source, runtime, agent))
     paths = (source, runtime, agent)
     if any(a.is_relative_to(b) or b.is_relative_to(a) for i,a in enumerate(paths) for b in paths[i+1:]):
         raise ValueError("restore_paths_overlap")
     with state_access(maintenance=True):
         # Never merges or replaces an existing budget, owner credential, run or report.
-        if any(p.exists() for p in (runtime, agent)): raise ValueError("restore_state_target_exists")
+        if type(allow_empty_targets) is not bool:
+            raise ValueError("invalid_restore_target_mode")
+        for target in (runtime, agent):
+            if target.exists() and not (allow_empty_targets and target.is_dir() and not any(target.iterdir())):
+                raise ValueError("restore_state_target_exists")
         # Validate the manifest itself before its first read, not only when later
         # walking the bundle. A symlink must never be followed for metadata either.
         value = json.loads(local(source / "manifest.json").read_text())
@@ -154,7 +158,10 @@ def restore(db, source, runtime, agent):
         db.idle(); db.empty()
         # Stage files first. On database failure they remain marked incomplete; no app should start.
         for target in (runtime, agent):
-            target.mkdir(parents=True, mode=0o700)
+            target.mkdir(parents=True, mode=0o700, exist_ok=allow_empty_targets)
+            # Recheck an existing mount root under the same maintenance lock.
+            if any(target.iterdir()): raise ValueError("restore_state_target_exists")
+            target.chmod(0o700)
             (target / "RESTORE_INCOMPLETE").touch(mode=0o600)
         for name in expected:
             if name == "database.dump": continue
