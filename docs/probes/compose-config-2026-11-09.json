@@ -1,0 +1,59 @@
+{
+  "started_at": "2026-11-09T02:20:20.795161+00:00",
+  "passed": true,
+  "kind": "official_compose_configuration_only",
+  "binary_sha256": "54495ff81dd8cae11861455f0308a293a530149beba8f1d90ff3f295b11cf035",
+  "daemon_target": "nonexistent_project_local_socket",
+  "real_model_calls": 0,
+  "container_runtime_verified": false,
+  "checks": [
+    "base",
+    "ci"
+  ],
+  "source_sha256": {
+    "deployment/compose.yaml": "464d0e83788fda3f8e5414c5724f40bcc19fc8eb762977c8b690e0a106fdf490",
+    "deployment/verify_clean_ci.py": "65774c28856dc7112780204c8679bec0bceb40a5056d4e73c91517aefc757ca9",
+    "experiments/deployment/verify_compose_config.py": "b2aaee5eeae99bec4605dea0b38dde50ace562d03a4db7d8e9833b823ed0acbd"
+  },
+  "version": "Docker Compose version v5.7.0",
+  "seconds": 0.114,
+  "date": "2026-11-09",
+  "baseline_commit": "9236b5ebfbefe34d68ad3fd35c9ba7a51bbeee3b",
+  "source_changes": "Add reproducible configuration probe only; application and deployment files unchanged.",
+  "download_url": "https://github.com/docker/compose/releases/download/v5.7.0/docker-compose-darwin-aarch64",
+  "binary_bytes": 32231426,
+  "command": ".local/agent-venv/bin/python experiments/deployment/verify_compose_config.py",
+  "first_attempt": {
+    "date": "2026-11-09",
+    "kind": "official_compose_configuration_only",
+    "source_commit": "9236b5ebfbefe34d68ad3fd35c9ba7a51bbeee3b",
+    "daemon_target": "nonexistent_project_local_socket",
+    "real_model_calls": 0,
+    "container_runtime_verified": false,
+    "passed": false,
+    "checks": [],
+    "version": "Docker Compose version v5.7.0",
+    "error_type": "AssertionError",
+    "seconds": 1.024
+  },
+  "correction": "Verifier expected integer mem_limit; actual canonical JSON is string 1610612736. Normalize to int; no Compose configuration change.",
+  "limitations": [
+    "Configuration model only; no image pull, build, daemon or running container.",
+    "CI override fixture mirrors current verifier; actual GitHub hosted CI has not run.",
+    "macOS ARM64 binary is SHA-pinned; Linux container behavior remains unverified."
+  ],
+  "raw_artifacts": {
+    "result.json": {
+      "path": ".local/compose-config-runs/run-3ndou343/result.json",
+      "sha256": "b9ca24770e103c25f8298b4047b631f371a8fd627cecc5970d5b395644d4abdc"
+    },
+    "base.json": {
+      "path": ".local/compose-config-runs/run-3ndou343/base.json",
+      "sha256": "307f0ee764301a862e423dfb105d3dc84937ff6c908083f5788127539a2113f3"
+    },
+    "ci.json": {
+      "path": ".local/compose-config-runs/run-3ndou343/ci.json",
+      "sha256": "d571e3f851ecd5428db6f5a7dd8ecd67512b928a061e7468b2f4d9ad9e2f5f28"
+    }
+  }
+}

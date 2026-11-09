@@ -86,3 +86,17 @@ Java SQL 查询保留参数化与现有事务/租约约束，实际检查 Postgr
 此前 Metabase/原生 PostgreSQL 备份选型继续适用，这不是新的备份引擎选型。进一步核对 [Python 3.12 pathlib](https://docs.python.org/3.12/library/pathlib.html#pathlib.PurePath.is_relative_to)（2026-11-08 访问）：`is_relative_to` 是字符串层面的关系检查，不解析 `..`。比较两种局部办法：先 `resolve` 再判目录能规范化路径，但会跟随当前明确禁止的符号链接；选择先词法拒绝所有 `..`，再按已有规则拒绝符号链接，清单文件也在首次读取前走相同检查。代价是用户不能用含 `..` 的等价路径，须给直接路径。
 
 修复前归档 `before-backup-path-fix-20261108`，365 文件，SHA-256 `ae0755e9ed585d8b7215583aab13001dcd64ad75273e63371d6ee332ffdc2644`。验收要求拒绝发生在文件/数据库操作之前，且原真实 PostgreSQL 恢复和 checkpoint 续跑仍通过。受管单用户停写维护是本工具边界；不声称能防御同一 OS 用户在检查和打开之间并发替换目录的攻击。
+
+## 官方 Compose 配置验证补记（2026-11-09）
+
+此前只做静态检查，尚不能证明 Compose 真正解析出的端口、变量、挂载合并符合预期。官方 [config 命令](https://docs.docker.com/reference/cli/docker/compose/config/)会合并输入、展开变量和简写；[合并规则](https://docs.docker.com/reference/compose-file/merge/)说明端口通常合并，`!override`（2.24.4 起）才完整替换。两页均于本日读取，滚动文档。通用 YAML 解析器不能替代这些 Compose 专用语义；立即连接本机已有 Docker 又不符合个人环境隔离要求。因此先用官方独立 CLI 解析，随后仍须在个人 hosted CI 做实际运行验证。
+
+源码基线为本地提交 `9236b5ebfbefe34d68ad3fd35c9ba7a51bbeee3b`。官方 macOS ARM64 Compose 5.7.0 下载恢复后，完整 32,231,426 字节与固定 SHA-256 `54495ff81dd8cae11861455f0308a293a530149beba8f1d90ff3f295b11cf035` 一致，校验后才执行。验证脚本使用空 Docker 配置及不存在的项目内 socket，不读取机器 Docker 身份、不连接 daemon、不拉取镜像。
+
+首轮检查错误地把 `mem_limit` 的字符串字节数与整数直接比较，实际值为 `"1610612736"`；保留失败记录，修正验证器类型转换，未改变部署配置。公开[复现脚本](../../experiments/deployment/verify_compose_config.py)实跑 0.114 秒，正式及 CI 覆盖两组均通过：应用只读/资源上限/内部网络/三项持久卷、数据库秘密挂载、应用和数据库无宿主端口；CI 代理完整替换为唯一的回环端口 18443。详见[原始结果摘要](../probes/compose-config-2026-11-09.json)。这证明配置解析结果，不证明镜像能构建、Linux 权限/网络运行或容器恢复成功。
+
+复现（当前固定官方 macOS ARM64 二进制放在 `.local/compose-toolchain/docker-compose`，脚本会再次核对 SHA）：
+
+```sh
+.local/agent-venv/bin/python experiments/deployment/verify_compose_config.py
+```
