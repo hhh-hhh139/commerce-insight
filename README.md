@@ -53,6 +53,10 @@ Java 管业务身份、数据确认、持久任务与结果发布；Python 管�
 
 套件有继承和重叠，不把各阶段测试数相加当作独立用例数。原始失败、修正和前后对照保留在 [阶段索引](docs/completion-plan.md)。
 
+当前原需求、实现与验收边界汇总在 [2026-11-09 交付审查](docs/release-audit-2026-11-09.md)。最新 Linux 验收补入了销售 21、退款 21、报表核对 19、可靠性 12、登录权限 8 项专项，均实际通过；没有新增模型调用或扩大产品能力声明。
+
+提交 `b432ed4` 的[最新完整 CI](https://github.com/hhh-hhh139/commerce-insight/actions/runs/42586995399)包含九套工程专项、TLS/重启/独立恢复及[实际镜像软件清单](docs/probes/image-inventory-2026-11-09.json)，全部通过；运行约 7 分钟。具体日期、版本、哈希和未验证项以交付审查为准。
+
 2026-11-09 已发布到个人 GitHub；[干净 Linux CI](https://github.com/hhh-hhh139/commerce-insight/actions/runs/42557209900) 对应用提交 `8855db6` 验收通过。前三轮失败、局部修复、镜像 digest 与实际结果见 [阶段 5f](docs/baselines/phase-05f-2026-11-09.md)。
 
 后续提交 `3eed114` 的[独立容器恢复 CI](https://github.com/hhh-hhh139/commerce-insight/actions/runs/42584328249)也已通过：9 个状态文件哈希一致、待处理任务仅一次成功、检查点续跑及重放不新增调用、已知与未知预算记录保留。调研、前后对比、复现和局限见 [阶段 5g](docs/baselines/phase-05g-2026-11-09.md)。本轮使用合成数据和脚本模型。
