@@ -39,12 +39,14 @@ def main():
     docker = ["docker", "--config", str(config), "--context", "default"]
     log = (results / "commands.log").open("w")
 
-    def run(command, *, content=None, capture=False, timeout=1200):
+    def run(command, *, content=None, capture=False, timeout=1200, expected=0, combine=False):
         # Log commands only; all generated passwords travel via input/file, never argv.
         log.write(json.dumps(command) + "\n"); log.flush()
         process = subprocess.run(command, cwd=ROOT, env=environment, input=content, text=True,
-            stdout=subprocess.PIPE if capture else log, stderr=log, timeout=timeout)
-        if process.returncode: raise RuntimeError("command_failed:" + command[0])
+            stdout=subprocess.PIPE if capture else log, stderr=subprocess.STDOUT if combine else log, timeout=timeout)
+        if process.returncode != expected:
+            if capture: log.write(process.stdout or ""); log.flush()
+            raise RuntimeError("command_failed:" + command[0])
         return process.stdout.strip() if capture else ""
 
     report = {"started_at": datetime.now(timezone.utc).isoformat(), "source_commit": os.environ.get("GITHUB_SHA"),
@@ -61,10 +63,12 @@ def main():
             report["images"][name] = {"tag": tag, "resolved": resolved}
         (results / "images.json").write_text(json.dumps(report["images"], indent=2) + "\n")
         build = [*docker, "build", "--build-arg", "PYTHON_IMAGE=" + report["images"]["python"]["resolved"],
-                 "--build-arg", "JAVA_IMAGE=" + report["images"]["java"]["resolved"]]
+                 "--build-arg", "JAVA_IMAGE=" + report["images"]["java"]["resolved"],
+                 "--build-arg", "POSTGRES_IMAGE=" + report["images"]["postgres"]["resolved"]]
         report["stage"] = "build"
         run([*build, "--target", "verification", "--tag", "commerce-insight:verification", "."])
         run([*build, "--target", "application", "--tag", "commerce-insight:local", "."])
+        run([*build, "--target", "maintenance", "--tag", "commerce-insight:maintenance", "."])
         report["stage"] = "offline_contracts"
         for name, script in (("agent", "experiments/single-agent/verify.py"), ("imports", "experiments/data-import/verify.py"),
                              ("context", "experiments/context-evaluation/verify.py"), ("model-failures", "experiments/context-evaluation/verify_failures.py")):
@@ -160,6 +164,11 @@ def main():
         assert request("/logout", {}, form=True, headers=csrf)[0] == 302
         assert request("/demo/api/config")[0] == 401
         report["checks"].append("restart_keeps_report_invalidates_session_and_logout")
+        report["stage"] = "container_recovery"
+        from verify_container_recovery import verify_recovery
+        verify_recovery(run=run, docker=docker, compose=compose, root=ROOT, private=private, results=results,
+                        report=report, request=request, login=login, task=task, completed=completed)
+        report["checks"].append("independent_compose_volume_recovery")
         report.update(passed=True, stage="complete")
     except Exception as error:
         report["error_type"] = type(error).__name__
